@@ -1,0 +1,39 @@
+/**
+Weights:
+  Light = 300
+  Regular = 400
+  Medium = 500
+  Semibold = 600
+  Bold = 700
+  Heavy = 800
+**/
+
+@font-face {
+  font-family: "LuckiestGuy";
+  src: local("LuckiestGuy"),
+  url("../assets/fonts/LuckiestGuy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RoadGeek2005";
+  src: local("RoadGeek2005"),
+  url("../assets/fonts/roadgeek-2005-mittelschrift-regular.ttf") format("truetype");
+}
+
+.font-luckiestguy-regular {
+  font-family: 'LuckiestGuy';
+  letter-spacing: 0.04em;
+  & * {
+    font-family: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+.font-roadgeek-regular {
+  font-family: 'RoadGeek2005';
+  letter-spacing: 0.04em;
+  & * {
+    font-family: inherit;
+    letter-spacing: inherit;
+  }
+}
