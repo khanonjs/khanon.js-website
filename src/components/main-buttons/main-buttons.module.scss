@@ -27,6 +27,11 @@ $button-radius: 6em;
   border-radius: $button-radius;
   border: 0.3em solid black;
   background-color: white;
+  transition: 0.5s;
+}
+
+.main-buttons-play:hover {
+  background-color: rgb(190, 190, 190);
 }
 
 .main-buttons-play-icon {
@@ -54,6 +59,11 @@ $button-radius: 6em;
   border-radius: $button-radius;
   border: 0.3em solid black;
   background-color: $secondary-color;
+  transition: 0.5s;
+}
+
+.main-buttons-getstarted:hover {
+  background-color: rgb(0, 79, 129);
 }
 
 .main-buttons-getstarted-icon {
