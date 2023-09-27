@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Background } from '../../components/background/background'
+import { Footer } from '../../components/footer/footer'
 import { Header } from '../../components/header/header'
 import { Logo } from '../../components/logo/logo'
 import { MainButtons } from '../../components/main-buttons/main-buttons'
@@ -10,8 +11,9 @@ export class MainPage extends React.Component {
   render() {
     return (
       <>
-        <Header />
         <Background />
+        <Footer />
+        <Header />
         <Logo />
         <MainButtons />
       </>
