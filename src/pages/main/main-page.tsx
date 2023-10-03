@@ -12,9 +12,9 @@ export class MainPage extends React.Component {
     return (
       <>
         <Background />
+        <Logo />
         <Footer />
         <Header />
-        <Logo />
         <MainButtons />
       </>
     )

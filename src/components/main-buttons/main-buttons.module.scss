@@ -28,6 +28,7 @@ $button-radius: 6em;
   border: 0.3em solid black;
   background-color: white;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .main-buttons-play:hover {
@@ -60,6 +61,7 @@ $button-radius: 6em;
   border: 0.3em solid black;
   background-color: $secondary-color;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .main-buttons-getstarted:hover {
@@ -86,6 +88,7 @@ $button-radius: 6em;
   align-items: center;
   width: $button-width;
   height: $button-height;
+  cursor: pointer;
 }
 
 .main-buttons-github-img {

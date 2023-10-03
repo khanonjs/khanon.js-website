@@ -10,6 +10,7 @@
   margin-top: $header-height + $header-margin-top;
   position: absolute;
   user-select: none;
+  pointer-events: none;
 }
 
 .logo-header {
