@@ -1,15 +1,13 @@
 import React from 'react'
 
 import { Logger } from '../../classes/logger/logger'
-import { Background } from '../../components/background/background'
-import { Footer } from '../../components/footer/footer'
-import { Header } from '../../components/header/header'
+import { PageBase } from '../../classes/page-base'
 import { Logo } from '../../components/logo/logo'
 import { MainButtons } from '../../components/main-buttons/main-buttons'
 import styles from './main-page.module.scss'
 import { MainPageProps } from './main-page.props'
 
-export class MainPage extends React.Component<MainPageProps> {
+export class MainPage extends PageBase<MainPageProps> {
   private docGetStarted: string
 
   componentDidMount() {
@@ -30,7 +28,7 @@ export class MainPage extends React.Component<MainPageProps> {
     }
   }
 
-  render() {
+  renderPage() {
     return (
       <div className={styles['main-page']}>
         <Logo />

@@ -2,9 +2,10 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { Logger } from '../../classes/logger/logger'
+import { PageBase } from '../../classes/page-base'
 import styles from './getstarted-page.module.scss'
 
-export class GetStartedPage extends React.Component {
+export class GetStartedPage extends PageBase {
   private docGetStarted: string
 
   componentDidMount() {
@@ -25,7 +26,7 @@ export class GetStartedPage extends React.Component {
     }
   }
 
-  render() {
+  renderPage() {
     return (
       <div className={styles['getstarted-page']}>
         <div className={styles['content']}>

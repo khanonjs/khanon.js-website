@@ -2,7 +2,7 @@ import './App.scss'
 
 import React from 'react'
 
-import { ReferenceCollector } from './classes/reference-collector'
+import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
 import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
@@ -14,6 +14,8 @@ import { MainPage } from './pages/main/main-page'
 export class App extends React.Component {
   private page: Pages = Pages.MAIN
   private elementBackground: Background
+  private elementCurrentPage: PageBase
+  private transitioning = false
 
   refBackground(element: Background) {
     if (element) {
@@ -21,17 +23,45 @@ export class App extends React.Component {
     }
   }
 
-  setPage(page: Pages) {
-    this.page = page
-    switch (this.page) {
-      case Pages.MAIN:
-        this.elementBackground.setPosition(BackgroundPosition.UP)
-        break
-      case Pages.GET_STARTED:
-        this.elementBackground.setPosition(BackgroundPosition.DOWN)
-        break
+  refCurrentPage(element: any) {
+    if (element) {
+      if (!this.elementCurrentPage) {
+        (element as PageBase).fadeIn()
+      }
+      this.elementCurrentPage = element
     }
-    this.forceUpdate()
+  }
+
+  setPage(page: Pages) {
+    if (this.transitioning || page === this.page) {
+      return
+    }
+    this.transitioning = true
+
+    if (this.elementCurrentPage) {
+      this.elementCurrentPage.fadeOut()
+    }
+
+    this.page = page
+
+    if (this.elementBackground) {
+      switch (this.page) {
+        case Pages.MAIN:
+          this.elementBackground.setPosition(BackgroundPosition.UP)
+          break
+        case Pages.GET_STARTED:
+          this.elementBackground.setPosition(BackgroundPosition.DOWN)
+          break
+      }
+    }
+
+    setTimeout(() => {
+      this.forceUpdate()
+      this.transitioning = false
+      setTimeout(() => {
+        this.elementCurrentPage.fadeIn()
+      }, 1)
+    }, 150)
   }
 
   renderPage(): JSX.Element {
@@ -39,11 +69,12 @@ export class App extends React.Component {
       case Pages.MAIN:
         return (
           <MainPage
+            ref={this.refCurrentPage.bind(this)}
             cbSetPage={this.setPage.bind(this)}
           />
         )
       case Pages.GET_STARTED:
-        return <GetStartedPage />
+        return <GetStartedPage ref={this.refCurrentPage.bind(this)} />
     }
   }
 
