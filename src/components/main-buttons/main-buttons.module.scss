@@ -27,12 +27,7 @@ $button-radius: 6em;
   border-radius: $button-radius;
   border: 0.3em solid black;
   background-color: white;
-  transition: 0.5s;
   cursor: pointer;
-}
-
-.main-buttons-play:hover {
-  background-color: rgb(150, 150, 150);
 }
 
 .main-buttons-play-icon {
@@ -42,12 +37,22 @@ $button-radius: 6em;
   margin-left: 0.3em;
   border-radius: 10em;
   background-color: $primary-color;
+  transition: 0.3s;
+}
+
+.main-buttons-play:hover>.main-buttons-play-icon {
+  margin-left: 10px;
 }
 
 .main-buttons-play-text {
   margin-left: 0.6em;
   font-size: 2.2em;
   letter-spacing: -0.7px;
+  transition: 0.4s;
+}
+
+.main-buttons-play:hover>.main-buttons-play-text {
+  margin-left: 12px;
 }
 
 .main-buttons-getstarted {

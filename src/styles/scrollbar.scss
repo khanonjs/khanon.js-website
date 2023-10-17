@@ -1,0 +1,35 @@
+/* total width */
+::-webkit-scrollbar {
+  width: .75rem;
+  height: .75rem;
+}
+
+/* total width */
+.thin-scrollbar::-webkit-scrollbar {
+  width: .5rem;
+  height: .5rem;
+}
+
+/* total width */
+.thick-scrollbar::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--scrollbar-thumb-color, 0, 0, 0), 0.33);
+  background-clip: content-box;
+  border: solid 3px transparent;
+  border-radius: 12px;
+  transition: background-color 1s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--scrollbar-thumb-color, 0, 0, 0), 0.66);
+}
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(var(--scrollbar-track-color, 255, 255, 255), 0.66);
+}
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button { display: none }

@@ -1,7 +1,7 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/global.scss';
 
-$icons-size: 3em;
+$icons-size: 2.5em;
 
 .footer-container {
   display: flex;
@@ -11,7 +11,7 @@ $icons-size: 3em;
   margin-top: auto;
   margin-bottom: 5em;
   position: absolute;
-  gap: 4em;
+  gap: 3em;
 }
 
 .footer-mail {
@@ -27,6 +27,6 @@ $icons-size: 3em;
   display: flex;
   height: $icons-size;
   align-self: last baseline;
-  margin-right: 10%;
+  margin-right: 8%;
   cursor: pointer;
 }
