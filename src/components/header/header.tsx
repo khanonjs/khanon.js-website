@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronDown } from 'react-feather'
+import { ExternalLink } from 'react-feather'
 
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
@@ -38,14 +38,6 @@ export class Header extends React.Component<HeaderProps> {
           <div className={styles['header-button']}>
             <div
               className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
-              onClick={this.handleAPIDoc.bind(this)}
-            >
-              API Reference
-            </div>
-          </div>
-          <div className={styles['header-button']}>
-            <div
-              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
               onClick={this.handleGetStarted.bind(this)}
             >
               Get started
@@ -57,6 +49,21 @@ export class Header extends React.Component<HeaderProps> {
               onClick={this.handleTutorials.bind(this)}
             >
               Tutorials
+            </div>
+          </div>
+          <div className={styles['header-button']}>
+            <div
+              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
+              onClick={this.handleAPIDoc.bind(this)}
+            >
+              API Reference
+            </div>
+            <div className={styles['header-button-icon-containar']}>
+              <ExternalLink
+                className={styles['header-button-icon']}
+                color='black'
+                size={30}
+              />
             </div>
           </div>
         </div>

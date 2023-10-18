@@ -58,7 +58,7 @@ export class App extends React.Component {
         case Pages.MAIN:
           this.elementBackground.setPosition(BackgroundPosition.UP)
           break
-        case Pages.GET_STARTED:
+        default:
           this.elementBackground.setPosition(BackgroundPosition.DOWN)
           break
       }
