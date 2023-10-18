@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 13em);
+  margin-top: 13em;
+}
+
+.leftmenu-container {
+  width: 20%;
+  overflow: auto;
+  background-color: yellow;
+}
+
+.markdown-container {
+  width: 60%;
+  overflow: auto;
+  // background-color: red;
+}
+
+.rightsummary-container {
+  width: 20%;
+  overflow: auto;
+  background-color: green;
+}

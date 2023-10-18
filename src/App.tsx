@@ -2,6 +2,7 @@ import './App.scss'
 
 import React from 'react'
 
+import { Docs } from './classes/docs'
 import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
 import { Footer } from './components/footer/footer'
@@ -16,6 +17,11 @@ export class App extends React.Component {
   private elementBackground: Background
   private elementCurrentPage: PageBase
   private transitioning = false
+
+  constructor(props) {
+    super(props)
+    Docs.loadDocs()
+  }
 
   refBackground(element: Background) {
     if (element) {
@@ -33,7 +39,9 @@ export class App extends React.Component {
   }
 
   setPage(page: Pages) {
-    if (this.transitioning || page === this.page) {
+    if (this.transitioning ||
+        page === this.page ||
+        (page === Pages.GET_STARTED && !Docs.docGetStarted)) {
       return
     }
     this.transitioning = true
@@ -81,12 +89,11 @@ export class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        {(this.page !== Pages.MAIN) && this.renderPage()}
         <Background ref={this.refBackground.bind(this)} />
+        {(this.page === Pages.MAIN) && this.renderPage()}
+        <Header cbSetPage={this.setPage.bind(this)} />
         <Footer />
-        <Header
-          cbSetPage={this.setPage.bind(this)}
-        />
-        {this.renderPage()}
       </div>
     )
   }
