@@ -1,4 +1,5 @@
 export enum Pages {
   MAIN,
-  GET_STARTED
+  GET_STARTED,
+  TUTORIALS
 }

@@ -35,76 +35,31 @@ $over-background-color: rgb(230, 230, 230);
   font-size: 4em;
 }
 
-.header-documentation {
+.header-bar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 1em;
   margin-top: 0.9em;
   margin-left: 3em;
 }
 
-.header-documentation-button {
+.header-button {
   display: flex;
   flex-direction: row;
   transition: 0.5s;
-  padding-top: 1em;
-  padding-bottom: 0.6em;
+  height: 3.5em;
+  padding-top: 0.7em;
   padding-left: 2em;
   padding-right: 2em;
   border-radius: 10em;
 }
 
-.header-documentation-button:hover {
+.header-button:hover {
   background-color: $over-background-color;
 }
 
-.header-documentation-button-text {
+.header-button-text {
   display: flex;
   height: 100%;
   font-size: 2.5em;
-}
-
-.header-documentation-button-icon-containar {
-  margin-top: -3px;
-  transition: 0.5s;
-}
-
-.header-documentation-button-icon {
-  display: flex;
-  color: black;
-}
-
-.header-documentation-dropdown {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  height: 0;
-  transition: 0.5s;
-}
-
-.header-documentation-dropdown-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-}
-
-.header-documentation-dropdown-item {
-  display: flex;
-  width:fit-content;
-  color:rgb(70, 70, 70);
-  margin-left: 0.2em;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  font-size: 2em;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.header-documentation-dropdown-item:hover {
-  color: black;
 }

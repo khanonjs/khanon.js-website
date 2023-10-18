@@ -11,6 +11,7 @@ import { BackgroundPosition } from './models/background-position'
 import { Pages } from './models/pages'
 import { GetStartedPage } from './pages/getstarted/getstarted-page'
 import { MainPage } from './pages/main/main-page'
+import { TutorialsPage } from './pages/tutorials/tutorials-page'
 
 export class App extends React.Component {
   private page: Pages = Pages.MAIN
@@ -41,7 +42,7 @@ export class App extends React.Component {
   setPage(page: Pages) {
     if (this.transitioning ||
         page === this.page ||
-        (page === Pages.GET_STARTED && !Docs.docGetStarted)) {
+        !Docs.loaded) {
       return
     }
     this.transitioning = true
@@ -83,6 +84,8 @@ export class App extends React.Component {
         )
       case Pages.GET_STARTED:
         return <GetStartedPage ref={this.refCurrentPage.bind(this)} />
+      case Pages.TUTORIALS:
+        return <TutorialsPage ref={this.refCurrentPage.bind(this)} />
     }
   }
 

@@ -7,33 +7,8 @@ import styles from './header.module.scss'
 import { HeaderProps } from './header.props'
 
 export class Header extends React.Component<HeaderProps> {
-  private elementDropdown: HTMLDivElement
-  private elementDocIcon: HTMLDivElement
-
-  refDropdown(element: HTMLDivElement) {
-    if (element) {
-      this.elementDropdown = element
-    }
-  }
-
-  refDocIcon(element: HTMLDivElement) {
-    if (element) {
-      this.elementDocIcon = element
-    }
-  }
-
   handleHome() {
     this.props.cbSetPage(Pages.MAIN)
-  }
-
-  handleOpenDocumentation() {
-    this.elementDropdown.style.height = '10em'
-    this.elementDocIcon.style.rotate = '-180deg'
-  }
-
-  handleCloseDocumentation() {
-    this.elementDropdown.style.height = '0%'
-    this.elementDocIcon.style.rotate = '0deg'
   }
 
   handleAPIDoc() {
@@ -45,7 +20,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleTutorials() {
-    console.log('aki TUTORIALS')
+    this.props.cbSetPage(Pages.TUTORIALS)
   }
 
   render() {
@@ -59,48 +34,29 @@ export class Header extends React.Component<HeaderProps> {
             K
           </div>
         </div>
-        <div className={styles['header-documentation']}>
-          <div
-            className={styles['header-documentation-button']}
-            onMouseEnter={this.handleOpenDocumentation.bind(this)}
-            onMouseLeave={this.handleCloseDocumentation.bind(this)}
-          >
-            <div className={ElementStyle.getClass(styles, ['header-documentation-button-text', 'font-roadgeek-regular'])}>
-              DOCUMENTATION
-            </div>
+        <div className={styles['header-bar']}>
+          <div className={styles['header-button']}>
             <div
-              ref={this.refDocIcon.bind(this)}
-              className={styles['header-documentation-button-icon-containar']}
+              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
+              onClick={this.handleAPIDoc.bind(this)}
             >
-              <ChevronDown
-                className={styles['header-documentation-button-icon']}
-                color='black'
-                size={48}
-              />
+              API Reference
             </div>
           </div>
-          <div
-            ref={this.refDropdown.bind(this)}
-            className={styles['header-documentation-dropdown']}
-            onMouseEnter={this.handleOpenDocumentation.bind(this)}
-            onMouseLeave={this.handleCloseDocumentation.bind(this)}
-          >
-            <div className={styles['header-documentation-dropdown-container']}>
-              <div
-                className={ElementStyle.getClass(styles, ['header-documentation-dropdown-item', 'font-roadgeek-regular'])}
-                onClick={this.handleAPIDoc.bind(this)}
-              >API Reference
-              </div>
-              <div
-                className={ElementStyle.getClass(styles, ['header-documentation-dropdown-item', 'font-roadgeek-regular'])}
-                onClick={this.handleGetStarted.bind(this)}
-              >Get started
-              </div>
-              <div
-                className={ElementStyle.getClass(styles, ['header-documentation-dropdown-item', 'font-roadgeek-regular'])}
-                onClick={this.handleTutorials.bind(this)}
-              >Tutorials
-              </div>
+          <div className={styles['header-button']}>
+            <div
+              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
+              onClick={this.handleGetStarted.bind(this)}
+            >
+              Get started
+            </div>
+          </div>
+          <div className={styles['header-button']}>
+            <div
+              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
+              onClick={this.handleTutorials.bind(this)}
+            >
+              Tutorials
             </div>
           </div>
         </div>
