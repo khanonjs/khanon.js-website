@@ -11,16 +11,16 @@ export class Header extends React.Component<HeaderProps> {
     this.props.cbSetPage(Pages.MAIN)
   }
 
-  handleAPIDoc() {
-    console.log('aki API DOC')
-  }
-
   handleGetStarted() {
     this.props.cbSetPage(Pages.GET_STARTED)
   }
 
   handleTutorials() {
     this.props.cbSetPage(Pages.TUTORIALS)
+  }
+
+  handleAPIDoc() {
+    console.log('aki API DOC')
   }
 
   render() {

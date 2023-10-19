@@ -17,11 +17,9 @@ export class Background extends React.Component {
       switch (position) {
         case BackgroundPosition.UP:
           this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 150%)'
-          // clip-path: ellipse(150% 100% at 50% 150%);
           break
         case BackgroundPosition.DOWN:
-          this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 185%)'
-          // clip-path: ellipse(150% 100% at 50% 150%);
+          this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 195%)'
           break
       }
     }

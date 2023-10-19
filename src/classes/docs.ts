@@ -1,40 +1,42 @@
 import { Logger } from './logger/logger'
 
 export class Docs {
-  static loaded = true // 8a8f
-  static docGetStarted: string
-  static docTutorials: string
+  static loaded = false
+  static #doc = {}
+
+  static get(docName: string): string {
+    return Docs.#doc[docName]
+  }
 
   static loadDocs() {
-    // 8a8f load array of markdowns
-    if (!Docs.docGetStarted) {
-      const mdUrl = './docs/getstarted.md'
-      fetch(mdUrl)
-        .then((res) => {
-          res.text()
-            .then((text) => {
-              Docs.docGetStarted = text
-            })
-            .catch(error => Logger.info(`GetStarted page error, couldn't load '${mdUrl}':`, Logger.strFromData(error))
-            )
-        })
-        .catch(error => Logger.info(`GetStarted page error, couldn't load '${mdUrl}':`, Logger.strFromData(error))
-        )
-    }
+    const fileNames = [
+      'getstarted',
+      'tutorials'
+    ]
 
-    if (!Docs.docTutorials) {
-      const mdUrl = './docs/tutorials.md'
-      fetch(mdUrl)
-        .then((res) => {
-          res.text()
-            .then((text) => {
-              Docs.docTutorials = text
-            })
-            .catch(error => Logger.info(`GetStarted page error, couldn't load '${mdUrl}':`, Logger.strFromData(error))
-            )
+    const promises: Promise<Response>[] = []
+    fileNames.forEach(fileName => {
+      promises.push(fetch(`./docs/${fileName}.md`))
+    })
+
+    Promise.all(promises)
+      .then((resArray) => {
+        const docNames: string[] = []
+        const pResponses: Promise<string>[] = []
+        resArray.forEach(res => {
+          docNames.push(res.url.split('/docs/')[1].split('.md')[0])
+          pResponses.push(res.text())
         })
-        .catch(error => Logger.info(`GetStarted page error, couldn't load '${mdUrl}':`, Logger.strFromData(error))
-        )
-    }
+        Promise.all(pResponses)
+          .then((textArray) => {
+            let i = 0
+            docNames.forEach(docName => {
+              Object.defineProperty(Docs.#doc, docName, { enumerable: true, value: textArray[i], writable: true, configurable: true })
+              i++
+            })
+            Docs.loaded = true
+          })
+      })
+      .catch(error => Logger.error('Docs error, couldn\'t load docs:', Logger.strFromData(error)))
   }
 }

@@ -8,7 +8,7 @@ export class TutorialsPage extends PageBase {
     return (
       <div className={styles['tutorials-page']}>
         <MarkdownDoc
-          markdownText={Docs.docGetStarted}
+          markdownText={Docs.get('tutorials')}
           leftMenu
           rightSummary
         />

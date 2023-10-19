@@ -20,6 +20,12 @@ Weights:
   url("../assets/fonts/roadgeek-2005-mittelschrift-regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "DocFont";
+  src: local("DocFont"),
+  url("../assets/fonts/roadgeek-2005-mittelschrift-regular.ttf") format("truetype");
+}
+
 .font-luckiestguy-regular {
   font-family: 'LuckiestGuy';
   letter-spacing: 0.04em;
@@ -31,6 +37,15 @@ Weights:
 
 .font-roadgeek-regular {
   font-family: 'RoadGeek2005';
+  letter-spacing: 0.04em;
+  & * {
+    font-family: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+.font-docfont-regular {
+  font-family: 'DocFont';
   letter-spacing: 0.04em;
   & * {
     font-family: inherit;

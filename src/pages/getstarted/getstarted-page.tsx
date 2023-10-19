@@ -8,7 +8,7 @@ export class GetStartedPage extends PageBase {
     return (
       <div className={styles['getstarted-page']}>
         <MarkdownDoc
-          markdownText={Docs.docGetStarted}
+          markdownText={Docs.get('getstarted')}
           leftMenu
           rightSummary
         />

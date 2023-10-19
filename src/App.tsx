@@ -24,6 +24,10 @@ export class App extends React.Component {
     Docs.loadDocs()
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setPage(Pages.GET_STARTED), 100) // 8a8f eliminar
+  }
+
   refBackground(element: Background) {
     if (element) {
       this.elementBackground = element
@@ -96,7 +100,7 @@ export class App extends React.Component {
         <Background ref={this.refBackground.bind(this)} />
         {(this.page === Pages.MAIN) && this.renderPage()}
         <Header cbSetPage={this.setPage.bind(this)} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   }
