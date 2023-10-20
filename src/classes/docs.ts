@@ -10,7 +10,13 @@ export class Docs {
 
   static loadDocs() {
     const fileNames = [
-      'getstarted',
+      'getstarted-0',
+      'getstarted-1',
+      'getstarted-2',
+      'getstarted-3',
+      'getstarted-4',
+      'getstarted-5',
+      'getstarted-6',
       'tutorials'
     ]
 

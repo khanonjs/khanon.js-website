@@ -19,16 +19,113 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { ElementStyle } from '../../classes/element-style'
+import { MarkdownDocSection } from './markdown-doc-section'
+import { MarkdownDocStates } from './markdown-doc-states'
 import styles from './markdown-doc.module.scss'
 import { MarkdownDocProps } from './markdown-doc.props'
 
-export class MarkdownDoc extends React.Component<MarkdownDocProps> {
-  componentDidMount() {
+export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocStates> {
+  private renderedSections: JSX.Element[]
+  private elementSections: HTMLDivElement
+  private elementMarkdownContainer: HTMLDivElement
+  private keyId = -1
+
+  constructor(props: MarkdownDocProps) {
+    super(props)
+    this.state = {
+      currentDoc: this.props.documents[0].docs[0].markdown
+    }
     hljs.registerLanguage('json', json)
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('typescript', typescript)
     hljs.registerLanguage('xml', xml)
-    hljs.initHighlightingOnLoad()
+
+    this.renderedSections = this.props.documents.map((section, index) => this.renderSection(section, index))
+  }
+
+  refSections(element: HTMLDivElement) {
+    if (element) {
+      this.elementSections = element
+    }
+  }
+
+  refMarkdownContainer(element: HTMLDivElement) {
+    if (element) {
+      this.elementMarkdownContainer = element
+    }
+  }
+
+  popKey() {
+    this.keyId++
+    return this.keyId
+  }
+
+  componentDidMount() {
+    hljs.highlightAll()
+  }
+
+  componentDidUpdate() {
+    hljs.highlightAll()
+  }
+
+  handleSectionClick(event: React.MouseEvent) {
+    const element = (event.target as HTMLDivElement).parentNode as HTMLDivElement
+    if (element.hasAttribute('open')) {
+      element.removeAttribute('open')
+    } else {
+      element.setAttribute('open', '')
+    }
+  }
+
+  handleItemClick(event: React.MouseEvent) {
+    const element = event.target as HTMLDivElement
+    if (element.getAttribute('_selected') === null) {
+      const selectedElement = this.elementSections?.querySelectorAll('[_selected]')[0]
+      selectedElement?.removeAttribute('_selected')
+      element.setAttribute('_selected', '')
+      const section = this.props.documents.find(doc => doc.section === element.getAttribute('section'))
+      const markdown = section?.docs.find(doc => doc.title === element.getAttribute('title'))?.markdown
+      this.elementMarkdownContainer.style.opacity = '0'
+      setTimeout(() => {
+        this.setState({ currentDoc: markdown as string })
+        this.elementMarkdownContainer.style.opacity = '1'
+        this.elementMarkdownContainer.scrollTop = 0
+      }, 300)
+
+    }
+  }
+
+  renderSectionItem(title: string, section: string, isFirst: boolean): JSX.Element {
+    return (
+      <div
+        key={this.popKey()}
+        className={styles['section-item']}
+        onClick={this.handleItemClick.bind(this)}
+        {...{ 'section': section, 'title': title }}
+        {...( isFirst && { _selected: '' })}
+      >{title}
+      </div>
+    )
+  }
+
+  renderSection(section: MarkdownDocSection, index: number): JSX.Element {
+    return (
+      <div
+        key={this.popKey()}
+        className={styles['section-block']}
+        {...{ 'open': index === 0 }}
+      >
+        <div
+          className={styles['section-title']}
+          onClick={this.handleSectionClick.bind(this)}
+        >
+          {section.section}
+        </div>
+        <div className={styles['section-items-container']}>
+          {section.docs.map((doc, ix) => this.renderSectionItem(doc.title, section.section, index === 0 && ix === 0))}
+        </div>
+      </div>
+    )
   }
 
   render() {
@@ -38,16 +135,22 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps> {
           GET STARTED
         </div>
         <div className={ElementStyle.getClass(styles, ['content', ''])}>
-          <div className={styles['leftmenu-container']}>
-            hola
+          <div
+            ref={this.refSections.bind(this)}
+            className={styles['sections-container']}
+          >
+            {this.renderedSections}
           </div>
-          <div className={styles['markdown-container']}>
+          <div
+            ref={this.refMarkdownContainer.bind(this)}
+            className={styles['markdown-container']}
+          >
             <ReactMarkdown>
-              {this.props.markdownText}
+              {this.state.currentDoc ?? ''}
             </ReactMarkdown>
             <div style={{ height: '15em' }} />
           </div>
-          <div className={styles['rightsummary-container']}>
+          <div className={styles['summary-container']}>
             adios
           </div>
         </div>

@@ -5,7 +5,7 @@
   position: absolute;
   flex-direction: column;
   width: 100%;
-  margin-top: 8em;
+  margin-top: 5.7em;
 }
 
 .header {
@@ -26,10 +26,53 @@
   text-align: justify;
 }
 
-.leftmenu-container {
+.sections-container {
   width: 20%;
   overflow: auto;
+  user-select: none;
   // background-color: yellow;
+}
+
+.section-block {
+  background-color: purple;
+
+  & .section-items-container {
+    height: 0;
+
+    & .section-item {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+.section-block[open] {
+  & .section-items-container {
+    height: fit-content;
+
+    & .section-item {
+      visibility: visible;
+      transition: 0.3s;
+      opacity: 1;
+    }
+  }
+}
+
+.section-item {
+  cursor: pointer;
+
+  &[_selected] {
+    color: white;
+  }
+}
+
+.section-title {
+  background-color: yellow;
+  cursor: pointer;
+
+  &:hover {
+    background-color: cyan;
+  }
 }
 
 .markdown-container {
@@ -37,9 +80,10 @@
   overflow: auto;
   padding-left: 2em;
   padding-right: 2em;
+  transition: 0.3s;
 }
 
-.rightsummary-container {
+.summary-container {
   width: 20%;
   overflow: auto;
   // background-color: green;

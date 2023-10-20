@@ -8,9 +8,14 @@ export class TutorialsPage extends PageBase {
     return (
       <div className={styles['tutorials-page']}>
         <MarkdownDoc
-          markdownText={Docs.get('tutorials')}
-          leftMenu
-          rightSummary
+          documents={[
+            {
+              section: 'Tutorials 1',
+              docs: [
+                { title: 'TUTO', markdown: Docs.get('tutorials') }
+              ]
+            }
+          ]}
         />
       </div>
     )

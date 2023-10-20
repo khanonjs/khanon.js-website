@@ -34,7 +34,7 @@ export class Header extends React.Component<HeaderProps> {
             K
           </div>
         </div>
-        <div className={styles['header-bar']}>
+        <div className={styles['header-buttons-bar']}>
           <div className={styles['header-button']}>
             <div
               className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}

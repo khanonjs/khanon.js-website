@@ -25,7 +25,7 @@ $over-background-color: rgb(230, 230, 230);
 
 .header-home-k {
   display: flex;
-  font-size: 5em;
+  font-size: 4.1em;
   color: $primary-color;
 }
 
@@ -35,11 +35,11 @@ $over-background-color: rgb(230, 230, 230);
   font-size: 4em;
 }
 
-.header-bar {
+.header-buttons-bar {
   display: flex;
   flex-direction: row;
   gap: 1em;
-  margin-top: 0.9em;
+  margin-top: 0.7em;
   margin-left: 3em;
 }
 
@@ -47,7 +47,7 @@ $over-background-color: rgb(230, 230, 230);
   display: flex;
   flex-direction: row;
   transition: 0.5s;
-  height: 3.5em;
+  height: 3em;
   padding-top: 0.7em;
   padding-left: 2em;
   padding-right: 2em;
@@ -62,7 +62,7 @@ $over-background-color: rgb(230, 230, 230);
 .header-button-text {
   display: flex;
   height: 100%;
-  font-size: 2.5em;
+  font-size: 2.2em;
 }
 
 .header-button-icon-containar {

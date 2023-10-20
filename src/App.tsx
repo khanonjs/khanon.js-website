@@ -74,7 +74,7 @@ export class App extends React.Component {
       setTimeout(() => {
         this.elementCurrentPage.fadeIn()
       }, 1)
-    }, 150)
+    }, 200)
   }
 
   renderPage(): JSX.Element {
