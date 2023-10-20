@@ -32,8 +32,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   constructor(props: MarkdownDocProps) {
     super(props)
+    const section = this.props.documents[0]
     this.state = {
-      currentDoc: this.props.documents[0].docs[0].markdown
+      sectionName: section.section,
+      currentDoc: section.docs[0].markdown
     }
     hljs.registerLanguage('json', json)
     hljs.registerLanguage('javascript', javascript)
@@ -86,6 +88,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       const section = this.props.documents.find(doc => doc.section === element.getAttribute('section'))
       const markdown = section?.docs.find(doc => doc.title === element.getAttribute('title'))?.markdown
       this.elementMarkdownContainer.style.opacity = '0'
+      this.setState({ sectionName: section?.section as string })
       setTimeout(() => {
         this.setState({ currentDoc: markdown as string })
         this.elementMarkdownContainer.style.opacity = '1'
@@ -132,7 +135,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     return (
       <div className={ElementStyle.getClass(styles, ['container', 'font-roadgeek-regular'])}>
         <div className={styles['header']}>
-          GET STARTED
+          {this.state.sectionName}
         </div>
         <div className={ElementStyle.getClass(styles, ['content', ''])}>
           <div
