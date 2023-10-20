@@ -73,8 +73,8 @@ export class App extends React.Component {
       this.transitioning = false
       setTimeout(() => {
         this.elementCurrentPage.fadeIn()
-      }, 1)
-    }, 200)
+      }, 150)
+    }, 150)
   }
 
   renderPage(): JSX.Element {
