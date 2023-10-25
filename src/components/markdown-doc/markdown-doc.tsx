@@ -118,6 +118,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       this.elementMarkdownContainer.style.opacity = '0'
       this.setState({ sectionName: section?.section as string })
       setTimeout(() => {
+        this.summaryItems = []
         this.setState({ currentDoc: markdown as string })
         this.elementMarkdownContainer.style.opacity = '1'
         this.elementMarkdownContainer.scrollTop = 0
