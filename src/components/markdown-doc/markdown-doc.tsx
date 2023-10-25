@@ -24,11 +24,19 @@ import { MarkdownDocStates } from './markdown-doc-states'
 import styles from './markdown-doc.module.scss'
 import { MarkdownDocProps } from './markdown-doc.props'
 
+interface SummaryItem {
+  name: string
+  top: number
+  element: HTMLDivElement | null
+}
+
 export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocStates> {
   private renderedSections: JSX.Element[]
   private elementSections: HTMLDivElement
   private elementMarkdownContainer: HTMLDivElement
   private keyId = -1
+  private summaryItems: SummaryItem[]
+  private hlSummaryItem: SummaryItem
 
   constructor(props: MarkdownDocProps) {
     super(props)
@@ -41,8 +49,13 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('typescript', typescript)
     hljs.registerLanguage('xml', xml)
-
     this.renderedSections = this.props.documents.map((section, index) => this.renderSection(section, index))
+    this.summaryItems = []
+  }
+
+  popKey() {
+    this.keyId++
+    return this.keyId
   }
 
   refSections(element: HTMLDivElement) {
@@ -54,12 +67,27 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   refMarkdownContainer(element: HTMLDivElement) {
     if (element) {
       this.elementMarkdownContainer = element
+      if (this.summaryItems.length === 0) {
+        const headers = this.elementMarkdownContainer.getElementsByTagName('h1')
+        for (const h1 of headers) {
+          this.summaryItems.push({
+            name: h1.innerText,
+            top: h1.getBoundingClientRect().top,
+            element: null
+          })
+        }
+        this.forceUpdate()
+      }
     }
   }
 
-  popKey() {
-    this.keyId++
-    return this.keyId
+  refSummaryItem(element: HTMLDivElement) {
+    if (element) {
+      const summaryItem = this.summaryItems.find(summaryItem => summaryItem.name === element.innerText)
+      if (summaryItem) {
+        summaryItem.element = element
+      }
+    }
   }
 
   componentDidMount() {
@@ -98,6 +126,27 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
   }
 
+  handleMarkdownScroll(event: React.UIEvent) {
+    const markdownContainer = (event.target as HTMLDivElement)
+    let hlSummaryItem: SummaryItem = this.summaryItems[0]
+    if (markdownContainer.scrollTop > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
+      hlSummaryItem = this.summaryItems[this.summaryItems.length - 1]
+    } else {
+      this.summaryItems.forEach(summaryItem => {
+        if (summaryItem.top < markdownContainer.scrollTop + this.summaryItems[0].top) {
+          hlSummaryItem = summaryItem
+        }
+      })
+    }
+    if (this.hlSummaryItem !== hlSummaryItem) {
+      if (this.hlSummaryItem) {
+        this.hlSummaryItem.element?.removeAttribute('highlight')
+      }
+      this.hlSummaryItem = hlSummaryItem
+      this.hlSummaryItem.element?.setAttribute('highlight', '')
+    }
+  }
+
   renderSectionItem(title: string, section: string, isFirst: boolean): JSX.Element {
     return (
       <div
@@ -131,6 +180,23 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     )
   }
 
+  renderSummary(): JSX.Element {
+    return (
+      <>
+        {this.summaryItems?.map((summaryItem, index) => (
+          <div
+            ref={this.refSummaryItem.bind(this)}
+            key={index}
+            className={styles['summary-item']}
+            {...( index === 0 && { highlight: '' })}
+          >
+            {summaryItem.name}
+          </div>
+        ))}
+      </>
+    )
+  }
+
   render() {
     return (
       <div className={ElementStyle.getClass(styles, ['container', 'font-roadgeek-regular'])}>
@@ -147,14 +213,15 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           <div
             ref={this.refMarkdownContainer.bind(this)}
             className={styles['markdown-container']}
+            onScroll={this.handleMarkdownScroll.bind(this)}
           >
             <ReactMarkdown>
               {this.state.currentDoc ?? ''}
             </ReactMarkdown>
-            <div style={{ height: '15em' }} />
+            <div style={{ height: '50vh' }} />  {/* 8a8f Add footer things? */}
           </div>
           <div className={styles['summary-container']}>
-            adios
+            {this.renderSummary()}
           </div>
         </div>
       </div>

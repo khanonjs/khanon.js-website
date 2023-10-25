@@ -19,7 +19,7 @@ export class Background extends React.Component {
           this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 150%)'
           break
         case BackgroundPosition.DOWN:
-          this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 195%)'
+          this.elementShape.style['clip-path'] = 'ellipse(150% 100% at 50% 200%)'
           break
       }
     }
