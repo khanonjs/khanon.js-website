@@ -68,13 +68,12 @@ $over-background-color: rgb(230, 230, 230);
 }
 
 .header-button-icon-containar {
-  margin-top: -3px;
   transition: 0.5s;
 }
 
 .header-button-icon {
   display: flex;
   color: black;
-  margin-top: 11px;
-  margin-left: 10px;
+  margin-top: 0.2em;
+  margin-left: 1em;
 }
