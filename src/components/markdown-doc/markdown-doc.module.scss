@@ -1,4 +1,5 @@
 @import '../../styles/fonts.scss';
+@import '../../styles/global.scss';
 
 .container {
   display: flex;
@@ -14,8 +15,8 @@
   justify-content: center;
   width: 100%;
   height: 2em;
-  background-color: rgb(0 71 116);;
-  color: white;
+  background-color: $color-terciary;
+  color: $color-background;
   font-size: 1.8em;
 }
 
@@ -30,11 +31,16 @@
   width: 20%;
   overflow: auto;
   user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .section-block {
-  background-color: purple;
-
+  & .section-title-icon-containar {
+    & .section-title-icon {
+      transition: 0.2s;
+    }
+  }
   & .section-items-container {
     height: 0;
 
@@ -46,6 +52,13 @@
 }
 
 .section-block[open] {
+  & .section-title-icon-containar {
+    & .section-title-icon {
+      transition: 0.2s;
+      transform: rotate(90deg);
+    }
+  }
+
   & .section-items-container {
     height: fit-content;
 
@@ -57,20 +70,39 @@
   }
 }
 
-.section-item {
+.section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.6em;
+  padding-top: 0.6em;
+  padding-bottom: 0.2em;
+  padding-left: 1.0em;
+  transition: 0.3s;
   cursor: pointer;
 
-  &[_selected] {
-    color: white;
+  &:has(+ div > [_selected]) {
+    color: $color-secondary;
+  }
+
+  &:hover {
+    background-color: $color-background-highlight;
   }
 }
 
-.section-title {
-  background-color: yellow;
+.section-item {
+  font-size: 1.4em;
+  padding-top: 0.3em;
+  padding-bottom: 0.31em;
+  padding-left: 1.4em;
   cursor: pointer;
 
+  &[_selected] {
+    color: $color-secondary;
+  }
+
   &:hover {
-    background-color: cyan;
+    background-color: rgb(230, 230, 230);
   }
 }
 
@@ -87,14 +119,31 @@
   flex-direction: column;
   width: 20%;
   overflow: auto;
+  padding-left: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .summary-item {
-  color: black;
+  font-size: 1.6em;
+  padding-top: 0.6em;
+  padding-bottom: 0.2em;
+  padding-left: 0.8em;
+  transition: 0.3s;
+  color: $color-text;
 }
 
 .summary-item[highlight] {
-  color: blue;
+  color: $color-secondary;
+}
+
+.summary-selector {
+  transition: 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 0.2em;
+  margin-top: 0.54em;
+  background-color: $color-secondary;
 }
 
 h1,h2,h3 {

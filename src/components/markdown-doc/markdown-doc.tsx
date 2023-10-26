@@ -16,6 +16,7 @@ import json from 'highlight.js/lib/languages/json'
 import typescript from 'highlight.js/lib/languages/typescript'
 import xml from 'highlight.js/lib/languages/xml'
 import React from 'react'
+import { ChevronRight } from 'react-feather'
 import ReactMarkdown from 'react-markdown'
 
 import { ElementStyle } from '../../classes/element-style'
@@ -31,12 +32,14 @@ interface SummaryItem {
 }
 
 export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocStates> {
+  private keyId = -1
   private renderedSections: JSX.Element[]
   private elementSections: HTMLDivElement
   private elementMarkdownContainer: HTMLDivElement
-  private keyId = -1
+  private elementSummarySelector: HTMLDivElement
   private summaryItems: SummaryItem[]
-  private hlSummaryItem: SummaryItem
+  private hlSummaryItem: SummaryItem | undefined
+  private attrSummaryHighlight = 'highlight'
 
   constructor(props: MarkdownDocProps) {
     super(props)
@@ -86,7 +89,19 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       const summaryItem = this.summaryItems.find(summaryItem => summaryItem.name === element.innerText)
       if (summaryItem) {
         summaryItem.element = element
+        if (summaryItem.element.getAttribute(this.attrSummaryHighlight) !== null) {
+          this.hlSummaryItem = summaryItem
+          this.updateSummarySelector()
+        }
       }
+    }
+  }
+
+  refSummarySelector(element: HTMLDivElement) {
+    if (element) {
+      this.elementSummarySelector = element
+      this.elementSummarySelector.style.opacity = '0'
+      this.updateSummarySelector()
     }
   }
 
@@ -119,6 +134,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       this.setState({ sectionName: section?.section as string })
       setTimeout(() => {
         this.summaryItems = []
+        this.hlSummaryItem = undefined
         this.setState({ currentDoc: markdown as string })
         this.elementMarkdownContainer.style.opacity = '1'
         this.elementMarkdownContainer.scrollTop = 0
@@ -141,10 +157,19 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
     if (this.hlSummaryItem !== hlSummaryItem) {
       if (this.hlSummaryItem) {
-        this.hlSummaryItem.element?.removeAttribute('highlight')
+        this.hlSummaryItem.element?.removeAttribute(this.attrSummaryHighlight)
       }
       this.hlSummaryItem = hlSummaryItem
-      this.hlSummaryItem.element?.setAttribute('highlight', '')
+      this.hlSummaryItem.element?.setAttribute(this.attrSummaryHighlight, '')
+      this.updateSummarySelector()
+    }
+  }
+
+  updateSummarySelector() {
+    const rect = this.hlSummaryItem?.element?.getBoundingClientRect()
+    if (rect) {
+      this.elementSummarySelector.style.top = `${rect.top - rect.height}px`
+      this.elementSummarySelector.style.opacity = '1'
     }
   }
 
@@ -173,6 +198,13 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           onClick={this.handleSectionClick.bind(this)}
         >
           {section.section}
+          <div className={styles['section-title-icon-containar']}>
+            <ChevronRight
+              className={styles['section-title-icon']}
+              color='black'
+              size={30}
+            />
+          </div>
         </div>
         <div className={styles['section-items-container']}>
           {section.docs.map((doc, ix) => this.renderSectionItem(doc.title, section.section, index === 0 && ix === 0))}
@@ -184,6 +216,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   renderSummary(): JSX.Element {
     return (
       <>
+        <div
+          ref={this.refSummarySelector.bind(this)}
+          className={styles['summary-selector']}
+        />
         {this.summaryItems?.map((summaryItem, index) => (
           <div
             ref={this.refSummaryItem.bind(this)}

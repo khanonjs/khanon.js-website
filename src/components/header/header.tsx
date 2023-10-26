@@ -40,7 +40,7 @@ export class Header extends React.Component<HeaderProps> {
               className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
               onClick={this.handleGetStarted.bind(this)}
             >
-              Get started
+              Docs
             </div>
           </div>
           <div className={styles['header-button']}>

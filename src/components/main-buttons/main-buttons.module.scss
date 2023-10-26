@@ -15,6 +15,8 @@ $button-radius: 6em;
   top: 60%;
   position: absolute;
   user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .main-buttons-play {
@@ -26,7 +28,7 @@ $button-radius: 6em;
   height: $button-height;
   border-radius: $button-radius;
   border: 0.3em solid black;
-  background-color: white;
+  background-color: $color-background;
   cursor: pointer;
 }
 
@@ -36,7 +38,7 @@ $button-radius: 6em;
   height: $button-height - 0.6em;
   margin-left: 0.3em;
   border-radius: 10em;
-  background-color: $primary-color;
+  background-color: $color-primary;
   transition: 0.3s;
 }
 
@@ -64,13 +66,13 @@ $button-radius: 6em;
   height: $button-height;
   border-radius: $button-radius;
   border: 0.3em solid black;
-  background-color: $secondary-color;
+  background-color: $color-secondary;
   transition: 0.5s;
   cursor: pointer;
 }
 
 .main-buttons-getstarted:hover {
-  background-color: rgb(0, 79, 129);
+  background-color: $color-primary-hover;
 }
 
 .main-buttons-getstarted-icon {

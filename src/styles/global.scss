@@ -1,7 +1,12 @@
 @import './scrollbar.scss';
 
-$primary-color: rgb(0, 66, 107);
-$secondary-color: rgb(0, 98, 158);
+$color-background: white;
+$color-background-highlight: rgb(230, 230, 230);
+$color-text: black;
+$color-primary: rgb(0, 66, 107);
+$color-primary-hover: rgb(0, 79, 129);
+$color-secondary: rgb(0, 98, 158);
+$color-terciary: rgb(0 71 116);
 $header-height: 6em;
 $header-margin-top: 0.2em;
 $footer-height: 5em;

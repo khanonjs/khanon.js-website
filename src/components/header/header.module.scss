@@ -11,6 +11,8 @@ $over-background-color: rgb(230, 230, 230);
   margin-top: $header-margin-top;
   position: absolute;
   user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header-home {
@@ -26,7 +28,7 @@ $over-background-color: rgb(230, 230, 230);
 .header-home-k {
   display: flex;
   font-size: 4.1em;
-  color: $primary-color;
+  color: $color-primary;
 }
 
 .header-home-js {
