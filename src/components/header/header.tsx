@@ -35,33 +35,34 @@ export class Header extends React.Component<HeaderProps> {
           </div>
         </div>
         <div className={styles['header-buttons-bar']}>
-          <div className={styles['header-button']}>
-            <div
-              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
-              onClick={this.handleGetStarted.bind(this)}
-            >
+          <div
+            className={styles['header-button']}
+            onClick={this.handleGetStarted.bind(this)}
+          >
+            <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Docs
             </div>
           </div>
-          <div className={styles['header-button']}>
-            <div
-              className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
-              onClick={this.handleTutorials.bind(this)}
-            >
+          <div
+            className={styles['header-button']}
+            onClick={this.handleTutorials.bind(this)}
+          >
+            <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Tutorials
             </div>
           </div>
-          <div className={styles['header-button']}>
+          <div
+            className={styles['header-button']}
+            onClick={this.handleAPIDoc.bind(this)}
+          >
             <div
               className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}
-              onClick={this.handleAPIDoc.bind(this)}
             >
               API Reference
             </div>
             <div className={styles['header-button-icon-containar']}>
               <ExternalLink
                 className={styles['header-button-icon']}
-                color='black'
                 size={30}
               />
             </div>

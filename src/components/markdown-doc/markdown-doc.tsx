@@ -201,7 +201,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           <div className={styles['section-title-icon-containar']}>
             <ChevronRight
               className={styles['section-title-icon']}
-              color='black'
               size={30}
             />
           </div>

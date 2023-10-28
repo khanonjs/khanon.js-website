@@ -1,6 +1,6 @@
 import React from 'react'
 
-import githubButton from '../../assets/github-button.png'
+import githubButton from '../../assets/github-button-white.png'
 import playCircle from '../../assets/play-circle.svg'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'

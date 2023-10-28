@@ -1,6 +1,5 @@
 # Get Started 5
 
--
 
 # What is Khanon.js?
 

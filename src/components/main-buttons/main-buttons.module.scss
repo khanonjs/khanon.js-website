@@ -72,21 +72,13 @@ $button-radius: 6em;
 }
 
 .main-buttons-getstarted:hover {
-  background-color: $color-primary-hover;
-}
-
-.main-buttons-getstarted-icon {
-  display: flex;
-  width: $button-height - 0.6em;
-  height: $button-height - 0.6em;
-  margin-left: 0.3em;
-  border-radius: 10em;
+  background-color: $color-secondary-hover;
 }
 
 .main-buttons-getstarted-text {
   font-size: 2.5em;
   letter-spacing: -0.1px;
-  color: white;
+  color: $color-getstarted-text;
 }
 
 .main-buttons-github {

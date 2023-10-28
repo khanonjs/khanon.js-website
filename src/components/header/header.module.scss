@@ -1,7 +1,7 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/global.scss';
 
-$over-background-color: rgb(230, 230, 230);
+$over-background-color: $color-background-highlight;
 
 .header-container {
   display: flex;
@@ -28,7 +28,7 @@ $over-background-color: rgb(230, 230, 230);
 .header-home-k {
   display: flex;
   font-size: 4.1em;
-  color: $color-primary;
+  color: $color-home;
 }
 
 .header-home-js {
@@ -43,6 +43,7 @@ $over-background-color: rgb(230, 230, 230);
   gap: 1em;
   margin-top: 0.7em;
   margin-left: 3em;
+  color: $color-header-buttons;
 }
 
 .header-button {
@@ -73,7 +74,7 @@ $over-background-color: rgb(230, 230, 230);
 
 .header-button-icon {
   display: flex;
-  color: black;
+  color: $color-header-buttons;
   margin-top: 0.2em;
   margin-left: 1em;
 }

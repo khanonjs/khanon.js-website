@@ -1,13 +1,71 @@
 @import './scrollbar.scss';
 
-$color-background: white;
+// White and grey doc theme
+$color-background: rgb(255, 255, 255);
 $color-background-highlight: rgb(230, 230, 230);
+$color-logo: black;
 $color-text: black;
 $color-primary: rgb(0, 66, 107);
 $color-primary-hover: rgb(0, 79, 129);
 $color-secondary: rgb(0, 98, 158);
+$color-secondary-hover: rgb(0, 125, 202);
 $color-terciary: rgb(0 71 116);
+$color-home: $color-primary;
+$color-header-buttons: black;
+$color-getstarted-text: white;
+$color-markdown-background: rgb(245, 245, 245);
+$color-markdown-header-text: white;
+$color-markdown-code-border: #00243a;
+$color-markdown-quote-background: rgb(190, 190, 190);
+$color-markdown-quote-text: black;
+$color-markdown-code-background: #003252;
 $header-height: 6em;
 $header-margin-top: 0.2em;
 $footer-height: 5em;
 $footer-margin-bottom: 3em;
+
+// Black & White theme
+// $color-background: rgb(65, 65, 65);
+// $color-background-highlight: rgb(90, 90, 90);
+// $color-logo: black;
+// $color-text: #fafafa;
+// $color-primary: rgb(30, 30, 30);
+// $color-primary-hover: rgb(80, 80, 80);
+// $color-secondary: black;
+// $color-secondary-hover: rgb(60, 60, 60);
+// $color-terciary: rgb(110, 110, 110);
+// $color-home: black;
+// $color-header-buttons: black;
+// $color-getstarted-text: black;
+// $color-markdown-header-text: black;
+// $color-markdown-code-border: rgb(240, 240, 240);
+// $color-markdown-quote-text: rgb(170, 170, 170);
+// $color-markdown-quote-background: rgb(20, 20, 20);
+// $color-markdown-code-background: #003252;
+// $header-height: 6em;
+// $header-margin-top: 0.2em;
+// $footer-height: 5em;
+// $footer-margin-bottom: 3em;
+
+// White theme
+// $color-background: white;
+// $color-background-highlight: rgb(230, 230, 230);
+// $color-logo: black;
+// $color-text: black;
+// $color-primary: rgb(0, 66, 107);
+// $color-primary-hover: rgb(0, 79, 129);
+// $color-secondary: rgb(0, 98, 158);
+// $color-secondary-hover: rgb(0, 125, 202);
+// $color-terciary: rgb(0 71 116);
+// $color-home: $color-primary;
+// $color-header-buttons: black;
+// $color-getstarted-text: white;
+// $color-markdown-header-text: white;
+// $color-markdown-code-border: rgb(240, 240, 240);
+// $color-markdown-quote-background: rgb(190, 190, 190);
+// $color-markdown-quote-text: black;
+// $color-markdown-code-background: #003252;
+// $header-height: 6em;
+// $header-margin-top: 0.2em;
+// $footer-height: 5em;
+// $footer-margin-bottom: 3em;
