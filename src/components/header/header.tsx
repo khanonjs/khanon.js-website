@@ -20,7 +20,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleAPIDoc() {
-    console.log('aki API DOC')
+    window.open('api-doc/index.html', '_blank', 'noreferrer')
   }
 
   render() {
