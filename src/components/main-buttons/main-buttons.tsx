@@ -12,6 +12,10 @@ export class MainButtons extends React.Component<MainButtonsProps> {
     this.props.cbSetPage(Pages.GET_STARTED)
   }
 
+  handleGithub() {
+    window.open('https://github.com/khanon-js/khanon.js', '_blank', 'noreferrer')
+  }
+
   render() {
     return (
       <div className={styles['main-buttons-container']}>
@@ -29,7 +33,10 @@ export class MainButtons extends React.Component<MainButtonsProps> {
           <div className={ElementStyle.getClass(styles, ['main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED
           </div>
         </div>
-        <div className={styles['main-buttons-github']}>
+        <div
+          className={styles['main-buttons-github']}
+          onClick={this.handleGithub.bind(this)}
+        >
           <img
             src={githubButton}
             className={styles['main-buttons-github-img']}

@@ -24,10 +24,6 @@ export class App extends React.Component {
     Docs.loadDocs()
   }
 
-  componentDidMount() {
-    setTimeout(() => this.setPage(Pages.GET_STARTED), 100) // 8a8f eliminar
-  }
-
   refBackground(element: Background) {
     if (element) {
       this.elementBackground = element
