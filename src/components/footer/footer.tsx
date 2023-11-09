@@ -9,14 +9,10 @@ export class Footer extends React.Component {
     return (
       <div className={styles['footer-container']}>
         <div className={styles['footer-mail']}>
-          <img src={emailIcon}>
-            {/*  */}
-          </img>
+          <img src={emailIcon} />
         </div>
         <div className={styles['footer-x']}>
-          <img src={xLogo}>
-            {/*  */}
-          </img>
+          <img src={xLogo} />
         </div>
       </div>
     )

@@ -255,6 +255,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
               {this.state.currentDoc ?? ''}
             </ReactMarkdown>
             <div style={{ height: '40vh' }} />
+            {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
+            {/* In case footer is needed int he future */}
           </div>
           <div className={styles['summary-container']}>
             {this.renderSummary()}

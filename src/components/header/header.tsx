@@ -1,6 +1,8 @@
 import React from 'react'
 import { ExternalLink } from 'react-feather'
 
+import githubLogo from '../../assets/github-logo.png'
+import xLogo from '../../assets/x-logo.png'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
 import styles from './header.module.scss'
@@ -21,6 +23,14 @@ export class Header extends React.Component<HeaderProps> {
 
   handleAPIDoc() {
     window.open('api-doc/index.html', '_blank', 'noreferrer')
+  }
+
+  handleGithub() {
+    window.open('https://github.com/khanon-js/khanon.js', '_blank', 'noreferrer')
+  }
+
+  handleX() {
+    // window.open('https://', '_blank', 'noreferrer')
   }
 
   render() {
@@ -67,6 +77,18 @@ export class Header extends React.Component<HeaderProps> {
               />
             </div>
           </div>
+        </div>
+        <div
+          className={styles['header-github']}
+          onClick={this.handleGithub.bind(this)}
+        >
+          <img src={githubLogo} />
+        </div>
+        <div
+          className={styles['header-x']}
+          onClick={this.handleX.bind(this)}
+        >
+          <img src={xLogo} />
         </div>
       </div>
     )
