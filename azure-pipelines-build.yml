@@ -1,0 +1,14 @@
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+  displayName: 'Npm install'
+
+- script: |
+    npm run build
+  displayName: 'Build web'

@@ -1,19 +1,19 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+- job: Build_and_deploy
+  pool:
+    vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  variables:
+  - name: tagRelease
+    value: tagTest
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  steps:
+   - template: azure-pipelines-build.yml
+   - script: |
+       npm run publish -- url:http://82.223.97.22:3000/deploy/web secret:$(khanonjs-deployer-secret)
+     displayName: 'Publish web'
+
+

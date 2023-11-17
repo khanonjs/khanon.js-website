@@ -22,7 +22,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleAPIDoc() {
-    window.open('api-doc/index.html', '_blank', 'noreferrer')
+    window.open('api-docs/index.html', '_blank', 'noreferrer')
   }
 
   handleGithub() {
