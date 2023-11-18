@@ -104,4 +104,9 @@ $over-background-color: $color-background-highlight;
   & img {
     height: 2.5em;
   }
+
+  &[disabled] {
+    color: gray;
+    pointer-events: none;
+  }
 }
