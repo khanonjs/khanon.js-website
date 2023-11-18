@@ -30,6 +30,11 @@ $button-radius: 6em;
   border: 0.3em solid black;
   background-color: $color-background;
   cursor: pointer;
+
+  &[disabled] {
+    color: gray;
+    pointer-events: none;
+  }
 }
 
 .main-buttons-play-icon {
@@ -69,6 +74,11 @@ $button-radius: 6em;
   background-color: $color-secondary;
   transition: 0.5s;
   cursor: pointer;
+
+  &[disabled] {
+    background-color: gray;
+    pointer-events: none;
+  }
 }
 
 .main-buttons-getstarted:hover {

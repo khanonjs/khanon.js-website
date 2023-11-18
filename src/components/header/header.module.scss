@@ -56,6 +56,11 @@ $over-background-color: $color-background-highlight;
   padding-right: 2em;
   border-radius: 10em;
   cursor: pointer;
+
+  &[disabled] {
+    color: gray;
+    pointer-events: none;
+  }
 }
 
 .header-button:hover {
@@ -74,7 +79,6 @@ $over-background-color: $color-background-highlight;
 
 .header-button-icon {
   display: flex;
-  color: $color-header-buttons;
   margin-top: 0.2em;
   margin-left: 1em;
 }

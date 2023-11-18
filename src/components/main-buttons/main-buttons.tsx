@@ -8,6 +8,10 @@ import styles from './main-buttons.module.scss'
 import { MainButtonsProps } from './main-buttons.props'
 
 export class MainButtons extends React.Component<MainButtonsProps> {
+  handlePlayDemos() {
+    // this.props.cbSetPage(Pages.GET_STARTED)
+  }
+
   handleGetStarted() {
     this.props.cbSetPage(Pages.GET_STARTED)
   }
@@ -19,7 +23,11 @@ export class MainButtons extends React.Component<MainButtonsProps> {
   render() {
     return (
       <div className={styles['main-buttons-container']}>
-        <div className={styles['main-buttons-play']}>
+        <div
+          className={styles['main-buttons-play']}
+          onClick={this.handlePlayDemos.bind(this)}
+          {...{ 'disabled': true }}
+        >
           <img
             src={playCircle}
             className={styles['main-buttons-play-icon']}
@@ -29,6 +37,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
         <div
           className={styles['main-buttons-getstarted']}
           onClick={this.handleGetStarted.bind(this)}
+          {...{ 'disabled': true }}
         >
           <div className={ElementStyle.getClass(styles, ['main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED
           </div>

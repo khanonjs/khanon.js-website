@@ -77,6 +77,7 @@
   transition: 0.3s;
   cursor: pointer;
 
+  // Has parent with attribute _selected
   &:has(+ div > [_selected]) {
     color: $color-secondary;
   }

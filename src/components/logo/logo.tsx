@@ -9,6 +9,7 @@ export class Logo extends React.Component {
       <div className={styles['logo-container']}>
         <div className={ElementStyle.getClass(styles, ['logo-header', 'font-luckiestguy-regular'])}>KHANON</div>
         <div className={ElementStyle.getClass(styles, ['logo-footer', 'font-roadgeek-regular'])}>A typescript game engine extending Babylon.js</div>
+        <div className={ElementStyle.getClass(styles, ['logo-footer-wip', 'font-roadgeek-regular'])}>Khanon.js is currently working in progress, it will be released soon</div>
       </div>
     )
   }
