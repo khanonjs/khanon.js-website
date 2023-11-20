@@ -1,6 +1,6 @@
 {
   "name": "khanon.js-website",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "private": false,
   "dependencies": {
     "@types/node": "^16.18.36",
