@@ -17,7 +17,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
   }
 
   handleGithub() {
-    window.open('https://github.com/khanon-js/khanon.js', '_blank', 'noreferrer')
+    window.open('https://github.com/khanonjs/khanon.js', '_blank', 'noreferrer')
   }
 
   render() {

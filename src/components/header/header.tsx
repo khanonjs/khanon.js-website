@@ -26,7 +26,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleGithub() {
-    window.open('https://github.com/khanon-js/khanon.js', '_blank', 'noreferrer')
+    window.open('https://github.com/khanonjs/khanon.js', '_blank', 'noreferrer')
   }
 
   handleX() {
