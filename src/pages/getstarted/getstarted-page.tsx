@@ -32,16 +32,25 @@ export class GetStartedPage extends PageBase {
             {
               section: 'Get started',
               docs: [
-                { title: 'getstarted-0', markdown: Docs.get('getstarted-0') },
-                { title: 'getstarted-1', markdown: Docs.get('getstarted-1') },
-                { title: 'getstarted-2', markdown: Docs.get('getstarted-2') }
+                { title: 'What is Khanon.js?', markdown: Docs.get('getstarted-0') },
+                { title: 'Installing Khanon.js', markdown: Docs.get('getstarted-0') },
+                { title: 'What\'s coming up?', markdown: Docs.get('getstarted-1') },
+                { title: 'Before starting a new game', markdown: Docs.get('getstarted-2') },
               ]
             },
             {
-              section: 'First steps',
+              section: 'Creating a new game',
+              docs: [
+                { title: 'Starting a new project', markdown: Docs.get('getstarted-5') },
+                { title: 'Installing dependencies', markdown: Docs.get('getstarted-6') },
+                { title: 'Creating a new application', markdown: Docs.get('getstarted-6') },
+              ]
+            },
+            {
+              section: 'Application flow',
               docs: [
                 { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'KJS object', markdown: Docs.get('getstarted-6') }
               ]
             },
             {
@@ -59,6 +68,20 @@ export class GetStartedPage extends PageBase {
               ]
             },
             {
+              section: 'Meshes',
+              docs: [
+                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
+                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+              ]
+            },
+            {
+              section: 'SceneMaps',
+              docs: [
+                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
+                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+              ]
+            },
+            {
               section: 'Actors',
               docs: [
                 { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
@@ -66,14 +89,14 @@ export class GetStartedPage extends PageBase {
               ]
             },
             {
-              section: 'Notifications',
+              section: 'Particles',
               docs: [
                 { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
                 { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
               ]
             },
             {
-              section: 'Particles',
+              section: 'Notifications',
               docs: [
                 { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
                 { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }

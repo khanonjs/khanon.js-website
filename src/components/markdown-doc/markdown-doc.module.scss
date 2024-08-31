@@ -105,8 +105,9 @@
   font-size: 1.4em;
   padding-top: 0.3em;
   padding-bottom: 0.31em;
-  padding-left: 1.4em;
+  padding-left: 1.5em;
   cursor: pointer;
+  color: #2b2b2b;
 
   &[_selected] {
     color: $color-secondary;
