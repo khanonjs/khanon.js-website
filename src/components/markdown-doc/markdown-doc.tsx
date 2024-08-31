@@ -125,8 +125,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   handleItemClick(event: React.MouseEvent) {
     const element = event.target as HTMLDivElement
 
-    const sectionId = element.getAttribute('sectionId')
-    const ItemId = element.getAttribute('itemId')
+    const sectionId = element.getAttribute('_sectionid')
+    const ItemId = element.getAttribute('_itemid')
     if (sectionId) {
       this.props.storeSectionId(sectionId)
     }
@@ -189,7 +189,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         key={this.popKey()}
         className={styles['section-item']}
         onClick={this.handleItemClick.bind(this)}
-        {...{ 'section': section, 'title': title, 'sectionId': sectionId, 'itemId': itemId }}
+        {...{ 'section': section, 'title': title, '_sectionid': sectionId, '_itemid': itemId }}
         {...( isFirst && { _selected: '' })}
       >{title}
       </div>
@@ -206,7 +206,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         <div
           className={styles['section-title']}
           onClick={this.handleSectionClick.bind(this)}
-          {...{ 'sectionId': index }}
+          {...{ '_sectionid': index }}
         >
           {section.section}
           <div className={styles['section-title-icon-containar']}>
