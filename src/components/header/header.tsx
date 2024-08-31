@@ -48,7 +48,6 @@ export class Header extends React.Component<HeaderProps> {
           <div
             className={styles['header-button']}
             onClick={this.handleGetStarted.bind(this)}
-            {...{ 'disabled': true }} // 8a8f
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Docs
@@ -66,7 +65,6 @@ export class Header extends React.Component<HeaderProps> {
           <div
             className={styles['header-button']}
             onClick={this.handleAPIDoc.bind(this)}
-            // {...{ 'disabled': true }}  // 8a8f
           >
             <div
               className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}

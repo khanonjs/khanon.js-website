@@ -43,10 +43,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   constructor(props: MarkdownDocProps) {
     super(props)
-    const section = this.props.documents[0]
+    const section = this.props.documents[this.props.initialSectionId]
     this.state = {
       sectionName: section.section,
-      currentDoc: section.docs[0].markdown
+      currentDoc: section.docs[this.props.initialItemId].markdown
     }
     hljs.registerLanguage('json', json)
     hljs.registerLanguage('javascript', javascript)
@@ -124,6 +124,16 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleItemClick(event: React.MouseEvent) {
     const element = event.target as HTMLDivElement
+
+    const sectionId = element.getAttribute('sectionId')
+    const ItemId = element.getAttribute('itemId')
+    if (sectionId) {
+      this.props.storeSectionId(sectionId)
+    }
+    if (ItemId) {
+      this.props.storeItemId(ItemId)
+    }
+
     if (element.getAttribute('_selected') === null) {
       const selectedElement = this.elementSections?.querySelectorAll('[_selected]')[0]
       selectedElement?.removeAttribute('_selected')
@@ -138,7 +148,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         this.setState({ currentDoc: markdown as string })
         this.elementMarkdownContainer.style.opacity = '1'
         this.elementMarkdownContainer.scrollTop = 0
-      }, 300)
+      }, 0)
 
     }
   }
@@ -173,13 +183,13 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
   }
 
-  renderSectionItem(title: string, section: string, isFirst: boolean): JSX.Element {
+  renderSectionItem(title: string, section: string, isFirst: boolean, sectionId: number, itemId: number): JSX.Element {
     return (
       <div
         key={this.popKey()}
         className={styles['section-item']}
         onClick={this.handleItemClick.bind(this)}
-        {...{ 'section': section, 'title': title }}
+        {...{ 'section': section, 'title': title, 'sectionId': sectionId, 'itemId': itemId }}
         {...( isFirst && { _selected: '' })}
       >{title}
       </div>
@@ -191,11 +201,12 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       <div
         key={this.popKey()}
         className={styles['section-block']}
-        {...{ 'open': index === 0 }}
+        {...{ 'open': index === this.props.initialSectionId }}
       >
         <div
           className={styles['section-title']}
           onClick={this.handleSectionClick.bind(this)}
+          {...{ 'sectionId': index }}
         >
           {section.section}
           <div className={styles['section-title-icon-containar']}>
@@ -206,7 +217,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           </div>
         </div>
         <div className={styles['section-items-container']}>
-          {section.docs.map((doc, ix) => this.renderSectionItem(doc.title, section.section, index === 0 && ix === 0))}
+          {section.docs.map((doc, ix) => this.renderSectionItem(doc.title, section.section, index === this.props.initialSectionId && ix === this.props.initialItemId, index, ix))}
         </div>
       </div>
     )
