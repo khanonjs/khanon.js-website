@@ -34,8 +34,8 @@ export class GetStartedPage extends PageBase {
               docs: [
                 { title: 'What is Khanon.js?', markdown: Docs.get('getstarted-0') },
                 { title: 'Installing Khanon.js', markdown: Docs.get('getstarted-0') },
-                { title: 'What\'s coming up?', markdown: Docs.get('getstarted-1') },
                 { title: 'Before starting a new game', markdown: Docs.get('getstarted-2') },
+                { title: 'What\'s coming up?', markdown: Docs.get('getstarted-1') },
               ]
             },
             {
@@ -44,62 +44,83 @@ export class GetStartedPage extends PageBase {
                 { title: 'Starting a new project', markdown: Docs.get('getstarted-5') },
                 { title: 'Installing dependencies', markdown: Docs.get('getstarted-6') },
                 { title: 'Creating a new application', markdown: Docs.get('getstarted-6') },
+                { title: 'Deploying to a server', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Application flow',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'KJS object', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Using the App interface', markdown: Docs.get('getstarted-5') },
+                { title: 'Using the KJS object', markdown: Docs.get('getstarted-6') },
+                { title: 'App states', markdown: Docs.get('getstarted-5') },
               ]
             },
             {
               section: 'Scenes',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Creating a new Scene', markdown: Docs.get('getstarted-5') },
+                { title: 'Using the Scene interface', markdown: Docs.get('getstarted-6') },
+                { title: 'Scene states', markdown: Docs.get('getstarted-6') },
+                { title: 'Defining the camera', markdown: Docs.get('getstarted-5') },
+                { title: 'Scene actions', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Sprites',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Sprite as class decorator', markdown: Docs.get('getstarted-5') },
+                { title: 'Sprite as property decorator', markdown: Docs.get('getstarted-6') },
+                { title: 'Using the Sprite interface', markdown: Docs.get('getstarted-6') },
+                { title: 'Spawning and destroying sprites', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Meshes',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Mesh as class decorator', markdown: Docs.get('getstarted-5') },
+                { title: 'Mesh as property decorator', markdown: Docs.get('getstarted-6') },
+                { title: 'Using the Mesh interface', markdown: Docs.get('getstarted-6') },
+                { title: 'Spawning and destroying meshes', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'SceneMaps',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Sprite maps', markdown: Docs.get('getstarted-5') },
+                { title: 'Mesh maps', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Actors',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Creating a new actor', markdown: Docs.get('getstarted-5') },
+                { title: 'Using the Actor interface', markdown: Docs.get('getstarted-6') },
+                { title: 'Actor states', markdown: Docs.get('getstarted-6') },
+                { title: 'Actor actions', markdown: Docs.get('getstarted-6') },
+                { title: 'Spawning and destroying actors', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Particles',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Creating particles', markdown: Docs.get('getstarted-5') },
+                { title: 'Using the Particle interface', markdown: Docs.get('getstarted-6') },
+                { title: 'Spawning particles', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
               section: 'Notifications',
               docs: [
-                { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'Overview', markdown: Docs.get('getstarted-5') },
+                { title: 'Receiving notifications', markdown: Docs.get('getstarted-5') },
+                { title: 'Sending notifications', markdown: Docs.get('getstarted-6') },
               ]
             },
             {
@@ -111,7 +132,7 @@ export class GetStartedPage extends PageBase {
                 { title: 'getstarted-3', markdown: Docs.get('getstarted-3') },
                 { title: 'getstarted-4', markdown: Docs.get('getstarted-4') },
                 { title: 'getstarted-5', markdown: Docs.get('getstarted-5') },
-                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') }
+                { title: 'getstarted-6', markdown: Docs.get('getstarted-6') },
               ]
             },
           ]}
