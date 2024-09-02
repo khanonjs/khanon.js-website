@@ -248,7 +248,9 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     return (
       <div className={ElementStyle.getClass(styles, ['container', 'font-roadgeek-regular'])}>
         <div className={styles['header']}>
-          {this.state.sectionName}
+          <div className={styles['header-text']}>
+            {this.state.sectionName}
+          </div>
         </div>
         <div className={ElementStyle.getClass(styles, ['content', ''])}>
           <div
