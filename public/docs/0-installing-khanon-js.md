@@ -1,4 +1,6 @@
-# Get Started 6
+# Installing Khanon.js
+Khanon.js is installed through the NPM repository, adding it as a npm package:
 
+`npm i @khanonjs/engine`
 
-# What is Khanon.js?
+Find the NPM page [here](https://www.npmjs.com/package/@khanonjs/engine).
