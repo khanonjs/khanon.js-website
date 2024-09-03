@@ -39,6 +39,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   private elementSummarySelector: HTMLDivElement
   private summaryItems: SummaryItem[]
   private hlSummaryItem: SummaryItem | undefined
+  private hlSummaryTop: number
+  private hlSummaryHeight: number = 0
   private attrSummaryHighlight = 'highlight'
 
   constructor(props: MarkdownDocProps) {
@@ -156,12 +158,24 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
     let hlSummaryItem: SummaryItem = this.summaryItems[0]
+    this.hlSummaryHeight = 0
     if (markdownContainer.scrollTop > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
       hlSummaryItem = this.summaryItems[this.summaryItems.length - 1]
-    } else {
       this.summaryItems.forEach(summaryItem => {
+        if (summaryItem.element) {
+          this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
+        }
+      })
+    } else {
+      let gotIt = false
+      this.summaryItems.forEach((summaryItem, index) => {
         if (summaryItem.top < markdownContainer.scrollTop + this.summaryItems[0].top) {
           hlSummaryItem = summaryItem
+        } else {
+          gotIt = true
+        }
+        if (summaryItem.element && index > 0 && !gotIt) {
+          this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
         }
       })
     }
@@ -176,9 +190,12 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   updateSummarySelector() {
-    const rect = this.hlSummaryItem?.element?.getBoundingClientRect()
-    if (rect) {
-      this.elementSummarySelector.style.top = `${rect.top - rect.height}px`
+    if (this.summaryItems[0].element) {
+      const rect = this.summaryItems[0].element.getBoundingClientRect()
+      this.hlSummaryTop = rect.top - rect.height
+    }
+    if (this.hlSummaryTop) {
+      this.elementSummarySelector.style.top = `${this.hlSummaryTop + this.hlSummaryHeight}px`
       this.elementSummarySelector.style.opacity = '1'
     }
   }
