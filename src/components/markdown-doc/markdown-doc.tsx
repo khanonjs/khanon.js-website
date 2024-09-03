@@ -161,8 +161,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     this.hlSummaryHeight = 0
     if (markdownContainer.scrollTop > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
       hlSummaryItem = this.summaryItems[this.summaryItems.length - 1]
-      this.summaryItems.forEach(summaryItem => {
-        if (summaryItem.element) {
+      this.summaryItems.forEach((summaryItem, index) => {
+        if (summaryItem.element && index > 0) {
           this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
         }
       })

@@ -2,13 +2,15 @@
 
 As the title sais, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
 
-Babylon.js is the most powerful graphical engine for web browsers. If you don't know what Babylon.js is, please take a view to its [documentation](https://babylonjs.com/). To work with Khanon.js it is required to have some minimal knowledges of how Babylon.js works.
+Babylon.js is the most powerful graphical engine for web browsers. If you don't know what Babylon.js is, please take a view to its [site](https://babylonjs.com/). To work with Khanon.js it is required to have some minimal knowledges of how Babylon.js works.
 
 So.. what's the job of Khanon.js?
 
 Khanon.js brings a layer between Babylon.js and the final code, adding lifecycle to different objects as Secnes, Sprites, Meshes or Particles. It also brings common features that any video game could require like assets management between scenes, actors, notifications, scene maps, and many other things that will make the game development easier and enjoyable.
 
 All those features can be added to your project easily throught class decorators, making the code clean and reusable.
+
+Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and serving a layer between babylon.js and the logic of your game or application. It also presents some alternatives like the Logger class, which is slightly different.
 
 # How's the deal between Khanon.js and Babylon.js?
 
@@ -21,3 +23,5 @@ In the case of Babylon.js wrapped objects, apart of the extended features Khanon
 Khanon.js has been designed not to relying in Babylon objects properties. That means in most of cases you will be able to modify whatever you need in the Babylon object with the confidence that the code will flow as expected.
 
 To access the wrapped and related Babylon objects within the Khanon.js instances you'll find the accessor `babylon` (E.g *khanonSprite.babylon.sprite*)
+
+# WTF
