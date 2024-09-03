@@ -93,7 +93,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         summaryItem.element = element
         if (summaryItem.element.getAttribute(this.attrSummaryHighlight) !== null) {
           this.hlSummaryItem = summaryItem
-          this.updateSummarySelector()
+          this.updateSummarySelector(true)
         }
       }
     }
@@ -103,7 +103,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     if (element) {
       this.elementSummarySelector = element
       this.elementSummarySelector.style.opacity = '0'
-      this.updateSummarySelector()
+      this.updateSummarySelector(true)
     }
   }
 
@@ -126,7 +126,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleItemClick(event: React.MouseEvent) {
     const element = event.target as HTMLDivElement
-
     const sectionId = element.getAttribute('_sectionid')
     const ItemId = element.getAttribute('_itemid')
     if (sectionId) {
@@ -135,7 +134,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     if (ItemId) {
       this.props.storeItemId(ItemId)
     }
-
     if (element.getAttribute('_selected') === null) {
       const selectedElement = this.elementSections?.querySelectorAll('[_selected]')[0]
       selectedElement?.removeAttribute('_selected')
@@ -189,7 +187,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
   }
 
-  updateSummarySelector() {
+  updateSummarySelector(resetHeight?: boolean) {
+    if (resetHeight) {
+      this.hlSummaryHeight = 0
+    }
     if (this.summaryItems[0].element) {
       const rect = this.summaryItems[0].element.getBoundingClientRect()
       this.hlSummaryTop = rect.top - rect.height
