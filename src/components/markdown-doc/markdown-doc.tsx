@@ -155,9 +155,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
+    const top = markdownContainer.scrollTop + 100
     let hlSummaryItem: SummaryItem = this.summaryItems[0]
     this.hlSummaryHeight = 0
-    if (markdownContainer.scrollTop > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
+    if (top > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
       hlSummaryItem = this.summaryItems[this.summaryItems.length - 1]
       this.summaryItems.forEach((summaryItem, index) => {
         if (summaryItem.element && index > 0) {
@@ -167,7 +168,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     } else {
       let gotIt = false
       this.summaryItems.forEach((summaryItem, index) => {
-        if (summaryItem.top < markdownContainer.scrollTop + this.summaryItems[0].top) {
+        if (summaryItem.top < top + this.summaryItems[0].top) {
           hlSummaryItem = summaryItem
         } else {
           gotIt = true
@@ -193,7 +194,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
     if (this.summaryItems[0].element) {
       const rect = this.summaryItems[0].element.getBoundingClientRect()
-      this.hlSummaryTop = rect.top - rect.height
+      this.hlSummaryTop = rect.top + rect.height - 97
     }
     if (this.hlSummaryTop) {
       this.elementSummarySelector.style.top = `${this.hlSummaryTop + this.hlSummaryHeight}px`
