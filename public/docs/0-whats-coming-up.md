@@ -33,16 +33,16 @@ Some things in mind:
     - Adding more **scene maps for each kind of video game** (*E.g 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc*)
 
 &nbsp;
-    - Implement a **motion module** to easily move actors in different ways.
-
-&nbsp;
-    - Implement **chainable camera system** to make smooth transitions between states.
+    - Implement a **motion module** to easily move actors in different ways making use of the Babylon physics engine.
 
 &nbsp;
     - Creating a system to easily **generate physical shapes** in actors and scenes using the Babylon physics engine.
 
 &nbsp;
-    - Adding **support by CLI** to generate, modify and deploy projects.
+    - Implement **chainable camera system** to make smooth transitions.
+
+&nbsp;
+    - Adding a **CLI tool** to generate, modify and deploy projects.
 
 &nbsp;
     - And many more things!
