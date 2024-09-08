@@ -115,7 +115,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     hljs.highlightAll()
     // Makes all links open in a new tab
     Array.from(document.links)
-      .filter(link => link.hostname != window.location.hostname)
+      .filter(link => this.elementMarkdownContainer.contains(link))
       .forEach(link => link.target = '_blank')
   }
 
