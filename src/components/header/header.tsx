@@ -34,7 +34,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   render() {
-    // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
+    setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
     return (
       <div className={styles['header-container']}>
         <div

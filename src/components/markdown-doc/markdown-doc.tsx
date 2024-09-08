@@ -155,7 +155,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
-    const top = markdownContainer.scrollTop + 100
+    const top = markdownContainer.scrollTop + 120
     let hlSummaryItem: SummaryItem = this.summaryItems[0]
     this.hlSummaryHeight = 0
     if (top > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
@@ -264,9 +264,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   render() {
-    console.log('aki this.state.currentDoc', this.state.currentDoc)
     return (
-      <div className={ElementStyle.getClass(styles, ['container', 'font-roadgeek-regular'])}>
+      <div className={ElementStyle.getClass(styles, ['container', 'font-docfont-regular'])}>
         <div className={styles['header']}>
           <div className={styles['header-text']}>
             {this.state.sectionName}
