@@ -27,10 +27,10 @@ Khanon.js plans to integrate many features in **the future**.
 Some things in mind:
 
 &nbsp;
-    - Implement a **chainable system to trigger events in actors or scenes** according to other actions like input events, physics events, or whatever (*E.g actor.triggerer.keyPress('left').callMethod('moveLeft')*)
+    - Implement a **chainable system to trigger events in actors or scenes** according to other actions like input events, physics events, or whatever (*E.g. actor.triggerer.keyPress('left').callMethod('moveLeft')*)
 
 &nbsp;
-    - Adding more **scene maps for each kind of video game** (*E.g 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc*)
+    - Adding more **scene maps for each kind of video game** (*E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc*)
 
 &nbsp;
     - Implement a **motion module** to easily move actors in different ways making use of the Babylon physics engine.

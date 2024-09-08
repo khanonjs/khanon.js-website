@@ -16,7 +16,7 @@ code block
 ```
 
 &nbsp;
-    -  Add different scene maps for each kind of video game (E.g 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
+    -  Add different scene maps for each kind of video game (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
 
 &nbsp;
     -  Hola

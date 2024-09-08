@@ -2,7 +2,7 @@
 
 You need to have **basic knowledges** of ***Javascript***, ***Typescript*** and ***npm projects*** before starting a new project.
 
-It is not required to have video games development experience, Khanon.js is here to help you with that in case you are new in it.
+It is not required to have video games development experience, Khanon.js is here to help you in case you are new in it.
 
 In case you need to improve your ***Javascript*** skills, I truly recommend a books series titled 'You don't know JS'.
 

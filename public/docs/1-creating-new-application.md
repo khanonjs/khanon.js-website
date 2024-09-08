@@ -2,7 +2,7 @@
 
 Creating a new application is as simple as creating an empty class decorated by the [***App decorator***](https://khanonjs.com/api-docs/functions/decorators_app.App.html). That is everything you need to run a new app. Your app class has to *extend* the [*AppInterface*](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) class, which contains properties and methods of your application.
 
-Place this code in the ***app.ts*** file:
+To create an application place this code in the ***app.ts*** file:
 ```
 import {
   App,
