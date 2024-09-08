@@ -3,11 +3,29 @@
 At the moment, **Khanon.js is in a BETA** state. This means we are still testing it and finishing the main modules. That's why its current version is lower than 1.
 Once everything is ready we will publish the first production version of the engine.
 
+To have the **first production** version we still have to implement these items:
+
+&nbsp;
+    - Meshes decorator.
+
+&nbsp;
+    - *SpriteMap* to build sprite based scenes.
+
+&nbsp;
+    - *MeshMap* to build mesh based scenes.
+
+&nbsp;
+    - Project *builder* system (webpack).
+
+&nbsp;
+    - *Debug* and *production* versions.
+
+&nbsp;
 # Further future
 
 Khanon.js plans to integrate many features at some point, after the first production version is released.
 
-Some things we have in mind:
+Some things in mind for **the future**:
 
 &nbsp;
     - Implement a chainable system to trigger events in actors or scenes according to other actions like input events, physics events, or whatever (*E.g actor.triggerer.keyPress('left').callMethod('moveLeft')*)

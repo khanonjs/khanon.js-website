@@ -42,7 +42,6 @@ export class GetStartedPage extends PageBase {
               section: 'Creating a new game',
               docs: [
                 { title: 'Starting a new project', markdown: Docs.get('1-starting-new-project') },
-                { title: 'Installing dependencies', markdown: Docs.get('1-installing-dependencies') },
                 { title: 'Creating a new application', markdown: Docs.get('1-creating-new-application') },
                 { title: 'Deploying to a server', markdown: Docs.get('1-deploying-to-server') },
               ]

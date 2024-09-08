@@ -264,6 +264,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   render() {
+    console.log('aki this.state.currentDoc', this.state.currentDoc)
     return (
       <div className={ElementStyle.getClass(styles, ['container', 'font-roadgeek-regular'])}>
         <div className={styles['header']}>
