@@ -1,6 +1,8 @@
 # What is Khanon.js?
 
-As the title sais, Khanon.js is a **game engine extending Babylon.js**, although it could also be considered a framework.
+## KHANON.JS WANTS THE USER TO FOCUS IN THE GAME DESIGN
+
+As the title sais, **Khanon.js is a game engine extending Babylon.js**, although it could also be considered a framework.
 
 **Babylon.js** is the most powerful **graphical engine** for web browsers, and it is open source! If you don't know what Babylon.js is, please take a view to the [Babylon.js site](https://babylonjs.com/).
 
