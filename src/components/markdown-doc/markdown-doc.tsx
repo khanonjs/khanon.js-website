@@ -113,6 +113,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   componentDidUpdate() {
     hljs.highlightAll()
+    // Makes all links open in a new tab
+    Array.from(document.links)
+      .filter(link => link.hostname != window.location.hostname)
+      .forEach(link => link.target = '_blank')
   }
 
   handleSectionClick(event: React.MouseEvent) {
