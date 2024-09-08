@@ -24,7 +24,7 @@ Khanon.js is an **instanceless framework** (as many others like Angular, Nest or
 &nbsp;
 # How's the deal between Khanon.js and Babylon.js?
 
-**In some cases Khanon.js works with its own implementation**, like the case of *Actors*. *Actors* are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever. This element is fully provided by Khanon.js, so it doesn't have any relation with Babylon.js.
+**In some cases Khanon.js works with its own implementation**, like the case of *Actors*. *Actors* are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever. This element is fully provided by Khanon.js, so it doesn't have a direct relation with a Babylon.js object.
 
 **In other cases the Khanon.js object wraps an existing Babylon object**, like *Scenes*, *Sprites*, *Meshes* or *Particles*.
 
