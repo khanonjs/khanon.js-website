@@ -8,7 +8,7 @@ As the title sais, **Khanon.js is a game engine extending Babylon.js**, although
 
 So.. what's the job of Khanon.js?
 
-**Khanon.js adds a layer between Babylon.js and the logic of your game**, adding **lifecycle** to different objects as *Scenes*, *Sprites*, *Meshes* or *Particles*; common features that any video game could require like **assets management between scenes, actors, notifications, scene maps, and many other things** that will make the game development easier and enjoyable.
+**Khanon.js adds a layer between Babylon.js and the logic of your game**, adding **lifecycle** to different objects as *Scenes*, *Sprites*, *Meshes* or *Particles*; and common features that any video game could require like **assets management between scenes, actors, notifications, scene maps, and many other things** that will make the game development easier and enjoyable.
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the *Logger* class, which is slightly different.
 
@@ -19,7 +19,7 @@ Khanon.js is fully developed in [Typescript](https://www.typescriptlang.org/).
 
 All the features mentioned before will be easily added to your project throught **class, method, or property decorators**, making the **code clean and reusable**.
 
-You can for example create an action which consist in rendering rain over the scene. This action would be developed in a `SceneAction` decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
+You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a `SceneAction` decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
 
 Khanon.js is an **instanceless framework** (as many others like Angular, Nest or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
