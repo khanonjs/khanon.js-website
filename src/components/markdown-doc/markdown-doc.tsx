@@ -112,7 +112,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   componentDidUpdate() {
-    hljs.highlightAll()
+    hljs.highlightAll() // 8a8f highlight not working well when changing from section to code to another section with code (check APP sections)
     // Makes all links open in a new tab
     Array.from(document.links)
       .filter(link => this.elementMarkdownContainer.contains(link))
