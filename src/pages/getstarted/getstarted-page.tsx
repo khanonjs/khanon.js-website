@@ -47,7 +47,7 @@ export class GetStartedPage extends PageBase {
               ]
             },
             {
-              section: 'Application flow',
+              section: 'Application',
               docs: [
                 { title: 'Overview', markdown: Docs.get('2-overview') },
                 { title: 'Using the App interface', markdown: Docs.get('2-using-app-instance') },

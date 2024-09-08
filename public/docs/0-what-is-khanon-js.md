@@ -34,12 +34,12 @@ In the case of Babylon wrapped objects, apart of the extended features Khanon.js
 
 Khanon.js has been designed to not to rely in Babylon objects properties. That means **in most of cases you will be able to modify whatever you need in the Babylon object with the confidence that the code will flow as expected**.
 
-**To access** the wrapped or related **Babylon objects** within a Khanon.js instance you'll find the **accessor** `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
+**To access** a wrapped or related **Babylon object** within a Khanon.js instance you'll find the **accessor** `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
 
 &nbsp;
 # Motivation of this project
 
-When I firstly began working with **Babylon.js** to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Despite Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to it to simplify the development process.
+When I firstly began working with **Babylon.js** to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Despite Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 

@@ -153,7 +153,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         this.elementMarkdownContainer.style.opacity = '1'
         this.elementMarkdownContainer.scrollTop = 0
       }, 0)
-
     }
   }
 

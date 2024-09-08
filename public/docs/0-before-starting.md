@@ -4,7 +4,7 @@ You need to have **basic knowledges** of ***Javascript***, ***Typescript*** and 
 
 It is not required to have video games development experience, Khanon.js is here to help you in case you are new in it.
 
-In case you need to improve your ***Javascript*** skills, I truly recommend a books series titled 'You don't know JS'.
+In case you want to improve your ***Javascript*** skills, I truly recommend a books series titled 'You don't know JS'.
 
 ***Typescript*** documentation can be found [here](https://www.typescriptlang.org/docs/).
 

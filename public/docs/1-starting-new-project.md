@@ -31,11 +31,11 @@ The ***public*** folder contains all the neccesary files to run the Web Applicat
 
 In the body of the *HTML* it is just needed `<div id="khanonjs"></div>`. Khanon.js uses that *id* by default to create the canvas, although you can change it from the [*App decorator properties*](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#htmlCanvasContainerId).
 
-You can place that *div* within any other *div* to add a background to your application, and nest it under other containers such an error page container that is hidden by default and you can display in case there's some app critical error (check [*onError*](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) method).
+You can place that *div* within any other *div* to add a background to your application, and nest it under other containers such an error page container that is hidden by default and you can show in case there's some app critical error (check [*onError*](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) method).
 
 ## Assets folder
 
-The ***assets*** folder placed inside the *public* folder is meant to contain all the app assets such images, sounds, fonts, etc.
+The ***assets*** folder placed into *public* is meant to contain all the app assets such images, sounds, fonts, etc.
 
 # Dist folder
 

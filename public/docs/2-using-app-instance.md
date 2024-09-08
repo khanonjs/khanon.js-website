@@ -1,4 +1,48 @@
-# Get Started 6
+# App interface
+The App decorated class must extend [*AppInterface*](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to gain access to the App methods and properties.
 
+It is possible to setup the Babylon engine configuration from the decorator property [***engineConfiguration***](https://khanonjs.com/api-docs/types/types.EngineConfiguration.html). Check the [*App props*](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what to configure here.
 
-# What is Khanon.js?
+**app.ts**
+```
+import {
+  App,
+  AppInterface
+} from '@khanonjs/engine'
+
+@App({
+  name: 'My App',
+  loopUpdate: {
+    fps: 165
+  }
+})
+export class MyApp extends AppInterface {
+  onStart() {
+    // Entrypoint
+  }
+
+  onClose() {
+    // App close
+  }
+
+  onError(error?: string) {
+    // Critical error
+  }
+}
+```
+
+This interface implements the abstract callback [***onStart***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart), which is called when the App is ready to start. This is the **entrypoint** of the application.
+
+I can also implement the optional callbacks [***onError***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) to handle a critical error and [***onClose***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onClose) to handle the application close.
+
+Use the [***switchtState***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState) method to switch to a new App State.
+All states have a ***setup*** object to **configure the new state**, which is passed in the second argument. Everytime the app switchs to another state, a new instance of the state is created.
+```
+onStart() {
+  // Entrypoint
+  this.switchState(LoadingState, {})
+}
+```
+
+The application can also receive notifications through the [**notify**](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) method.
+Read more about notifications in the **Notifications** section.
