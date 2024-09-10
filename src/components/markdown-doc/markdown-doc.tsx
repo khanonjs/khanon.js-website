@@ -108,11 +108,20 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   componentDidMount() {
-    hljs.highlightAll()
+    this.parseMarkdown()
   }
 
   componentDidUpdate() {
-    hljs.highlightAll() // 8a8f highlight not working well when changing from section to code to another section with code (check APP sections)
+    this.parseMarkdown()
+  }
+
+  parseMarkdown() {
+    // Remove 'data-highlighted' or highlight library won't work
+    this.elementMarkdownContainer?.querySelectorAll('[data-highlighted]')?.forEach(element => {
+      element.removeAttribute('data-highlighted')
+    })
+    hljs.highlightAll()
+
     // Makes all links open in a new tab
     Array.from(document.links)
       .filter(link => this.elementMarkdownContainer.contains(link))

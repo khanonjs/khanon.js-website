@@ -17,7 +17,7 @@ Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instea
 
 Khanon.js is fully developed in [Typescript](https://www.typescriptlang.org/).
 
-All the features mentioned before will be easily added to your project throught **class, method, or property decorators**, making the **code clean and reusable**.
+All the features mentioned before are easily implemented to your project throught **class, method, or property decorators**, making the **code clean and reusable**.
 
 You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a `SceneAction` decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
 
@@ -39,7 +39,7 @@ Khanon.js has been designed to not to rely in Babylon objects properties. That m
 &nbsp;
 # Motivation of this project
 
-When I firstly began working with **Babylon.js** to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Despite Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
+When I firstly began working with **Babylon.js** to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 

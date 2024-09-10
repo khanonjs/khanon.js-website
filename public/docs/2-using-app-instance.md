@@ -33,7 +33,7 @@ export class MyApp extends AppInterface {
 
 This interface implements the abstract callback [***onStart***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart), which is called when the App is ready to start. This is the **entrypoint** of the application.
 
-I can also implement the optional callbacks [***onError***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) to handle a critical error and [***onClose***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onClose) to handle the application close.
+There can also be implemented the optional callbacks [***onError***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) to handle a critical error and [***onClose***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onClose) to handle the application close.
 
 Use the [***switchtState***](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState) method to switch to a new App State.
 All states have a ***setup*** object to **configure the new state**, which is passed in the second argument. Everytime the app switchs to another state, a new instance of the state is created.

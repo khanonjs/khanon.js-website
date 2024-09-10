@@ -30,9 +30,9 @@
   display: flex;
   flex-direction: row;
   height: calc(100vh - 9.3em);
-  // text-align: justify;
+  line-height: 1.9em;
   text-align: left;
-  line-height: 2.1em;
+  font-size: 0.9em;
 }
 
 .sections-container {
@@ -130,6 +130,7 @@
   padding-left: 2em;
   padding-right: 2em;
   transition: 0.3s;
+  line-height: 1.9em;
 }
 
 .summary-container {

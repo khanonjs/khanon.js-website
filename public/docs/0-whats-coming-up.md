@@ -48,6 +48,9 @@ Some things in mind:
     - Implement **chainable camera system** to make smooth transitions.
 
 &nbsp;
+    - Support **sockets** for online comms.
+
+&nbsp;
     - Adding a **CLI tool** to generate and modify projects.
 
 &nbsp;
