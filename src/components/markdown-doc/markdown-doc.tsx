@@ -116,7 +116,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   parseMarkdown() {
-    // Remove 'data-highlighted' or highlight library won't work
+    // Remove 'data-highlighted' or highlight library won't work properly
     this.elementMarkdownContainer?.querySelectorAll('[data-highlighted]')?.forEach(element => {
       element.removeAttribute('data-highlighted')
     })
