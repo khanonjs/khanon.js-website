@@ -64,7 +64,7 @@ The ***AppState* can also receive notifications** through the [***notify***](htt
 
 ## Loop Update
 
-Every *AppState* can define the [***onLoopUpdate***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate). **This callback creates an observer to the app Loop Update**, being called every frame. It is possible to add here some logic to check anything needed in the game and perform an action in consequence.
+Every *AppState* can define the [***onLoopUpdate***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate). **This callback creates an observer to the app Loop Update**, being called every frame. It is possible to add here some logic to check anything needed in the game and perform any action in consequence.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
