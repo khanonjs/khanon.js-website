@@ -31,6 +31,7 @@ interface SummaryItem {
   element: HTMLDivElement | null
 }
 
+// TODO use hash symbol to jump to different sections
 export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocStates> {
   private keyId = -1
   private renderedSections: JSX.Element[]
