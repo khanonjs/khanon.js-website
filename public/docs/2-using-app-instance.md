@@ -44,5 +44,6 @@ onStart() {
 }
 ```
 
-The application can also receive notifications through the [**notify**](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) method.
-Read more about notifications in the **Notifications** section.
+## Notifications
+
+The *App* can also **receive notifications** through the [**notify**](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) method or the global [***KJS.Notify.send***](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the **Notifications** section.
