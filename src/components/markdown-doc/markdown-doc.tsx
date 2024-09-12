@@ -48,7 +48,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     super(props)
     const section = this.props.documents[this.props.initialSectionId]
     this.state = {
-      sectionName: section.section,
+      sectionName: this.getSectionTitle(section.section, section.docs[this.props.initialItemId].title),
       currentDoc: section.docs[this.props.initialItemId].markdown
     }
     hljs.registerLanguage('json', json)
@@ -153,16 +153,19 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       selectedElement?.removeAttribute('_selected')
       element.setAttribute('_selected', '')
       const section = this.props.documents.find(doc => doc.section === element.getAttribute('section'))
-      const markdown = section?.docs.find(doc => doc.title === element.getAttribute('title'))?.markdown
-      this.elementMarkdownContainer.style.opacity = '0'
-      this.setState({ sectionName: section?.section as string })
-      setTimeout(() => {
-        this.summaryItems = []
-        this.hlSummaryItem = undefined
-        this.setState({ currentDoc: markdown as string })
-        this.elementMarkdownContainer.style.opacity = '1'
-        this.elementMarkdownContainer.scrollTop = 0
-      }, 0)
+      const title = element.getAttribute('title')
+      if (section && title) {
+        const markdown = section?.docs.find(doc => doc.title === title)?.markdown
+        this.elementMarkdownContainer.style.opacity = '0'
+        this.setState({ sectionName: this.getSectionTitle(section.section, title) })
+        setTimeout(() => {
+          this.summaryItems = []
+          this.hlSummaryItem = undefined
+          this.setState({ currentDoc: markdown as string })
+          this.elementMarkdownContainer.style.opacity = '1'
+          this.elementMarkdownContainer.scrollTop = 0
+        }, 0)
+      }
     }
   }
 
@@ -199,6 +202,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       this.hlSummaryItem.element?.setAttribute(this.attrSummaryHighlight, '')
       this.updateSummarySelector()
     }
+  }
+
+  getSectionTitle(sectionName: string, itemName: string) {
+    return sectionName // `${sectionName}, ${itemName}`
   }
 
   updateSummarySelector(resetHeight?: boolean) {
