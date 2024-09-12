@@ -1,4 +1,4 @@
-# App State
+# App State overview
 [***App States***](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) makes reference to the **current state of the application**. This means each *App State* decides what to load on self start, what to unload on self end, and it decides when and how the application changes of state.
 
 This is better explained with an example:

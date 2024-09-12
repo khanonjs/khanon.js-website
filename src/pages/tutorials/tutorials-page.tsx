@@ -7,7 +7,8 @@ export class TutorialsPage extends PageBase {
   sectionId: number
   itemId: number
 
-  componentWillMount(): void {
+  constructor(props) {
+    super(props)
     this.sectionId = Number(localStorage.getItem('tutorials_SectionId') ?? 0)
     this.itemId = Number(localStorage.getItem('tutorials_ItemId') ?? 0)
   }

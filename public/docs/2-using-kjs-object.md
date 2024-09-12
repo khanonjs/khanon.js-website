@@ -108,9 +108,9 @@ Sometimes you might want to **rearrange the layers of your game depending on the
 
 As *LoopUpdate*, many Khanon.js elements have a callback method for *CanvasResize*, but you can also subscribe manually to it.
 
-To manually subscribe to the *CanvasResize* observable use [***KJS.addCanvasResizeObserver***](https://khanonjs.com/api-docs/functions/kjs.KJS.addCanvasResizeObserver.html) method.
+To manually subscribe to the *CanvasResize* observable use [***KJS.canvasResizeAddObserver***](https://khanonjs.com/api-docs/functions/kjs.KJS.canvasResizeAddObserver.html) method.
 
-To unsubscribe [***KJS.removeCanvasResizeObserver***](https://khanonjs.com/api-docs/functions/kjs.KJS.removeCanvasResizeObserver.html).
+To unsubscribe [***KJS.canvasResizeRemoveObserver***](https://khanonjs.com/api-docs/functions/kjs.KJS.canvasResizeRemoveObserver.html).
 
 The observers receive a [***Rect***](https://khanonjs.com/api-docs/interfaces/models.Rect.html) argument with the *width* and *height* of the canvas. You can use it to calculate the ratio and adapt the game layers.
 
@@ -131,4 +131,4 @@ The [***KJS***](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has s
     -  [***KJS.setTimeout***](https://khanonjs.com/api-docs/functions/kjs.KJS.setTimeout.html), [***KJS.setInterval***](https://khanonjs.com/api-docs/functions/kjs.KJS.setInterval.html) are similar to the Javascript native methods. The difference with them is that *KJS* methods are attached to the *KJS LoopUpdate* method. This prevents some inconsistencies in case the browser tab is unfocused. This happens because when the browser tab is unfocused, the browser applies a delay to the native *setTimeout* and *setInterval*, what could drive to trigger the timeout methods unsynchronized with *LoopUpdate*. **Use *KJS* timeout methods in case you want to synchronize them with *KJS LoopUpdate*.**
 
 &nbsp;
-    -  [***KJS.clearTimeout***](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html), [***KJS.clearTimeout***](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html) to clear a *KJS* timeout or interval.
+    -  [***KJS.clearTimeout***](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html), [***KJS.clearInterval***](https://khanonjs.com/api-docs/functions/kjs.KJS.clearInterval.html) to clear a *KJS* timeout or interval.
