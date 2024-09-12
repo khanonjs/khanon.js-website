@@ -42,10 +42,13 @@ import { MySceneState } from './my-scene-state'
     MyGUI
   ]
 })
-export class AppStateIntro extends AppStateInterface {
+export class AppStateIntro extends AppStateInterface<{ /* S = setup object */ }> {
   onStart() {
     KJS.Scene.start(MyScene, MySceneState, {})
     KJS.GUI.start(MyGUI, MyGUIState, {})
+
+    // Setup object is accesible
+    const setup = this.setup
   }
 
   onEnd() {
@@ -56,6 +59,32 @@ export class AppStateIntro extends AppStateInterface {
   }
 }
 ```
+
+## Setup of the state
+
+In case you need to **apply a setup to the state**, it is possible tough the **generic interface `S`** of [***AppStateInterface***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
+Everytime the state has been switched, the caller will need to pass the *setup* argument. If *setup* is not defined in the *AppStateInterface* generic `S` interface, an empty object will be passed from the switch methods:
+```
+export class AppStateIntro extends AppStateInterface { // Undefined setup generic
+// ...
+}
+...
+KJS.switchAppState(AppStateIntro, {})
+```
+```
+export class AppStateIntro extends AppStateInterface<playerName: string, currentLevel: number> { // Defined setup generic
+// ...
+}
+...
+KJS.switchAppState(AppStateIntro, {
+  playerName: 'some-name',
+  currentLevel: 0
+})
+```
+
+The *state* **setup object is accessible** from the [`setup`](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#setup) accessor.
+
+## Callbacks
 
 All elements declared in the [*AppStateProps*](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html) will be loaded by Khanon.js, that way they are available in the [***onStart***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback. At that point, the previous state ends and is unloaded. Therefore the [***onEnd***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onEnd) callback of our state will be called after a next state has been loaded and started.
 
@@ -71,6 +100,8 @@ onLoopUpdate(delta: number) {
   // Add logic here
 }
 ```
+
+The [***onLoopUpdate***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback can be **enabled** or **disabled** using the [`loopUpdate`](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#loopUpdate) accessor.
 
 ## Canvas Resize
 
