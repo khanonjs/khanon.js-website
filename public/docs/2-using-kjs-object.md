@@ -9,7 +9,6 @@ onStart() {
 }
 ```
 
-&nbsp;
 # Scene namespace
 
 Use the [***Scene***](https://khanonjs.com/api-docs/modules/kjs.KJS.Scene.html) namespace to **load, unload, start or stop** a *Scene*.
@@ -22,7 +21,6 @@ example() {
 }
 ```
 
-&nbsp;
 # GUI namespace
 
 Use the [***GUI***](https://khanonjs.com/api-docs/classes/decorators_gui.GUIInterface.html) namespace to **load, unload, start or stop** a *GUI*.
@@ -35,7 +33,6 @@ example() {
 }
 ```
 
-&nbsp;
 # Notify namespace
 
 Use the [***Notify***](https://khanonjs.com/api-docs/modules/kjs.KJS.Notify.html) namespace to send messages globally. Read more int he **Notifications** section
@@ -45,7 +42,6 @@ example() {
 }
 ```
 
-&nbsp;
 # Loading progress observables
 
 Calling the **load** method of any class or namespace returns a [***LoadingProgress***](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object. This object has three observables that you need to subscribe to receive loading progress events.
@@ -94,7 +90,6 @@ export class MyApp extends AppInterface {
 ```
 That's the way to start the application and go to the first game screen.
 
-&nbsp;
 # Loop Update observable
 
 The ***LoopUpdate*** core method makes reference to the **game timeline progression**, so called *game loop* commonly, it is the frame by frame update of the game. Every frame this core method is called, and it triggers all the observables added to it. That way the game physics, movements, events, and whatever relying on time is updated.
@@ -107,7 +102,6 @@ To unsubscribe [***KJS.loopUpdateRemoveObserver***](https://khanonjs.com/api-doc
 
 The observers receive a **factor time** argument, meaning the **frame proportion** to be updated, which couild be considered the time factor velocity. It is 1 for a normal time velocity.
 
-&nbsp;
 # Canvas Resize observable
 
 Sometimes you might want to **rearrange the layers of your game depending on the browser *width* and *height* ratio**. This is complex enough as not to have an automatic system, but you can do it manually through the *CanvasResize* observable.
@@ -120,7 +114,6 @@ To unsubscribe [***KJS.removeCanvasResizeObserver***](https://khanonjs.com/api-d
 
 The observers receive a [***Rect***](https://khanonjs.com/api-docs/interfaces/models.Rect.html) argument with the *width* and *height* of the canvas. You can use it to calculate the ratio and adapt the game layers.
 
-&nbsp;
 # Global actions
 
 The [***KJS***](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has some useful methods to perform global actions:

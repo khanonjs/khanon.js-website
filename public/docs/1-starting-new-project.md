@@ -8,7 +8,6 @@ You can **find** a working **blank project** [here](https://github.com/khanonjs/
 
 You can start adding your files there. In a coming future Khanon.js will have a ***khanonjs-cli*** utility to generate new projects.
 
-&nbsp;
 # Package dependencies
 
 The **production version** of Khanon.js avoids any kind of dependency. This helps to have a clean and lightweight bundle. The only needed dependency for production version is `babylon.js`.
@@ -17,12 +16,10 @@ Therefore the only packages you need to add to your *dependencies* in the *packa
 
 The **development version** needs more dependencies for the babylon debugging tools `@babylonjs/inspector` and some `webpack` packages. Feel free to add *prettier* or the *linter* of your convenience. In a coming future ***khanonjs-cli*** will do that job for you.
 
-&nbsp;
 # Src folder
 
 The ***src*** folder contains all the source code files. Commonly the main file of this folder is ***app.ts***, which contains the *App class* that starts the application. From there, the source code tree starts growing up from other source files and folders. These source files are *bundled* in a single file running the `npm run build` script; ***app.js*** is created and placed in the *dist* folder beside the rest of the public files.
 
-&nbsp;
 # Public folder
 
 The ***public*** folder contains all the neccesary files to run the Web Application. The main file here is `index.html`, which has a *div* container that *Khanon.js* will use to create a canvas for *Babylon.js*.

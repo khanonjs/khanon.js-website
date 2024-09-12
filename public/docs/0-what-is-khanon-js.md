@@ -1,6 +1,7 @@
 # What is Khanon.js?
 
-## KHANON.JS WANTS THE USER TO FOCUS IN THE GAME DESIGN
+KHANON.JS WANTS THE USER TO FOCUS IN THE GAME DESIGN
+----------------------------------------------------
 
 As the title sais, **Khanon.js is a game engine extending Babylon.js**, although it could also be considered a framework.
 
@@ -12,7 +13,6 @@ So.. what's the job of Khanon.js?
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the *Logger* class, which is slightly different.
 
-&nbsp;
 # What about the code?
 
 Khanon.js is fully developed in [Typescript](https://www.typescriptlang.org/).
@@ -23,7 +23,6 @@ You can for example create an action which consist in rendering rain over the sc
 
 Khanon.js is an **instanceless framework** (as many others like Angular, Nest or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
-&nbsp;
 # How's the deal between Khanon.js and Babylon.js?
 
 **In some cases Khanon.js works with its own implementation**, like the case of *Actors*. *Actors* are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever. This element is fully provided by Khanon.js, so it doesn't have a direct relation with a Babylon.js object.
@@ -36,7 +35,6 @@ Khanon.js has been designed to not to rely in Babylon objects properties. That m
 
 **To access** a wrapped or related **Babylon object** within a Khanon.js instance you'll find the **accessor** `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
 
-&nbsp;
 # Motivation of this project
 
 When I firstly began working with **Babylon.js** to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.

@@ -22,7 +22,6 @@ To have the **first production** version we still have to implement these items:
 &nbsp;
     - ***Debug*** and ***production*** versions.
 
-&nbsp;
 # Further future
 
 Khanon.js plans to integrate many features in **the future**.

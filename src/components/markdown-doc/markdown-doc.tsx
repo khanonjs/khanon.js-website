@@ -51,12 +51,16 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       sectionName: this.getSectionTitle(section.section, section.docs[this.props.initialItemId].title),
       currentDoc: section.docs[this.props.initialItemId].markdown
     }
+    hljs.configure({
+      ignoreUnescapedHTML: true
+    })
     hljs.registerLanguage('json', json)
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('typescript', typescript)
     hljs.registerLanguage('xml', xml)
     this.renderedSections = this.props.documents.map((section, index) => this.renderSection(section, index))
     this.summaryItems = []
+    this.parseMarkdownDocuments()
   }
 
   popKey() {
@@ -109,14 +113,23 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   componentDidMount() {
-    this.parseMarkdown()
+    this.fixMarkdown()
   }
 
   componentDidUpdate() {
-    this.parseMarkdown()
+    this.fixMarkdown()
   }
 
-  parseMarkdown() {
+  parseMarkdownDocuments() {
+    this.props.documents.forEach(document => {
+      document.docs.forEach(doc => {
+        doc.markdown = doc.markdown.replaceAll('\n## ', '&nbsp;\n## ')
+        doc.markdown = doc.markdown.replaceAll('\n# ', '&nbsp;\n# ')
+      })
+    })
+  }
+
+  fixMarkdown() {
     // Remove 'data-highlighted' or highlight library won't work properly
     this.elementMarkdownContainer?.querySelectorAll('[data-highlighted]')?.forEach(element => {
       element.removeAttribute('data-highlighted')

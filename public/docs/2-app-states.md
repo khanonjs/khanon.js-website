@@ -5,7 +5,6 @@ This is better explained with an example:
 
 Once the application has started, the [*onStart*](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) App callback is invoked. At this point, instead loading a *GUI* or *Scene*, you can start the ***MainMenuAppState***. This state loads a ***MainMenuBackgroundScene***, and a ***MainMenuGUI***. After those two are loaded, ***MainMenuAppState*** receives the [*onComplete*](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [*LoadingProgress*](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both *Scene* and *GUI*. The end of ***MainMenuAppState*** will unload both ***MainMenuBackgroundScene*** and ***MainMenuGUI***.
 
-&nbsp;
 # Switching to a new App State
 
 There are two ways to switch to a new App State:
@@ -18,7 +17,6 @@ There are two ways to switch to a new App State:
 
 After switching to a new App State, **Khanon.js will load the *Scenes* and *GUIs* declared in the** [***AppStateProps***](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends (unloading its *Scenes* and *GUIs*), and the next state starts.
 
-&nbsp;
 # Using the AppState interface
 
 To implement an App State you need to use the [***AppStateDecorator***](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend the [***AppStateInterface***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html):

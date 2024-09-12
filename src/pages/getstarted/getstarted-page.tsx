@@ -7,17 +7,18 @@ export class GetStartedPage extends PageBase {
   sectionId: number
   itemId: number
 
-  componentWillMount(): void {
-    this.sectionId = Number(localStorage.getItem('tutorials_SectionId') ?? 0)
-    this.itemId = Number(localStorage.getItem('tutorials_ItemId') ?? 0)
+  constructor(props) {
+    super(props)
+    this.sectionId = Number(localStorage.getItem('getstarted_SectionId') ?? 0)
+    this.itemId = Number(localStorage.getItem('getstarted_ItemId') ?? 0)
   }
 
   storeSectionId(sectionId: string) {
-    localStorage.setItem('tutorials_SectionId', sectionId)
+    localStorage.setItem('getstarted_SectionId', sectionId)
   }
 
   storeItemId(itemId: string) {
-    localStorage.setItem('tutorials_ItemId', itemId)
+    localStorage.setItem('getstarted_ItemId', itemId)
   }
 
   renderPage() {
