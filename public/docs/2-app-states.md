@@ -86,7 +86,7 @@ The *state* **setup object is accessible** from the [`setup`](https://khanonjs.c
 
 ## Callbacks
 
-All elements declared in the [*AppStateProps*](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html) will be loaded by Khanon.js, that way they are available in the [***onStart***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback. At that point, the previous state ends and is unloaded. Therefore the [***onEnd***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onEnd) callback of our state will be called after a next state has been loaded and started.
+All elements declared in the [*AppStateProps*](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html) will be loaded by Khanon.js, that way they are available in the [***onStart***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback. After they have been loaded, the previous state ends and is unloaded. Therefore the [***onEnd***](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onEnd) callback of our state will be called after the next state has been loaded and started.
 
 ## Notifications
 
