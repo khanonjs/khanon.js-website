@@ -1,6 +1,6 @@
-import { Docs } from '../../classes/docs'
 import { PageBase } from '../../classes/page-base'
 import { MarkdownDoc } from '../../components/markdown-doc/markdown-doc'
+import { tutorialsDocs } from '../../doc-definitions'
 import styles from './tutorials-page.module.scss'
 
 export class TutorialsPage extends PageBase {
@@ -29,7 +29,7 @@ export class TutorialsPage extends PageBase {
           storeSectionId={this.storeSectionId.bind(this)}
           initialItemId={this.itemId}
           storeItemId={this.storeItemId.bind(this)}
-          documents={[]}
+          documents={tutorialsDocs}
         />
       </div>
     )

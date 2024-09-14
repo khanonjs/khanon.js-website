@@ -1,4 +1,3 @@
-import { Docs } from '../../classes/docs'
 import { PageBase } from '../../classes/page-base'
 import { MarkdownDoc } from '../../components/markdown-doc/markdown-doc'
 import { getStartedDocs } from '../../doc-definitions'
