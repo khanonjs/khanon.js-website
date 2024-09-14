@@ -175,7 +175,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
-    const top = markdownContainer.scrollTop + 120
+    const top = markdownContainer.scrollTop + 70
     let hlSummaryItem: SummaryItem = this.summaryItems[0]
     this.hlSummaryHeight = 0
     if (top > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
