@@ -3,16 +3,21 @@
 
 Once the app has been loaded and the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback has been invoked, you can use KJS to load the first scene and GUI. Those two methods return a [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object.
 ```
+import { KJS } from '@khanonjs/engine'
+...
 onStart() {
   const progressScene = KJS.Scene.load(MyFirstScene)
   const progressGUI = KJS.GUI.load(MainMenuGUI)
 }
+...
 ```
 
 # Scene namespace
 
 Use the [Scene](https://khanonjs.com/api-docs/modules/kjs.KJS.Scene.html) namespace to load, unload, start or stop a scene.
 ```
+import { KJS } from '@khanonjs/engine'
+
 example() {
   KJS.Scene.load(MyScene)
   KJS.Scene.unload(MyScene)
@@ -25,6 +30,8 @@ example() {
 
 Use the [GUI](https://khanonjs.com/api-docs/classes/decorators_gui.GUIInterface.html) namespace to load, unload, start or stop a GUI.
 ```
+import { KJS } from '@khanonjs/engine'
+
 example() {
   KJS.GUI.load(MyGUI)
   KJS.GUI.unload(MyGUI)
@@ -37,6 +44,8 @@ example() {
 
 Use the [Notify](https://khanonjs.com/api-docs/modules/kjs.KJS.Notify.html) namespace to send messages globally. Read more int he Notifications section
 ```
+import { KJS } from '@khanonjs/engine'
+
 example() {
   KJS.Notify.send(message, receivers, ...args)
 }

@@ -34,7 +34,7 @@ Khanon.js has been designed to not to rely in Babylon objects properties. That m
 
 To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
 
-# Motivation of this project
+# Motivation
 
 When I firstly began working with Babylon.js to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
@@ -42,4 +42,4 @@ So, as expected, instead working in my personal webpage, I ended up working in a
 
 The big change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of Typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
 
-**Khanon.js wants the user to focus in the game design. That's the main goal of this project.**
+**Khanon.js wants the user to focus in the game design. That's the main goal of Khanon.js.**
