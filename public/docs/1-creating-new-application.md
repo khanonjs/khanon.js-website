@@ -23,4 +23,4 @@ The [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.
 
 To setup the Babylon.js engine configuration use the [engineConfiguration](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#engineConfiguration) decorator property. All the Babylon configuration properties are accessible from there.
 
-Check the [App decorator properties](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what you can setup there.
+Check the decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what you can setup there.

@@ -1,5 +1,5 @@
 # What is the KJS object?
-[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object makes reference to a global handler of the application. This global object is accessible from anywhere and it communicates with the app. It can be used to switch the app state; load, unload, start or stop Scenes and GUIs; send Notifications; and some other global actions.
+[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object makes reference to a global handler of the application. This global object is accessible from anywhere and it communicates with the app. It can be used to switch the app state; load, unload, start or stop scenes and GUIs; send Notifications; and some other global actions.
 
 Once the app has been loaded and the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback has been invoked, you can use KJS to load the first scene and GUI. Those two methods return a [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object.
 ```
@@ -11,7 +11,7 @@ onStart() {
 
 # Scene namespace
 
-Use the [Scene](https://khanonjs.com/api-docs/modules/kjs.KJS.Scene.html) namespace to load, unload, start or stop a Scene.
+Use the [Scene](https://khanonjs.com/api-docs/modules/kjs.KJS.Scene.html) namespace to load, unload, start or stop a scene.
 ```
 example() {
   KJS.Scene.load(MyScene)
@@ -52,7 +52,7 @@ Calling the load method of any class or namespace returns a [LoadingProgress](ht
 
 [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) emits an event when the loading process has been completed. Here is where you can continue going to the first scene and/or GUI.
 
-You can also create a single LoadingProgress object created from more than one LoadingProgress objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
+You can also create a single [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object created from more than one [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
 
 app.ts
 ```
@@ -92,11 +92,11 @@ That's the way to start the application and go to the first game screen.
 
 # Loop Update observable
 
-The LoopUpdate core method makes reference to the game timeline progression, so called game loop commonly, it is the frame by frame update of the game. Every frame this core method is called, and it triggers all the observables added to it. That way the game physics, movements, events, and whatever relying on time is updated.
+The loop update core method makes reference to the game timeline progression, so called game loop commonly, it is the frame by frame update of the game. Every frame this core method is called, and it triggers all the observables added to it. That way the game physics, movements, events, and whatever relying on time is updated.
 
-You will find a LoopUpdate callback method in many of the Khanon.js elements such actors, states, actions, etc. But you can also use the KJS object to manually subscribe to the LoopUpdate method.
+You will find an *onLoopUpdate* callback method in many of the Khanon.js elements such actors, states, actions, etc. But you can also use the KJS object to manually subscribe to the loop update method.
 
-To manually subscribe to the LoopUpdate observable use [KJS.loopUpdateAddObserver](https://khanonjs.com/api-docs/functions/kjs.KJS.loopUpdateAddObserver.html) method.
+To manually subscribe to the loop update observable use [KJS.loopUpdateAddObserver](https://khanonjs.com/api-docs/functions/kjs.KJS.loopUpdateAddObserver.html) method.
 
 To unsubscribe [KJS.loopUpdateRemoveObserver](https://khanonjs.com/api-docs/functions/kjs.KJS.loopUpdateRemoveObserver.html).
 
@@ -106,7 +106,7 @@ The observers receive a factor time argument, meaning the frame proportion to be
 
 Sometimes you might want to rearrange the layers of your game depending on the browser width and height ratio. This is complex enough as not to have an automatic system, but you can do it manually through the CanvasResize observable.
 
-As LoopUpdate, many Khanon.js elements have a callback method for CanvasResize, but you can also subscribe manually to it.
+As loop update, many Khanon.js elements have a callback method for CanvasResize, but you can also subscribe manually to it.
 
 To manually subscribe to the CanvasResize observable use [KJS.canvasResizeAddObserver](https://khanonjs.com/api-docs/functions/kjs.KJS.canvasResizeAddObserver.html) method.
 
@@ -128,7 +128,7 @@ The [KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has some us
     -  [KJS.clearCache](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) clears the app cache.
 
 &nbsp;
-    -  [KJS.setTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.setTimeout.html), [KJS.setInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.setInterval.html) are similar to the Javascript native methods. The difference with them is that KJS methods are attached to the KJS LoopUpdate method. This prevents some inconsistencies in case the browser tab is unfocused. This happens because when the browser tab is unfocused, the browser applies a delay to the native setTimeout and setInterval, what could drive to trigger the timeout methods unsynchronized with LoopUpdate. Use KJS timeout methods in case you want to synchronize them with KJS LoopUpdate.
+    -  [KJS.setTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.setTimeout.html), [KJS.setInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.setInterval.html) are similar to the Javascript native methods. The difference with them is that KJS methods are attached to the KJS loop update method. This prevents some inconsistencies in case the browser tab is unfocused. This happens because when the browser tab is unfocused, the browser applies a delay to the native setTimeout and setInterval, what could drive to trigger the timeout methods unsynchronized with loop update. Use KJS timeout methods in case you want to synchronize them with KJS loop update.
 
 &nbsp;
     -  [KJS.clearTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html), [KJS.clearInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.clearInterval.html) to clear a KJS timeout or interval.

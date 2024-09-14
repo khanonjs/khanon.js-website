@@ -1,7 +1,7 @@
 # App interface
 The app decorated class must extend [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to gain access to the app methods and properties.
 
-It is possible to setup the Babylon engine configuration from the decorator property [engineConfiguration](https://khanonjs.com/api-docs/types/types.EngineConfiguration.html). Check the [App props](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what to configure here.
+It is possible to setup the Babylon engine configuration from the decorator property [`engineConfiguration`](https://khanonjs.com/api-docs/types/types.EngineConfiguration.html). Check the decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what to configure here.
 
 app.ts
 ```

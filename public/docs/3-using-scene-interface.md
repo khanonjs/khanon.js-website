@@ -55,11 +55,11 @@ export class MyScene extends SceneInterface {}
 
 ## Scene configuration
 
-You can fully configure the Babylon Scene from the decorator props. There are two properties for this purpose:
+You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) from the decorator props. There are two properties for this purpose:
 
 [`options`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#options) are the [Babylon options](https://doc.babylonjs.com/typedoc/interfaces/BABYLON.SceneOptions).
 
-[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the Babylon Scene accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
+[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
 
 ## States and Actions
 
@@ -89,9 +89,9 @@ Many different scene maps can be used within a scene, there is not restriction a
 
 [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) are logical elements that interact with the themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
 
-[Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html) are 2D textures that always face to the camera. They can be used for many different purposes like compose an actor, be a part of the scene, or render Particles. Sprites are delcared in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
+[Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html) are 2D textures that always face to the camera. They can be used for many different purposes like compose an actor, be a part of the scene, or render particles. Sprites are delcared in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
 
-[Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) are 3D compositions. Like particles, they can be used to compose an actor, be a part of the scene, or render Particles. Meshes are delcared in the [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#meshes) property.
+[Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) are 3D compositions. Like particles, they can be used to compose an actor, be a part of the scene, or render particles. Meshes are delcared in the [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#meshes) property.
 
 [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) add effects to the environment, like the water of a waterfall or a fire throwing flares. Particles are declared in the [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
 

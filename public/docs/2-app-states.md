@@ -3,7 +3,7 @@
 
 This is better explained with an example:
 
-Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the MainMenuAppState. This state loads a MainMenuBackgroundScene, and a MainMenuGUI. After those two are loaded, MainMenuAppState receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both scene and GUI. The end of MainMenuAppState will unload both MainMenuBackgroundScene and MainMenuGUI.
+Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the MainMenuAppState. This state loads a *MainMenuBackgroundScene*, and a *MainMenuGUI*. After those two are loaded, *MainMenuAppState* receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both scene and GUI. The end of *MainMenuAppState* unloads both *MainMenuBackgroundScene* and *MainMenuGUI*.
 
 # Switching to another AppState
 
@@ -15,7 +15,7 @@ There are two ways to switch to a new app state:
 &nbsp;
     -  Using the app interface [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) method.
 
-After switching to a new app state, Khanon.js will load the Scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends (unloading its Scenes and GUIs), and the next state starts.
+After switching to a new app state, Khanon.js will load the scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends (unloading its scenes and GUIs), and the next state starts.
 
 # Using the AppState interface
 
@@ -112,4 +112,4 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-The AppState can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+The app state can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
