@@ -33,7 +33,7 @@ As you see, by default a scene doesn't need anything. You can create an empty sc
 
 # Scene props
 
-A full [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) decorated class would look like this:
+A decorated class with full [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) would look like this:
 ```
 ...
 @Scene({
@@ -85,7 +85,7 @@ Many different scene maps can be used within a scene, there is not restriction a
 
 ## Actors, Sprites, Meshes and Particles
 
-[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) and [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) are spawnable elements that can be added or removed from the scene on demand.
+[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) and [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) are spawnable elements that can be added or removed from the scene at any point.
 
 [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) are logical elements that interact with the themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
 

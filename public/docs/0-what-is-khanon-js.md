@@ -1,8 +1,5 @@
 # What is Khanon.js?
 
-KHANON.JS WANTS THE USER TO FOCUS IN THE GAME DESIGN
-----------------------------------------------------
-
 As the title sais, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
 
 Babylon.js is the most powerful graphical engine for web browsers, and it is open source! If you don't know what Babylon.js is, please take a look to the [Babylon.js site](https://babylonjs.com/).
@@ -11,17 +8,19 @@ So.. what's the job of Khanon.js?
 
 Khanon.js adds a layer between Babylon.js and the logic of your game, adding lifecycle to different objects as scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, notifications, scene maps, and many other things that will make the game development easier and enjoyable.
 
-Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the Logger class, which is slightly different.
+Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
+
+Khanon.js is being degisned to develop video games, but it can be used to develop any kind of interactive and multimedia application.
 
 # What about the code?
 
-Khanon.js is fully developed in [Typescript](https://www.typescriptlang.org/).
+Khanon.js is fully developed in [typescript](https://www.typescriptlang.org/).
 
-All the features mentioned before are easily implemented to your project throught class, method, or property decorators, making the code clean and reusable.
+All the features mentioned before are easily implemented to your project throught class, method, and property decorators, making the code clean and reusable.
 
 You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
 
-Khanon.js is an instanceless framework (as many others like Angular, Nest or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
+Khanon.js is an instanceless framework (as many others like Angular, Nest or React), meaning you don't have to care for the instances management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
 # How's the deal between Khanon.js and Babylon.js?
 
@@ -33,7 +32,7 @@ In the case of Babylon wrapped objects, apart of the extended features Khanon.js
 
 Khanon.js has been designed to not to rely in Babylon objects properties. That means in most of cases you will be able to modify whatever you need in the Babylon object with the confidence that the code will flow as expected.
 
-To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. someKhanonSprite.babylon.sprite).
+To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
 
 # Motivation of this project
 
@@ -41,6 +40,6 @@ When I firstly began working with Babylon.js to build my personal website (years
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 
-The big change came with Typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of Typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
+The big change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of Typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
 
 **Khanon.js wants the user to focus in the game design. That's the main goal of this project.**
