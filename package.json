@@ -1,6 +1,6 @@
 {
   "name": "khanon.js-website",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "private": false,
   "dependencies": {
     "@types/highlight.js": "^10.1.0",
