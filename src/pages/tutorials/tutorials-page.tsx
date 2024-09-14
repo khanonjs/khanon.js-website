@@ -29,14 +29,7 @@ export class TutorialsPage extends PageBase {
           storeSectionId={this.storeSectionId.bind(this)}
           initialItemId={this.itemId}
           storeItemId={this.storeItemId.bind(this)}
-          documents={[
-            {
-              section: 'Tutorials 1',
-              docs: [
-                { title: 'TUTO', markdown: Docs.get('tutorials') }
-              ]
-            }
-          ]}
+          documents={[]}
         />
       </div>
     )

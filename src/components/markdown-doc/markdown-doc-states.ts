@@ -1,4 +1,4 @@
 export interface MarkdownDocStates {
   sectionName: string
-  currentDoc: string
+  currentMarkdown: string
 }

@@ -19,6 +19,7 @@ import React from 'react'
 import { ChevronRight } from 'react-feather'
 import ReactMarkdown from 'react-markdown'
 
+import { Docs } from '../../classes/docs'
 import { ElementStyle } from '../../classes/element-style'
 import { MarkdownDocSection } from './markdown-doc-section'
 import { MarkdownDocStates } from './markdown-doc-states'
@@ -49,7 +50,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     const section = this.props.documents[this.props.initialSectionId]
     this.state = {
       sectionName: this.getSectionTitle(section.section, section.docs[this.props.initialItemId].title),
-      currentDoc: section.docs[this.props.initialItemId].markdown
+      currentMarkdown: Docs.get(section.docs[this.props.initialItemId].file)
     }
     hljs.configure({
       ignoreUnescapedHTML: true
@@ -60,7 +61,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     hljs.registerLanguage('xml', xml)
     this.renderedSections = this.props.documents.map((section, index) => this.renderSection(section, index))
     this.summaryItems = []
-    this.parseMarkdownDocuments()
   }
 
   popKey() {
@@ -120,15 +120,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     this.fixMarkdown()
   }
 
-  parseMarkdownDocuments() {
-    this.props.documents.forEach(document => {
-      document.docs.forEach(doc => {
-        doc.markdown = doc.markdown.replaceAll('\n## ', '&nbsp;\n## ')
-        doc.markdown = doc.markdown.replaceAll('\n# ', '&nbsp;\n# ')
-      })
-    })
-  }
-
   fixMarkdown() {
     // Remove 'data-highlighted' or highlight library won't work properly
     this.elementMarkdownContainer?.querySelectorAll('[data-highlighted]')?.forEach(element => {
@@ -168,13 +159,13 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       const section = this.props.documents.find(doc => doc.section === element.getAttribute('section'))
       const title = element.getAttribute('title')
       if (section && title) {
-        const markdown = section?.docs.find(doc => doc.title === title)?.markdown
+        const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
         this.elementMarkdownContainer.style.opacity = '0'
         this.setState({ sectionName: this.getSectionTitle(section.section, title) })
         setTimeout(() => {
           this.summaryItems = []
           this.hlSummaryItem = undefined
-          this.setState({ currentDoc: markdown as string })
+          this.setState({ currentMarkdown: markdown as string })
           this.elementMarkdownContainer.style.opacity = '1'
           this.elementMarkdownContainer.scrollTop = 0
         }, 0)
@@ -317,11 +308,11 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
             onScroll={this.handleMarkdownScroll.bind(this)}
           >
             <ReactMarkdown>
-              {this.state.currentDoc ?? ''}
+              {this.state.currentMarkdown ?? ''}
             </ReactMarkdown>
             <div style={{ height: '40vh' }} />
             {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
-            {/* In case footer is needed int he future */}
+            {/* In case footer is needed in the future */}
           </div>
           <div className={styles['summary-container']}>
             {this.renderSummary()}
