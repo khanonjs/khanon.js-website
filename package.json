@@ -1,6 +1,6 @@
 {
   "name": "khanon.js-website",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "private": false,
   "dependencies": {
     "@types/highlight.js": "^10.1.0",
@@ -10,6 +10,7 @@
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.15.0",
     "archiver": "^6.0.1",
+    "axios": "^1.7.7",
     "buffer": "^6.0.3",
     "cpy-cli": "^4.2.0",
     "dpdm": "^3.9.0",
