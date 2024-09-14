@@ -1,7 +1,7 @@
 # What is the KJS object?
-[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object makes reference to a global handler of the application. This global object is accessible from anywhere and it communicates with the App. It can be used to switch the App state; load, unload, start or stop Scenes and GUIs; send Notifications; and some other global actions.
+[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object makes reference to a global handler of the application. This global object is accessible from anywhere and it communicates with the app. It can be used to switch the app state; load, unload, start or stop Scenes and GUIs; send Notifications; and some other global actions.
 
-Once the app has been loaded and the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback has been invoked, you can use KJS to load the first Scene and GUI. Those two methods return a [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object.
+Once the app has been loaded and the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback has been invoked, you can use KJS to load the first scene and GUI. Those two methods return a [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object.
 ```
 onStart() {
   const progressScene = KJS.Scene.load(MyFirstScene)
@@ -50,7 +50,7 @@ Calling the load method of any class or namespace returns a [LoadingProgress](ht
 
 [onError](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onError) emits an event in case the loading progress has thrown an error. You can handle it and retry the loading or just display an error message and stop the application.
 
-[onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) emits an event when the loading process has been completed. Here is where you can continue going to the first Scene and/or GUI.
+[onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) emits an event when the loading process has been completed. Here is where you can continue going to the first scene and/or GUI.
 
 You can also create a single LoadingProgress object created from more than one LoadingProgress objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
 
@@ -94,7 +94,7 @@ That's the way to start the application and go to the first game screen.
 
 The LoopUpdate core method makes reference to the game timeline progression, so called game loop commonly, it is the frame by frame update of the game. Every frame this core method is called, and it triggers all the observables added to it. That way the game physics, movements, events, and whatever relying on time is updated.
 
-You will find a LoopUpdate callback method in many of the Khanon.js elements such Actors, States, Actions, etc. But you can also use the KJS object to manually subscribe to the LoopUpdate method.
+You will find a LoopUpdate callback method in many of the Khanon.js elements such actors, states, actions, etc. But you can also use the KJS object to manually subscribe to the LoopUpdate method.
 
 To manually subscribe to the LoopUpdate observable use [KJS.loopUpdateAddObserver](https://khanonjs.com/api-docs/functions/kjs.KJS.loopUpdateAddObserver.html) method.
 
@@ -122,7 +122,7 @@ The [KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has some us
     -  [KJS.throw](https://khanonjs.com/api-docs/functions/kjs.KJS.throw.html) stops the app and throws an error. Call it after a critical error that doesn't let the app to continue.
 
 &nbsp;
-    -  [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) switchs to a new App state.
+    -  [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) switchs to a new app state.
 
 &nbsp;
     -  [KJS.clearCache](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) clears the app cache.

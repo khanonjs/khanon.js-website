@@ -1,6 +1,26 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/global.scss';
 
+a:link {
+  color: #0052ff;
+  background-color: transparent;
+  text-decoration: none;
+
+  &:hover {
+    color: #002d8e;
+  }
+}
+
+a:visited {
+  color: #0075ff;
+  background-color: transparent;
+  text-decoration: none;
+
+  &:hover {
+    color: #004ba1;
+  }
+}
+
 .container {
   display: flex;
   position: absolute;

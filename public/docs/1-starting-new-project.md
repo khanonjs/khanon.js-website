@@ -18,7 +18,7 @@ The development version needs more dependencies for the babylon debugging tools 
 
 # Src folder
 
-The src folder contains all the source code files. Commonly the main file of this folder is app.ts, which contains the App class that starts the application. From there, the source code tree starts growing up from other source files and folders. These source files are bundled in a single file running the `npm run build` script; app.js is created and placed in the dist folder beside the rest of the public files.
+The src folder contains all the source code files. Commonly the main file of this folder is app.ts, which contains the app class that starts the application. From there, the source code tree starts growing up from other source files and folders. These source files are bundled in a single file running the `npm run build` script; app.js is created and placed in the dist folder beside the rest of the public files.
 
 # Public folder
 

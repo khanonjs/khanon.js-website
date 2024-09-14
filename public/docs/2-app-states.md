@@ -1,25 +1,25 @@
 # App State overview
-[App States](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) makes reference to the current state of the application. This means each App State decides what to load on self start, what to unload on self end, and it decides when and how the application changes of state.
+[App States](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) makes reference to the current state of the application. This means each app state decides what to load on self start, what to unload on self end, and it decides when and how the application changes of state.
 
 This is better explained with an example:
 
-Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) App callback is invoked. At this point, instead loading a GUI or Scene, you can start the MainMenuAppState. This state loads a MainMenuBackgroundScene, and a MainMenuGUI. After those two are loaded, MainMenuAppState receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both Scene and GUI. The end of MainMenuAppState will unload both MainMenuBackgroundScene and MainMenuGUI.
+Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the MainMenuAppState. This state loads a MainMenuBackgroundScene, and a MainMenuGUI. After those two are loaded, MainMenuAppState receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both scene and GUI. The end of MainMenuAppState will unload both MainMenuBackgroundScene and MainMenuGUI.
 
 # Switching to another AppState
 
-There are two ways to switch to a new App State:
+There are two ways to switch to a new app state:
 
 &nbsp;
     -  Using the global [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) method.
 
 &nbsp;
-    -  Using the App interface [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) method.
+    -  Using the app interface [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) method.
 
-After switching to a new App State, Khanon.js will load the Scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends (unloading its Scenes and GUIs), and the next state starts.
+After switching to a new app state, Khanon.js will load the Scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends (unloading its Scenes and GUIs), and the next state starts.
 
 # Using the AppState interface
 
-To implement an App State you need to use the [AppStateDecorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html):
+To implement an app state you need to use the [AppStateDecorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html):
 ```
 import {
   AppState,
