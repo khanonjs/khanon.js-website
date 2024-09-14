@@ -10,7 +10,7 @@ You can start adding your files there. In a coming future Khanon.js will have a 
 
 # Package dependencies
 
-The production version of Khanon.js avoids any kind of dependency. This helps to have a clean and lightweight bundle. The only needed dependency for production version is `babylon.js`.
+Currently, the production version of Khanon.js avoids any kind of dependency. This helps to have a clean and lightweight bundle. The only needed dependency for production version are Babylon.js packages.
 
 Therefore the only packages you need to add to your dependencies in the package.json are: `@babylonjs/core`, `@babylonjs/gui` and `@khanonjs/engine`.
 
@@ -22,7 +22,7 @@ The src folder contains all the source code files. Commonly the main file of thi
 
 # Public folder
 
-The `public` folder contains all the neccesary files to run the Web Application. The main file here is `index.html`, which has a div container that Khanon.js will use to create a canvas for Babylon.js.
+The `public` folder contains all the neccesary files to run the Web Application. The main file here is `index.html`, which has a div container that Khanon.js will use to create a canvas for Babylon.
 
 ## HTML structure
 
