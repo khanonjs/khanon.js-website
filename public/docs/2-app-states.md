@@ -91,7 +91,7 @@ All elements declared in the [AppStateProps](https://khanonjs.com/api-docs/inter
 
 ## Loop Update
 
-Every AppState can define [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app Loop Update, being called every frame. It is possible to add here some logic to check anything needed in the game and perform any action in consequence.
+Every app state can define [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update method, being called every frame. Add logic here to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here

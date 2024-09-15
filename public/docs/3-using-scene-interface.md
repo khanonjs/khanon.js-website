@@ -1,6 +1,6 @@
 # Creating a Scene
 
-To create a new scene firstly you have to create a new class, apply the scene [decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to get all properties and methods.
+To create a new scene firstly you have to create a new class, apply the scene [decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
 
 **my-scene.ts**
 ```
@@ -35,7 +35,6 @@ As you see, by default a scene doesn't need anything. You can create an empty sc
 
 A decorated class with full [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) would look like this:
 ```
-...
 @Scene({
   options: BABYLON.SceneOptions
   configuration: SceneConfiguration
@@ -49,8 +48,9 @@ A decorated class with full [SceneProps](https://khanonjs.com/api-docs/interface
   meshes: MeshConstructor[]
   particles: ParticleConstructor[]
 })
-export class MyScene extends SceneInterface {}
-...
+export class MyScene extends SceneInterface {
+  // ...
+}
 ```
 
 ## Scene configuration
@@ -63,7 +63,7 @@ You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/cl
 
 ## States and Actions
 
-The [`states`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#states) property declares the [States](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) that will be used by this scene. [States](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers. They decide what to do based in events and notifications. Each scene is switched to a single state by definition, being this mandatory.
+The [`states`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#states) property declares the [States](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) that will be used by this scene. [States](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers. They decide what to do based in events and notifications. When a scene starts it is switched to a single state by definition, being this mandatory.
 
 The [`actions`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#states) property declares the [Actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) that will be used by this scene. [Actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are events that can modify the scene in different ways. Many actions can be running at the same time.
 
@@ -101,33 +101,53 @@ Khanon.js will traverse the whole elements tree of the scene and will load all n
 
 # Load and Unload
 
-abstract load(): [LoadingProgress](https://khanonjs.com/api-docs/modules/modules_hedsdsasdalperkhjghgfjkkghj.html)
-abstract unload(): void
-onLoaded?(): void
-onUnload?(): void
-abstract get loaded(): boolean
+To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) is invoked.
+
+When a scene is loaded it places all neccesary assets in memory. After that, any actor, sprite, mesh or particle associated to the scene can be spawned.
+
+To unload the scene use the scene method [unload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#unload) or the [KJS.Scene.unload](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.unload.html) global method. The [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload) callback is invoked right before the unloading process.
+
+Use the accessor [`loaded`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#loaded) to know if the scene has been loaded or not.
 
 # Start and Stop
 
-abstract start(state: SceneStateConstructor, stateSetup: any): SceneStateInterface
-abstract stop(): void
-onStart?(): void
-onStop?(): void
-abstract get started(): boolean
+After the scene has been loaded, it can start. Starting the scene means adding it to the [Babylon runRenderLoop](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#runRenderLoop) method. From this point the scene starts being rendered on the canvas, the scene logic begins and elements can start being spawned.
+
+To start a scene use the [start](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#start) method or the [KJS.Scene.start](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.start.html) global method. The start methods require to pass a [SceneState](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) and its [setup](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) object. A scene is always associated to a state that runs the logic. When the scene starts the [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) callback is invoked, being this the entrypoint of the scene.
+
+To stop the scene use the [stop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#stop) method or the [KJS.Scene.stop](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.stop.html) global method. This takes the scene out of the [Babylon runRenderLoop](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#runRenderLoop) method and stops being rendered. All spawned elements are removed and the scene state stops working. Right before the scene stops the [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callback is invoked.
+
+Use the accessor [`started`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#started) to know if the scene has started or not.
 
 # Babylon object
-abstract get babylon(): Pick<BabylonAccessor, 'scene'>
+
+To access to the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) object, use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#babylon) accessor. You can use it and modify whatever you need, but remember not to remove any element previously created by Khanon.js
 
 # Callbacks
 
-onStart?(): void
-onStop?(): void
-onLoaded?(): void
-onUnload?(): void
+Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a secene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
 
 ## Loop Update
 
+Every scene can define [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update method, being called every frame. Add logic here to check any state or update any element.
+```
+onLoopUpdate(delta: number) {
+  // Add logic here
+}
+```
+
+The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) callback can be enabled or disabled using the [`loopUpdate`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#loopUpdate) accessor.
+
 ## Canvas Resize
 
+Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize) to receive any new canvas resize.
+```
+onCanvasResize(size: Rect) {
+  // Rearrange layers
+}
+```
+
 # Notifications
+
+The scene can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
 
