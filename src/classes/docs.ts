@@ -56,7 +56,7 @@ export class Docs {
     Object.entries(Docs.docs)
       .forEach(([key, markdown]) => {
         Docs.docs[key] = (markdown as string)
-          .replaceAll('\n## ', '&nbspr\n## ')
+          .replaceAll('\n## ', '&nbsp;\n## ')
           .replaceAll('\n# ', '&nbsp;\n# ')
       })
     console.log('aki PARSE DOCUMENTS B', Docs.docs)
