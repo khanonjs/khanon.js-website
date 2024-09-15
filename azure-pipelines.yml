@@ -4,7 +4,7 @@ trigger:
 jobs:
 - job: Build_and_deploy
   pool:
-    vmImage: ubuntu-latest
+    vmImage: windows-latest
 
   variables:
   - name: tagRelease
