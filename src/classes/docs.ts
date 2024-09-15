@@ -29,6 +29,7 @@ export class Docs {
 
     Promise.all(promises)
       .then((resArray) => {
+        console.log('aki resArray', resArray)
         const docNames: string[] = []
         const pResponses: Promise<string>[] = []
         resArray.forEach(res => {
@@ -37,13 +38,13 @@ export class Docs {
         })
         Promise.all(pResponses)
           .then((textArray) => {
+            console.log('aki textArray', textArray)
             let i = 0
             docNames.forEach(docName => {
               Object.defineProperty(Docs.docs, docName, { enumerable: true, value: textArray[i], writable: true, configurable: true })
               i++
             })
             Docs.loaded = true
-            Docs.parseMarkdownDocuments()
             Docs.parseMarkdownDocuments()
           })
       })
