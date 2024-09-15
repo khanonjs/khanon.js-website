@@ -6,7 +6,7 @@ import { httpCall, HttpProtocol } from './http-call.mjs'
 // ZIP 'api-docs' folder
 const fileName = 'khanonjs-web'
 const zipFolder = './build'
-const output = fs.createWriteStream(`${fileName}.zip`, 'binary')
+const output = fs.createWriteStream(`${fileName}.zip`, 'ascii')
 const archive = archiver('zip')
 // 8a8f al enviar el zip, los .md de '\public\docs' están pasando el ELO de \r\n a \n, lo cual provoca errores en el parseo del markdown
 output.on('close', function () {
@@ -45,7 +45,7 @@ output.on('close', function () {
     }
   },
   (error) => {
-    fs.rmSync(`${fileName}.zip`)
+    // fs.rmSync(`${fileName}.zip`) // 8a8f descomentar
     console.log('There was an error sending data:', error)
     process.exit(1)
   })
