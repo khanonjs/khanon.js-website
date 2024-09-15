@@ -49,7 +49,7 @@ a:visited {
 .content {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 9.3em);
+  height: calc(100vh - 12.0em);
   line-height: 2em;
   text-align: left;
   font-size: 0.8em;
@@ -61,6 +61,7 @@ a:visited {
   user-select: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow-x: hidden;
 }
 
 .section-block {
@@ -163,6 +164,7 @@ a:visited {
   user-select: none;
   text-wrap: pretty;
   margin-right: 30px;
+  overflow-x: hidden;
 }
 
 .summary-item {

@@ -33,25 +33,7 @@ As you see, by default a scene doesn't need anything. You can create an empty sc
 
 # Decorator properties
 
-A decorated class with full [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) would look like this:
-```
-@Scene({
-  options: BABYLON.SceneOptions
-  configuration: SceneConfiguration
-  guis: GUIConstructor[]
-  cameras: CameraConstructor[]
-  maps: SceneMapConstructor[]
-  states: SceneStateConstructor[]
-  actors: ActorConstructor[]
-  actions: SceneActionConstructor[]
-  sprites: SpriteConstructor[]
-  meshes: MeshConstructor[]
-  particles: ParticleConstructor[]
-})
-export class MyScene extends SceneInterface {
-  // ...
-}
-```
+The scene decorator properties are defined in the [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) interface.
 
 ## Scene configuration
 
