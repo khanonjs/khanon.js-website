@@ -21,6 +21,7 @@ output.on('close', function () {
     if (arg.indexOf(urlStr) !== -1) {
       url = arg.substring(urlStr.length, arg.length)
     }
+    url = 'http://82.223.97.22:3000/deploy/web' // 8a8f eliminar
     const secretStr = 'secret:'
     if (arg.indexOf(secretStr) !== -1) {
       secret = arg.substring(secretStr.length, arg.length)
