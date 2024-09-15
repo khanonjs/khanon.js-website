@@ -44,6 +44,7 @@ export class Docs {
             })
             Docs.loaded = true
             Docs.parseMarkdownDocuments()
+            Docs.parseMarkdownDocuments()
           })
       })
       .catch(error => Logger.error('Docs error, couldn\'t load docs:', Logger.strFromData(error)))
@@ -54,10 +55,8 @@ export class Docs {
     Object.entries(Docs.docs)
       .forEach(([key, markdown]) => {
         Docs.docs[key] = (markdown as string)
-          .replaceAll('\r\n ', '\n')
           .replaceAll('\n## ', '&nbspr\n## ')
           .replaceAll('\n# ', '&nbsp;\n# ')
-          .replaceAll('\n ', '\r\n')
       })
     console.log('aki PARSE DOCUMENTS B', Docs.docs)
   }
