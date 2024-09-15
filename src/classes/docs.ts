@@ -48,7 +48,7 @@ export class Docs {
       .catch(error => Logger.error('Docs error, couldn\'t load docs:', Logger.strFromData(error)))
   }
 
-  private static parseMarkdownDocuments() {
+  static parseMarkdownDocuments() {
     Object.entries(Docs.docs)
       .forEach(([key, markdown]) => {
         Docs.docs[key] = (markdown as string)
