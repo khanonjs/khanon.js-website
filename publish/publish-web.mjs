@@ -8,7 +8,7 @@ const fileName = 'khanonjs-web'
 const zipFolder = './build'
 const output = fs.createWriteStream(`${fileName}.zip`, 'utf8')
 const archive = archiver('zip')
-// 8a8f al enviar el zip, los .md de '\public\docs' están pasando el ELO de \r\n a \n, lo cual provoca errores en el parseo del markdown
+
 output.on('close', function () {
   console.log(archive.pointer() + ' total bytes')
   console.log('archiver has been finalized and the output file descriptor has closed.')
@@ -21,7 +21,6 @@ output.on('close', function () {
     if (arg.indexOf(urlStr) !== -1) {
       url = arg.substring(urlStr.length, arg.length)
     }
-    url = 'http://82.223.97.22:3000/deploy/web' // 8a8f eliminar
     const secretStr = 'secret:'
     if (arg.indexOf(secretStr) !== -1) {
       secret = arg.substring(secretStr.length, arg.length)
@@ -46,7 +45,7 @@ output.on('close', function () {
     }
   },
   (error) => {
-    // fs.rmSync(`${fileName}.zip`) // 8a8f descomentar
+    fs.rmSync(`${fileName}.zip`)
     console.log('There was an error sending data:', error)
     process.exit(1)
   })
@@ -55,7 +54,7 @@ output.on('close', function () {
 archive.on('error', function(err) {
   throw err
 })
-// 8a8f probar adm-zip en ambos extremos
+
 archive.pipe(output)
 archive.directory(zipFolder, false)
 archive.finalize()
