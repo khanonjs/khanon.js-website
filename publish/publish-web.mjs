@@ -8,7 +8,7 @@ const fileName = 'khanonjs-web'
 const zipFolder = './build'
 const output = fs.createWriteStream(`${fileName}.zip`)
 const archive = archiver('zip')
-
+// 8a8f al enviar el zip, los .md de '\public\docs' están pasando el ELO de \r\n a \n, lo cual provoca errores en el parseo del markdown
 output.on('close', function () {
   console.log(archive.pointer() + ' total bytes')
   console.log('archiver has been finalized and the output file descriptor has closed.')
