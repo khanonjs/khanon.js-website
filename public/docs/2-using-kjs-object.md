@@ -42,7 +42,7 @@ example() {
 
 # Notify namespace
 
-Use the [Notify](https://khanonjs.com/api-docs/modules/kjs.KJS.Notify.html) namespace to send messages globally. Read more int he Notifications section
+Use the [Notify](https://khanonjs.com/api-docs/modules/kjs.KJS.Notify.html) namespace to send messages globally. Read more at he Notifications section
 ```
 import { KJS } from '@khanonjs/engine'
 
@@ -63,7 +63,7 @@ Calling the load method of any class or namespace returns a [LoadingProgress](ht
 
 You can also create a single [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object created from more than one [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
 
-app.ts
+**app.ts**
 ```
 import {
   App,

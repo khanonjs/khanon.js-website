@@ -3,7 +3,7 @@ The app decorated class must extend [AppInterface](https://khanonjs.com/api-docs
 
 It is possible to setup the Babylon engine configuration from the decorator property [`engineConfiguration`](https://khanonjs.com/api-docs/types/types.EngineConfiguration.html). Check the decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what to configure here.
 
-app.ts
+**app.ts**
 ```
 import {
   App,

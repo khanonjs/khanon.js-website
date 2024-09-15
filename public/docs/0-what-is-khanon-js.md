@@ -24,7 +24,7 @@ Khanon.js is an instanceless framework (as many others like Angular, Nest or Rea
 
 # How's the deal between Khanon.js and Babylon.js?
 
-In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever. This element is fully provided by Khanon.js, so it doesn't have a direct relation with a Babylon.js object.
+In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with a Babylon.js object.
 
 In other cases the Khanon.js object wraps an existing Babylon object, like scenes, sprites, meshes or particles.
 
@@ -40,6 +40,6 @@ When I firstly began working with Babylon.js to build my personal website (years
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 
-The big change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of Typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
+The big change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
 
 **Khanon.js wants the user to focus in the game design. That's the main goal of Khanon.js.**

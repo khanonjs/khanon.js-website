@@ -2,7 +2,7 @@
 
 To create a new scene firstly you have to create a new class, apply the scene [decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to get all properties and methods.
 
-my-scene.ts
+**my-scene.ts**
 ```
 import {
   Scene,

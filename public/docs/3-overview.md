@@ -1,5 +1,5 @@
 # Scene overview
-A Scene is one of the main pieces of a video game. It describes the environment where the actors cohexist and where the player plays its role. It is composed by many different elements, depending of the kind of game. For example, in a 2D horizontal scroll game, a scene is composed by one or more backgrounds, a foreground with which the actors interact, dynamic elements like doors, ramps or traps (those are also actors), and different effects and particles; In a 3D isometric game, the scene is composed by the ground, 3D elements like mountains, houses or trees, floor effects for grass and water, some cloud effects between the ground and the camera, and dynamic elements.
+Scenes are one of the main pieces of a video game. They describe the environment where the actors cohexist and where the player plays its role. It is composed by many different elements, depending of the kind of game. For example, in a 2D horizontal scroll game, a scene is composed by one or more backgrounds, a foreground with which the actors interact, dynamic elements like doors, ramps or traps (those are also actors), and different effects and particles; In a 3D isometric game, the scene is composed by the ground, 3D elements like mountains, houses or trees, floor effects for grass and water, some cloud effects between the ground and the camera, and dynamic elements.  // 8a8f
 
 # Babylon object
 Khanon.js [Scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) is a wrapper of a [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene). When a class is decorated by [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), it creates a [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) and adds functionalities to it like lifecycle, spawning and removing elements, assets management capabilities, and many others that will be described in this section.
@@ -19,7 +19,7 @@ To deal with it, Khanon.js implements the [Scene States](https://khanonjs.com/ap
 Only one state is running at the same time. Some examples of scene states: *SceneStateIntro*, *SceneStateStartStage*, *SceneStatePlayGame*, *SceneStatePlayerWin*, *SceneStateLeaveStage*.
 
 # Camera
-The [Camera](https://khanonjs.com/api-docs/modules/decorators_camera.html) is defined by its own class implementation, and it is usually selected by the scene state. Each state can demand a different camera depending on the scene moment.
+The [Camera](https://khanonjs.com/api-docs/modules/decorators_camera.html) is defined by its own class implementation, and it is usually selected by the scene state. Each state can demand a different camera depending on events.
 
 # Scene Actions
 Defined by their own class implementation, [Scene Actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are executed on the scene provoking different effects. For example, an action could display rain, another could make actors bigger, another could show a visual event in the background, etc.
