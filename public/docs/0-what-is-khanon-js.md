@@ -2,21 +2,21 @@
 
 As the title sais, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
 
-Babylon.js is the most powerful graphical engine for web browsers, and it is open source! If you don't know what Babylon.js is, please take a look to the [Babylon.js site](https://babylonjs.com/).
+Babylon.js is the most powerful graphical engine for web browsers, it is open source and it is in constant development. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
 So.. what's the job of Khanon.js?
 
-Khanon.js adds a layer between Babylon.js and the logic of your game, adding lifecycle to different objects as scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, notifications, scene maps, and many other things that will make the game development easier and enjoyable.
+Khanon.js adds a layer between Babylon.js and the logic of your game, adding lifecycle to different objects like scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, states, notifications, scene maps, and many others that will make the game development easier and enjoyable.
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
 
-Khanon.js is being degisned to develop video games, but it can be used to develop any kind of interactive and multimedia application.
+Khanon.js is being designed to develop video games, but it can be used to develop any kind of interactive and multimedia application.
 
 # What about the code?
 
 Khanon.js is fully developed in [typescript](https://www.typescriptlang.org/).
 
-All the features mentioned before are easily implemented to your project throught class, method, and property decorators, making the code clean and reusable.
+All the features mentioned before are easily implemented to your project through class, method, and property decorators, making the code clean and reusable.
 
 You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
 
@@ -24,7 +24,7 @@ Khanon.js is an instanceless framework (as many others like Angular, Nest or Rea
 
 # How's the deal between Khanon.js and Babylon.js?
 
-In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with a Babylon.js object.
+In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with any Babylon object.
 
 In other cases the Khanon.js object wraps an existing Babylon object, like scenes, sprites, meshes or particles.
 
@@ -36,10 +36,10 @@ To access a wrapped or related Babylon object within a Khanon.js instance you'll
 
 # Motivation
 
-When I firstly began working with Babylon.js to build my personal website (years ago), I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
+When I firstly began working with Babylon.js, years ago, to build my personal website, I started developing a small engine for the presentation that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 
-The big change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of typecript; and over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
+The change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this new project with two thoughts in sight: make a deeper learning of typecript; but over everything helping new developers to work in their games freeing them from the mechanical and boring work behind a video game, letting them focus in the game design.
 
-**Khanon.js wants the user to focus in the game design. That's the main goal of Khanon.js.**
+**Khanon.js wants the user to focus in the game design. That's the main goal of this project.**

@@ -20,7 +20,7 @@ export const getStartedDocs = [
     section: 'Application',
     docs: [
       { title: 'Overview', file: '2-overview' },
-      { title: 'Using the App interface', file: '2-using-app-interface' },
+      { title: 'Using the app interface', file: '2-using-app-interface' },
       { title: 'Using the KJS object', file: '2-using-kjs-object' },
       { title: 'App states', file: '2-app-states' },
     ]
@@ -29,7 +29,7 @@ export const getStartedDocs = [
     section: 'Scenes',
     docs: [
       { title: 'Overview', file: '3-overview' },
-      { title: 'Using the Scene interface', file: '3-using-scene-interface' },
+      { title: 'Using the scene interface', file: '3-using-scene-interface' },
       { title: 'Scene states', file: '3-scene-states' },
       { title: 'Defining the camera', file: '3-defining-the-camera' },
       { title: 'Scene actions', file: '3-scene-actions' },
@@ -41,7 +41,7 @@ export const getStartedDocs = [
       { title: 'Overview', file: '4-overview' },
       { title: 'Sprite as class decorator', file: '4-sprite-class-decorator' },
       { title: 'Sprite as property decorator', file: '4-sprite-property-decorator' },
-      { title: 'Using the Sprite interface', file: '4-using-sprite-interface' },
+      { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
       { title: 'Spawning and destroying sprites', file: '4-spawning-destroying-sprites' },
     ]
   },
@@ -51,7 +51,7 @@ export const getStartedDocs = [
       { title: 'Overview', file: '5-overview' },
       { title: 'Mesh as class decorator', file: '5-mesh-class-decorator' },
       { title: 'Mesh as property decorator', file: '5-mesh-property-decorator' },
-      { title: 'Using the Mesh interface', file: '5-using-mesh-interface' },
+      { title: 'Using the mesh interface', file: '5-using-mesh-interface' },
       { title: 'Spawning and destroying meshes', file: '5-spawning-destroying-meshes' },
     ]
   },
@@ -68,7 +68,7 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: '7-overview' },
       { title: 'Creating a new actor', file: '7-creating-new-actor' },
-      { title: 'Using the Actor interface', file: '7-using-actor-interface' },
+      { title: 'Using the actor interface', file: '7-using-actor-interface' },
       { title: 'Actor states', file: '7-actor-states' },
       { title: 'Actor actions', file: '7-actor-actions' },
       { title: 'Spawning and destroying actors', file: '7-spawning-destroying-actors' },
@@ -90,19 +90,7 @@ export const getStartedDocs = [
       { title: 'Receiving notifications', file: '9-receiving-notifications' },
       { title: 'Sending notifications', file: '9-sending-notifications' },
     ]
-  },
-  {
-    section: 'Examples REMOVE ME',
-    docs: [
-      { title: 'getstarted-0', file: 'getstarted-0' },
-      { title: 'getstarted-1', file: 'getstarted-1' },
-      { title: 'getstarted-2', file: 'getstarted-2' },
-      { title: 'getstarted-3', file: 'getstarted-3' },
-      { title: 'getstarted-4', file: 'getstarted-4' },
-      { title: 'getstarted-5', file: 'getstarted-5' },
-      { title: 'getstarted-6', file: 'getstarted-6' },
-    ]
-  },
+  }
 ]
 
 export const tutorialsDocs = []

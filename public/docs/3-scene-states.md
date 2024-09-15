@@ -1,14 +1,14 @@
-# Scene State overview
+# Scene state overview
 
 Scene states are logical controllers of the scene. A scene is always associated to a state, which will control the scene flow and steps for the stage development.
 
 To access the scene associated to a state use the scene accessor
 
-# Using the SceneState interface
+# Using the scene state interface
 
 # Setup of the state
 
-# Switching to another SceneState
+# Switching of state
 
 # Callbacks
 

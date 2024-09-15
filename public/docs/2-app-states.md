@@ -1,4 +1,4 @@
-# App State overview
+# App state overview
 
 [App States](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) makes reference to the current state of the application. This means each app state decides what to load on self start, what to unload on self end, and it decides when and how the application changes of state.
 
@@ -6,7 +6,7 @@ This is better explained with an example:
 
 Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the MainMenuAppState. This state loads a *MainMenuBackgroundScene*, and a *MainMenuGUI*. After those two are loaded, *MainMenuAppState* receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both scene and GUI. The end of *MainMenuAppState* unloads both *MainMenuBackgroundScene* and *MainMenuGUI*.
 
-# Using the AppState interface
+# Using the app state interface
 
 To implement an app state you need to create a class, apply the [AppState decorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend the
 [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).

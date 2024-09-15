@@ -1,6 +1,6 @@
 # Near future
 
-At the moment, Khanon.js is in a BETA state. This means we are still testing it and finishing the main modules. Once everything is ready we will publish the first production version.
+At the moment, **Khanon.js is in a BETA state**. This means we are still testing it and finishing the main modules. Once everything is ready we will publish the first production version.
 
 To have the first production version we still have to implement these items:
 
@@ -32,19 +32,19 @@ Some things in mind:
     - Implement a chainable system to trigger events in actors or scenes according to other actions like input events, physics events, or whatever (E.g. actor.triggerer.keyPress('left').callMethod('moveLeft'))
 
 &nbsp;
-    - Support for solid particle system (SPS) and points cloud particle system (PCS).
-
-&nbsp;
-    - Adding more scene maps for each kind of video game (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
+    - Creating a system to easily generate physical shapes in actors and scenes using the Babylon physics engine.
 
 &nbsp;
     - Implement a motion module to easily move actors in different ways making use of the Babylon physics engine.
 
 &nbsp;
-    - Creating a system to easily generate physical shapes in actors and scenes using the Babylon physics engine.
+    - Adding more scene maps for each kind of video game (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
 
 &nbsp;
-    - Implement chainable camera system to make smooth transitions.
+    - Support for solid particle system (SPS) and points cloud particle system (PCS).
+
+&nbsp;
+    - Implement a chainable camera system to make smooth transitions.
 
 &nbsp;
     - Support sockets for online comms.
