@@ -50,7 +50,7 @@ export class Docs {
   }
 
   static parseMarkdownDocuments() {
-    console.log('aki PARSE DOCUMENTS A')
+    console.log('aki PARSE DOCUMENTS A', Docs.docs)
     Object.entries(Docs.docs)
       .forEach(([key, markdown]) => {
         Docs.docs[key] = (markdown as string)
