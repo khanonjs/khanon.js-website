@@ -9,7 +9,6 @@ export class Docs {
   static docs = {}
 
   static get(docName: string): string {
-    console.log('aki GET dOCUMENT')
     return Docs.docs[docName]
   }
 
@@ -29,7 +28,6 @@ export class Docs {
 
     Promise.all(promises)
       .then((resArray) => {
-        console.log('aki resArray', resArray)
         const docNames: string[] = []
         const pResponses: Promise<string>[] = []
         resArray.forEach(res => {
@@ -38,7 +36,6 @@ export class Docs {
         })
         Promise.all(pResponses)
           .then((textArray) => {
-            console.log('aki textArray', textArray)
             let i = 0
             docNames.forEach(docName => {
               Object.defineProperty(Docs.docs, docName, { enumerable: true, value: textArray[i], writable: true, configurable: true })
@@ -52,13 +49,11 @@ export class Docs {
   }
 
   static parseMarkdownDocuments() {
-    console.log('aki PARSE DOCUMENTS A', Docs.docs)
     Object.entries(Docs.docs)
       .forEach(([key, markdown]) => {
         Docs.docs[key] = (markdown as string)
           .replaceAll('\n## ', '&nbsp;\n## ')
           .replaceAll('\n# ', '&nbsp;\n# ')
       })
-    console.log('aki PARSE DOCUMENTS B', Docs.docs)
   }
 }
