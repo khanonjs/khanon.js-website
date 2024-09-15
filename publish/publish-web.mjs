@@ -6,7 +6,7 @@ import { httpCall, HttpProtocol } from './http-call.mjs'
 // ZIP 'api-docs' folder
 const fileName = 'khanonjs-web'
 const zipFolder = './build'
-const output = fs.createWriteStream(`${fileName}.zip`)
+const output = fs.createWriteStream(`${fileName}.zip`, 'utf8')
 const archive = archiver('zip')
 // 8a8f al enviar el zip, los .md de '\public\docs' están pasando el ELO de \r\n a \n, lo cual provoca errores en el parseo del markdown
 output.on('close', function () {
@@ -54,7 +54,7 @@ output.on('close', function () {
 archive.on('error', function(err) {
   throw err
 })
-
+// 8a8f probar adm-zip en ambos extremos
 archive.pipe(output)
 archive.directory(zipFolder, false)
 archive.finalize()
