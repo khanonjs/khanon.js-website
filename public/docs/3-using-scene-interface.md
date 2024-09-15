@@ -1,6 +1,6 @@
 # Creating a Scene
 
-To create a new scene firstly you have to create a new class, apply the scene [decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
+To create a new scene you need to create class, apply the [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html) and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
 
 **my-scene.ts**
 ```
@@ -31,7 +31,7 @@ export class MyScene extends SceneInterface {
 
 As you see, by default a scene doesn't need anything. You can create an empty scene and start adding any Babylon element manually, controlling everything by yourself, but that's not what Khanon.js is intended to be.
 
-# Scene props
+# Decorator properties
 
 A decorated class with full [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) would look like this:
 ```
@@ -99,7 +99,7 @@ Take in condireration that if an actor or other element has already declared in 
 
 Khanon.js will traverse the whole elements tree of the scene and will load all neccesary assets.
 
-# Load and Unload
+# Load and unload the scene
 
 To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) is invoked.
 
@@ -109,7 +109,7 @@ To unload the scene use the scene method [unload](https://khanonjs.com/api-docs/
 
 Use the accessor [`loaded`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#loaded) to know if the scene has been loaded or not.
 
-# Start and Stop
+# Start and stop the scene
 
 After the scene has been loaded, it can start. Starting the scene means adding it to the [Babylon runRenderLoop](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#runRenderLoop) method. From this point the scene starts being rendered on the canvas, the scene logic begins and elements can start being spawned.
 
@@ -125,7 +125,7 @@ To access to the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYL
 
 # Callbacks
 
-Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a secene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
+Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a scene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
 
 ## Loop Update
 
