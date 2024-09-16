@@ -23,7 +23,7 @@ export class MyApp extends AppInterface {
 
 The [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) method is mandatory. This is the entrypoint of your application. Once Khanon.js has created the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) and the app is ready to start, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) method is invoked and you can go to the first scene or GUI of your game.
 
-To setup the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) configuration use the [engineConfiguration](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#engineConfiguration) decorator property. All the Babylon configuration properties are accessible from there.
+To setup the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) configuration use the [engineConfiguration](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#engineConfiguration) decorator property. All the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) configuration properties are accessible from there.
 
 Check the decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html) to see what you can setup there.
 

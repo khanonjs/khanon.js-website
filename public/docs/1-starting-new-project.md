@@ -36,4 +36,4 @@ The assets folder placed into public is meant to contain all the app assets such
 
 # Dist folder
 
-The `dist` folder makes reference to the distributable files. Once the project has been built, all the files from public folder are copied to the dist folder, besides the `app.js` bundle. All these files contained inside `dist` folder are the ones you can deploy in your server.
+The `dist` folder makes reference to the distributable files. Once the project has been built, all the files from public folder are copied to the `dist` folder, besides the `app.js` bundle. All these files contained inside `dist` folder are the ones you can deploy in your server.

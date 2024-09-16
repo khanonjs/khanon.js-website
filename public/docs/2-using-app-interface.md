@@ -11,7 +11,7 @@ import {
 @App({
   name: 'My App',
   loopUpdate: {
-    fps: 165
+    fps: 60
   }
 })
 export class MyApp extends AppInterface {
@@ -43,27 +43,38 @@ The [`loopUpdate`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppPr
 
 The [`debugLog`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#debugLog) property defines if debug logs are enabled or disabled.
 
-# Switching state
+# Switching of state
 
-Use the [switchtState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState) method to switch to a new app state.
-All states have a setup object to configure the new state, which is passed in the second argument of [switchtState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState). Everytime the app switchs to another state, a new instance of the state is created and the previous state ends.
+Use [switchtState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState) or the global [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) method to switch to a new app state.
+
+All states have a setup object that you can use to configure the new state. This object is is passed in the second argument of [switchtState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState). Everytime the app switchs to another state, a new instance of the state is created and the previous state ends.
 ```
-onStart() {
-  // Entrypoint
-  this.switchState(LoadingState, {})
+import {
+  App,
+  AppInterface
+} from '@khanonjs/engine'
+
+@App({ name: 'My App' })
+export class MyApp extends AppInterface {
+  onStart() {
+    // Entrypoint
+    this.switchState(LoadingState, {})
+  }
 }
 ```
 
 **This is the proper way to start the application.**
 
+To get the current state use the [`state`](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#state) accesor.
+
 # Callbacks
 
-This interface implements the abstract callback [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart), which is called when the app is ready to start. This is the entrypoint of the application.
+App interface implements the abstract callback [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart), which is called when the app is ready to start. This is the **entrypoint of the application** and it is mandatory.
 
-There can also be implemented the optional callbacks [onError](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) to handle a critical error and [onClose](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onClose) to handle the application close.
+Implement the optional callback [onError](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onError) to handle a critical error.
 
-To get the current state use the [`state`](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#state) accesor.
+You can also implement the [onClose](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onClose) callback to handle the application close.
 
 # Notifications
 
-The app can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+The app can also receive notifications through [notify](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
