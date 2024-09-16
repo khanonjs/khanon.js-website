@@ -77,4 +77,4 @@ You can also implement the [onClose](https://khanonjs.com/api-docs/classes/decor
 
 # Notifications
 
-The app can also receive notifications through [notify](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+The app can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.

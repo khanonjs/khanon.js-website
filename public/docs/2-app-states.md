@@ -1,14 +1,14 @@
 # App state overview
 
-[App States](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) makes reference to the current state of the application. This means each app state decides what to load on self start, what to unload on self end, and it decides when and how the application changes of state.
+[App states](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) are logical controllers of the application. Each app state decides what to load on start, what to unload on end, and it decides when and how the application changes of state. They control the flow of the application.
 
 This is better explained with an example:
 
-Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the MainMenuAppState. This state loads a *MainMenuBackgroundScene*, and a *MainMenuGUI*. After those two are loaded, *MainMenuAppState* receives the [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) event, displaying both scene and GUI. The end of *MainMenuAppState* unloads both *MainMenuBackgroundScene* and *MainMenuGUI*.
+Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the *MainMenuAppState*. This state loads the scene *MainMenuBackgroundScene* and the GUI *MainMenuGUI*. After those two elements are loaded the [onStart](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback is invoked, displaying both scene and GUI. From this point it is the scene and the GUI who decide how to continue with the game.
 
 # Using the app state interface
 
-To implement an app state you need to create a class, apply the [AppState decorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend the
+To implement an app state you need to create a class, apply the [AppState decorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend
 [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
 
 **app-state.ts**
@@ -72,10 +72,11 @@ Be sure that after you switch to a new state and before it has been loaded, the 
 
 # Setup of the state
 
-In case you need to apply a setup to the state, it is possible tough the generic interface `S` of [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
-Everytime the state has been started, the caller will need to pass the setup argument. If setup is not defined in the AppStateInterface generic `S` interface, an empty object will be passed from the switch methods:
+In case you need to apply a setup to the state, it is possible through the generic `S` of [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
+
+The setup object needs to be passed in both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
-export class AppStateIntro extends AppStateInterface { // Undefined setup generic interface
+export class AppStateIntro extends AppStateInterface { // Undefined setup generic
 // ...
 }
 
@@ -136,4 +137,4 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-The app state can also receive notifications through [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+The app state can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
