@@ -57,7 +57,7 @@ Use the scene [switchState](https://khanonjs.com/api-docs/classes/decorators_sce
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
 
-The setup object needs to be passed in both [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
 export class SceneStateGoStage extends SceneStateInterface { // Undefined setup generic
 // ...
@@ -90,7 +90,7 @@ The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.S
 
 ## Loop Update
 
-Every scene state can define [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update method, being called every frame. Add logic here to check any state or update any element.
+Every scene state can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -111,4 +111,4 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-The scene state can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+Scene states can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.

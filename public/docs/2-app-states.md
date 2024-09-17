@@ -74,7 +74,7 @@ Be sure that after you switch to a new state and before it has been loaded, the 
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
 
-The setup object needs to be passed in both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
 export class AppStateIntro extends AppStateInterface { // Undefined setup generic
 // ...
@@ -116,7 +116,7 @@ All elements declared in the [AppStateProps](https://khanonjs.com/api-docs/inter
 
 ## Loop Update
 
-Every app state can define [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update method, being called every frame. Add logic here to check any state or update any element.
+Every app state can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -137,4 +137,4 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-The app state can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+App states can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.

@@ -17,6 +17,9 @@ To have the first production version we still have to implement these items:
     - MeshMap decorator to build mesh based scenes.
 
 &nbsp;
+    - Support for input events.
+
+&nbsp;
     - Project builder system (webpack).
 
 &nbsp;
