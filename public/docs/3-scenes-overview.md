@@ -28,7 +28,6 @@ Only one state is running at the same time. Some examples of scene states: *Scen
 The [Camera](https://khanonjs.com/api-docs/modules/decorators_camera.html) is defined by its own class implementation, and it is usually selected by the scene state. Each state can demand a different camera depending on events.
 
 # Scene Actions
-Defined by their own class implementation, [Scene Actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are executed on the scene provoking different effects. For example, an action could display rain, another could make actors bigger, another could show a visual event in the background, etc.
+[Scene Actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are executed on the scene provoking different effects. For example, an action could display rain, another could make actors bigger, another could show a visual event in the background, etc.
 
-Many actions can be executed at the same time, and like other Khanon.js objects, they have their own lifecycle and logic. Just pay attention their logic don't collide between themselves.
-
+Many dinstinct actions can be executed at the same time, and like other Khanon.js objects, they have their own lifecycle and logic. Just pay attention their logic don't collide between themselves.
