@@ -18,7 +18,7 @@ import {
 
 @Camera()
 export class MyCamera extends CameraInterface {
-  initialize(scene: BABYLON.Scene) {
+  onInitialize(scene: BABYLON.Scene) {
     // Create a Babylon camera, configure it, and return it
     const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 0, 0), scene)
     camera.target = new BABYLON.Vector3(1, 0, 0)
@@ -28,7 +28,7 @@ export class MyCamera extends CameraInterface {
 }
 ```
 
-Cameras are too complex to configure, so Khanon.js doesn't provide a common configuration method. The [initialize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#initialize) method is mandatory. **You must create a [Babylon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) and return it**. Create it using the Babyon `scene` property provided in the first argument. This camera will be used by Khanon.js.
+Cameras are too complex to configure, so Khanon.js doesn't provide a common configuration method. The [onInitialize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onInitialize) method is mandatory. **You must create a [Babylon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) and return it**. Create it using the Babyon [`scene`](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) class provided in the first argument. This camera will be used by Khanon.js.
 
 You can access the [Babyon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
 
@@ -42,7 +42,7 @@ Switching of camera can be done from both scenes and scene states.
 
 Use the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) scene method or the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) scene state method to switch of camera.
 
-# Setup of the state
+# Setup of the camera
 
 In case you need to apply a setup to the camera, it is possible through the generic `S` of [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html).
 

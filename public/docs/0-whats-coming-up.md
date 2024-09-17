@@ -57,3 +57,7 @@ Some things in mind:
 
 &nbsp;
     - And many more things!
+
+# Community request
+
+Please if you see any error in the documentation of this page, send a description to [`development@khanonjs.com`](mailto:development@khanonjs.com)
