@@ -39,20 +39,20 @@ export const getStartedDocs = [
     section: 'Sprites',
     docs: [
       { title: 'Overview', file: '4-sprites-overview' },
-      { title: 'Sprite as class decorator', file: '4-sprite-class-decorator' },
-      { title: 'Sprite as property decorator', file: '4-sprite-property-decorator' },
-      { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
+      { title: 'Using the class decorator', file: '4-sprite-class-decorator' },
+      { title: 'Using the property decorator', file: '4-sprite-property-decorator' },
       { title: 'Spawning and destroying sprites', file: '4-spawning-destroying-sprites' },
+      { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
     ]
   },
   {
     section: 'Meshes',
     docs: [
       { title: 'Overview', file: '5-meshes-overview' },
-      { title: 'Mesh as class decorator', file: '5-mesh-class-decorator' },
-      { title: 'Mesh as property decorator', file: '5-mesh-property-decorator' },
-      { title: 'Using the mesh interface', file: '5-using-mesh-interface' },
+      { title: 'Using the class decorator', file: '5-mesh-class-decorator' },
+      { title: 'Using the property decorator', file: '5-mesh-property-decorator' },
       { title: 'Spawning and destroying meshes', file: '5-spawning-destroying-meshes' },
+      { title: 'Using the mesh interface', file: '5-using-mesh-interface' },
     ]
   },
   {
@@ -78,9 +78,9 @@ export const getStartedDocs = [
     section: 'Particles',
     docs: [
       { title: 'Overview', file: '8-particles-overview' },
-      { title: 'Creating particles', file: '8-creating-particles' },
-      { title: 'Using the Particle interface', file: '8-using-particle-interface' },
-      { title: 'Spawning particles', file: '8-spawning-particles' },
+      { title: 'Using the class decorator', file: '8-creating-particles' },
+      { title: 'Using the method decorator', file: '8-using-particle-interface' },
+      { title: 'Spawning and destroying particles', file: '8-spawning-particles' },
     ]
   },
   {

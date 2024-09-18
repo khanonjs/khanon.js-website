@@ -32,20 +32,16 @@ import { MySceneState } from './my-scene-state'
     MyGUI
   ]
 })
-export class AppStateIntro extends AppStateInterface<{ / S = setup object / }> {
+export class AppStateIntro extends AppStateInterface</* Setup object */ S = any> {
   onStart() {
+    // Scenes and GUIs have been loaded at this point and can start
     KJS.Scene.start(MyScene, MySceneState, {})
     KJS.GUI.start(MyGUI, MyGUIState, {})
-
-    // Setup object is accesible
-    const setup = this.setup
+    // this.setup has optional S type
   }
 
   onEnd() {
-    // These two aren't needed because Khanon.js will unload them on the state end,
-    // stopping them as well, but they serve as example.
-    KJS.Scene.stop(MyScene)
-    KJS.GUI.stop(MyGUI)
+    // Invoked on the state end. Scenes and GUIs are automatically unloaded.
   }
 }
 ```

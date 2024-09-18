@@ -17,9 +17,11 @@ import {
 } from '@khanonjs/engine'
 
 @Camera()
-export class MyCamera extends CameraInterface {
+export class MyCamera extends CameraInterface</* Setup object */ S = any, /* Scene object */ C = SceneInterface> {
   onInitialize(scene: BABYLON.Scene) {
     // Create a Babylon camera, configure it, and return it
+    // this.setup has optional S type
+    // this.scene has optional C type
     const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 0, 0), scene)
     camera.target = new BABYLON.Vector3(1, 0, 0)
     camera.inputs.clear()
@@ -32,9 +34,9 @@ Cameras are too complex to configure, so Khanon.js doesn't provide a common conf
 
 You can access the [Babyon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
 
-Access the owner scene of the camera from the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor.
+Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor is passed to the camera by the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) call. In this way the caller can send parameters to the camera.
 
-Access the camera setup from the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor.
+To access the scene associated to the camera use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor.
 
 # Switching of camera
 

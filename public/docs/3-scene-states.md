@@ -18,11 +18,11 @@ import {
 } from '@khanonjs/engine'
 
 @SceneState()
-export class SceneIntroState extends SceneStateInterface<S = {/* setup object */}, C = {/* scene interface */}> {
+export class SceneIntroState extends SceneStateInterface</* Setup object */ S = any, /* Scene interface */ C = SceneInterface> {
   onStart() {
     // Configure the scene here and spawn needed elements
-    // this.setup has S type
-    // this.scene has C type
+    // this.setup has optional S type
+    // this.scene has optional C type
   }
 
   onEnd() {
@@ -33,11 +33,9 @@ export class SceneIntroState extends SceneStateInterface<S = {/* setup object */
 
 [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) can apply two optional generic interfaces.
 
-`S` is the generic type for the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) object. This object is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method. In this way the caller can send parameters to the state.
+Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) call. In this way the caller can send parameters to the state.
 
-`C` is the scene interface in case you want to have access to custom scene properties. This type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor.
-
-To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor.
+To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor.
 
 Use [`spawn`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [`remove`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) properties to spawn and remove elements. They are a shortcut to the actual scene spawn and remove classes.
 
