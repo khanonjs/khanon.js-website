@@ -163,5 +163,5 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-Scenes can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+Scenes can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
 

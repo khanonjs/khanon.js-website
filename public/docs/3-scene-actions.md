@@ -135,7 +135,7 @@ The [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_actio
 
 The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onEnd) calllback is invoked on action stop.
 
-The [onRemove](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onRemove) calllback is invoked when action is removed.
+The [onRemove](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onRemove) calllback is invoked when the action is removed.
 
 ## Loop Update
 

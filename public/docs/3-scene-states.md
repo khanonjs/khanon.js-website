@@ -6,6 +6,8 @@ When a scene state starts, the [onStart](https://khanonjs.com/api-docs/classes/d
 
 Scene states doesn't have to configure the scene necessarily. A scene state can be a second stage of the scene that applies a different logic, but keeps the elements created by a previous state.
 
+Access the state of a scene from the [`state`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#state) accessor.
+
 # Using the scene state interface
 
 To create a scene state you need to create a class, apply the [SceneState decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_state.SceneState.html) and extend [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
