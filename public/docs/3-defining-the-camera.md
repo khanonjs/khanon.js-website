@@ -50,6 +50,7 @@ In case you need to apply a setup to the camera, it is possible through the gene
 
 The setup object needs to be passed to the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) method. If the setup is not defined in the [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) generic `S`, an empty object will be passed to the switch method:
 ```
+@Camera()
 export class MyCamera extends CameraInterface { // Undefined setup generic
 // ...
 }
@@ -59,6 +60,7 @@ export class MyCamera extends CameraInterface { // Undefined setup generic
 myScene.switchCamera(SceneStateGoStage, {})
 ```
 ```
+@Camera()
 export class MyCamera extends CameraInterface<actorToFollow: ActorInterface> { // Defined setup generic interface
 // ...
 }
@@ -106,10 +108,10 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.Camer
 Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
-  // Rearrange layers
+  // Update camera parameters
 }
 ```
 
 # Notifications
 
-Cameras can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+Cameras can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.

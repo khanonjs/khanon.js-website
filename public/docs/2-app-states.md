@@ -72,6 +72,7 @@ In case you need to apply a setup to the state, it is possible through the gener
 
 The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
+@AppState()
 export class AppStateIntro extends AppStateInterface { // Undefined setup generic
 // ...
 }
@@ -81,6 +82,7 @@ export class AppStateIntro extends AppStateInterface { // Undefined setup generi
 KJS.switchAppState(AppStateIntro, {})
 ```
 ```
+@AppState()
 export class AppStateIntro extends AppStateInterface<playerName: string, currentLevel: number> { // Defined setup generic interface
 // ...
 }

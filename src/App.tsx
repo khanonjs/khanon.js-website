@@ -13,6 +13,7 @@ import { GetStartedPage } from './pages/getstarted/getstarted-page'
 import { MainPage } from './pages/main/main-page'
 import { TutorialsPage } from './pages/tutorials/tutorials-page'
 
+// 8a8f add react router to docs, tutorials and markdown headings
 export class App extends React.Component {
   private page: Pages = Pages.MAIN
   private elementBackground: Background

@@ -57,6 +57,7 @@ In case you need to apply a setup to the state, it is possible through the gener
 
 The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
+@SceneState()
 export class SceneStateGoStage extends SceneStateInterface { // Undefined setup generic
 // ...
 }
@@ -66,6 +67,7 @@ export class SceneStateGoStage extends SceneStateInterface { // Undefined setup 
 myScene.switchState(SceneStateGoStage, {})
 ```
 ```
+@SceneState()
 export class SceneStateGoStage extends SceneStateInterface<level: number, playerLife: number> { // Defined setup generic interface
 // ...
 }
@@ -82,9 +84,9 @@ The state setup is accessible from the [`setup`](https://khanonjs.com/api-docs/c
 
 # Callbacks
 
-The [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart) calllback is invoked on the state start.
+The [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart) calllback is invoked on state start.
 
-The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onEnd) calllback is invoked when the state ends.
+The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onEnd) calllback is invoked when state end.
 
 ## Loop Update
 
@@ -102,8 +104,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_
 Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
-  // Add some logic in case the browser ratio affects your game
-  // E.g. Display a pause screen if the game cannot be displayed properly.
+  // Rearrange layers
 }
 ```
 
