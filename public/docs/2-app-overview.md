@@ -1,5 +1,5 @@
 # App overview
-The app class is the main handler of the application. There's one per project, usually placed in the app.ts file in the root of the src folder.
+The [app](https://khanonjs.com/api-docs/modules/decorators_app.html) class is the main handler of the application. There's one per project, usually placed in the app.ts file in the root of the src folder.
 It must be decorated by the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html), and must extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to have access to the interface properties and methods.
 
 This app class runs the main lifecycle of the application. When the app is opened in a browser tab, the app class creates the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) and starts the core handlers. Once everything is loaded and ready to start, it invokes the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback, being this the **entrypoint of the application**.

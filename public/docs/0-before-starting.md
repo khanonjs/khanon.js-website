@@ -9,3 +9,7 @@ In case you want to improve your Javascript skills, I truly recommend a books se
 Typescript documentation can be found [here](https://www.typescriptlang.org/docs/).
 
 As for npm projects, there are plenty of tutorials on the net. Just search some beginners guide, we will use it in a basic way.
+
+# Request to the community
+
+Please if you see any error in the documentation pages, send a description to [`development@khanonjs.com`](mailto:development@khanonjs.com)

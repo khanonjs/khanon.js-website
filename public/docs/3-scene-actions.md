@@ -1,4 +1,4 @@
-# Scene actions overview
+# Scene action overview
 
 [Scene actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are modifiers of the scene. They add effects and act to the scene to generate certain events or behaviours.
 

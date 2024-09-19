@@ -67,9 +67,9 @@ Many different scene maps can be used within a scene, there is not restriction a
 
 ## Actors, Sprites, Meshes and Particles
 
-[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) and [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) are spawnable elements that can be added or removed from the scene at any point.
+[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) and [particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) are spawnable elements that can be added or removed from the scene at any point.
 
-[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) are logical elements that interact with the themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
+[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) are logical elements that interact between themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
 
 [Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html) are 2D textures that always face to the camera. They can be used for many different purposes like compose an actor, be a part of the scene, or render particles. Sprites are delcared in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
 
@@ -104,6 +104,38 @@ Use the accessor [`started`](https://khanonjs.com/api-docs/classes/decorators_sc
 # Babylon object
 
 To access to the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) object, use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#babylon) accessor. You can use it and modify whatever you need, but remember not to remove any element previously created by Khanon.js
+
+# Spawning and removing elements
+
+Use the [spawn](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#spawn) object to spawn elements. This object returns the [SceneSpawn](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html) class. You can spawn [actors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#actor), [sprites](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite), [meshes](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#mesh) and [particles](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle).
+```
+example() {
+  myScene.spawn.actor(MyActor)
+}
+```
+
+It is possible to spawn many elements in a single call, indicating the count of elements in the second argument, and using the third argument to setup each element. Spawn counter is only allowed in actors, sprites and meshes.
+```
+example() {
+  myScene.spawn.actor(MyActor, 10, (actor: ActorInstance, index: number) => {
+    actor.transform.position.x = index * 5
+  })
+}
+```
+
+Use the [remove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#remove) object to remove elements. It returns the [SceneRemove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html) class, being it possible to remove [actors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#actor), [sprites](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite), [meshes](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#mesh) and [particles](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#particle). There are also alternative methods to remove all the elements of a kind, and to remove [all](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#all) elements from the scene.
+```
+example() {
+  // Remove a single actor
+  myScene.remove.actor(MyActor)
+
+  // Remove all actors from the scene
+  myScene.remove.actorAll()
+
+  // Remove all elements from the scene
+  myScene.remove.all()
+}
+```
 
 # Callbacks
 
