@@ -1,8 +1,8 @@
 import React from 'react'
 import { ExternalLink } from 'react-feather'
 
-import githubLogo from '../../assets/github-logo.png'
-import xLogo from '../../assets/x-logo.png'
+import githubLogo from '../../assets/github-logo-gray.png'
+import xLogo from '../../assets/x-logo-gray.png'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
 import styles from './header.module.scss'

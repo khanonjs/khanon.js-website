@@ -1,6 +1,6 @@
 import React from 'react'
 
-import githubButton from '../../assets/github-button-white.png'
+import githubButton from '../../assets/github-button-gray.png'
 import playCircle from '../../assets/play-circle.svg'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
@@ -26,7 +26,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
         <div
           className={styles['main-buttons-play']}
           onClick={this.handlePlayDemos.bind(this)}
-          {...{ 'disabled': true }}
+          
         >
           <img
             src={playCircle}
@@ -37,7 +37,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
         <div
           className={styles['main-buttons-getstarted']}
           onClick={this.handleGetStarted.bind(this)}
-          {...{ 'disabled': true }}
+          
         >
           <div className={ElementStyle.getClass(styles, ['main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED
           </div>
