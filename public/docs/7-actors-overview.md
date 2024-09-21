@@ -1,4 +1,11 @@
-# Get Started 6
+# Actor overview
 
+# Actor type
 
-# What is Khanon.js?
+# Actor composition
+
+# Actor States
+
+# Actor Actions
+
+# Particles

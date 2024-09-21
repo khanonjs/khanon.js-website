@@ -12,4 +12,4 @@ As for npm projects, there are plenty of tutorials on the net. Just search some 
 
 # Request to the community
 
-Please if you see any error in the documentation pages, send a description to [`development@khanonjs.com`](mailto:development@khanonjs.com)
+Please if you see any error in the documentation pages, send the description to [`development@khanonjs.com`](mailto:development@khanonjs.com)

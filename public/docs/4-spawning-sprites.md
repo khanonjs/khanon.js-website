@@ -84,7 +84,7 @@ export class MyParticle extends ParticleInterface {
 
 # Using sprites in scenes
 
-Finally, you can spawn arbitrary sprites in the scene and manipulate them by yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it. These sprites are removed by the scene on scene unload, but you can remove them in case you need it using the [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) method.
+Finally, you can spawn arbitrary sprites in the scene and manipulate them by yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it. These sprites are removed by the scene on scene unload, but you can remove them in case you need it using [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) or sprite [destroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#destroy) methods.
 
 **my-scene.ts**
 ```

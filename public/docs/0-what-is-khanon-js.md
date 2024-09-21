@@ -34,6 +34,24 @@ Khanon.js has been designed to not to rely in Babylon properties. That means in 
 
 To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *khanonSprite.babylon.sprite*).
 
+It is important to note that some Babylon.js objects have same name than other Khanon.js objects. To avoid collisions between their imports, use always the BABYLON namespace to use Babylon objects.
+```
+import * as BABYLON from '@babylonjs/core'  // Use always BABYLON namespace
+import {
+  Scene,
+  SceneInterface
+} from '@khanonjs/engine'
+
+function example() {
+  const babylonScene = new BABYLON.Scene(/* ... */)
+}
+
+@Scene()
+export class KhanonScene extends SceneInterface {
+  // ...
+}
+```
+
 # Motivation
 
 When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
