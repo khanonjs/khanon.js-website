@@ -114,7 +114,7 @@ All elements declared in the [AppStateProps](https://khanonjs.com/api-docs/inter
 
 ## Loop Update
 
-Every app state can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+App states can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -125,7 +125,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_stat
 
 ## Canvas Resize
 
-Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onCanvasResize) to receive any new canvas resize.
+Implement the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
   // Add some logic in case the browser ratio affects your game

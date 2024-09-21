@@ -30,7 +30,7 @@ export class MyCamera extends CameraInterface</* Setup object */ S = any, /* Sce
 }
 ```
 
-Cameras are too complex to configure, so Khanon.js doesn't provide a common configuration method. The [onInitialize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onInitialize) method is mandatory. **You must create a [Babylon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) and return it**. Create it using the Babyon [`scene`](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) class provided in the first argument. This camera will be used by Khanon.js.
+Cameras are too complex to configure, so Khanon.js doesn't provide a common configuration method. The [onInitialize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onInitialize) method is mandatory. **You must create a [Babylon Camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) and return it**. Create it using the Babyon [`scene`](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) class provided in the first argument. This camera will be used by Khanon.js.
 
 You can access the [Babyon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
 
@@ -94,7 +94,7 @@ The [onStop](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInter
 
 ## Loop Update
 
-Every camera can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every camera can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -105,7 +105,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.Camer
 
 ## Canvas Resize
 
-Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onCanvasResize) to receive any new canvas resize.
+Implement the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
   // Update camera parameters

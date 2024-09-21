@@ -20,6 +20,9 @@ To have the first production version we still have to implement these items:
     - Support for input events.
 
 &nbsp;
+    - Support for sounds system.
+
+&nbsp;
     - Project builder system (webpack).
 
 &nbsp;

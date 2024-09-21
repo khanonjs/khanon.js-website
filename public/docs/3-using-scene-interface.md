@@ -12,24 +12,32 @@ import {
 @Scene()
 export class MyScene extends SceneInterface {
   onLoad() {
-    // Load your Babylon elements here
+    // Load whatever you need in the scene
   }
 
   onUnload() {
-    // Unload your Babylon elements here
+    // Release anything loaded previously
   }
 
   onStart() {
-    // Start your code here
+    // Invoked on scene start
   }
 
   onStop() {
-    // Stop your code here
+    // Invoked on scene stop
   }
 }
 ```
 
 As you see, by default a scene doesn't need anything. You can create an empty scene and start adding any Babylon element manually, controlling everything by yourself, but that's not what Khanon.js is intended to be.
+
+To access to the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene), use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#babylon) accessor. You can use it and modify whatever you need, but remember not to remove any element previously created by Khanon.js.
+```
+example() {
+  const babylonScene = this.babylon.scene
+  babylonScene.clearColor = new BABYLON.Color4(1, 0, 0, 1)  // Clear color of the scene is red
+}
+```
 
 # Decorator properties
 
@@ -39,7 +47,7 @@ The scene decorator properties are defined in the [SceneProps](https://khanonjs.
 
 You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) from the decorator props. There are two properties for this purpose:
 
-[`options`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#options) are the [Babylon options](https://doc.babylonjs.com/typedoc/interfaces/BABYLON.SceneOptions).
+[`options`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#options) are the [Babylon SceneOptions](https://doc.babylonjs.com/typedoc/interfaces/BABYLON.SceneOptions).
 
 [`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
 
@@ -101,10 +109,6 @@ To stop the scene use the [stop](https://khanonjs.com/api-docs/classes/decorator
 
 Use the accessor [`started`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#started) to know if the scene has started or not.
 
-# Babylon object
-
-To access to the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) object, use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#babylon) accessor. You can use it and modify whatever you need, but remember not to remove any element previously created by Khanon.js
-
 # Spawning and removing elements
 
 Use the [spawn](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#spawn) object to spawn elements. This object returns the [SceneSpawn](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html) class. You can spawn [actors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#actor), [sprites](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite), [meshes](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#mesh) and [particles](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle).
@@ -114,7 +118,7 @@ example() {
 }
 ```
 
-It is possible to spawn many elements in a single call, indicating the count of elements in the second argument, and using the third argument to setup each element. Spawn counter is only allowed in actors, sprites and meshes.
+It is possible to spawn many elements in a single call, indicating the count of elements in the second parameter, and using the third parameter to configure each spawned element. Spawn counter is only allowed in actors, sprites and meshes.
 ```
 example() {
   myScene.spawn.actor(MyActor, 10, (actor: ActorInstance, index: number) => {
@@ -123,7 +127,7 @@ example() {
 }
 ```
 
-Use the [remove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#remove) object to remove elements. It returns the [SceneRemove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html) class, being it possible to remove [actors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#actor), [sprites](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite), [meshes](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#mesh) and [particles](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#particle). There are also alternative methods to remove all the elements of a kind, and to remove [all](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#all) elements from the scene.
+Use the [remove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#remove) object to remove elements. It returns the [SceneRemove](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html) class, which allows to remove [actors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#actor), [sprites](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite), [meshes](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#mesh) and [particles](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#particle). There are also alternative methods to remove all elements of a type, and for removing [all](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#all) elements from the scene.
 ```
 example() {
   // Remove a single actor
@@ -143,7 +147,7 @@ Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/de
 
 ## Loop Update
 
-Every scene can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every scene can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -154,7 +158,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneI
 
 ## Canvas Resize
 
-Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize) to receive any new canvas resize.
+Implement the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
   // Rearrange layers

@@ -92,7 +92,7 @@ The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.S
 
 ## Loop Update
 
-Every scene state can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every scene state can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -103,7 +103,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_
 
 ## Canvas Resize
 
-Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onCanvasResize) to receive any new canvas resize.
+Implement the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
   // Rearrange layers

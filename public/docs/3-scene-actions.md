@@ -1,6 +1,6 @@
 # Scene action overview
 
-[Scene actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are modifiers of the scene. They add effects and act to the scene to generate certain events or behaviours.
+[Scene actions](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) are modifiers of the scene. They add effects and act on the scene to generate events and behaviours.
 
 For example, an action could be rendering rain over the scene. When this action starts playing, it starts creating some dynamic textures representing rain that will be rendered until the action stops; another action could be modify the camera POV; or applying a post-processing map to make the scene pass from the day to the night. Any number of dinstinct actions can be playing at the same time, and they can be temporal or permanent.
 
@@ -139,7 +139,7 @@ The [onRemove](https://khanonjs.com/api-docs/classes/decorators_scene_scene_acti
 
 ## Loop Update
 
-Every scene action can define the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update any element.
+Scene actions can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -150,7 +150,7 @@ The [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_
 
 ## Canvas Resize
 
-Define the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onCanvasResize) to receive any new canvas resize.
+Implement the callback [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onCanvasResize) to receive any new canvas resize.
 ```
 onCanvasResize(size: Rect) {
   // Rearrange layers
