@@ -16,7 +16,7 @@ Khanon.js is being designed to develop video games, but it can be used to develo
 
 Khanon.js is fully developed in [typescript](https://www.typescriptlang.org/).
 
-All the features mentioned before are easily implemented to your project through class, method, and property decorators, making the code clean and reusable.
+All the features mentioned before are easily implemented to your project by class, method, and property decorators, making the code clean and reusable.
 
 You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, player events, and many others.
 
@@ -30,13 +30,13 @@ In other cases the Khanon.js object wraps an existing Babylon object, like scene
 
 In the case of Babylon wrapped objects, apart of the extended features Khanon.js brings, you will have fully access to the Babylon object, being able to modify whatever you need.
 
-Khanon.js has been designed to not to rely in Babylon objects properties. That means in most of cases you will be able to modify whatever you need in the Babylon object with the confidence that the code will flow as expected.
+Khanon.js has been designed to not to rely in Babylon properties. That means in most of cases you will be able to modify whatever you need in the Babylon object with the confidence that the code will flow as expected.
 
-To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *someKhanonSprite.babylon.sprite*).
+To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *khanonSprite.babylon.sprite*).
 
 # Motivation
 
-When I firstly began working with Babylon.js, years ago, to build my personal website, I started developing a small engine for the presentation that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
+When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make all my code as reusable as possible; that will save me time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
 So, as expected, instead working in my personal webpage, I ended up working in a game engine.
 
