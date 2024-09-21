@@ -40,7 +40,7 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: '4-sprites-overview' },
       { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
-      { title: 'Spawning and destroying sprites', file: '4-spawning-destroying-sprites' },
+      { title: 'Spawning sprites', file: '4-spawning-sprites' },
     ]
   },
   {
