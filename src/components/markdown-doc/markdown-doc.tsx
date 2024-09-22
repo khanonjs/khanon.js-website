@@ -129,7 +129,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
     // Makes all links open in a new tab
     Array.from(document.links)
-      .filter(link => this.elementMarkdownContainer.contains(link))
+      .filter(link => this.elementMarkdownContainer?.contains(link))
       .forEach(link => link.target = '_blank')
   }
 
@@ -213,13 +213,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   updateSummarySelector(resetHeight?: boolean) {
-    if (resetHeight) {
-      this.hlSummaryHeight = 0
-    }
-    if (this.summaryItems[0].element) {
-      const rect = this.summaryItems[0].element.getBoundingClientRect()
-      this.hlSummaryTop = rect.top + rect.height - 93
-    }
     if (this.hlSummaryTop) {
       this.elementSummarySelector.style.top = `${this.hlSummaryTop + this.hlSummaryHeight}px`
       this.elementSummarySelector.style.opacity = '1'
