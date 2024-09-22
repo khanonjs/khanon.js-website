@@ -87,6 +87,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           })
         }
         this.forceUpdate()
+      } else {
+        setTimeout(() => this.refMarkdownContainer(this.elementMarkdownContainer), 500)
       }
     }
   }
