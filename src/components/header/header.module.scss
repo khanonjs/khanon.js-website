@@ -24,10 +24,11 @@
   cursor: pointer;
 }
 
-.header-home-k {
+.header-home-K {
   display: flex;
   font-size: 3.8em;
   color: $color-home;
+  height: 1em;
 }
 
 .header-home-js {
@@ -88,7 +89,7 @@
   pointer-events: all;
 
   & img {
-    height: 2.8em;
+    height: 1.8em;
   }
 }
 
@@ -98,7 +99,7 @@
   pointer-events: all;
 
   & img {
-    height: 2.5em;
+    height: 1.5em;
   }
 
   &[disabled] {

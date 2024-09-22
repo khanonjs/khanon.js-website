@@ -7,6 +7,7 @@ import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
 import styles from './header.module.scss'
 import { HeaderProps } from './header.props'
+import HomeLogo from "../../assets/K-home-logo.svg"
 
 export class Header extends React.Component<HeaderProps> {
   handleHome() {
@@ -41,9 +42,7 @@ export class Header extends React.Component<HeaderProps> {
           className={styles['header-home']}
           onClick={this.handleHome.bind(this)}
         >
-          <div className={ElementStyle.getClass(styles, ['header-home-k', 'font-luckiestguy-regular'])}>
-            K
-          </div>
+          <img src={HomeLogo} className={styles['header-home-K']}/>
         </div>
         <div className={styles['header-buttons-bar']}>
           <div
