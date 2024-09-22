@@ -6,9 +6,9 @@
 .header-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
-  height: $header-height;
-  margin-top: $header-margin-top;
+  height: 5.4em;
   position: absolute;
   user-select: none;
   text-overflow: ellipsis;
@@ -17,8 +17,6 @@
 
 .header-home {
   display: flex;
-  height: 100%;
-  // margin-top: 1.2em;
   margin-left: 3em;
   padding-left: 2em;
   padding-right: 2em;
@@ -42,7 +40,6 @@
   display: flex;
   flex-direction: row;
   gap: 1em;
-  margin-top: 0.7em;
   margin-left: 3em;
   color: $color-header-buttons;
 }
@@ -85,7 +82,6 @@
 }
 
 .header-github {
-  margin-top: 1.1em;
   margin-left: auto;
   margin-right: 2.5em;
   cursor: pointer;
@@ -97,7 +93,6 @@
 }
 
 .header-x {
-  margin-top: 1.3em;
   margin-right: 7%;
   cursor: pointer;
   pointer-events: all;
