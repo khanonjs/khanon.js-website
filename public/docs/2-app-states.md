@@ -8,7 +8,7 @@ Once the application has started, the [onStart](https://khanonjs.com/api-docs/cl
 
 # Using the app state interface
 
-To implement an app state you need to create a class, apply the [AppState decorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html) and extend
+To implement an app state you need to create a class, apply the [AppState decorator](https://khanonjs.com/api-docs/functions/decorators_app_app_state.AppState.html), and extend
 [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
 
 **app-state.ts**

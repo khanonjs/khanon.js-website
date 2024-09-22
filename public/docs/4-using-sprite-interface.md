@@ -1,6 +1,6 @@
 # Using the class decorator
 
-To implement a sprite using class decorator you need to create a class, apply the [Sprite decorator](https://khanonjs.com/api-docs/functions/decorators_sprite.Sprite.html) and extend
+To implement a sprite using class decorator you need to create a class, apply the [Sprite decorator](https://khanonjs.com/api-docs/functions/decorators_sprite.Sprite.html), and extend
 [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html) to gain access to its properties and methods.
 
 **my-sprite.ts**

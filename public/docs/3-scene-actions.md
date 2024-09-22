@@ -10,7 +10,7 @@ When an action is implemented in a decorated class it can be used by any scene c
 
 # Using the class decorator
 
-To implement a scene action using class decorator you need to create a class, apply the [SceneAction decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_action.SceneAction.html) and extend
+To implement a scene action using class decorator you need to create a class, apply the [SceneAction decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_action.SceneAction.html), and extend
 [SceneActionInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html).
 
 **scene-action.ts**

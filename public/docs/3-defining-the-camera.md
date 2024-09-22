@@ -6,7 +6,7 @@ Any scene or state can switch of camera at any point depending on the game state
 
 # Using the camera interface
 
-To create a new camera you need to create class, apply the [Camera decorator](https://khanonjs.com/api-docs/functions/decorators_camera.Camera.html) and extend [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) to gain access to its properties and methods.
+To create a new camera you need to create class, apply the [Camera decorator](https://khanonjs.com/api-docs/functions/decorators_camera.Camera.html), and extend [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) to gain access to its properties and methods.
 
 **camera.ts**
 ```

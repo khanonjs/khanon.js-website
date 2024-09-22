@@ -10,7 +10,7 @@ Access the state of a scene from the [`state`](https://khanonjs.com/api-docs/cla
 
 # Using the scene state interface
 
-To create a scene state you need to create a class, apply the [SceneState decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_state.SceneState.html) and extend [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
+To create a scene state you need to create a class, apply the [SceneState decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_state.SceneState.html), and extend [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
 
 **scene-state.ts**
 ```

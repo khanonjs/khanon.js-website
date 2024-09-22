@@ -1,6 +1,6 @@
 # Creating a Scene
 
-To create a new scene you need to create class, apply the [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html) and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
+To create a new scene you need to create class, apply the [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
 
 **my-scene.ts**
 ```
