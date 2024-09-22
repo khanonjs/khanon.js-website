@@ -75,6 +75,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   refMarkdownContainer(element: HTMLDivElement) {
+    console.log('aki refMarkdownContainer element', element)
     if (element) {
       this.elementMarkdownContainer = element
       if (this.summaryItems.length === 0) {
@@ -86,6 +87,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
             element: null
           })
         }
+        console.log('aki refMarkdownContainer forceUpdate')
         this.forceUpdate()
       }
     }
@@ -113,10 +115,12 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   componentDidMount() {
+    console.log('aki componentDidMount')
     this.fixMarkdown()
   }
 
   componentDidUpdate() {
+    console.log('aki componentDidUpdate')
     this.fixMarkdown()
   }
 
