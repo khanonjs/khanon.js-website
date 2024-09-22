@@ -40,7 +40,7 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: '4-sprites-overview' },
       { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
-      { title: 'Spawning and destroying sprites', file: '4-spawning-destroying-sprites' },
+      { title: 'Spawning sprites', file: '4-spawning-sprites' },
     ]
   },
   {
@@ -48,7 +48,7 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: '5-meshes-overview' },
       { title: 'Using the mesh interface', file: '5-using-mesh-interface' },
-      { title: 'Spawning and destroying meshes', file: '5-spawning-destroying-meshes' },
+      { title: 'Spawning meshes', file: '5-spawning-meshes' },
     ]
   },
   {
@@ -63,11 +63,10 @@ export const getStartedDocs = [
     section: 'Actors',
     docs: [
       { title: 'Overview', file: '7-actors-overview' },
-      { title: 'Creating a new actor', file: '7-creating-new-actor' },
       { title: 'Using the actor interface', file: '7-using-actor-interface' },
       { title: 'Actor states', file: '7-actor-states' },
       { title: 'Actor actions', file: '7-actor-actions' },
-      { title: 'Spawning and destroying actors', file: '7-spawning-destroying-actors' },
+      { title: 'Spawning actors', file: '7-spawning-actors' },
     ]
   },
   {
@@ -76,7 +75,7 @@ export const getStartedDocs = [
       { title: 'Overview', file: '8-particles-overview' },
       { title: 'Using the class decorator', file: '8-creating-particles' },
       { title: 'Using the method decorator', file: '8-using-particle-interface' },
-      { title: 'Spawning and destroying particles', file: '8-spawning-particles' },
+      { title: 'Spawning particles', file: '8-spawning-particles' },
     ]
   },
   {
