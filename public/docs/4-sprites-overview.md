@@ -18,7 +18,7 @@ By default a sprite is a texture created from a single image without frames and 
 
 # Render environment
 
-Note that Babylon.js works in a three-dimensional environment regardless you use 3D or 2D elements in your scene.
+Note that Babylon.js works in a three-dimensional environment regardless you use 3D or 2D elements in the scene.
 
 Even if you opt for purely 2D scenes using only sprites, they will be rendered in a three-dimensional environment, which is actually an advantage.
 
