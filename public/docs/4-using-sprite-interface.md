@@ -104,21 +104,13 @@ Call [stopAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.Spr
   height: 80,
   numFrames: 20,
   animations: [{
-    id: 'actor-walk',
-    frameStart: 0,
-    frameEnd: 9,
-    delay: 100,
-    loop: true,
+    id: 'actor-walk', frameStart: 0, frameEnd: 9, delay: 100, loop: true,
     keyFrames: [{
       id: 'floor-contact-walk',
       frames: [2, 4, 6, 8]
     }]
   }, {
-    id: 'actor-run',
-    frameStart: 10,
-    frameEnd: 19,
-    delay: 100,
-    loop: true,
+    id: 'actor-run', frameStart: 10, frameEnd: 19, delay: 100, loop: true,
     keyFrames: [{
       id: 'floor-contact-run',
       frames: [13, 16]
@@ -134,13 +126,13 @@ export class MySprite extends SpriteInterface {
       // Play a loud sound on run floor contact
     })
     this.playAnimation('actor-run', undefined, () => {
-      // Play character breath sound
+      // Play character breath sound on animation complete
     })
   }
 }
 ```
 
-To set a fixed frame manually use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame), [setFrameFirst](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameFirst) or [setFrameLast](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameLast).
+To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame), [setFrameFirst](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameFirst) or [setFrameLast](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameLast).
 
 # Drawing texts and manipulating the texture
 
