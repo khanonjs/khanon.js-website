@@ -222,7 +222,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     if (resetHeight) {
       this.hlSummaryHeight = 0
     }
-    if (this.summaryItems[0].element) {
+    if (this.summaryItems.length > 0 && this.summaryItems[0].element) {
       const rect = this.summaryItems[0].element.getBoundingClientRect()
       this.hlSummaryTop = rect.top + rect.height - 93
     }
