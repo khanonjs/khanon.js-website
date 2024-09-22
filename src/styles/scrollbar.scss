@@ -1,6 +1,6 @@
 /* total width */
 ::-webkit-scrollbar {
-  width: 0.85rem;
+  width: 1rem;
   height: 0.85rem;
 }
 
@@ -30,7 +30,7 @@
   background-color: rgba(var(--scrollbar-thumb-color, 0, 0, 0), 0.66);
 }
 ::-webkit-scrollbar-track:hover {
-  background-color: #181826;
+  background-color: #1c1c2b;
 }
 
 /* set button(top and bottom of the scrollbar) */
