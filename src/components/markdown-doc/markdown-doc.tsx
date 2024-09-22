@@ -78,7 +78,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     if (element) {
       this.elementMarkdownContainer = element
       const headers = this.elementMarkdownContainer.getElementsByTagName('h1')
-      if (this.summaryItems.length === 0 && headers.length > 0) {
+      if (this.summaryItems.length === 0/* && headers.length > 0*/) {
         for (const h1 of headers) {
           this.summaryItems.push({
             name: h1.innerText,
@@ -87,9 +87,9 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
           })
         }
         this.forceUpdate()
-      } else {
+      } /*else {
         setTimeout(() => this.refMarkdownContainer(this.elementMarkdownContainer), 500)
-      }
+      }*/
     }
   }
 
