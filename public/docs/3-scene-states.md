@@ -41,11 +41,11 @@ To access the scene associated to a state use the [`scene`](https://khanonjs.com
 
 Use [`spawn`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [`remove`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) properties to spawn and remove elements. They are a shortcut to the actual scene spawn and remove classes.
 
-You can set the camera using the [setCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setCamera) method.
+You can switch of camera using the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method.
 
 # Decorator properties
 
-The [SceneStateProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html) decorator properties defines what this state can spawn in the scene. If you want to have a more granular control of what each state uses, instead declaring the actors, sprites, meshes and particles in the scene, you can declare them in the state. That's helpful to reuse the state between different scenes. Khanon.js is flexible and let you declare them in the place you consider is better.
+The [SceneStateProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html) decorator properties defines the elements this state will spawn in the scene. If you want to have a more granular control of what each state uses, instead declaring the actors, sprites, meshes and particles in the scene, you can declare them in the state. That's helpful to reuse the state between different scenes. Khanon.js is flexible and let you declare them in the place you consider better.
 
 Use the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#actors), [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#sprites), [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#meshes) and [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#particles) properties to declare the elements to spawn by this state.
 
@@ -57,7 +57,7 @@ Use the scene [switchState](https://khanonjs.com/api-docs/classes/decorators_sce
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
 
-The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) methods. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
 ```
 @SceneState()
 export class SceneStateGoStage extends SceneStateInterface { // Undefined setup generic
