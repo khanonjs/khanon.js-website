@@ -1,6 +1,6 @@
 # Camera overview
 
-A camera in a video game is the point of view from where the user watch the action. There are many different types of cameras: top-down, isometric, frist person, third person, etc. Babylon.js provides a wide range of camera types and configuration parameters that you can explore in this [link](https://doc.babylonjs.com/features/featuresDeepDive/cameras). [Khanon.js camera](https://khanonjs.com/api-docs/modules/decorators_camera.html) is a wrapper of a [Babylon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) object, providing lifecycle and bringing the possibility to modify camera parameters in real time thanks to the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) method.
+A camera in a video game is the point of view from where the user watch the action. There are many different types of cameras: top-down, isometric, frist person, third person, etc. Babylon.js provides a wide range of camera types and configuration parameters that you can explore in this [link](https://doc.babylonjs.com/features/featuresDeepDive/cameras). [Khanon.js Camera](https://khanonjs.com/api-docs/modules/decorators_camera.html) is a wrapper of a [Babylon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) object, providing lifecycle and bringing the possibility to modify camera parameters in real time thanks to the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) method.
 
 Any scene or state can switch of camera at any point depending on the game state requirements.
 
@@ -32,11 +32,11 @@ export class MyCamera extends CameraInterface</* Setup object */ S = any, /* Sce
 
 Cameras are too complex to configure, so Khanon.js doesn't provide a common configuration method. The [onInitialize](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onInitialize) method is mandatory. **You must create a [Babylon Camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) and return it**. Create it using the Babyon [`scene`](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) class provided in the first argument. This camera will be used by Khanon.js.
 
-You can access the [Babyon camera](https://doc.babylonjs.com/typedoc/classes/BABYLON.Camera) from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
+You can access the Babyon camera from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
 
-Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor is passed to the camera by the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) call. In this way the caller can send parameters to the camera.
+Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the camera by the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) call. In this way the caller can send parameters to the camera.
 
-To access the scene associated to the camera use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor.
+To access the scene associated to the camera use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
 # Switching of camera
 
@@ -48,7 +48,7 @@ Use the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.Sc
 
 In case you need to apply a setup to the camera, it is possible through the generic `S` of [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html).
 
-The setup object needs to be passed to the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) method. If the setup is not defined in the [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) generic `S`, an empty object will be passed to the switch method:
+The setup object needs to be passed to the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) method. If the setup is not defined in the *CameraInterface* generic `S`, an empty object will be passed to the switch method:
 ```
 @Camera()
 export class MyCamera extends CameraInterface { // Undefined setup generic

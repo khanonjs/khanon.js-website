@@ -1,6 +1,6 @@
 # Scene state overview
 
-[Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers of the scene. A scene is always associated to a state, which will control the scene flow. They configure the scene in different ways, playing actions and spawning elements like actors or particles. [Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) can also receive notifications and act in consequence.
+[Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers of the scene. A scene is always associated to a state, which will control the scene flow. They configure the scene in different ways, playing actions and spawning elements like actors or particles. Scene states can also receive notifications and act in consequence.
 
 When a scene state starts, the [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart) callback is invoked, being this the point to initially configure the scene.
 
@@ -35,13 +35,13 @@ export class SceneIntroState extends SceneStateInterface</* Setup object */ S = 
 
 [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) can apply two optional generic interfaces.
 
-Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) call. In this way the caller can send parameters to the state.
+Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) call. In this way the caller can send parameters to the state.
 
-To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor.
+To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
 Use [`spawn`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [`remove`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) properties to spawn and remove elements. They are a shortcut to the actual scene spawn and remove classes.
 
-You can switch of camera using the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method.
+To switch of camera use the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method. This method has to be called in in the scene (or state) start. Every scene needs to have attached a camera in every moment.
 
 # Decorator properties
 
@@ -57,7 +57,7 @@ Use the scene [switchState](https://khanonjs.com/api-docs/classes/decorators_sce
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
 
-The setup object needs to be passed to [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) methods. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) methods. If the setup is not defined in the *SceneStateInterface* generic `S`, an empty object will be passed to the switch methods:
 ```
 @SceneState()
 export class SceneStateGoStage extends SceneStateInterface { // Undefined setup generic

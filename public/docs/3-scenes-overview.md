@@ -8,7 +8,7 @@ Khanon.js scenes are implemented in a decorated class, where decorator propertie
 While the visual composition of the scene is defined by one or more scene maps, the development of logic takes place in the different scene states.
 
 # Babylon object
-Khanon.js [Scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) is a wrapper of a [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene). When a class is decorated by [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), it creates a [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) and adds functionalities like lifecycle, ability to spawn and remove elements, assets management capabilities, and many others that will be described in this section.
+Khanon.js [Scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) is a wrapper of a [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene). When a class is decorated by [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), it creates a Babylon Scene and adds functionalities like lifecycle, ability to spawn and remove elements, assets management capabilities, and many others that will be described in this section.
 
 Every Babylon object is freely accessible from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#babylon) accessor. From there you can get the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) instance and modify whatever you need. The code flow shouldn't be affected always you don't remove anything previously created by Khanon.js, like textures, sprites or meshes.
 

@@ -70,7 +70,7 @@ Be sure that after you switch to a new state and before it has been loaded, the 
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
 
-The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the *AppStateInterface* generic `S`, an empty object will be passed to the switch methods:
 ```
 @AppState()
 export class AppStateIntro extends AppStateInterface { // Undefined setup generic

@@ -36,13 +36,13 @@ export class MySceneAction extends SceneActionInterface</* Setup object */ S = a
 
 Class decorators add full functionalities to the action, having the capability to define callbacks and get access to self properties and methods.
 
-Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#setup) accessor is passed to the action by the [playAction](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#playAction) call. In this way the caller can send parameters to the action.
+Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the action by the [playAction](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#playAction) call. In this way the caller can send parameters to the action.
 
-To access the scene associated to an action use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#scene) accessor.
+To access the scene associated to an action use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
 # Using the method decorator
 
-If you don't need to use the action lifecycle and you just want to make use of the action frame by frame update method [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onLoopUpdate), you can create the action inside the class that is going to use it. To do so, you just need to create a method, which will be equivalent to the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onLoopUpdate) action callback, and decorate it with the [SceneAction decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_action.SceneAction.html). The [SceneActionProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_action.SceneActionProps.html) are the same in both cases: decorated class and decorated method.
+If you don't need to use the action lifecycle and you just want to make use of the action frame by frame using [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#onLoopUpdate), you can create the action in a method class. To do so, you just need to create a method, which will be equivalent to the *onLoopUpdate* callback, and decorate it with the [SceneAction decorator](https://khanonjs.com/api-docs/functions/decorators_scene_scene_action.SceneAction.html). [SceneActionProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_action.SceneActionProps.html) are the same for decorated classes and methods.
 
 Decorated methods can be defined within [Scenes](https://khanonjs.com/api-docs/modules/decorators_scene.html) and [SceneStates](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html). They are used to reduce the amount of files and classes in the project in case they have a simple logic.
 
@@ -55,22 +55,22 @@ import {
 
 @Scene()
 export class MyScene extends SceneInterface {
-  myActionInstance: SceneActionInterface
+  myAction: SceneActionInterface
 
   @SceneAction()
-  myAction(delta: number) {
+  someAction(delta: number) {
     // Equivalent to the action onLoopUpdate
-    // Access the action instance using this.myActionInstance
   }
 
 
   onStart() {
-    this.myActionInstance = this.playAction(this.myAction, {})
+    this.myAction = this.playAction(this.someAction, {})
   }
 
   onStop() {
+    // This is just an example, the action will stop automatically on scene stop
     this.stopAction(this.myAction, {})
-    this.myActionInstance = undefined
+    this.myAction = undefined
   }
 }
 ```
@@ -93,7 +93,7 @@ Use [`overrides`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scen
 
 In case you need to apply a setup to the action, it is possible through the generic `S` of [SceneActionInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html).
 
-The setup object needs to be passed to the [playAction](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#playAction) method. If the setup is not defined in the [SceneActionInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html) generic `S`, an empty object will be passed to the [playAction](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#playAction) method:
+The setup object needs to be passed to the [playAction](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#playAction) method. If the setup is not defined in the *SceneActionInterface* generic `S`, an empty object will be passed to the *playAction* method:
 ```
 @SceneAction()
 export class MyAction extends SceneActionInterface { // Undefined setup generic

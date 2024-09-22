@@ -2,12 +2,12 @@ import React from 'react'
 import { ExternalLink } from 'react-feather'
 
 import githubLogo from '../../assets/github-logo-gray.png'
+import HomeLogo from '../../assets/K-home-logo.svg'
 import xLogo from '../../assets/x-logo-gray.png'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
 import styles from './header.module.scss'
 import { HeaderProps } from './header.props'
-import HomeLogo from "../../assets/K-home-logo.svg"
 
 export class Header extends React.Component<HeaderProps> {
   handleHome() {
@@ -35,14 +35,14 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   render() {
-    // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
+    setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
     return (
       <div className={styles['header-container']}>
         <div
           className={styles['header-home']}
           onClick={this.handleHome.bind(this)}
         >
-          <img src={HomeLogo} className={styles['header-home-K']}/>
+          <img src={HomeLogo} className={styles['header-home-K']} />
         </div>
         <div className={styles['header-buttons-bar']}>
           <div
