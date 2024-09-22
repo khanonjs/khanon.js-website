@@ -1,5 +1,5 @@
 # App interface
-To implement a new app you need to create a class, apply the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html) and extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to gain access to the app methods and properties.
+To implement a new app you need to create a class, apply the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html), and extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to gain access to the app methods and properties.
 
 **app.ts**
 ```

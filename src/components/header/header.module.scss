@@ -1,14 +1,14 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/global.scss';
 
-$over-background-color: $color-background-highlight;
+
 
 .header-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
-  height: $header-height;
-  margin-top: $header-margin-top;
+  height: 5.4em;
   position: absolute;
   user-select: none;
   text-overflow: ellipsis;
@@ -17,7 +17,6 @@ $over-background-color: $color-background-highlight;
 
 .header-home {
   display: flex;
-  height: 100%;
   margin-left: 3em;
   padding-left: 2em;
   padding-right: 2em;
@@ -25,10 +24,11 @@ $over-background-color: $color-background-highlight;
   cursor: pointer;
 }
 
-.header-home-k {
+.header-home-K {
   display: flex;
   font-size: 3.8em;
   color: $color-home;
+  height: 1em;
 }
 
 .header-home-js {
@@ -41,7 +41,6 @@ $over-background-color: $color-background-highlight;
   display: flex;
   flex-direction: row;
   gap: 1em;
-  margin-top: 0.7em;
   margin-left: 3em;
   color: $color-header-buttons;
 }
@@ -84,25 +83,23 @@ $over-background-color: $color-background-highlight;
 }
 
 .header-github {
-  margin-top: 1.1em;
   margin-left: auto;
   margin-right: 2.5em;
   cursor: pointer;
   pointer-events: all;
 
   & img {
-    height: 2.8em;
+    height: 1.8em;
   }
 }
 
 .header-x {
-  margin-top: 1.3em;
   margin-right: 7%;
   cursor: pointer;
   pointer-events: all;
 
   & img {
-    height: 2.5em;
+    height: 1.5em;
   }
 
   &[disabled] {

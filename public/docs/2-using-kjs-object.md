@@ -12,7 +12,7 @@ onStart() {
 ...
 ```
 
-# Scene namespace
+# Scene handler
 
 Use the [Scene](https://khanonjs.com/api-docs/modules/kjs.KJS.Scene.html) namespace to load, unload, start or stop a scene.
 ```
@@ -26,7 +26,7 @@ example() {
 }
 ```
 
-# GUI namespace
+# GUI handler
 
 Use the [GUI](https://khanonjs.com/api-docs/classes/decorators_gui.GUIInterface.html) namespace to load, unload, start or stop a GUI.
 ```
@@ -40,7 +40,7 @@ example() {
 }
 ```
 
-# Notify namespace
+# Notify handler
 
 Use the [Notify](https://khanonjs.com/api-docs/modules/kjs.KJS.Notify.html) namespace to send messages globally. Read more at he Notifications section
 ```

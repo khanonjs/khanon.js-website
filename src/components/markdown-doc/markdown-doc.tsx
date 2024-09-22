@@ -77,8 +77,8 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   refMarkdownContainer(element: HTMLDivElement) {
     if (element) {
       this.elementMarkdownContainer = element
-      if (this.summaryItems.length === 0) {
-        const headers = this.elementMarkdownContainer.getElementsByTagName('h1')
+      const headers = this.elementMarkdownContainer.getElementsByTagName('h1')
+      if (this.summaryItems.length === 0 && headers.length > 0) {
         for (const h1 of headers) {
           this.summaryItems.push({
             name: h1.innerText,
@@ -129,7 +129,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
     // Makes all links open in a new tab
     Array.from(document.links)
-      .filter(link => this.elementMarkdownContainer.contains(link))
+      .filter(link => this.elementMarkdownContainer?.contains(link))
       .forEach(link => link.target = '_blank')
   }
 
@@ -216,7 +216,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     if (resetHeight) {
       this.hlSummaryHeight = 0
     }
-    if (this.summaryItems[0].element) {
+    if (this.summaryItems.length > 0 && this.summaryItems[0].element) {
       const rect = this.summaryItems[0].element.getBoundingClientRect()
       this.hlSummaryTop = rect.top + rect.height - 93
     }

@@ -1,6 +1,6 @@
 # What is Khanon.js?
 
-As the title sais, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
+As the title says, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
 
 Babylon.js is the most powerful graphical engine for web browsers, it is open source and it is in constant development. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
@@ -10,15 +10,15 @@ Khanon.js adds a layer between Babylon.js and the logic of your game, adding lif
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
 
-Khanon.js is being designed to develop video games, but it can be used to develop any kind of interactive and multimedia application.
+Khanon.js is being designed to create video games, but it can be used to create any kind of interactive and multimedia application.
 
 # What about the code?
 
 Khanon.js is fully developed in [typescript](https://www.typescriptlang.org/).
 
-All the features mentioned before are easily implemented to your project by class, method, and property decorators, making the code clean and reusable.
+All the above mentioned features are easily implemented to your project by class, method, and property decorators, making the code clean and reusable.
 
-You can for example create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, actions, and many others.
+For instance you can create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, actions, and many others.
 
 Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
@@ -34,7 +34,7 @@ Khanon.js has been designed to not to rely in Babylon properties. That means in 
 
 To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *khanonSprite.babylon.sprite*).
 
-It is important to note that some Babylon.js objects have same name than other Khanon.js objects. To avoid collisions between their imports, use always the BABYLON namespace to use Babylon objects.
+It is important to note that some Babylon objects have same name than other Khanon.js objects. To avoid collisions between their imports, use always the BABYLON namespace to use Babylon objects.
 ```
 import * as BABYLON from '@babylonjs/core'  // Use always BABYLON namespace
 import {
@@ -56,7 +56,7 @@ export class KhanonScene extends SceneInterface {
 
 When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
-So, as expected, instead working in my personal webpage, I ended up working in a game engine.
+So, as expected, instead working on my personal webpage, I am wind up working on a game engine.
 
 The change came with typescript improvements and decorators. After learning how they work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typecript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
 

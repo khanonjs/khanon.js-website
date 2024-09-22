@@ -27,8 +27,7 @@ $button-radius: 6em;
   width: $button-width;
   height: $button-height;
   border-radius: $button-radius;
-  border: 0.3em solid black;
-  background-color: $color-background;
+  background-color: $color-background-main-button;
   cursor: pointer;
 
   &[disabled] {
@@ -56,6 +55,7 @@ $button-radius: 6em;
   font-size: 2.0em;
   letter-spacing: -0.7px;
   transition: 0.4s;
+  color: $color-getstarted-text;
 }
 
 .main-buttons-play:hover>.main-buttons-play-text {
@@ -70,8 +70,7 @@ $button-radius: 6em;
   width: $button-width;
   height: $button-height;
   border-radius: $button-radius;
-  border: 0.3em solid black;
-  background-color: $color-secondary;
+  background-color: $color-secondary-get-started;
   transition: 0.5s;
   cursor: pointer;
 
@@ -82,8 +81,8 @@ $button-radius: 6em;
 }
 
 .main-buttons-getstarted:hover {
-  background-color: $color-secondary-hover;
-}
+  background-color: $color-secondary-hover-get-started;
+  }
 
 .main-buttons-getstarted-text {
   font-size: 2.3em;

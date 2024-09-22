@@ -5,6 +5,9 @@ At the moment, **Khanon.js is in a BETA state**. This means we are still testing
 To have the first production version we still have to implement these items:
 
 &nbsp;
+    - Sprite nodes.
+
+&nbsp;
     - Mesh decorator.
 
 &nbsp;
