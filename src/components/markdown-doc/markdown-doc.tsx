@@ -75,13 +75,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   refMarkdownContainer(element: HTMLDivElement) {
-    console.log('aki refMarkdownContainer element', element)
     if (element) {
       this.elementMarkdownContainer = element
-      console.log('aki refMarkdownContainer this.summaryItems.length', this.summaryItems.length)
       const headers = this.elementMarkdownContainer.getElementsByTagName('h1')
       if (this.summaryItems.length === 0 && headers.length > 0) {
-        console.log('aki refMarkdownContainer headers.length', headers.length)
         for (const h1 of headers) {
           this.summaryItems.push({
             name: h1.innerText,
@@ -89,7 +86,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
             element: null
           })
         }
-        console.log('aki refMarkdownContainer forceUpdate')
         this.forceUpdate()
       }
     }
@@ -117,12 +113,10 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
   }
 
   componentDidMount() {
-    console.log('aki componentDidMount')
     this.fixMarkdown()
   }
 
   componentDidUpdate() {
-    console.log('aki componentDidUpdate')
     this.fixMarkdown()
   }
 
