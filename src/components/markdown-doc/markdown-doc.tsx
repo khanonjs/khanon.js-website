@@ -175,29 +175,21 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
-    const top = markdownContainer.scrollTop + 70
+    const top = markdownContainer.scrollTop + 100
     let hlSummaryItem: SummaryItem = this.summaryItems[0]
     this.hlSummaryHeight = 0
-    if (top > markdownContainer.scrollHeight - (event.target as HTMLDivElement).clientHeight - 10) {
-      hlSummaryItem = this.summaryItems[this.summaryItems.length - 1]
-      this.summaryItems.forEach((summaryItem, index) => {
-        if (summaryItem.element && index > 0) {
-          this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
-        }
-      })
-    } else {
-      let gotIt = false
-      this.summaryItems.forEach((summaryItem, index) => {
-        if (summaryItem.top < top + this.summaryItems[0].top) {
-          hlSummaryItem = summaryItem
-        } else {
-          gotIt = true
-        }
-        if (summaryItem.element && index > 0 && !gotIt) {
-          this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
-        }
-      })
-    }
+    let gotIt = false
+    this.summaryItems.forEach((summaryItem, index) => {
+      if (summaryItem.top < top + this.summaryItems[0].top) {
+        hlSummaryItem = summaryItem
+      } else {
+        gotIt = true
+      }
+      if (summaryItem.element && index > 0 && !gotIt) {
+        this.hlSummaryHeight += summaryItem.element.getBoundingClientRect().height
+      }
+    })
+
     if (this.hlSummaryItem !== hlSummaryItem) {
       if (this.hlSummaryItem) {
         this.hlSummaryItem.element?.removeAttribute(this.attrSummaryHighlight)
@@ -218,7 +210,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
     if (this.summaryItems.length > 0 && this.summaryItems[0].element) {
       const rect = this.summaryItems[0].element.getBoundingClientRect()
-      this.hlSummaryTop = rect.top + rect.height - 93
+      this.hlSummaryTop = rect.top + rect.height - 90
     }
     if (this.hlSummaryTop) {
       this.elementSummarySelector.style.top = `${this.hlSummaryTop + this.hlSummaryHeight}px`
@@ -310,7 +302,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
             <ReactMarkdown>
               {this.state.currentMarkdown ?? ''}
             </ReactMarkdown>
-            <div style={{ height: '40vh' }} />
+            <div style={{ height: '65vh' }} />
             {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
             {/* In case footer is needed in the future */}
           </div>

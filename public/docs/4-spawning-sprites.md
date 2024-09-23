@@ -53,7 +53,7 @@ export class MyActor extends ActorInterface<SpriteInterface> {
 
 # Using sprites in particles
 
-[Particle](https://khanonjs.com/api-docs/modules/decorators_sprite.html) sprites are assigned by the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. Like actors, the sprite will be automatically removed once it is no longer used by the particle.
+[Particle](https://khanonjs.com/api-docs/modules/decorators_particle.html) sprites are assigned by the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. Like actors, the sprite will be automatically removed once it is no longer used by the particle.
 
 **my-particle.ts**
 ```
