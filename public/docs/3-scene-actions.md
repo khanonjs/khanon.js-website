@@ -119,7 +119,7 @@ myScene.playAction(MyAction, {
 
 The action setup is accessible from the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#setup) accessor.
 
-# Playing, stopping and removing actions
+# Playing, stopping, and removing actions
 
 You can play and stop an action from within the same action instance using [play](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#play) and [stop](https://khanonjs.com/api-docs/classes/decorators_scene_scene_action.SceneActionInterface.html#stop) methods.
 

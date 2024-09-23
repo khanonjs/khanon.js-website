@@ -1,5 +1,5 @@
 # Scene overview
-The [Scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) describes the environment where actors and dynamic elements cohexist and where the action of the game happens. A game use to have many scenes, each one representing a different stage of the game.
+The [Scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) describes the environment where actors and dynamic elements cohexist and where the action of the game takes place. Games use to have many scenes, each one representing a different stage of the game.
 
 They are composed by different elements, depending of the kind of game. For example, in a 2D horizontal scroll game the scene is composed by one or more backgrounds, the foreground where actors interact, dynamic elements like doors, ramps or traps (those are also actors), and different effects and particles; In a 3D isometric game the scene is composed by the ground, 3D elements like mountains, houses or trees, floor effects for grass and water, some cloud effects between the ground and the camera, and more dynamic elements.
 

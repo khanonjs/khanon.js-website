@@ -34,7 +34,7 @@ Khanon.js has been designed to not to rely in Babylon properties. That means in 
 
 To access a wrapped or related Babylon object within a Khanon.js instance you'll find the accessor `babylon` (E.g. *khanonSprite.babylon.sprite*).
 
-It is important to note that some Babylon objects have same name than other Khanon.js objects. To avoid collisions between their imports, import BABYLON namespace to use Babylon objects.
+It is important to note that some Babylon objects have same name than other Khanon.js objects. To avoid collisions between their imports, you may import BABYLON namespace to use Babylon objects.
 ```
 import * as BABYLON from '@babylonjs/core'  // Use always BABYLON namespace
 import {
