@@ -18,6 +18,7 @@ export abstract class PageBase<P = any> extends React.Component<P> {
       <div
         ref={this.refContainer.bind(this)}
         style={{
+          height: '90%',
           transition: '0.15s',
           opacity: 0
         }}

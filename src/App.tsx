@@ -93,10 +93,10 @@ export class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        {(this.page !== Pages.MAIN) && this.renderPage()}
-        <Background ref={this.refBackground.bind(this)} />
-        {(this.page === Pages.MAIN) && this.renderPage()}
         <Header cbSetPage={this.setPage.bind(this)} />
+        {(this.page !== Pages.MAIN) && this.renderPage()}
+        {/* <Background ref={this.refBackground.bind(this)} /> */}
+        {(this.page === Pages.MAIN) && this.renderPage()}
         {/* <Footer /> */}
       </div>
     )

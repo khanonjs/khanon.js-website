@@ -8,16 +8,14 @@ $button-radius: 6em;
 .main-buttons-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 4.0em;
+  padding-top: 11%;
+  gap: 3.0vw;
   width: 100%;
-  height: 9.4em;
   top: 60%;
-  position: absolute;
   user-select: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: auto;
+  overflow-x: auto;
 }
 
 .main-buttons-play {
@@ -25,8 +23,9 @@ $button-radius: 6em;
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  width: $button-width;
-  height: $button-height;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-right: 3vw;
   border-radius: $button-radius;
   background-color: $color-background-main-button;
   cursor: pointer;
@@ -37,39 +36,16 @@ $button-radius: 6em;
   }
 }
 
-.main-buttons-play-icon {
-  display: flex;
-  width: $button-height - 0.6em;
-  height: $button-height - 0.6em;
-  margin-left: 0.3em;
-  border-radius: 10em;
-  background-color: $color-primary;
-  transition: 0.3s;
-}
-
-.main-buttons-play:hover>.main-buttons-play-icon {
-  margin-left: 10px;
-}
-
-.main-buttons-play-text {
-  margin-left: 0.6em;
-  font-size: 2.0em;
-  letter-spacing: -0.7px;
-  transition: 0.4s;
-  color: $color-getstarted-text;
-}
-
-.main-buttons-play:hover>.main-buttons-play-text {
-  margin-left: 12px;
-}
-
 .main-buttons-getstarted {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: $button-width;
-  height: $button-height;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  height: 5.8vw;
   border-radius: $button-radius;
   background-color: $color-secondary-get-started;
   transition: 0.5s;
@@ -81,25 +57,52 @@ $button-radius: 6em;
   }
 }
 
-.main-buttons-getstarted:hover {
-  background-color: $color-secondary-hover-get-started;
-  }
-
-.main-buttons-getstarted-text {
-  font-size: 2.3em;
-  letter-spacing: -0.1px;
-  color: $color-getstarted-text;
-}
-
 .main-buttons-github {
   display: flex;
   justify-content: left;
   align-items: center;
-  width: $button-width;
-  height: $button-height;
+  padding-right: 8vw;
+  height: 5.8vw;
   cursor: pointer;
 }
 
+.main-buttons-play-icon {
+  display: flex;
+  height: 5.8vw;
+  margin-left: 0.3em;
+  border-radius: 10em;
+  background-color: $color-primary;
+  transition: 0.3s;
+}
+
+.main-buttons-play:hover>.main-buttons-play-icon {
+  margin-left: 10px;
+}
+
+.main-buttons-play-text {
+  font-size: max(1em, 1.7vw);
+  margin-left: 0.6em;
+  letter-spacing: -0.7px;
+  transition: 0.4s;
+  color: $color-getstarted-text;
+  white-space: nowrap;
+}
+
+.main-buttons-getstarted-text {
+  font-size: max(1em, 1.9vw);
+  letter-spacing: -0.1px;
+  color: $color-getstarted-text;
+  white-space: nowrap;
+}
+
+.main-buttons-play:hover>.main-buttons-play-text {
+  margin-left: 12px;
+}
+
+.main-buttons-getstarted:hover {
+  background-color: $color-secondary-hover-get-started;
+  }
+
 .main-buttons-github-img {
-  height: 60%;
+  height: 58%;
 }

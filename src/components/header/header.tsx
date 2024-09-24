@@ -79,18 +79,20 @@ export class Header extends React.Component<HeaderProps> {
             </div>
           </div>
         </div>
-        <div
-          className={styles['header-github']}
-          onClick={this.handleGithub.bind(this)}
-        >
-          <img src={githubLogo} />
-        </div>
-        <div
-          className={styles['header-x']}
-          onClick={this.handleX.bind(this)}
-          {...{ 'disabled': true }}
-        >
-          <img src={xLogo} />
+        <div className={styles['header-right-icons-container']}>
+          <div
+            className={styles['header-github']}
+            onClick={this.handleGithub.bind(this)}
+          >
+            <img src={githubLogo} />
+          </div>
+          <div
+            className={styles['header-x']}
+            onClick={this.handleX.bind(this)}
+            {...{ 'disabled': true }}
+          >
+            <img src={xLogo} />
+          </div>
         </div>
       </div>
     )
