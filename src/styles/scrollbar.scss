@@ -1,22 +1,22 @@
-/* total width */
+// total width
 ::-webkit-scrollbar {
   width: 1rem;
   height: 0.85rem;
 }
 
-/* total width */
+// total width
 .thin-scrollbar::-webkit-scrollbar {
   width: .5rem;
   height: .5rem;
 }
 
-/* total width */
+// total width
 .thick-scrollbar::-webkit-scrollbar {
   width: 1rem;
   height: 1rem;
 }
 
-/* scrollbar itself */
+// scrollbar itself
 ::-webkit-scrollbar-thumb {
   background-color: rgba(var(--scrollbar-thumb-color, 0, 0, 0), 0.33);
   background-clip: content-box;
@@ -33,5 +33,5 @@
   background-color: #1c1c2b;
 }
 
-/* set button(top and bottom of the scrollbar) */
+// set button(top and bottom of the scrollbar)
 ::-webkit-scrollbar-button { display: none }
