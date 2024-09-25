@@ -19,12 +19,11 @@ export class Docs {
     getStartedDocs.forEach(section => {
       docsFiles = [...docsFiles, ...section.docs.map(doc => doc.file)]
     })
-
-    docsFiles.forEach(fileName => {
-      promises.push(fetch(`./docs/${fileName}.md`))
-    })
     tutorialsDocs.forEach(section => {
       tutorialsFiles = [...tutorialsFiles, ...section.docs.map(doc => doc.file)]
+    })
+    docsFiles.forEach(fileName => {
+      promises.push(fetch(`./docs/${fileName}.md`))
     })
     tutorialsFiles.forEach(fileName => {
       promises.push(fetch(`./tutorials/${fileName}.md`))
