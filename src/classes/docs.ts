@@ -13,17 +13,21 @@ export class Docs {
   }
 
   static loadDocs() {
-    let fileNames: string[] = []
-    getStartedDocs.forEach(section => {
-      fileNames = [...fileNames, ...section.docs.map(doc => doc.file)]
-    })
-    // tutorialsDocs.forEach(section => {
-    //   fileNames = [...fileNames, ...section.docs.map(doc => doc.file)]
-    // })
-
+    let docsFiles: string[] = []
+    let tutorialsFiles: string[] = []
     const promises: Promise<Response>[] = []
-    fileNames.forEach(fileName => {
+    getStartedDocs.forEach(section => {
+      docsFiles = [...docsFiles, ...section.docs.map(doc => doc.file)]
+    })
+
+    docsFiles.forEach(fileName => {
       promises.push(fetch(`./docs/${fileName}.md`))
+    })
+    tutorialsDocs.forEach(section => {
+      tutorialsFiles = [...tutorialsFiles, ...section.docs.map(doc => doc.file)]
+    })
+    tutorialsFiles.forEach(fileName => {
+      promises.push(fetch(`./tutorials/${fileName}.md`))
     })
 
     Promise.all(promises)
@@ -31,7 +35,8 @@ export class Docs {
         const docNames: string[] = []
         const pResponses: Promise<string>[] = []
         resArray.forEach(res => {
-          docNames.push(res.url.split('/docs/')[1].split('.md')[0])
+          const parts = res.url.split('/')
+          docNames.push(parts[4].split('.md')[0])
           pResponses.push(res.text())
         })
         Promise.all(pResponses)

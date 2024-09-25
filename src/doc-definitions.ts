@@ -88,4 +88,11 @@ export const getStartedDocs = [
   }
 ]
 
-export const tutorialsDocs = []
+export const tutorialsDocs = [
+  {
+    section: 'Starting a new project',
+    docs: [
+      { title: 'Creating a blank project', file: '0-creating-blank-project' },
+    ]
+  }
+]
