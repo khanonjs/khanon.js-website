@@ -48,6 +48,7 @@ Once the body has been assigned, you can attach nodes to it using [addNode](http
 
 Note that an actor doesn't have an individual animation. Each body and node is a different element with different animations.
 
+**my-actor.ts**
 ```
 @Actor()
 export class MyActor extends ActorInterface<SpriteInterface> {
@@ -117,6 +118,17 @@ To start a particle use [startParticle](https://khanonjs.com/api-docs/classes/de
 Use [stopParticle](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#stopParticle) to stop the particle emitter, and [removeParticle](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#removeParticle) to remove it from the actor.
 
 Use [clearParticles](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#clearParticles) to remove all the particles attached to this actor.
+
+```
+onSpawn() {
+  this.attachParticle(FloorParticle, 'floor-particle', new BABYLON.Vector3(0, 20, 0))
+}
+
+onLooppUpdate() {
+  // Actor hits the floor
+  this.startParticle('floor-particle')
+}
+```
 
 # Callbacks
 
