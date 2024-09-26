@@ -138,7 +138,7 @@ The [onDestroy](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInte
 
 ## Loop Update
 
-Actors can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add the actor's logic to this method.
+Actors implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add the actor's logic to this method.
 ```
 onLoopUpdate(delta: number) {
   // Move or transform the actor, add logic here

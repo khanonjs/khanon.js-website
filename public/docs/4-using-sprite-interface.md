@@ -172,7 +172,7 @@ The [onDestroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteIn
 
 ## Loop Update
 
-Sprites can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
+Sprites implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
