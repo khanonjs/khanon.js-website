@@ -14,7 +14,7 @@ import * as BABYLON from '@babylonjs/core'
 import {
   Actor,
   ActorInterface,
-  Scene,
+  SceneState,
   SceneStateInterface,
   SpriteInterface
 } from '@khanonjs/engine'
@@ -24,7 +24,7 @@ export class MyActor extends ActorInterface<SpriteInterface> {
   // ...
 }
 
-@Scene({
+@SceneState({
   actors: [MyActor] // The actors used by this scene are defined in the decorator prop 'actors'
 })
 export class MySceneState extends SceneStateInterface {

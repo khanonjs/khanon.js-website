@@ -73,8 +73,7 @@ export const getStartedDocs = [
     section: 'Particles',
     docs: [
       { title: 'Overview', file: '8-particles-overview' },
-      { title: 'Using the class decorator', file: '8-creating-particles' },
-      { title: 'Using the method decorator', file: '8-using-particle-interface' },
+      { title: 'Using the particle interface', file: '8-using-particle-interface' },
       { title: 'Spawning particles', file: '8-spawning-particles' },
     ]
   },
