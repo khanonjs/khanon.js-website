@@ -56,7 +56,7 @@ export class KhanonScene extends SceneInterface {
 
 When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
-So, as expected, instead working on my personal webpage, I am wind up working on a game engine.
+So, as expected, instead working on my personal webpage, I ended up working on a game engine.
 
 The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typecript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
 
