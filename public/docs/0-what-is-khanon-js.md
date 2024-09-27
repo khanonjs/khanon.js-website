@@ -58,6 +58,6 @@ When I firstly began working with Babylon.js to build my personal website, years
 
 So, as expected, instead working on my personal webpage, I ended up working on a game engine.
 
-The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typecript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
+The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typescript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
 
 **Khanon.js wants the user to focus in the game design. That's the main goal of this project.**
