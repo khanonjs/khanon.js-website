@@ -1,5 +1,8 @@
 import React from 'react'
-import { ExternalLink } from 'react-feather'
+import {
+  ExternalLink,
+  Menu
+} from 'react-feather'
 
 import githubLogo from '../../assets/github-logo-gray.png'
 import HomeLogo from '../../assets/K-home-logo.svg'
@@ -35,16 +38,22 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   render() {
-    // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
+    setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
     return (
       <div className={styles['header-container']}>
+        <div className={styles['header-burguer']}>
+          <Menu
+            className={styles['header-burguer-icon']}
+            size={30}
+          />
+        </div>
         <div
           className={styles['header-home']}
           onClick={this.handleHome.bind(this)}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
         </div>
-        <div className={styles['header-buttons-bar']}>
+        <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'responsive-hide'])}>
           <div
             className={styles['header-button']}
             onClick={this.handleGetStarted.bind(this)}

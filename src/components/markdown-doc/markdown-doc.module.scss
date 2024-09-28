@@ -1,5 +1,5 @@
 @import '../../styles/fonts.scss';
-@import '../../styles/global.scss';
+@import '../../styles/theme.scss';
 
 a:link {
   color: $color-markdown-link;
@@ -26,7 +26,6 @@ a:visited {
   position: absolute;
   flex-direction: column;
   width: 100%;
-  margin-top: 5.7em;
   background-color: $color-markdown-background;
 }
 

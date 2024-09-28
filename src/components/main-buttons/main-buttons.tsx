@@ -22,7 +22,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
 
   render() {
     return (
-      <div className={styles['main-buttons-container']}>
+      <div className={ElementStyle.getClass(styles, ['main-buttons-container', 'responsive-hide'])}>
         <div
           className={styles['main-buttons-play']}
           onClick={this.handlePlayDemos.bind(this)}
