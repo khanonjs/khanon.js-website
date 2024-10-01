@@ -61,6 +61,12 @@ a:visited {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow-x: hidden;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-hide-sections-container {
+      display: none;
+    }
+  }
 }
 
 .section-block {
@@ -149,7 +155,13 @@ a:visited {
   margin-top: 6px;
   padding-left: 2em;
   padding-right: 2em;
-  transition: 0.3s;
+  // transition: 0.3s;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-stretch-markdown-container {
+      width: 100%;
+    }
+  }
 }
 
 .summary-container {
@@ -164,6 +176,12 @@ a:visited {
   text-wrap: pretty;
   margin-right: 30px;
   overflow-x: hidden;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-hide-summary-container {
+      display: none;
+    }
+  }
 }
 
 .summary-item {

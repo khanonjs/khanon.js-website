@@ -1,6 +1,5 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/theme.scss';
-@import '../../styles/responsive.scss';
 
 .header-container {
   display: flex;
@@ -16,27 +15,35 @@
 }
 
 .header-burguer {
-  background-color: green;
-
   display: flex;
   width: 7.5%;
   height: 100%;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
 .header-burguer-icon {
+  display: none;
 
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-show-burguer {
+      cursor: pointer;
+      display: block;
+    }
+  }
 }
 
 .header-home {
-  background-color: red;
-
   display: flex;
   height: 100%;
   justify-content: flex-end;
   cursor: pointer;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-center-home {
+      margin: auto;
+    }
+  }
 }
 
 .header-home-K {
@@ -48,8 +55,6 @@
 }
 
 .header-buttons-bar {
-  background-color: blue;
-
   display: flex;
   justify-content: flex-start;
   overflow-x: auto;
@@ -58,6 +63,12 @@
   flex-direction: row;
   gap: 1em;
   color: $color-header-buttons;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-hide-buttons-bar {
+      display: none;
+    }
+  }
 }
 
 .header-button {
@@ -99,8 +110,6 @@
 }
 
 .header-right-icons-container {
-  background-color: purple;
-
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -109,6 +118,12 @@
   justify-content: space-between;
   overflow: hidden;
   margin-left: auto;
+
+  @media only screen and (max-width: $responsive-hide-header-buttons) {
+    &.rsp-shrink-margin {
+      margin-left: 0px;
+    }
+  }
 }
 
 .header-github {

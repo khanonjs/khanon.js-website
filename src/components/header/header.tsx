@@ -29,6 +29,10 @@ export class Header extends React.Component<HeaderProps> {
     window.open('api-docs/index.html', '_blank', 'noreferrer')
   }
 
+  handleSidebar() {
+
+  }
+
   handleGithub() {
     window.open('https://github.com/khanonjs/khanon.js', '_blank', 'noreferrer')
   }
@@ -38,22 +42,23 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   render() {
-    setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
+    // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
     return (
       <div className={styles['header-container']}>
         <div className={styles['header-burguer']}>
           <Menu
-            className={styles['header-burguer-icon']}
+            className={ElementStyle.getClass(styles, ['header-burguer-icon', 'rsp-show-burguer'])}
             size={30}
+            onClick={this.handleSidebar.bind(this)}
           />
         </div>
         <div
-          className={styles['header-home']}
+          className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
           onClick={this.handleHome.bind(this)}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
         </div>
-        <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'responsive-hide'])}>
+        <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'rsp-hide-buttons-bar'])}>
           <div
             className={styles['header-button']}
             onClick={this.handleGetStarted.bind(this)}
@@ -88,7 +93,7 @@ export class Header extends React.Component<HeaderProps> {
             </div>
           </div>
         </div>
-        <div className={styles['header-right-icons-container']}>
+        <div className={ElementStyle.getClass(styles, ['header-right-icons-container', 'rsp-shrink-margin'])}>
           <div
             className={styles['header-github']}
             onClick={this.handleGithub.bind(this)}

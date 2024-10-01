@@ -290,13 +290,13 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
         <div className={ElementStyle.getClass(styles, ['content', ''])}>
           <div
             ref={this.refSections.bind(this)}
-            className={styles['sections-container']}
+            className={ElementStyle.getClass(styles, ['sections-container', 'rsp-hide-sections-container'])}
           >
             {this.renderedSections}
           </div>
           <div
             ref={this.refMarkdownContainer.bind(this)}
-            className={styles['markdown-container']}
+            className={ElementStyle.getClass(styles, ['markdown-container', 'rsp-stretch-markdown-container'])}
             onScroll={this.handleMarkdownScroll.bind(this)}
           >
             <ReactMarkdown>
@@ -306,7 +306,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
             {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
             {/* In case footer is needed in the future */}
           </div>
-          <div className={styles['summary-container']}>
+          <div className={ElementStyle.getClass(styles, ['summary-container', 'rsp-hide-summary-container'])}>
             {this.renderSummary()}
           </div>
         </div>
