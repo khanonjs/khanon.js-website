@@ -5,7 +5,7 @@ import React from 'react'
 import { Docs } from './classes/docs'
 import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
-import { Footer } from './components/footer/footer'
+// import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
 import { BackgroundPosition } from './models/background-position'
 import { Pages } from './models/pages'
@@ -95,7 +95,7 @@ export class App extends React.Component {
       <div className='App'>
         <Header cbSetPage={this.setPage.bind(this)} />
         {(this.page !== Pages.MAIN) && this.renderPage()}
-        {/* <Background ref={this.refBackground.bind(this)} /> */}
+        <Background ref={this.refBackground.bind(this)} />
         {(this.page === Pages.MAIN) && this.renderPage()}
         {/* <Footer /> */}
       </div>
