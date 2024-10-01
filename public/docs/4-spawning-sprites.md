@@ -1,6 +1,6 @@
 # Spawning sprites
 
-Sprites are spawned using the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) regardless they have been created by a decorated class or property. When the sprite is spawned Khanon.js creates a new instance of the sprite and store it in a container from where it will be managed. Once a sprite is spawned Khanon.js will return its instance giving you the possibility to manage and manipulate it as well.
+Sprites are spawned using the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) regardless they have been created by a decorated class or property. When the sprite is spawned, a new instance is created and stored in a container from where it will be managed. Once a sprite is spawned Khanon.js will return its instance giving you the possibility to manage and manipulate it as well.
 
 Sprites can be spawned by three different elements: [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) and [Scenes](https://khanonjs.com/api-docs/modules/decorators_scene.html).
 
@@ -84,7 +84,13 @@ export class MyParticle extends ParticleInterface {
 
 # Using sprites in scenes
 
-Finally, you can spawn arbitrary sprites in the scene and manipulate them by yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it. These sprites are removed by the scene on scene unload, but you can remove them in case you need it using [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) or sprite [destroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#destroy) methods.
+Finally, you can arbitrarily generate sprites in the scene and manipulate them yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it.
+
+You can also spawn *n* number of sprites using the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) *counter* property. Combine it with *alternativeOnSpawn* to configure each new sprite instance.
+
+These sprites are removed by the scene on scene unload, but you can remove them in case you need it using [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) or sprite [destroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#destroy) methods.
+
+[Spawn](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [remove](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) objects are also available in scene states.
 
 **my-scene.ts**
 ```

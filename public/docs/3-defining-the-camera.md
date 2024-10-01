@@ -6,7 +6,7 @@ Any scene or state can switch of camera at any point depending on the game state
 
 # Using the camera interface
 
-To create a new camera you need to create class, apply the [Camera decorator](https://khanonjs.com/api-docs/functions/decorators_camera.Camera.html), and extend [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) to gain access to its properties and methods.
+To create a new camera you need to create a class, apply the [Camera decorator](https://khanonjs.com/api-docs/functions/decorators_camera.Camera.html), and extend [CameraInterface](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html) to gain access to its properties and methods.
 
 **camera.ts**
 ```
@@ -34,7 +34,7 @@ Cameras are too complex to configure, so Khanon.js doesn't provide a common conf
 
 You can access the Babyon camera from the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#babylon) accessor.
 
-Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the camera by the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) call. In this way the caller can send parameters to the camera.
+Use the `S` generic to set the type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the camera by the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) call. In this way the caller can send parameters to the camera.
 
 To access the scene associated to the camera use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
@@ -94,7 +94,7 @@ The [onStop](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInter
 
 ## Loop Update
 
-Every camera can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every camera implements the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here

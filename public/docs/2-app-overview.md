@@ -1,5 +1,5 @@
 # App overview
-The [App](https://khanonjs.com/api-docs/modules/decorators_app.html) class is the main handler of the application. There's one per project, usually placed in the app.ts file in the root *src* folder.
+[App](https://khanonjs.com/api-docs/modules/decorators_app.html) class is the main handler of the application. There's one per project, usually placed in the *app.ts* file in *src* folder.
 It must be decorated by the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html), and must extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) to gain access to the interface properties and methods.
 
 This app class runs the main lifecycle of the application. When the app is opened in a browser tab, it creates the [Babylon Engine](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine) and starts the core handlers. Once everything is loaded and ready to start, it invokes the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback, being this the **entrypoint of the application**.
@@ -8,7 +8,7 @@ It is possible to create [App states](https://khanonjs.com/api-docs/modules/deco
 
 # KJS object
 
-[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object is a global handler accessible from anywhere in the code. Use this global object to make actions to the app.
+[KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object is a global handler accessible from anywhere in the code. Use this global object to launch app actions.
 
 Using this object it is possible to load and unload scenes or GUIs, send global Notifications, and execute other app actions.
 

@@ -34,7 +34,7 @@ Sprites can be used by an actor [body](https://khanonjs.com/api-docs/classes/dec
 
 Use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#babylon) accessor to access the Babylon objects. It contains the [Babylon SpriteManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.SpriteManager), [Babylon Sprite](https://doc.babylonjs.com/typedoc/classes/BABYLON.Sprite) and [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) associated to the sprite. Note that Babylon *SpriteManager* can be used by many different sprites if [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) has been defined, so be careful if you are going to change something in it. If *url* hasn't been defined, Babylon *SpriteManager* is exclusive to this sprite and you can do whatever you need with the texture.
 
-To get the scene associated to the sprite use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scene) accessor.
+To get the scene where the sprite has been spawned use [`scene`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scene) accessor.
 
 Other accessors are [`position`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#position), [`angle`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#angle), [`width`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#width), [`height`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#height), [`size`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#size), [`color`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#color), [`isVisible`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#isVisible). These are shortcuts to [Babylon Sprite](https://doc.babylonjs.com/typedoc/classes/BABYLON.Sprite) properties
 
@@ -172,7 +172,7 @@ The [onDestroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteIn
 
 ## Loop Update
 
-Sprites can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
+Sprites implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here

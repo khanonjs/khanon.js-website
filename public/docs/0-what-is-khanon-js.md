@@ -24,7 +24,7 @@ Khanon.js is an instanceless framework (as many others like Angular, Nest, or Re
 
 # How's the deal between Khanon.js and Babylon.js?
 
-In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact between themselves, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with any Babylon object.
+In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact with other actors, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with any Babylon object.
 
 In other cases, a Khanon.js object wraps another existing Babylon object, such as scenes, sprites, meshes, or particles.
 
@@ -56,8 +56,8 @@ export class KhanonScene extends SceneInterface {
 
 When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge and very complete engine, shortly I found out many other features could be added to simplify the development process.
 
-So, as expected, instead working on my personal webpage, I am wind up working on a game engine.
+So, as expected, instead working on my personal webpage, I ended up working on a game engine.
 
-The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typecript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
+The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typescript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
 
 **Khanon.js wants the user to focus in the game design. That's the main goal of this project.**
