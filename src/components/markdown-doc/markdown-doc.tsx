@@ -16,15 +16,14 @@ import json from 'highlight.js/lib/languages/json'
 import typescript from 'highlight.js/lib/languages/typescript'
 import xml from 'highlight.js/lib/languages/xml'
 import React from 'react'
-import { ChevronRight } from 'react-feather'
 import ReactMarkdown from 'react-markdown'
 
 import { Docs } from '../../classes/docs'
 import { ElementStyle } from '../../classes/element-style'
 import { MarkdownDocSection } from './markdown-doc-section'
-import { MarkdownDocStates } from './markdown-doc-states'
 import styles from './markdown-doc.module.scss'
 import { MarkdownDocProps } from './markdown-doc.props'
+import { MarkdownDocsStates } from './markdown-doc.states'
 
 interface SummaryItem {
   name: string
@@ -33,10 +32,8 @@ interface SummaryItem {
 }
 
 // TODO use hash symbol to jump to different sections
-export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocStates> {
-  private keyId = -1
-  private renderedSections: JSX.Element[]
-  private elementSections: HTMLDivElement
+export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsStates> {
+  currentMarkdown: string
   private elementMarkdownContainer: HTMLDivElement
   private elementSummarySelector: HTMLDivElement
   private summaryItems: SummaryItem[]
@@ -47,11 +44,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
 
   constructor(props: MarkdownDocProps) {
     super(props)
-    const section = this.props.documents[this.props.initialSectionId]
-    this.state = {
-      sectionName: this.getSectionTitle(section.section, section.docs[this.props.initialItemId].title),
-      currentMarkdown: Docs.get(section.docs[this.props.initialItemId].file)
-    }
     hljs.configure({
       ignoreUnescapedHTML: true
     })
@@ -59,19 +51,11 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('typescript', typescript)
     hljs.registerLanguage('xml', xml)
-    this.renderedSections = this.props.documents.map((section, index) => this.renderSection(section, index))
-    this.summaryItems = []
-  }
-
-  popKey() {
-    this.keyId++
-    return this.keyId
-  }
-
-  refSections(element: HTMLDivElement) {
-    if (element) {
-      this.elementSections = element
+    this.currentMarkdown = this.props.currentMarkdown
+    this.state = {
+      currentMarkdown: this.currentMarkdown
     }
+    this.summaryItems = []
   }
 
   refMarkdownContainer(element: HTMLDivElement) {
@@ -133,46 +117,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       .forEach(link => link.target = '_blank')
   }
 
-  handleSectionClick(event: React.MouseEvent) {
-    const element = (event.target as HTMLDivElement).parentNode as HTMLDivElement
-    if (element.hasAttribute('open')) {
-      element.removeAttribute('open')
-    } else {
-      element.setAttribute('open', '')
-    }
-  }
-
-  handleItemClick(event: React.MouseEvent) {
-    const element = event.target as HTMLDivElement
-    const sectionId = element.getAttribute('_sectionid')
-    const ItemId = element.getAttribute('_itemid')
-    if (sectionId) {
-      this.props.storeSectionId(sectionId)
-    }
-    if (ItemId) {
-      this.props.storeItemId(ItemId)
-    }
-    if (element.getAttribute('_selected') === null) {
-      const selectedElement = this.elementSections?.querySelectorAll('[_selected]')[0]
-      selectedElement?.removeAttribute('_selected')
-      element.setAttribute('_selected', '')
-      const section = this.props.documents.find(doc => doc.section === element.getAttribute('section'))
-      const title = element.getAttribute('title')
-      if (section && title) {
-        const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
-        this.elementMarkdownContainer.style.opacity = '0'
-        this.setState({ sectionName: this.getSectionTitle(section.section, title) })
-        setTimeout(() => {
-          this.summaryItems = []
-          this.hlSummaryItem = undefined
-          this.setState({ currentMarkdown: markdown as string })
-          this.elementMarkdownContainer.style.opacity = '1'
-          this.elementMarkdownContainer.scrollTop = 0
-        }, 0)
-      }
-    }
-  }
-
   handleMarkdownScroll(event: React.UIEvent) {
     const markdownContainer = (event.target as HTMLDivElement)
     const top = markdownContainer.scrollTop + 100
@@ -200,10 +144,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     }
   }
 
-  getSectionTitle(sectionName: string, itemName: string) {
-    return sectionName // `${sectionName}, ${itemName}`
-  }
-
   updateSummarySelector(resetHeight?: boolean) {
     if (resetHeight) {
       this.hlSummaryHeight = 0
@@ -216,46 +156,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
       this.elementSummarySelector.style.top = `${this.hlSummaryTop + this.hlSummaryHeight}px`
       this.elementSummarySelector.style.opacity = '1'
     }
-  }
-
-  renderSectionItem(title: string, section: string, isFirst: boolean, sectionId: number, itemId: number): JSX.Element {
-    return (
-      <div
-        key={this.popKey()}
-        className={styles['section-item']}
-        onClick={this.handleItemClick.bind(this)}
-        {...{ 'section': section, 'title': title, '_sectionid': sectionId, '_itemid': itemId }}
-        {...( isFirst && { _selected: '' })}
-      >{title}
-      </div>
-    )
-  }
-
-  renderSection(section: MarkdownDocSection, index: number): JSX.Element {
-    return (
-      <div
-        key={this.popKey()}
-        className={styles['section-block']}
-        {...{ 'open': index === this.props.initialSectionId }}
-      >
-        <div
-          className={styles['section-title']}
-          onClick={this.handleSectionClick.bind(this)}
-          {...{ '_sectionid': index }}
-        >
-          {section.section}
-          <div className={styles['section-title-icon-containar']}>
-            <ChevronRight
-              className={styles['section-title-icon']}
-              size={30}
-            />
-          </div>
-        </div>
-        <div className={styles['section-items-container']}>
-          {section.docs.map((doc, ix) => this.renderSectionItem(doc.title, section.section, index === this.props.initialSectionId && ix === this.props.initialItemId, index, ix))}
-        </div>
-      </div>
-    )
   }
 
   renderSummary(): JSX.Element {
@@ -279,38 +179,36 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocSt
     )
   }
 
+  goSection(section: MarkdownDocSection, title: string) {
+    const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
+    this.elementMarkdownContainer.style.opacity = '0'
+    this.summaryItems = []
+    this.hlSummaryItem = undefined
+    this.elementMarkdownContainer.style.opacity = '1'
+    this.elementMarkdownContainer.scrollTop = 0
+    this.currentMarkdown = markdown
+    this.setState({ currentMarkdown: this.currentMarkdown })
+  }
+
   render() {
     return (
-      <div className={ElementStyle.getClass(styles, ['container', 'font-docfont-regular'])}>
-        <div className={styles['header']}>
-          <div className={styles['header-text']}>
-            {this.state.sectionName}
-          </div>
+      <>
+        <div
+          ref={this.refMarkdownContainer.bind(this)}
+          className={ElementStyle.getClass(styles, ['markdown-container', 'rsp-stretch-markdown-container'])}
+          onScroll={this.handleMarkdownScroll.bind(this)}
+        >
+          <ReactMarkdown>
+            {this.currentMarkdown ?? ''}
+          </ReactMarkdown>
+          <div style={{ height: '65vh' }} />
+          {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
+          {/* In case footer is needed in the future */}
         </div>
-        <div className={ElementStyle.getClass(styles, ['content', ''])}>
-          <div
-            ref={this.refSections.bind(this)}
-            className={ElementStyle.getClass(styles, ['sections-container', 'rsp-hide-sections-container'])}
-          >
-            {this.renderedSections}
-          </div>
-          <div
-            ref={this.refMarkdownContainer.bind(this)}
-            className={ElementStyle.getClass(styles, ['markdown-container', 'rsp-stretch-markdown-container'])}
-            onScroll={this.handleMarkdownScroll.bind(this)}
-          >
-            <ReactMarkdown>
-              {this.state.currentMarkdown ?? ''}
-            </ReactMarkdown>
-            <div style={{ height: '65vh' }} />
-            {/* <div style={{ height: '10em', backgroundColor: 'rgb(0, 66, 107)' }} /> */}
-            {/* In case footer is needed in the future */}
-          </div>
-          <div className={ElementStyle.getClass(styles, ['summary-container', 'rsp-hide-summary-container'])}>
-            {this.renderSummary()}
-          </div>
+        <div className={ElementStyle.getClass(styles, ['summary-container', 'rsp-hide-summary-container'])}>
+          {this.renderSummary()}
         </div>
-      </div>
+      </>
     )
   }
 }

@@ -7,11 +7,15 @@ import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
 // import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
+import { Sidebar } from './components/sidebar/sidebar'
+import {
+  getStartedDocs,
+  tutorialsDocs
+} from './doc-definitions'
 import { BackgroundPosition } from './models/background-position'
 import { Pages } from './models/pages'
-import { GetStartedPage } from './pages/getstarted/getstarted-page'
+import { DocsPage } from './pages/docs-page/docs-page'
 import { MainPage } from './pages/main/main-page'
-import { TutorialsPage } from './pages/tutorials/tutorials-page'
 
 // 8a8f add react router to docs, tutorials and markdown headings
 export class App extends React.Component {
@@ -84,9 +88,18 @@ export class App extends React.Component {
           />
         )
       case Pages.GET_STARTED:
-        return <GetStartedPage ref={this.refCurrentPage.bind(this)} />
       case Pages.TUTORIALS:
-        return <TutorialsPage ref={this.refCurrentPage.bind(this)} />
+        const sectionTag = this.page === Pages.GET_STARTED ? 'getstarted_SectionId' : 'tutorials_SectionId'
+        const itemTag = this.page === Pages.GET_STARTED ? 'getstarted_ItemId' : 'tutorials_ItemId'
+        const documents = this.page === Pages.GET_STARTED ? getStartedDocs : tutorialsDocs
+        return (
+          <DocsPage
+            storageSectionIdTag={sectionTag}
+            storageItemIdTag={itemTag}
+            documents={documents}
+            ref={this.refCurrentPage.bind(this)}
+          />
+        )
     }
   }
 
@@ -97,6 +110,7 @@ export class App extends React.Component {
         {(this.page !== Pages.MAIN) && this.renderPage()}
         <Background ref={this.refBackground.bind(this)} />
         {(this.page === Pages.MAIN) && this.renderPage()}
+        <Sidebar cbSetPage={this.setPage.bind(this)} />
         {/* <Footer /> */}
       </div>
     )

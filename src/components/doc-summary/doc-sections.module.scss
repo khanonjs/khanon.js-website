@@ -1,0 +1,82 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/theme.scss';
+
+.section-block {
+  & .section-items-container {
+    height: 0;
+
+    & .section-item {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &:first-child {
+    margin-top: 0.4em;
+  }
+}
+
+.section-block[open] {
+  & .section-title-icon-containar {
+    & .section-title-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  & .section-items-container {
+    height: fit-content;
+
+    & .section-item {
+      visibility: visible;
+      transition: 0.3s;
+      opacity: 1;
+    }
+  }
+}
+
+.section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.7em;
+  padding-top: 0.6em;
+  padding-left: 1.0em;
+  transition: 0.3s;
+  cursor: pointer;
+
+  // Has parent with attribute _selected
+  &:has(+ div > [_selected]) {
+    color: $color-markdown-secondary-selected;
+  }
+
+  &:hover {
+    background-color: $color-markdown-background-highlight-hover;
+  }
+}
+
+.section-title-icon-containar {
+  pointer-events: none;
+}
+
+.section-title-icon {
+  transition: 0.2s;
+  margin-right: 0.5em;
+  pointer-events: none;
+}
+
+.section-item {
+  font-size: 1.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.31em;
+  padding-left: 1.5em;
+  cursor: pointer;
+  color: $color-markdown-secondary-inside-dropdown;
+
+  &[_selected] {
+    color: $color-markdown-secondary-inside-dropdown-selected;
+  }
+
+  &:hover {
+    background-color: $color-markdown-background-highlight-hover;
+  }
+}

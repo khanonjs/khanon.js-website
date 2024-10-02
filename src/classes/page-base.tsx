@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './page-base.module.scss'
+
 export abstract class PageBase<P = any> extends React.Component<P> {
   private elementContainer: HTMLDivElement
 
@@ -17,11 +19,7 @@ export abstract class PageBase<P = any> extends React.Component<P> {
     return (
       <div
         ref={this.refContainer.bind(this)}
-        style={{
-          height: '90%',
-          transition: '0.15s',
-          opacity: 0
-        }}
+        className={styles['page-base']}
       >
         {this.renderPage()}
       </div>
