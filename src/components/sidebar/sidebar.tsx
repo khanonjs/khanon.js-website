@@ -85,6 +85,7 @@ export class Sidebar extends React.Component<SidebarProps> {
 
   goSection(section: MarkdownDocSection, title: string) {
     this.props.goSection(section, title)
+    this.close()
   }
 
   render() {
