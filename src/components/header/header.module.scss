@@ -128,6 +128,7 @@
   @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-shrink-margin {
       margin-left: 0px;
+      justify-content: flex-end;
     }
   }
 }
@@ -153,5 +154,12 @@
   &[disabled] {
     color: gray;
     pointer-events: none;
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-header-x-right {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
   }
 }

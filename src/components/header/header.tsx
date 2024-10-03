@@ -103,7 +103,7 @@ export class Header extends React.Component<HeaderProps> {
             <img src={githubLogo} />
           </div>
           <div
-            className={styles['header-x']}
+            className={ElementStyle.getClass(styles, ['header-x', 'rsp-header-x-right'])}
             onClick={this.handleX.bind(this)}
             {...{ 'disabled': true }}
           >
