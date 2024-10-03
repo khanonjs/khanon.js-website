@@ -51,12 +51,6 @@
   flex-direction: column;
   justify-items: left;
   align-items: center;
-  cursor: pointer;
-
-  &[disabled] {
-    color: gray;
-    pointer-events: none;
-  }
 }
 
 .sidebar-header-button {

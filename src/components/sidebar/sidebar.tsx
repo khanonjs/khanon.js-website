@@ -104,20 +104,6 @@ export class Sidebar extends React.Component<SidebarProps> {
         >
           <div className={styles['sidebar-header-container']}>
             <div
-              className={styles['sidebar-header-button']}
-              onClick={this.handleAPIDoc.bind(this)}
-            >
-              <div className={styles['sidebar-header-button-text']}>
-                API Reference
-              </div>
-              <div className={styles['sidebar-header-button-icon-containar']}>
-                <ExternalLink
-                  className={styles['sidebar-header-button-icon']}
-                  size={23}
-                />
-              </div>
-            </div>
-            <div
               className={ElementStyle.getClassCondition(styles, [{ class: 'sidebar-header-button' }, { class: 'selected', condition: this.documents === getStartedDocs }])}
               onClick={this.handleGetStarted.bind(this)}
             >
@@ -131,6 +117,20 @@ export class Sidebar extends React.Component<SidebarProps> {
             >
               <div className={styles['sidebar-header-button-text']}>
                 Tutorials
+              </div>
+            </div>
+            <div
+              className={styles['sidebar-header-button']}
+              onClick={this.handleAPIDoc.bind(this)}
+            >
+              <div className={styles['sidebar-header-button-text']}>
+                API Reference
+              </div>
+              <div className={styles['sidebar-header-button-icon-containar']}>
+                <ExternalLink
+                  className={styles['sidebar-header-button-icon']}
+                  size={23}
+                />
               </div>
             </div>
           </div>
