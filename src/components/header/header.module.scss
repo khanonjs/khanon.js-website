@@ -21,14 +21,21 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-click-burguer {
+      pointer-events: all;
+      cursor: pointer;
+    }
+  }
 }
 
 .header-burguer-icon {
   display: none;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-show-burguer {
-      cursor: pointer;
       display: block;
     }
   }
@@ -40,7 +47,7 @@
   justify-content: flex-end;
   cursor: pointer;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-center-home {
       margin: auto;
     }
@@ -63,7 +70,7 @@
   gap: 1em;
   color: $color-header-buttons;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-hide-buttons-bar {
       display: none;
     }
@@ -118,7 +125,7 @@
   overflow: hidden;
   margin-left: auto;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-shrink-margin {
       margin-left: 0px;
     }

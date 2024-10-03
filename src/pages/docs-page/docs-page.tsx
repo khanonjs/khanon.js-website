@@ -40,11 +40,9 @@ export class DocsPage extends PageBase<DocsPageProps> {
   }
 
   renderPage() {
-    const sectionId = Number(localStorage.getItem(this.props.storageSectionIdTag) ?? 0)
-    const itemId = Number(localStorage.getItem(this.props.storageItemIdTag) ?? 0)
-    const section = this.props.documents[sectionId]
+    const section = this.props.documents[this.props.sectionId]
     if (this.elementMarkdown) {
-      this.elementMarkdown.currentMarkdown = Docs.get(section.docs[itemId].file)
+      this.elementMarkdown.currentMarkdown = Docs.get(section.docs[this.props.itemId].file)
     }
     return (
       <div className={styles['docs-page-container']}>
@@ -54,7 +52,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
               ref={this.refHeaderTitle.bind(this)}
               className={styles['header-text']}
             >
-              {MarkdownHelper.getSectionTitle(section.section, section.docs[itemId].title)}
+              {MarkdownHelper.getSectionTitle(section.section, section.docs[this.props.itemId].title)}
             </div>
           </div>
           <div className={ElementStyle.getClass(styles, ['content', ''])}>
@@ -63,8 +61,8 @@ export class DocsPage extends PageBase<DocsPageProps> {
             >
               <DocSections
                 switchSection={this.goSection.bind(this)}
-                initialSectionId={sectionId}
-                initialItemId={itemId}
+                initialSectionId={this.props.sectionId}
+                initialItemId={this.props.itemId}
                 storeSectionId={this.storeSectionId.bind(this)}
                 storeItemId={this.storeItemId.bind(this)}
                 documents={this.props.documents}
@@ -72,7 +70,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
             </div>
             <MarkdownDoc
               ref={this.refMarkdown.bind(this)}
-              currentMarkdown={Docs.get(section.docs[itemId].file)}
+              currentMarkdown={Docs.get(section.docs[this.props.itemId].file)}
             />
           </div>
         </div>

@@ -30,7 +30,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleSidebar() {
-
+    this.props.openSidebar()
   }
 
   handleGithub() {
@@ -45,11 +45,13 @@ export class Header extends React.Component<HeaderProps> {
     // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar, use to document
     return (
       <div className={styles['header-container']}>
-        <div className={styles['header-burguer']}>
+        <div
+          className={ElementStyle.getClass(styles, ['header-burguer', 'rsp-click-burguer'])}
+          onClick={this.handleSidebar.bind(this)}
+        >
           <Menu
             className={ElementStyle.getClass(styles, ['header-burguer-icon', 'rsp-show-burguer'])}
             size={30}
-            onClick={this.handleSidebar.bind(this)}
           />
         </div>
         <div

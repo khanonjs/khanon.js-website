@@ -29,7 +29,13 @@ a:visited {
   padding-right: 2em;
   // transition: 0.3s;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-stretch-markdown-container {
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-stretch-markdown-container {
       width: 100%;
     }
@@ -49,7 +55,7 @@ a:visited {
   margin-right: 30px;
   overflow-x: hidden;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step1) {
     &.rsp-hide-summary-container {
       display: none;
     }

@@ -48,7 +48,7 @@
   white-space: nowrap;
   overflow-x: hidden;
 
-  @media only screen and (max-width: $responsive-hide-header-buttons) {
+  @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-hide-sections-container {
       display: none;
     }
