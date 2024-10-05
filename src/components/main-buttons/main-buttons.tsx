@@ -22,26 +22,26 @@ export class MainButtons extends React.Component<MainButtonsProps> {
 
   render() {
     return (
-      <div className={ElementStyle.getClass(styles, ['main-buttons-container', 'responsive-hide'])}>
+      <div className={ElementStyle.getClass(styles, ['main-buttons-container', 'rsp-main-buttons-container'])}>
         <div
-          className={styles['main-buttons-play']}
+          className={ElementStyle.getClass(styles, ['main-buttons-play', 'rsp-main-buttons-play'])}
           onClick={this.handlePlayDemos.bind(this)}
         >
           <img
             src={playCircle}
-            className={styles['main-buttons-play-icon']}
+            className={ElementStyle.getClass(styles, ['main-buttons-play-icon', 'rsp-main-buttons-play-icon'])}
           />
-          <div className={ElementStyle.getClass(styles, ['main-buttons-text', 'main-buttons-play-text', 'font-roadgeek-regular'])}>PLAY DEMOS</div>
+          <div className={ElementStyle.getClass(styles, ['main-buttons-play-text', 'rsp-main-buttons-play-text', 'font-roadgeek-regular'])}>PLAY DEMOS</div>
         </div>
         <div
-          className={styles['main-buttons-getstarted']}
+          className={ElementStyle.getClass(styles, ['main-buttons-getstarted', 'rsp-main-buttons-getstarted'])}
           onClick={this.handleGetStarted.bind(this)}
         >
-          <div className={ElementStyle.getClass(styles, ['main-buttons-text', 'main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED
+          <div className={ElementStyle.getClass(styles, ['main-buttons-getstarted-text', 'rsp-main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED
           </div>
         </div>
         <div
-          className={styles['main-buttons-github']}
+          className={ElementStyle.getClass(styles, ['main-buttons-github', 'rsp-main-buttons-github'])}
           onClick={this.handleGithub.bind(this)}
         >
           <img
