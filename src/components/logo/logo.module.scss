@@ -11,6 +11,12 @@
   position: absolute;
   user-select: none;
   pointer-events: none;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-logo-container {
+      height: 2%;
+    }
+  }
 }
 
 .logo-header {
