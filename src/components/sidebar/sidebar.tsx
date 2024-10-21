@@ -7,7 +7,7 @@ import {
   tutorialsDocs
 } from '../../doc-definitions'
 import { Pages } from '../../models/pages'
-import { DocSections } from '../doc-summary/doc-sections'
+import { DocSections } from '../doc-sections/doc-sections'
 import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
 import styles from './sidebar.module.scss'
 import { SidebarProps } from './sidebar.props'
@@ -17,9 +17,9 @@ export class Sidebar extends React.Component<SidebarProps> {
   elementSidebarContainer: HTMLDivElement
 
   // Document properties
-  sectionId: number
+  sectionId: number | undefined
   itemId: number
-  documents: MarkdownDocSection[]
+  documents: MarkdownDocSection[] | undefined
   storageSectionIdTag: string
   storageItemIdTag: string
 
@@ -56,6 +56,14 @@ export class Sidebar extends React.Component<SidebarProps> {
     this.sectionId = sectionId
     this.itemId = itemId
     this.documents = documents
+    setTimeout(() => {
+      this.forceUpdate()
+    }, 1)
+  }
+
+  resetDocumentProperties() {
+    this.sectionId = undefined
+    this.documents = undefined
     setTimeout(() => {
       this.forceUpdate()
     }, 1)
@@ -145,7 +153,7 @@ export class Sidebar extends React.Component<SidebarProps> {
                 initialItemId={this.itemId}
                 storeSectionId={this.storeSectionId.bind(this)}
                 storeItemId={this.storeItemId.bind(this)}
-                documents={this.documents}
+                documents={this.documents ?? []}
               />
             )}
             <div style={{ height: '10vh' }} />

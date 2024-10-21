@@ -59,6 +59,9 @@ export class App extends React.Component {
   }
 
   setPage(page: Pages) {
+    if (page === Pages.MAIN) {
+      this.elementSidebar.resetDocumentProperties()
+    }
     if (this.transitioning ||
         page === this.page ||
         !Docs.loaded) {
