@@ -41,10 +41,12 @@ export class Sidebar extends React.Component<SidebarProps> {
 
   handleGetStarted() {
     this.props.cbSetPage(Pages.GET_STARTED)
+    this.close()
   }
 
   handleTutorials() {
     this.props.cbSetPage(Pages.TUTORIALS)
+    this.close()
   }
 
   handleAPIDoc() {
