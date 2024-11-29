@@ -4,7 +4,7 @@
 
 This is better explained with an example:
 
-Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the *MainMenuAppState*. This state loads the scene *MainMenuBackgroundScene* and the GUI *MainMenuGUI*. After those two elements are loaded the [onStart](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback is invoked, displaying both scene and GUI. From this point it is the scene and the GUI who decide how to continue with the game.
+Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the *MainMenuAppState*. This state loads the scene *MainMenuBackgroundScene* and the GUI *MainMenuGUI*. After those two elements are loaded the [onStart](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback is invoked. This is the point to start the desired scene or GUI.
 
 # Using the app state interface
 
@@ -62,9 +62,7 @@ Using the app interface [switchState](https://khanonjs.com/api-docs/classes/deco
 
 Using the global [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) method.
 
-After switching to a new app state, Khanon.js will load the scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends, unloading its scenes and GUIs. Then the next state starts.
-
-Be sure that after you switch to a new state and before it has been loaded, the player and the logic of your game wont't do any action that could drive to switch to another state, causing a collision with the state that is already loading. Once you switch to a new state, wait until it is loaded to switch to another state.
+After switching to a new app state, the scenes and GUIs of previous state end and are unloaded. After it, the scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html) of the new state are loaded. Once the loading of the new state has been completed, the new state starts invoking [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback. This is the point where you can start the new scene or GUI.
 
 # Setup of the state
 
