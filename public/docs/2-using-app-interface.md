@@ -41,6 +41,8 @@ Use [`htmlCanvasContainerId`](https://khanonjs.com/api-docs/interfaces/decorator
 
 The [`loopUpdate`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#loopUpdate) property is used to setup the loop update method. The [`fps`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppPropLoopUpdate.html#fps) property makes reference to the times the loop update will refresh per second. For example a [`fps`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppPropLoopUpdate.html#fps) value of 60 means the loop update method will refresh 60 times per second, meaning that Khanon.js will create a [setInterval](https://developer.mozilla.org/es/docs/Web/API/setInterval) function that will refresh every `1000/60` milliseconds.
 
+Set [`removeTimeoutsOnStateSwitch`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#removeTimeoutsOnStateSwitch) to 'true' in case you want to remove all **KJS** timeouts and intervals when switching app state. This helps to keep the app consistency. Use it only if you declare KJS timeouts and intervals within scene elements.
+
 The [`debugLog`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#debugLog) property defines if debug logs are enabled or disabled.
 
 # Switching of state
