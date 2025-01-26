@@ -52,14 +52,6 @@ export const getStartedDocs = [
     ]
   },
   {
-    section: 'SceneMaps',
-    docs: [
-      { title: 'Overview', file: '6-scenemaps-overview' },
-      { title: 'Sprite maps', file: '6-sprite-maps' },
-      { title: 'Mesh maps', file: '6-mesh-maps' },
-    ]
-  },
-  {
     section: 'Actors',
     docs: [
       { title: 'Overview', file: '7-actors-overview' },
@@ -69,6 +61,12 @@ export const getStartedDocs = [
       { title: 'Spawning actors', file: '7-spawning-actors' },
     ]
   },
+  /*{
+    section: 'SceneMaps',
+    docs: [
+      { title: 'Overview', file: '6-scenemaps-overview' },
+    ]
+  },*/
   {
     section: 'Particles',
     docs: [

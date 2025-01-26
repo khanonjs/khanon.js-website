@@ -132,7 +132,7 @@ export class MySprite extends SpriteInterface {
 }
 ```
 
-To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame), [setFrameFirst](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameFirst) or [setFrameLast](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameLast).
+To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame).
 
 # Drawing texts and manipulating the texture
 
