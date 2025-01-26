@@ -213,3 +213,39 @@ $rsp-button-font-size: 1.7em;
 .main-buttons-github-img {
   height: 58%;
 }
+
+.babylon-logo {
+  display: flex;
+  height: 7em;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: end;
+  align-self: end;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-babylon-logo-step2 {
+      position: static;
+    }
+  }
+}
+
+.babylon-logo-img {
+  display: flex;
+  height: 6em;
+  margin-bottom: 1em;
+  cursor: pointer;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-babylon-logo-img-step1 {
+      height: 5em;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-babylon-logo-img-step2 {
+      height: 4em;
+      margin-bottom: 0;
+    }
+  }
+}
