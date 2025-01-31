@@ -134,7 +134,7 @@ export class MySprite extends SpriteInterface {
 
 To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame).
 
-# Drawing texts and manipulating the texture
+# Custom sprites, drawing texts and manipulating the texture
 
 If you want to manipulate a sprite texture and draw directly in it, you might create a blank texture sprite leaving the [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) decorator prop undefined.
 

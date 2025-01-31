@@ -153,4 +153,4 @@ onCanvasResize(size: Rect) {
 
 # Notifications
 
-Cameras can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+Particles can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
