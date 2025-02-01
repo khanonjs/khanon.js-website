@@ -47,7 +47,7 @@ Some things in mind:
     - Implement a motion module to easily move actors in different ways making use of the Babylon physics engine.
 
 &nbsp;
-    - Adding more scene maps for each kind of video game (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
+    - Adding scene maps for different types of video games (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, 3DOpenWodlMap, etc)
 
 &nbsp;
     - Support for solid particle system (SPS) and points cloud particle system (PCS).
