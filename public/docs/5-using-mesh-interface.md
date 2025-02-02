@@ -61,10 +61,10 @@ export class MyScene extends SceneInterface {
       { id: 'Run', loop: true },
       { id: 'Greet', loop: false }
     ]
-  }) myMesh: MeshConstructor
+  }) MyMesh: MeshConstructor
 
   onStart() {
-    const mesh = this.spawn.mesh(this.myMesh)
+    const mesh = this.spawn.mesh(this.MyMesh)
     mesh.position.x = 50
     mesh.position.y = 100
   }
