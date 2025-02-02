@@ -4,7 +4,7 @@ A [mesh](https://khanonjs.com/api-docs/modules/decorators_mesh.html) is a 3D mod
 
 # Using meshes
 
- A [scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) can be composed by different types of meshes. The [ground](https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/ground_hmap) can be a mesh built by a height map, the walls of a room use to be composed by an union of plains, and a cloud can be represented by a semitransparent mesh whose shape's volume is changing frame by frame.
+ A [scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) can be composed by different types of meshes. The [ground](https://doc.babylonjs.com/features/featuresDeepDive/mesh/creation/set/ground_hmap) can be a mesh built by a height map, the walls of a room use to be composed by an union of planes, and a cloud can be represented by a semitransparent mesh whose shape's volume is changing frame by frame.
 
 Meshes can also be used to represent and compose [actors](https://khanonjs.com/api-docs/modules/decorators_actor.html). An actor is built by the main [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#body), and different nodes attached to it in case it is composed by different pieces. Each one of these pieces is a different mesh with its own logic and animations.
 

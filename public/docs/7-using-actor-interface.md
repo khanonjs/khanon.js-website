@@ -26,7 +26,7 @@ Use [`scene`](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterf
 
 To destroy the actor from its instance, use the [destroy](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#destroy) method.
 
-[setVisible](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setVisible) sets the visibility of the actor. When the actor is not visible, its logical method [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) and notifications are stopped.
+[`setEnabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setEnabled) to enable or disable the actor. When the actor is disabled, it is not rendered, and its [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) and notifications are stopped.
 
 # Decorator properties
 
@@ -100,8 +100,6 @@ onSpawn() {
   spriteBody.position = new BABYLON.Vector3(10, 40, 20)
 }
 ```
-
-Remember you can access to the full [Sprite babylon](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#babylon) or [Mesh babylon](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#babylon) properties from their accessors.
 
 # Animating actors
 

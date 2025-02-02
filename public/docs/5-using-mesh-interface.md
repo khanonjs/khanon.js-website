@@ -39,6 +39,8 @@ To get the scene where the mesh has been spawned use [`scene`](https://khanonjs.
 
 A mesh counts with many transform properties and methods, all of them shortcuts to the actual babylon mesh properties. You can find them in the [MeshInterface](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html) documentation.
 
+Use [`setEnabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setEnabled) to enable or disable the sprite.
+
 # Using the property decorator
 
 If you don't need to use the mesh lifecycle and you don't need to reuse it from different classes, you can create a mesh from a decorated property within the class that is going to use it. A mesh defined in a class property is evaluated to a [MeshConstructor](https://khanonjs.com/api-docs/types/decorators_mesh.MeshConstructor.html) on app start. Property meshes can be created in scenes, scene actions, scene states, actors, actor actions, actor states, and particles.

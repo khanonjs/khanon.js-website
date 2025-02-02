@@ -5,35 +5,17 @@ At the moment, **Khanon.js is in a BETA state**. This means we are still testing
 To have the first production version we still have to implement these items:
 
 &nbsp;
-    - Sprite nodes.
-
-&nbsp;
-    - Mesh decorator.
-
-&nbsp;
-    - GUI decorator.
-
-&nbsp;
-    - SpriteMap decorator to build sprite based scenes.
-
-&nbsp;
-    - MeshMap decorator to build mesh based scenes.
-
-&nbsp;
     - Support for input events.
 
 &nbsp;
     - Support for sounds system.
 
 &nbsp;
-    - Project builder system (webpack).
-
-&nbsp;
-    - Debug and production versions.
+    - Project builder system (debug and production versions).
 
 # Further future
 
-Khanon.js plans to integrate many features in the future.
+Khanon.js plans to integrate more features in the future.
 
 Some things in mind:
 
@@ -62,4 +44,4 @@ Some things in mind:
     - Adding a CLI tool to generate and modify projects.
 
 &nbsp;
-    - And many more things!
+    - Thinking in more improvements.. :)
