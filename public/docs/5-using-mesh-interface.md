@@ -37,7 +37,7 @@ Use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshIn
 
 To get the scene where the mesh has been spawned use [`scene`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#scene) accessor. Note this is not the Babylon scene, instead it is the Khanon.js scene.
 
-A mesh counts with many transform properties and methods, all of them shortcuts to the actual babylon mesh properties. You can find them in the [mesh interface](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html) documentation.
+A mesh counts with many transform properties and methods, all of them shortcuts to the actual babylon mesh properties. You can find them in the [MeshInterface](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html) documentation.
 
 # Using the property decorator
 
@@ -75,44 +75,41 @@ export class MyScene extends SceneInterface {
 
 Mesh decorator properties are defined in the [MeshProps](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html) interface.
 
-Use [`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) to define the path to the image file to load for this mesh. If [`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) is not defined, a blank texture is created and a exclusive [Babylon MeshManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.MeshManager) is assigned to the mesh.
+[`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) is the path of the [`.glb`](https://en.wikipedia.org/wiki/GlTF) (or [`.gltf`](https://en.wikipedia.org/wiki/GlTF)) file to be loaded. Follow this [tutorial](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter) to see how to create a [`.glb`](https://en.wikipedia.org/wiki/GlTF) file. In case [`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) is not defined, no mesh will be loaded. Use [onSpawn](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#onSpawn) callback to create a mesh and assign it to the class through [setMesh](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#setMesh) method.
 
 The [`.glb`](https://en.wikipedia.org/wiki/GlTF) animations are defined in the [`animations`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#animations) property. An animation won't be accessible if it is not defined in this property, even if it exists in the [`.glb`](https://en.wikipedia.org/wiki/GlTF) file.
 
-If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#cached) is *true*, the image is kept in memory and it is not  removed on scene change. In this way, if two or more scenes are sharing the same mesh, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
+If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#cached) is *true*, the [`.glb`](https://en.wikipedia.org/wiki/GlTF) file is kept in memory and it is not removed on scene change. In this way, if two or more scenes are sharing the same mesh, Khanon.js won't remove it and the loading process will be faster. To remove all cached meshes use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
+
+The [`cloneByInstances`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#cloneByInstances) property defines whether the mesh is cloned by instances referencing to a parent mesh, or cloned duplicating the mesh. If `false` (default value), the mesh is cloned and a new mesh will be created, bringing the possibility to modify and apply shaders in it not affecting to its siblings. If `true` the mesh is cloned by instance, meaning the actual mesh is parent of all instances cloned from it. Read more [here](https://doc.babylonjs.com/features/featuresDeepDive/mesh/copies/instances).
 
 # Animated meshes
 
-If the image is a meshesheet to generate animated meshes, you need to indicate the number of frames in the [`numFrames`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#numFrames) decorator property. **At the moment the only supported format of meshesheets is equal size for every frame along the meshesheet, no matter how many columns and rows it has.**
-
-Decorator properties [`width`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#width) and [`height`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#height) represent the frame size.
-
-The animations are defined in the [`animations`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#animations) decorator property. It is an array of [MeshAnimation](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html) objects. Each animation has a unique [`id`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#id), and optionals [`frameStart`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#frameStart), [`frameEnd`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#frameEnd), [`delay`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#delay) and [`loop`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#loop). Animations can be added manually as well using [addAnimation](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#addAnimation).
+The animations are defined in the [`animations`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#animations) decorator property. It is an array of [MeshAnimation](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html) objects. Each animation has a unique [`id`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#id), and optional [`loop`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#loop). Animations can be added manually as well using [addAnimation](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#addAnimation), for what previously has to be created an [AnimationGroup](https://doc.babylonjs.com/typedoc/classes/BABYLON.AnimationGroup). Read more about animation groups [here](https://doc.babylonjs.com/features/featuresDeepDive/animation/groupAnimations).
 
 [`keyFrames`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#keyFrames) is used to generate events when the animation reach one or more frames. Subscribe to the key frame events trought the [subscribeToKeyframe](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#subscribeToKeyframe) method. Use [clearKeyframeSubscriptions](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#clearKeyframeSubscriptions) to clear all key frame subscriptions.
 
-To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#playAnimation) method indicating the `id`. You can override the [`loop`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#playAnimation) animation property, and define a callback for each animaton end in the [`completed`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#playAnimation) parameter.
+To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#playAnimation) method indicating the [`id`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimation.html#id). You can override and define the [`options`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshAnimationOptions.html) for this animation, and receive a callback for each animaton end in the [`completed`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#playAnimation) parameter.
 
 Call [stopAnimation](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#stopAnimation) to stop the animation.
 
 **animated-mesh.ts**
 ```
 @Mesh({
-  url: './assets/character-meshesheet.png',
-  width: 50,
-  height: 80,
-  numFrames: 20,
+  url: './assets/character.glb',
   animations: [{
-    id: 'actor-walk', frameStart: 0, frameEnd: 9, delay: 100, loop: true,
+    id: 'Walk',
+    loop: true,
     keyFrames: [{
       id: 'floor-contact-walk',
-      frames: [2, 4, 6, 8]
+      frames: [15, 30]
     }]
   }, {
-    id: 'actor-run', frameStart: 10, frameEnd: 19, delay: 100, loop: true,
+    id: 'Run',
+    loop: true,
     keyFrames: [{
       id: 'floor-contact-run',
-      frames: [13, 16]
+      frames: [7, 15]
     }]
   }]
 })
@@ -135,30 +132,30 @@ To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decora
 
 # Custom meshes
 
-If you want to manipulate a mesh texture and draw directly in it, you might create a blank texture mesh leaving the [`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) decorator prop undefined.
-
-That means the mesh generates a new texture per mesh spawn, allowing you to draw in each one of them without interferences.
-
-Draw texts using the [drawText](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#drawText) method, or grab the texture from `babylon.meshManager.texture` and manipulate it by yourself.
+In case [`url`](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#url) is not defined in the decorator props, no mesh will be loaded. You can create a mesh and assign it to the class using the [`setMesh`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#setMesh) method.
 
 **blank-mesh.ts**
 ```
-@Mesh({
-  width: 100,
-  height: 100
-})
+import * as BABYLON from '@babylonjs/core'
+import {
+  Mesh,
+  MeshInterface
+} from '@khanonjs/engine'
+
+@Mesh()
 export class MyMesh extends MeshInterface {
   onSpawn() {
-    this.drawText('Hello Khanon.js!', {
-      fontName: 'my-css-font-name',
-      fontSize: 20,
-      textColor: '#ffffff'
-    })
+    // Create the mesh material
+    const flatMaterial = new BABYLON.StandardMaterial('my-mesh-material', this.babylon.scene)
+    flatMaterial.disableLighting = true
+    flatMaterial.emissiveColor = new BABYLON.Color3(0.13, 0.13, 0.13)
 
-    // or...
+    // Create the mesh
+    const meshBjs = BABYLON.MeshBuilder.CreateDisc('my-mesh', { radius: 1125, tessellation: 200 }, this.babylon.scene)
+    meshBjs.material = flatMaterial
 
-    const texture = this.babylon.meshManager.texture
-    // Draw on it!
+    // Assign the mesh to this class
+    this.setMesh(meshBjs)
   }
 }
 ```

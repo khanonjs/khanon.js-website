@@ -80,7 +80,7 @@ Use [`numFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.Spr
 
 To configure the [Babylon Texture](https://doc.babylonjs.com/typedoc/classes/BABYLON.Texture) generated for this sprite, use [`noMipmap`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#noMipmap), [`invertY`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#invertY), [`samplingMode`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#samplingMode), [`format`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#format), [`maxAllowedSprites`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#maxAllowedSprites). These are Babylon related properties.
 
-If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not  removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
+If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
 
 # Animated sprites
 
@@ -92,7 +92,7 @@ The animations are defined in the [`animations`](https://khanonjs.com/api-docs/i
 
 [`keyFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimation.html#keyFrames) is used to generate events when the animation reach one or more frames. Subscribe to the key frame events trought the [subscribeToKeyframe](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#subscribeToKeyframe) method. Use [clearKeyframeSubscriptions](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearKeyframeSubscriptions) to clear all key frame subscriptions.
 
-To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) method indicating the `id`. You can override the [`loop`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) animation property, and define a callback for each animaton end in the [`completed`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) parameter.
+To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) method indicating the [`id`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimation.html#id). You can define the [`options`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimationOptions.html), and receive a callback for each animaton end in the [`completed`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) parameter.
 
 Call [stopAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#stopAnimation) to stop the animation.
 
