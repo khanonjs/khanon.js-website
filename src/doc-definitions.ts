@@ -82,6 +82,13 @@ export const getStartedDocs = [
       { title: 'Receiving notifications', file: '9-receiving-notifications' },
       { title: 'Sending notifications', file: '9-sending-notifications' },
     ]
+  },
+  {
+    section: 'User Interface',
+    docs: [
+      { title: 'Overview', file: '10-gui-overview' },
+      { title: 'Using the GUI interface', file: '10-using-gui-interface' },
+    ]
   }
 ]
 
