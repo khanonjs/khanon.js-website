@@ -59,6 +59,10 @@ $rsp-button-font-size: 1.7em;
   &[disabled] {
     color: gray;
     pointer-events: none;
+
+    & .main-buttons-play-text {
+      color: #424242;
+    }
   }
 
   @media only screen and (max-width: $responsive-hide-step1) {

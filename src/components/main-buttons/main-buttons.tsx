@@ -37,12 +37,14 @@ export class MainButtons extends React.Component<MainButtonsProps> {
         <div
           className={ElementStyle.getClass(styles, ['main-buttons-play', 'rsp-main-buttons-play'])}
           onClick={this.handlePlayDemos.bind(this)}
+          {...{ 'disabled': true }} // 8a8f
         >
           <img
             src={playCircle}
             className={ElementStyle.getClass(styles, ['main-buttons-play-icon', 'rsp-main-buttons-play-icon'])}
           />
-          <div className={ElementStyle.getClass(styles, ['main-buttons-play-text', 'rsp-main-buttons-play-text', 'font-roadgeek-regular'])}>PLAY DEMOS</div>
+          <div className={ElementStyle.getClass(styles, ['main-buttons-play-text', 'rsp-main-buttons-play-text', 'font-roadgeek-regular'])}>PLAY DEMOS
+          </div>
         </div>
         <div
           className={ElementStyle.getClass(styles, ['main-buttons-getstarted', 'rsp-main-buttons-getstarted'])}
