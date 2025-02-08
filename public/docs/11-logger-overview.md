@@ -39,17 +39,17 @@ Logs an [info](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#
 Logger.info(msg: string, ...params: any[])
 ```
 
-Logs a [debug](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#debug) message. Debug log parameters are parsed as string, no matter the type they are:
+Logs a [debug](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#debug) message:
 ```
 Logger.debug(msg: string, ...params: any[])
 ```
 
-Logs a [debug error](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#debugError) message that will be only shown in debug mode. Debug log parameters are parsed as string, no matter the type they are:
+Logs a [debug error](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#debugError) message that will be only shown in debug mode:
 ```
 Logger.debugError(msg: string, ...params: any[])
 ```
 
-Logs a [trace](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#trace) message. Use it to trace your code while you are developing your application. Trace log parameters are parsed as string, no matter the type they are:
+Logs a [trace](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html#trace) message. Use it to trace the code while you are developing:
 ```
 Logger.trace(msg: string, ...params: any[])
 ```
