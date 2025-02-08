@@ -89,6 +89,12 @@ export const getStartedDocs = [
       { title: 'Overview', file: '10-gui-overview' },
       { title: 'Using the GUI interface', file: '10-using-gui-interface' },
     ]
+  },
+  {
+    section: 'Logger',
+    docs: [
+      { title: 'Overview', file: '11-logger-overview' },
+    ]
   }
 ]
 
