@@ -39,7 +39,7 @@ To get the scene where the mesh has been spawned use [`scene`](https://khanonjs.
 
 A mesh counts with many transform properties and methods, all of them shortcuts to the actual babylon mesh properties. You can find them in the [MeshInterface](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html) documentation.
 
-Use [`setEnabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setEnabled) to enable or disable the sprite.
+Use the [`enabled`](https://khanonjs.com/api-docs/classes/decorators_mesh.MeshInterface.html#enabled) accesor to set or get the enabled state of the mesh.
 
 # Using the property decorator
 

@@ -26,7 +26,7 @@ Use [`scene`](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterf
 
 To destroy the actor from its instance, use the [destroy](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#destroy) method.
 
-[`setEnabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setEnabled) to enable or disable the actor. When the actor is disabled, it is not rendered, and its [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) and notifications are stopped.
+Set or get the enabled state of the actor using the accesor [`enabled`](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#enabled). If the actor is disabled, it is not rendered, and its [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#onLoopUpdate) and notifications are stopped.
 
 # Decorator properties
 
@@ -37,6 +37,12 @@ States and actions to be used by this actor are defined in [`states`](https://kh
 [Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html), and [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) to be used by this actor are defined in [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#sprites), [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#meshes), and [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#particles) properties.
 
 Actors can display as well [GUIs](https://khanonjs.com/api-docs/modules/decorators_gui.html) related to them. The GUIs this actor can display are defined in the [`guis`](https://khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#guis) property.
+
+In case a scene is loaded from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) file using the scene decorator prop [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url), scene meshes can be replaced by actors using the [`spawnByReferenceId`](https://www.khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#spawnByReferenceId) property. If [`spawnByReferenceId`](https://www.khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#spawnByReferenceId) is defined, the actor is spawned replacing every mesh in the [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) scene whose Id starts by this reference Id (E.g. 'RefId', 'RefId.001', 'RefId.002', etc).
+
+Use [`renderingGroupId`](https://www.khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#renderingGroupId) for the actor's body [`Babylon renderingGroupId`](https://doc.babylonjs.com/typedoc/classes/BABYLON.Mesh#renderinggroupid).
+
+Use [`enabled`](https://www.khanonjs.com/api-docs/interfaces/decorators_actor.ActorProps.html#enabled) property for the initial [`enabled`](https://www.khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#enabled) state of the actor.
 
 # Composing the actor
 

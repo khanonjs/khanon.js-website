@@ -43,6 +43,8 @@ example() {
 
 The scene decorator properties are defined in the [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) interface.
 
+Use [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) property to load a scene from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) file. In case it is undefined, no asset will be loaded. Use any of Babylon [exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/) to export a scene from a graphical editor.
+
 ## Scene configuration
 
 You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) from the decorator props. There are two properties for this purpose:

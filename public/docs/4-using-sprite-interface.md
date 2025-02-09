@@ -38,7 +38,7 @@ To get the scene where the sprite has been spawned use [`scene`](https://khanonj
 
 Other accessors are [`position`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#position), [`rotation`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#rotation), [`scale`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scale), [`visibility`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#visibility), and other trasnform properties. These are shortcuts to [Babylon Mesh](https://doc.babylonjs.com/typedoc/classes/BABYLON.Mesh) transform properties with some adaptations to a 2D element.
 
-Use [`setEnabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setEnabled) to enable or disable the sprite.
+Use the [`enabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#enabled) accesor to set or get the enabled state of the sprite.
 
 # Using the property decorator
 

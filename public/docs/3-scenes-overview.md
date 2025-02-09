@@ -14,6 +14,9 @@ Every Babylon object is freely accessible from the [`babylon`](https://khanonjs.
 
 Use Khanon.js to create and destroy elements. For the rest feel free to modify whatever you need in the scene.
 
+# Loading scenes
+Scenes can be loaded from [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) files using the [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) decorator prop. In that way it is possible to build a scene in a 3D graphical editor, and export it to Babylon using any of their [exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/).
+
 # Scene Maps
 To facilitate the job of composing the scene, Khanon.js provides different types of scene maps. A scene map is a decorated class that defines the composition of a scene. From the simpler [Sprite](https://khanonjs.com/api-docs/modules/decorators_sprite_map.html) or [Mesh](https://khanonjs.com/api-docs/modules/decorators_mesh_map.html) maps of first Khanon.js version, to complex compositions like horizontal/vertical scroll maps, isometric maps, 3D FPS maps, and many more that will come in further versions. Each one with its own way of definition, implementation, and interactions.
 
