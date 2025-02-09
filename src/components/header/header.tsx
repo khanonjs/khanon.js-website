@@ -42,8 +42,8 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   render() {
-    // setTimeout(() => this.handleGetStarted(), 300) // 8a8f COMMENT! to publish, uncomment to document
-    // setTimeout(() => this.handleTutorials(), 300) // 8a8f COMMENT! to publish, uncomment to document
+    // setTimeout(() => this.handleGetStarted(), 300) // 8a8f COMMENT TO PUBLISH, uncomment to document
+    // setTimeout(() => this.handleTutorials(), 300) // 8a8f COMMENT TO PUBLISH, uncomment to document
     return (
       <div className={ElementStyle.getClass(styles, ['header-container', 'rsp-header-container'])}>
         <div
