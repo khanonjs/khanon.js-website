@@ -100,7 +100,7 @@ export const getStartedDocs = [
 
 export const tutorialsDocs = [
   {
-    section: 'Starting a new project',
+    section: 'First steps',
     docs: [
       { title: 'Creating a blank project', file: '01-blank-project' },
       { title: 'Starting a 2D application', file: '02-starting-2d-application' },
