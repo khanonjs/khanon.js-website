@@ -18,13 +18,13 @@ Besides vetices, a mesh can also contain one or more skeletons (armatures), each
 
 That's the basic concept of how a mesh is animated. Babylon.js has a great tutorial of how to easily create animated characters in [Blender](https://www.blender.org/). You can find this tutorial [here](https://doc.babylonjs.com/features/featuresDeepDive/animation/animatedCharacter).
 
-Once you have the [`.glb`](https://en.wikipedia.org/wiki/GlTF) file of an animated character (or whatever you want to animate), Khanon.js will easily import it to the application as a mesh, having the possibility to use it in an actor's [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or [node](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode), bringing the possibility to add logic and interacting with it in the [actor](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html) interface. The mesh animations will be previously defined in the mesh decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#animations).
+Once you have the [`glTF`](https://en.wikipedia.org/wiki/GlTF) file of an animated character (or whatever you want to animate), Khanon.js will easily import it to the application as a mesh, having the possibility to use it in an actor's [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or [node](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode), bringing the possibility to add logic and interacting with it in the [actor](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html) interface. The mesh animations will be previously defined in the mesh decorator [props](https://khanonjs.com/api-docs/interfaces/decorators_mesh.MeshProps.html#animations).
 
 # Materials and textures
 
 The mesh material (or materials) defines how the surface is rendered by the graphic card. This is the way we can apply different properties to the mesh surface to define its appaerance. A material can for example contain a texture that will be drawn over the mesh according to some coordinates; it could also define how the lights affect to the surface, how the colors are reflected in it, and many other variants. Babylon.js has some great tutorials of how [materials](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/materials_introduction/) work and how to apply them.
 
-Usually these materials will be created and applied from the mesh editor (E.g. [Blender](https://www.blender.org/)), and exported together with the mesh in the [`.glb`](https://en.wikipedia.org/wiki/GlTF) file.
+Usually these materials will be created and applied from the mesh editor (E.g. [Blender](https://www.blender.org/)), and exported together with the mesh in the [`glTF`](https://en.wikipedia.org/wiki/GlTF) file.
 
 # Sahders
 

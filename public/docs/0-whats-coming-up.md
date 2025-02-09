@@ -8,6 +8,9 @@ To have the first production version we have to implement these items:
     - Input events decorator.
 
 &nbsp;
+    - Improve states workflow.
+
+&nbsp;
     - Sounds and musics module.
 
 &nbsp;
