@@ -102,7 +102,9 @@ export const tutorialsDocs = [
   {
     section: 'Starting a new project',
     docs: [
-      { title: 'Creating a blank project', file: '0-creating-blank-project' },
+      { title: 'Creating a blank project', file: '01-blank-project' },
+      { title: 'Starting a 2D application', file: '02-starting-2d-application' },
+      { title: 'Starting a 3D application', file: '03-starting-3d-application' },
     ]
   }
 ]

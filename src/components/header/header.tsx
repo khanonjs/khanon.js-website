@@ -43,6 +43,7 @@ export class Header extends React.Component<HeaderProps> {
 
   render() {
     // setTimeout(() => this.handleGetStarted(), 300) // 8a8f COMMENT! to publish, uncomment to document
+    // setTimeout(() => this.handleTutorials(), 300) // 8a8f COMMENT! to publish, uncomment to document
     return (
       <div className={ElementStyle.getClass(styles, ['header-container', 'rsp-header-container'])}>
         <div
@@ -72,7 +73,6 @@ export class Header extends React.Component<HeaderProps> {
           <div
             className={styles['header-button']}
             onClick={this.handleTutorials.bind(this)}
-            {...{ 'disabled': true }} // 8a8f
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Tutorials
