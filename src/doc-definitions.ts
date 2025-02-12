@@ -103,8 +103,12 @@ export const tutorialsDocs = [
     section: 'First steps',
     docs: [
       { title: 'Creating a blank project', file: '01-blank-project' },
-      { title: 'Starting a 2D application', file: '02-starting-2d-application' },
-      { title: 'Starting a 3D application', file: '03-starting-3d-application' },
+      { title: 'App workflow', file: '02-app-workflow' },
+      { title: 'Adding 2D sprites to the scene', file: '03-adding-2d-sprites' },
+      { title: 'Adding 3D meshes to the scene', file: '04-adding-3d-meshes' },
+      { title: 'Working with actors', file: '05-working-with-actors' },
+      { title: 'Creating a simple 2D game', file: '06-creating-simple-2d-game' },
+      { title: 'Creating a simple 3D game', file: '07-creating-simple-3d-game' },
     ]
   }
 ]

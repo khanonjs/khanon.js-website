@@ -43,7 +43,7 @@ example() {
 
 The scene decorator properties are defined in the [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) interface.
 
-Use [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) property to load a scene from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) file. In case it is undefined, no asset will be loaded. Use any of Babylon [exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/) to export a scene from a graphical editor.
+Use [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) property to load a scene from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) or [`glTF`](https://en.wikipedia.org/wiki/GlTF) file. Use any of the [Babylon exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/) to export a scene from a graphical editor. In case it is undefined, no assets will be loaded and the scene will be composed through the code.
 
 ## Scene configuration
 
@@ -61,7 +61,7 @@ The [`actions`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneP
 
 ## Cameras and GUIs
 
-Although [Cameras](https://khanonjs.com/api-docs/modules/decorators_camera.html) use to be applied from states, they are declared in the scene props [`cameras`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#cameras) property.
+[Cameras](https://khanonjs.com/api-docs/modules/decorators_camera.html) are declared in the scene props [`cameras`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#cameras) property. Use [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) to select the current camera. Babylon.js needs a camera to render the scene, so switch of camera in the `onStart` method from [Scene](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) or [SceneState](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart). If you don't switch of camera in the `onStart` method, a warning will be shown in the console and a generic camera will be used.
 
 Same for [GUIs](https://khanonjs.com/api-docs/modules/decorators_gui.html), they use to be displayed from states, but they are declared in the [`guis`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#guis) property.
 

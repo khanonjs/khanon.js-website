@@ -11,6 +11,9 @@ To have the first production version we have to implement these items:
     - Improve states workflow.
 
 &nbsp;
+    - Improve actors integration in a loaded scene.
+
+&nbsp;
     - Sounds and musics module.
 
 &nbsp;
