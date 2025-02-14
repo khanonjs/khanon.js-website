@@ -1,7 +1,7 @@
 # Overview
-Start a project from scratch with minimum codebase.
+Start a project from scratch with the minimum codebase.
 
-This tutorial can be found [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/01-blank-project).
+Repository and documentation [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/01-blank-project)
 
 # Project structure
 
@@ -50,6 +50,12 @@ export class MyApp extends AppInterface {
 This is the folder that will be published to the server.
 
 It contains `index.html`, the `assets` folder, any any other files you want to publish to your server.
+
+# Running the application
+
+To run the application just go to the root folder and run the `start` npm script:
+
+`npm run start`
 
 # Building and publishing the project
 

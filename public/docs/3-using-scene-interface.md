@@ -91,6 +91,8 @@ Take in condireration that if an actor or other element has already declared in 
 
 Khanon.js will traverse the whole elements tree of the scene and will load all neccesary assets.
 
+Use the getters [`actors`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#actors), [`meshes`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#meshes), [`sprites`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#sprites), [`particles`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#particles) and [`guis`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#guis) to access the scene spawned elements.
+
 # Loading and unloading the scene
 
 To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) is invoked.
