@@ -43,6 +43,8 @@ Use [`spawn`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state
 
 To switch of camera use the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method. This method has to be called in in the scene (or state) start. Every scene needs to have attached a camera in every moment.
 
+To show and hide a GUI use [showGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#showGUI) and [hideGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#hideGUI). To get a GUI that is already being displayed use [getGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#getGUI).
+
 # Decorator properties
 
 The [SceneStateProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html) decorator properties defines the elements this state will spawn in the scene. If you want to have a more granular control of what each state uses, instead declaring the actors, sprites, meshes and particles in the scene, you can declare them in the state. That's helpful to reuse the state between different scenes. Khanon.js is flexible and let you declare them in the place you consider better.
@@ -51,7 +53,7 @@ Use the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene_sce
 
 # Switching of state
 
-Use the scene [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method to switch to a new state. The previous state ends at this point, and the new state starts running.
+Use [switchState](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchState) to switch to a new state. The previous state ends at this point, and the new state starts running.
 
 # Setup of the state
 
