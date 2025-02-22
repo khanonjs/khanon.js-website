@@ -65,6 +65,8 @@ The [`actions`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneP
 
 Same for [GUIs](https://khanonjs.com/api-docs/modules/decorators_gui.html), they use to be displayed from states, but they are declared in the [`guis`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#guis) property.
 
+To show and hide a GUI use [showGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#showGUI) and [hideGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#hideGUI). To get a GUI that is already being displayed use [getGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#getGUI).
+
 ## Scene Maps
 
 Declared in [`maps`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#maps) property, scene maps have two functions in Khanon.js.
@@ -90,8 +92,6 @@ Particles add effects to the environment, like the water of a waterfall or a fir
 Take in condireration that if an actor or other element has already declared in its decorator the sprites, meshes or particles to use, you don't need to redeclare them in the scene.
 
 Khanon.js will traverse the whole elements tree of the scene and will load all neccesary assets.
-
-Use the getters [`actors`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#actors), [`meshes`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#meshes), [`sprites`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#sprites), [`particles`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#particles) and [`guis`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#guis) to access the scene spawned elements.
 
 # Loading and unloading the scene
 
