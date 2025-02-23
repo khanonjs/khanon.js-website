@@ -120,9 +120,7 @@ $rsp-button-font-size: 1.7em;
   }
 
   @media only screen and (max-width: $responsive-hide-step2) {
-    &.rsp-main-buttons-play-text {
-
-    }
+    &.rsp-main-buttons-play-text {}
   }
 }
 
@@ -181,9 +179,7 @@ $rsp-button-font-size: 1.7em;
   }
 
   @media only screen and (max-width: $responsive-hide-step2) {
-    &.rsp-main-buttons-getstarted-text {
-
-    }
+    &.rsp-main-buttons-getstarted-text {}
   }
 }
 
@@ -236,7 +232,7 @@ $rsp-button-font-size: 1.7em;
 
 .babylon-logo-img {
   display: flex;
-  height: 6em;
+  height: 5em;
   margin-bottom: 1em;
   cursor: pointer;
 

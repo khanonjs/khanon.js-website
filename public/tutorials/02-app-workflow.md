@@ -1,15 +1,21 @@
 # Overview
-In this tutorial we will see how to drive the workflow of an application. From the entry point, to load and start scenes, switch of states, and how to show loading or critical error screens.
+In this tutorial we will see how to drive the workflow of an application simulating how a video game workflow would be. From the entry point, to show loading screens,  load and start scenes, switch of states, and using GUIs.
 
 Repository and documentation [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/02-app-workflow)
+
+# Workflow diagram
+
+Let's analyze the workflow our app will follow in this tutorial:
+
+![App worfflow](./workflow-diagram.jpg?raw=true "App worfflow")
 
 # Starting the app
 
 As we saw in the previous tutorial, to start the app just decorate your app class with the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html).
 
-The app decorated class [`onStart`](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) method is the entry point of the application, so here we can start doing things.
+[`onStart`](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) method is the entry point of the application, so here we can start doing things.
 
-We could load a scene directly within this method, but it is a good practice start working with states since the beggining, that will help to scanalte the application in a proper way if the things get complexer in the future.
+We could load a scene directly within this method, but it is a good practice working with states from the beggining, that will help to scalate the application in a proper way if the things get complexer in the future.
 
 Create the app state `AppStateEntry`
 
