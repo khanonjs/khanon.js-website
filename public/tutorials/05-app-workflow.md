@@ -1,7 +1,7 @@
 # Overview
 In this tutorial we will see how to drive the workflow of an application simulating how a video game workflow would be. From the entry point, to show loading screens,  load and start scenes, switch of states, and using GUIs.
 
-Repository and documentation [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/02-app-workflow)
+Repository and documentation [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/02-app-workflow).
 
 # Workflow diagram
 
@@ -37,7 +37,7 @@ Switch to it from the app's *onStart* method:
 })
 export class MyApp extends AppInterface {
   onStart() {
-    // Entrypoint of your app
+    // Entry point of your app
     Logger.info('App onStart')
 
     // Goto AppStateEntry
@@ -75,7 +75,7 @@ Before advancing, let's see how to add a loading screen while the scene is loadi
 **src/app.ts**
 ```
 onStart() {
-  // Entrypoint of your app
+  // Entry point of your app
   Logger.info('App onStart')
 
   // Show loading screen
