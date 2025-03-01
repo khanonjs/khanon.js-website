@@ -1,8 +1,10 @@
 # Sending notifications
 
-To send a notification you can do it directly to the `notify` method of the element to which you want to send the notification.
+There are two ways to send notifications:
 
-Or you can send a notification globally to all elements of the game using the [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Use the *receivers* property to send the message to spefific types of elements using their constructors.
+- Directly through the `notify` method of the element whose which you want to send the notification.
+
+- Sending a notification globally to all elements of the app using the [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Use the *receivers* property to send the message to spefific types of elements using their constructors.
 
 ```
 import {

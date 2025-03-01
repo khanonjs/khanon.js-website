@@ -79,8 +79,8 @@ export const getStartedDocs = [
     section: 'Notifications',
     docs: [
       { title: 'Overview', file: '9-notifications-overview' },
-      { title: 'Receiving notifications', file: '9-receiving-notifications' },
       { title: 'Sending notifications', file: '9-sending-notifications' },
+      { title: 'Receiving notifications', file: '9-receiving-notifications' },
     ]
   },
   {
