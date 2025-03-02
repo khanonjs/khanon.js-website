@@ -1,8 +1,8 @@
 # What is Khanon.js?
 
-As the title says, Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
+Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
 
-Babylon.js is the most powerful graphical engine for web browsers, it is open source and it is in constant development. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
+Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development and maintenance. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
 So.. what's the job of Khanon.js?
 
@@ -14,7 +14,7 @@ Khanon.js is being designed to create video games, but it can be used to create 
 
 # What about the code?
 
-Khanon.js is fully developed in [typescript](https://www.typescriptlang.org/).
+Khanon.js is a [typescript](https://www.typescriptlang.org/) engine focused on allowing a modular and easily scalable architecture.
 
 All the above mentioned features are easily implemented to your project by class, method, and property decorators, making the code clean and reusable.
 
@@ -36,7 +36,7 @@ To access a wrapped or related Babylon object within a Khanon.js instance you'll
 
 It is important to note that some Babylon objects have same name than other Khanon.js objects. To avoid collisions between their imports, you may import BABYLON namespace to use Babylon objects.
 ```
-import * as BABYLON from '@babylonjs/core'  // Use always BABYLON namespace
+import * as BABYLON from '@babylonjs/core'  // Use BABYLON namespace to avoid collisions with Khanon.js objects
 import {
   Scene,
   SceneInterface

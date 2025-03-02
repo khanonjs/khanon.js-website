@@ -104,8 +104,8 @@ export const tutorialsDocs = [
     docs: [
       { title: 'Creating a blank project', file: '01-blank-project' },
       { title: 'Starting a scene', file: '02-starting-scene' },
-      { title: 'Loading 2D sprites into the scene', file: '03-loading-sprites' },
-      { title: 'Loading 3D meshes into the scene', file: '04-loading-meshes' },
+      { title: 'Loading 2D sprites and particles', file: '03-loading-sprites' },
+      { title: 'Loading 3D meshes', file: '04-loading-meshes' },
       { title: 'App workflow', file: '05-app-workflow' },
       { title: 'Working with actors', file: '06-working-with-actors' },
       { title: 'Creating a simple 2D game', file: '07-creating-simple-2d-game' },
