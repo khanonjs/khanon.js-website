@@ -1,6 +1,6 @@
 # What is Khanon.js?
 
-Khanon.js is a game engine extending Babylon.js, although it could also be considered a framework.
+Khanon.js is an open souurce game engine extending Babylon.js, although it could also be considered a framework.
 
 Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development and maintenance. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
@@ -14,11 +14,11 @@ Khanon.js is being designed to create video games, but it can be used to create 
 
 # What about the code?
 
-Khanon.js is a [typescript](https://www.typescriptlang.org/) engine focused on allowing a modular and easily scalable architecture.
+Khanon.js is a [typescript](https://www.typescriptlang.org/) engine focused on allowing a modular and scalable architecture.
 
-All the above mentioned features are easily implemented to your project by class, method, and property decorators, making the code clean and reusable.
+All the above mentioned features are implemented to your project by class, method, and property decorators, making the code clean and reusable.
 
-For instance you can create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, actions, and many others.
+For example, you can create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, particles, and more.
 
 Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 

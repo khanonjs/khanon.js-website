@@ -18,3 +18,5 @@ Repository and documentation [here](https://github.com/khanonjs/khanon.js-tutori
 ## Property decorated particles
 
 ## Animated particles
+
+# Composing the scene
