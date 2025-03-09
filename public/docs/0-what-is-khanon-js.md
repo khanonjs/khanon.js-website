@@ -1,12 +1,12 @@
 # What is Khanon.js?
 
-Khanon.js is an open souurce game engine extending Babylon.js, although it could also be considered a framework.
+Khanon.js is an open source game engine extending Babylon.js, although it could also be considered a framework.
 
 Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development and maintenance. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
 So.. what's the job of Khanon.js?
 
-Khanon.js adds a layer between Babylon.js and the logic of your game, adding lifecycle to different objects like scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, states, notifications, scene maps, and many others that will make the game development easier and enjoyable.
+Khanon.js implements a layer between Babylon.js and the logic of your game, adding lifecycle to different objects like scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, states, notifications, scene maps, and many others that will make the game development easier and enjoyable.
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
 
@@ -21,6 +21,8 @@ All the above mentioned features are implemented to your project by class, metho
 For example, you can create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, particles, and more.
 
 Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
+
+Don't use methods and properties started with an underscore in decorated classes (e.g: `_myMethod()`), that may override some private Khanon.js properties.
 
 # How's the deal between Khanon.js and Babylon.js?
 
