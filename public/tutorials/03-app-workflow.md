@@ -463,6 +463,6 @@ export class StateIntro extends SceneStateInterface<{ introClass: string, contex
 
 # Conclusion
 
-In general terms, this is how a Khanon.js application drives the workflow. In next tutorials we will see how to render graphics, generate events, and send notifications between the different app components, but that extra complexity doesn't change that the workflow will be normally driven in a similar way than we saw in this tutorial.
+In general terms, this is how a Khanon.js application manages the workflow. In next tutorials we will see how to render graphics, generate events, send notifications between instances, and more. That extra complexity doesn't change the fact that the workflow will typically be managed in a similar way than we saw in this tutorial.
 
-Before starting a project it is important to do a proper design knowing where we can reuse classes to fasten up the development creating a modular and scalable architecture.
+After designing our project, it is important to do retrospective to determine the classes we are going to reuse, creating a modular and scalable architecture.
