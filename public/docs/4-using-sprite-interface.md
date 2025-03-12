@@ -184,3 +184,7 @@ onCanvasResize(size: Rect) {
   // Rearrange layers
 }
 ```
+
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.

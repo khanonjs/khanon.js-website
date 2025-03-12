@@ -84,7 +84,7 @@ export const getStartedDocs = [
     ]
   },
   {
-    section: 'User Interface',
+    section: 'GUI',
     docs: [
       { title: 'Overview', file: '10-gui-overview' },
       { title: 'Using the GUI interface', file: '10-using-gui-interface' },
@@ -108,8 +108,8 @@ export const tutorialsDocs = [
       { title: 'Loading 2D sprites and particles', file: '04-loading-sprites' },
       { title: 'Loading 3D meshes', file: '05-loading-meshes' },
       { title: 'Working with actors', file: '06-working-with-actors' },
-      { title: 'Creating a simple 2D game', file: '07-creating-simple-2d-game' },
-      { title: 'Creating a simple 3D game', file: '08-creating-simple-3d-game' },
+      // { title: 'Creating a simple 2D game', file: '07-creating-simple-2d-game' },
+      // { title: 'Creating a simple 3D game', file: '08-creating-simple-3d-game' },
     ]
   }
 ]

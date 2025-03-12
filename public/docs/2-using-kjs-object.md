@@ -51,23 +51,6 @@ example() {
 }
 ```
 
-# Timers
-
-Khanon.js implements its own timers. Browser native timers are inconsistent by two reasons:
-
-- In some browsers, if the browser tab is unfocused, timer events are delayed to save resources. That can drive to inconsistencies in your application because some timers can be triggered at the wrong app frame. KJS implements its own loop update function, triggering timers always at the correct app frame.
-
-- In case you create a timer in a class that has been deleted, native timers keeps running in memory, and will be triggered even if their context doesn't exists anymore. Khanon.js removes timers on app state change, avoinding most of inconsistencies in case a state or scene doesn't exist anymore. (See [`removeTimeoutsOnStateSwitch`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#removeTimeoutsOnStateSwitch)). This feature is EXPERIMENTAL.
-
-That's why We encourage you to use KJS timers.
-
-&nbsp;
-    -  [KJS.setTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.setTimeout.html), [KJS.setInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.setInterval.html) are similar to the Javascript native methods with the advantages mentioned above.
-
-&nbsp;
-    -  [KJS.clearTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html), [KJS.clearInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.clearInterval.html) to clear a KJS timeout or interval. Use [KJS.clearAllTimeouts](https://khanonjs.com/api-docs/functions/kjs.KJS.clearAllTimeouts.html) to clear all timeouts and intervals.
-
-
 # Loading progress observables
 
 Calling the load method of any class or namespace returns a [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object. This object has three observables that you need to subscribe to receive loading progress events.

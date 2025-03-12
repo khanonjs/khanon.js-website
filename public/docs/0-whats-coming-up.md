@@ -4,20 +4,15 @@ At the moment, **Khanon.js is in BETA state**. This means we are still testing a
 
 To have the first production version we have to implement these items:
 
-&nbsp;
-    - Input events decorator.
+- Input events decorator.
 
-&nbsp;
-    - Improve states workflow.
+- Improve states workflow.
 
-&nbsp;
-    - Improve actors integration in a loaded scene.
+- Improve actors integration in a loaded scene.
 
-&nbsp;
-    - Sounds and musics module.
+- Sounds and musics module.
 
-&nbsp;
-    - Project builder for debug and production versions.
+- Project builder for debug and production versions.
 
 # Future features
 
@@ -25,26 +20,18 @@ Khanon.js plans to integrate more features in the future.
 
 Some things in mind:
 
-&nbsp;
-    - Use of Babylon supported physics engines, generate physical shapes in actors and scenes, add basic physics functionalities.
+- Use of Babylon supported physics engines, generate physical shapes in actors and scenes, add basic physics functionalities.
 
-&nbsp;
-    - Improve the GUI module.
+- Improve the GUI module.
 
-&nbsp;
-    - Adding scene maps for different types of video games (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, 3DOpenWodlMap, etc)
+- Adding scene maps for different types of video games (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, 3DOpenWodlMap, etc)
 
-&nbsp;
-    - Motion module or decorator.
+- Motion module or decorator.
 
-&nbsp;
-    - Support for solid particle system (SPS) and points cloud particle system (PCS).
+- Support for solid particle system (SPS) and points cloud particle system (PCS).
 
-&nbsp;
-    - Camera system to make smooth transitions.
+- Camera system to make smooth transitions.
 
-&nbsp;
-    - Support sockets for online comms.
+- Support sockets for online comms.
 
-&nbsp;
-    - Thinking to add more features.. :)
+- Thinking to add more features.. :)

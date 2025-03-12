@@ -17,3 +17,13 @@ Using this object it is possible to load and unload scenes or GUIs, send global 
 [App States](https://khanonjs.com/api-docs/modules/decorators_app_app_state.html) are defined by their own class implementation. They handle each app state, configuring the scenes and GUIs to load and unload, and control how the transition between states are made.
 
 Using the [KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object it is possible to switch to a different app state from anywhere in the code.
+
+# Timers
+
+Khanon.js implements its own timers. Browser native timers are inconsistent by two reasons:
+
+- In some browsers, if the browser tab is unfocused, timer events are delayed to save resources. That can drive to inconsistencies in your application because some timers can be triggered at the wrong app frame. KJS implements its own loop update function, triggering timers always at the correct frame.
+
+- In case you previously created a timer in a class that has been deleted, browser native timers keep running, and they will be triggered even if their context doesn't exists. That will cause errors. Khanon.js instances remove their timers at the same time the class is removed, so you don't have to care for it.
+
+It is encouraged to use Khanon.js instances timers. You will read about them in interfaces documentation.

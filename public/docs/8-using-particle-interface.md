@@ -154,3 +154,7 @@ onCanvasResize(size: Rect) {
 # Notifications
 
 Particles can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.
