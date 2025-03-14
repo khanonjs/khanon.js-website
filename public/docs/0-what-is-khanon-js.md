@@ -1,12 +1,12 @@
 # What is Khanon.js?
 
-Khanon.js is an open source game engine extending Babylon.js, although it could also be considered a framework.
+Khanon.js is an open source game engine extending Babylon.js.
 
 Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development and maintenance. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
 So.. what's the job of Khanon.js?
 
-Khanon.js implements a layer between Babylon.js and the logic of your game, adding lifecycle to different objects like scenes, sprites, meshes or particles; and common features that any video game could require like assets management between scenes, actors, states, notifications, scene maps, and many others that will make the game development easier and enjoyable.
+Khanon.js implements a layer between Babylon.js and the logic of your game, adding lifecycle to different objects such scenes, sprites, meshes or particles. It also adds common features that a video game could require like assets management, actors, states, notifications, input mappers, scene maps, and many others that will make the game development easier and enjoyable.
 
 Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
 

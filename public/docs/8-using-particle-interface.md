@@ -111,6 +111,10 @@ export class MyActor extends ActorInterface<SpriteInterface> {
 
 Particle decorator properties are defined in the [ParticleProps](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html) interface.
 
+By default, particles are hidden by 2D sprites. Khanon.js uses transparent materials to represent 2D sprites. Transparent materials are rendered after particles for performance reasons, even when they are in front and they are opaque, so we need to explicity set the particle depth order (read more [here](https://doc.babylonjs.com/features/featuresDeepDive/materials/advanced/transparent_rendering/)). To set the sprite depth order you have two options:
+- Set [`renderOverTheScene`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderOverTheScene) to *true* to render the particle over all elements in the scene (use it in 2D scenes). Set it to *false* in 3D scenes.
+- Set [`renderingGroupId`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderingGroupId) to a higher value than the sprite's *renderingGroupId* over which you want to render the particle (normally the background or all the elements in the scene). Read more [here](https://doc.babylonjs.com/features/featuresDeepDive/materials/advanced/transparent_rendering/#rendering-groups).
+
 Declare the sprites to use by this particle in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#sprites) property.
 
 [`offset`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#offset) is the position offset from the origin of the element where the particle has been attached.

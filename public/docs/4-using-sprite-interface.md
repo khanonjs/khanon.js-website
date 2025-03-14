@@ -82,6 +82,8 @@ To configure the [Babylon Texture](https://doc.babylonjs.com/typedoc/classes/BAB
 
 If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
 
+Use [`renderingGroupId`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#renderingGroupId) to set the *renderingGroupId* of the sprite. Read more [here](https://doc.babylonjs.com/features/featuresDeepDive/materials/advanced/transparent_rendering/#rendering-groups).
+
 # Animated sprites
 
 If the image is a spritesheet to generate animated sprites, you need to indicate the number of frames in the [`numFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#numFrames) decorator property. **At the moment the only supported format of spritesheets is equal size for every frame along the spritesheet, no matter how many columns and rows it has.**

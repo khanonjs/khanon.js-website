@@ -26,4 +26,4 @@ Khanon.js implements its own timers. Browser native timers are inconsistent by t
 
 - In case you previously created a timer in a class that has been deleted, browser native timers keep running, and they will be triggered even if their context doesn't exists. That will cause errors. Khanon.js instances remove their timers at the same time the class is removed, so you don't have to care for it.
 
-It is encouraged to use Khanon.js instances timers. You will read about them in interfaces documentation.
+It is encouraged to use Khanon.js instance timers. You will read about them in the interfaces documentation.
