@@ -18,7 +18,7 @@ Let's analyze the workflow our app will follow in this tutorial:
 
 # Starting the game
 
-By default, *index.html* displays a loading screen. This is what the user sees before the app is launched.
+By default, *index.html* displays a loading screen. This is what the user sees before the app is ready to start.
 
 **public/index.html**
 ```
@@ -32,7 +32,7 @@ By default, *index.html* displays a loading screen. This is what the user sees b
 
 As we saw in the previous tutorial, to create the app just decorate your app class with the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html).
 
-Once the app started, the app's [`onStart`](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) is the entry point of the application, so here we can start doing things.
+When the app starts, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) method is the entry point of the application, so here we can start doing things.
 
 We could load a scene directly from this method, but it is a good practice working with states from the beggining, that will help to modulate and scalate the application in a proper way.
 
