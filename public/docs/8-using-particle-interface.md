@@ -86,7 +86,7 @@ export class MyActor extends ActorInterface<SpriteInterface> {
   }) spriteParticle: SpriteConstructor
 
   @Particle()
-  myParticleOnInitialize(particle: ParticleInterface) {
+  myParticleOnInitialize(particle: ParticleInterface, setup: any) {
     // Initialize the particle here
     particle.setSprite(this.spriteParticle)
     particle.setAnimation(0)
@@ -120,6 +120,44 @@ Declare the sprites to use by this particle in the [`sprites`](https://khanonjs.
 [`offset`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#offset) is the position offset from the origin of the element where the particle has been attached.
 
 [`capacity`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#capacity) is the maximum number of particles to be emitted.
+
+# Setup of the particle
+
+In case you need to apply a setup to the particle, it is possible through the generic `S` of [ParticleInterface](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html).
+
+The setup object needs to be passed to the [spawn.particle](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle) method. If the setup is not defined in the *ParticleInterface* generic `S`, an empty object will be passed to the *spawn.particle* method:
+```
+@Particle()
+export class MyParticle extends ParticleInterface { // Undefined setup generic
+// ...
+}
+
+// ...
+
+myScene.spawn.particle(MyParticle, {})
+```
+```
+@Particle()
+export class MyParticle extends ParticleInterface<{ particleColor: BABYLON.Color4 }> { // Defined setup generic interface
+// ...
+}
+
+// ...
+
+myScene.spawn.particle(SceneStateGoStage, {
+  particleColor: new BABYLON.Color4(1, 1, 1, 1)
+})
+```
+
+The action setup is accessible from the [`setup`](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setup) accessor.
+
+In case the particle is defined by a method decorator, the setup object will be sent to the second argument.
+```
+@Particle()
+  myParticleOnInitialize(particle: ParticleInterface, setup: any) {
+    // Setup object is available in the second argument
+  }
+```
 
 # Starting and stopping the particle
 
