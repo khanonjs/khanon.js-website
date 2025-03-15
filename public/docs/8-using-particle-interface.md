@@ -117,7 +117,7 @@ By default, particles are hidden by 2D sprites. Khanon.js uses transparent mater
 
 Declare the sprites to use by this particle in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#sprites) property.
 
-[`offset`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#offset) is the position offset from the origin of the element where the particle has been attached.
+[`position`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#position) is the position from the origin of the element where the particle has been attached to an actor node. World position in case the particle is spawned from a scene.
 
 [`capacity`](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#capacity) is the maximum number of particles to be emitted.
 
