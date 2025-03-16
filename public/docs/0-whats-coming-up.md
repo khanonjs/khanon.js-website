@@ -1,24 +1,28 @@
 # Next steps
 
-At the moment, **Khanon.js is in BETA state**. This means we are still testing and finishing the main modules. Once everything is ready we will publish the first production version.
+At the moment, **Khanon.js is in ALPHA state**. This means there are still missing some features for the BETA state.
 
-To have the first production version we have to implement these items:
+To reach the BETA I have to implement these items:
 
 - Input events decorator.
 
-- Improve states workflow.
-
-- Improve actors integration in a loaded scene.
+- GUI decorator.
 
 - Sounds and musics module.
 
 - Project builder for debug and production versions.
+
+Once the BETA is stable and the community feedback is good, I will publish the first production verion.
 
 # Future features
 
 Khanon.js plans to integrate more features in the future.
 
 Some things in mind:
+
+- Improve states workflow.
+
+- Improve actors integration in a loaded scene.
 
 - Use of Babylon supported physics engines, generate physical shapes in actors and scenes, add basic physics functionalities.
 
