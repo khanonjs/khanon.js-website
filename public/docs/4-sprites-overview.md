@@ -8,7 +8,7 @@ Sprites, like any other visual element in Babylon.js, are rendered in the 3D spa
 
 Sprites can be used as a part of the [scene](https://khanonjs.com/api-docs/modules/decorators_scene.html) in different ways. They can compose the background through a tile map, or they can belong to the main scene in the foreground. They can also be used in scene dynamic elements like doors, lights, traps, effects, etc.
 
-Sprites can be used to compose [actors](https://khanonjs.com/api-docs/modules/decorators_actor.html). From the [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#body) of the actor, to the attached nodes like for example the arms, legs and head of an actor. Khanon.js brings the possibility to attach different sprites to the same body of an actor, making it possible to build the actor by pieces.
+Sprites can be used to compose [actors](https://khanonjs.com/api-docs/modules/decorators_actor.html). From the [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#body), to the attached nodes like for example the arms, legs and head of an actor. Khanon.js brings the possibility to attach different sprites to the same body of an actor, making it possible to build the actor by pieces and attach items to it.
 
 Another way to use sprites is in sprite [particles](https://khanonjs.com/api-docs/modules/decorators_particle.html). Particles emitters will emit sprites that will be moved, scaled and/or rotated along the timeline. You can also animate sprite particles.
 

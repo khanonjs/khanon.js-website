@@ -2,15 +2,15 @@
 
 Khanon.js is an open source game engine extending Babylon.js.
 
-Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development and maintenance. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
+Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
-So.. what's the job of Khanon.js?
+*So.. what's the job of Khanon.js?*
 
-Khanon.js implements a layer between Babylon.js and the logic of your game, adding lifecycle to different objects such scenes, sprites, meshes or particles. It also adds common features that a video game could require like assets management, actors, states, notifications, input mappers, scene maps, and many others that will make the game development easier and enjoyable.
+Khanon.js implements a layer between Babylon.js and the logic of your game, appending lifecycle and new features to the Babylon.js sourcebase. Aassets management, states workflow, actors interactions, input mappers, and many others that will make the game development easier.
 
-Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities. It also presents some alternatives like the [Logger](https://khanonjs.com/api-docs/classes/modules_logger.Logger.html) class, which is slightly different.
+It is designed to create video games (and interactive applications) in 2D and 3D environments. It is flexible and modular, allowing you to easily expand your project by modifying and moving back or forward any element you need.
 
-Khanon.js is being designed to create video games, but it can be used to create any kind of interactive and multimedia application.
+-- *Khanon.js wants the user to focus in the game design. That's the main goal of this project.* --
 
 # What about the code?
 
@@ -26,7 +26,9 @@ Don't use methods and properties started with an underscore in decorated classes
 
 # How's the deal between Khanon.js and Babylon.js?
 
-In some cases Khanon.js works with its own implementation, like the case of actors. Actors are logical elements that interact with other actors, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with any Babylon object.
+Khanon.js doesn’t pretend to substitute any of the Babylon.js features. Instead, its job is widening what Babylon.js offers, adding new features and functionalities.
+
+In some cases Khanon.js works with its own implementation, like the actor decorators. Actors are logical elements that interact with other actors, the scene, and/or the player. An actor could be the main charactar of the game, a NPC, a fire throwing particles, or whatever that has some logic. This element is fully provided by Khanon.js, so it doesn't have a direct relation with any Babylon object.
 
 In other cases, a Khanon.js object wraps another existing Babylon object, such as scenes, sprites, meshes, or particles.
 
@@ -61,5 +63,3 @@ When I firstly began working with Babylon.js to build my personal website, years
 So, as expected, instead working on my personal webpage, I ended up working on a game engine.
 
 The change came with typescript improvements, decorators, and a constant development of Babylon.js. After learning how decorators work and understanding how powerful they are, I decided to start this project with two ideas in mind: make a deeper learning of typescript; but over everything helping developers to work in their games by freeing them from the mechanical and boring tasks behind a video game, letting them focus in the game design.
-
-**Khanon.js wants the user to focus in the game design. That's the main goal of this project.**
