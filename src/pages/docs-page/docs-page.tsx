@@ -42,7 +42,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
   renderPage() {
     const section = this.props.documents[this.props.sectionId]
     if (this.elementMarkdown) {
-      this.elementMarkdown.currentMarkdown = Docs.get(section.docs[this.props.itemId].file)
+      this.elementMarkdown.setMarkdown(Docs.get(section.docs[this.props.itemId].file))
     }
     return (
       <div className={styles['docs-page-container']}>

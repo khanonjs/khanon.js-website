@@ -144,6 +144,15 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
     }
   }
 
+  setMarkdown(markdown: string) {
+    this.elementMarkdownContainer.style.opacity = '0'
+    this.summaryItems = []
+    this.hlSummaryItem = undefined
+    this.elementMarkdownContainer.style.opacity = '1'
+    this.elementMarkdownContainer.scrollTop = 0
+    this.currentMarkdown = markdown
+  }
+
   updateSummarySelector(resetHeight?: boolean) {
     if (resetHeight) {
       this.hlSummaryHeight = 0
@@ -181,12 +190,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
 
   goSection(section: MarkdownDocSection, title: string) {
     const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
-    this.elementMarkdownContainer.style.opacity = '0'
-    this.summaryItems = []
-    this.hlSummaryItem = undefined
-    this.elementMarkdownContainer.style.opacity = '1'
-    this.elementMarkdownContainer.scrollTop = 0
-    this.currentMarkdown = markdown
+    this.setMarkdown(markdown)
     this.setState({ currentMarkdown: this.currentMarkdown })
   }
 
