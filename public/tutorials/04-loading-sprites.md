@@ -170,7 +170,7 @@ import {
 export class SpriteSnow extends SpriteInterface {}
 ```
 
-And declare it in the scene. This sprite is shared between *scene.ts* and *particle-snow-lamp.ts*.
+Declare it in the scene. This sprite is shared between *scene.ts* and *particle-snow-lamp.ts*.
 
 **src/scene.ts**
 ```
@@ -191,17 +191,17 @@ export class SceneBusStop extends SceneInterface {
 }
 ```
 
-Then we create the back and front particles. Set [renderOverScene](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderOverScene) to *true* in 2D games. Khanon.js 2D sprites are all transparent to support `.png` files, so we have to explicitly say to Babylon.js what's the depth order of particles. Otherwise they will be rendered behind the background. You can also set their depth order setting *renderOverScene* to *false* and using [renderingGroupId](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderingGroupId).
+Now we can create the back and front particles. Set [renderOverScene](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderOverScene) to *true* to render particles over all the scene elements. Khanon.js 2D sprites use alpha blending to support `.png` files, so we have to explicitly say to Babylon.js what's their depth order; otherwise they would be rendered behind the sprites. You can also set their depth order setting *renderOverScene* to *false* and using [renderingGroupId](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderingGroupId).
 
-The decorated method is equivalent to the [onInitialize](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#onInitialize) of a class decorated particle. Here we initialize it using the [ParticleInterface](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html) received in the first argument. The second argument is the *setup* object received from the [spawn.particle](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle) call, which we are not using here.
+The particle decorated method is equivalent to the [onInitialize](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#onInitialize) of a class decorated particle. Here we initialize it using the [ParticleInterface](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html) received in the first argument. The second argument is the *setup* object received from [spawn.particle](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle), which we are not using here.
 
 To see how to create emitters and configure particles, read Babylon's [Particle System Intro](https://doc.babylonjs.com/features/featuresDeepDive/particles/particle_system/particle_system_intro).
 
 You can access the Babylon.js [ParticleSystem](https://doc.babylonjs.com/typedoc/classes/BABYLON.ParticleSystem) from the babylon accessor `particle.babylon.particleSystem`.
 
-The `boundingInfo` we stored previously is used to clip the particles to prevent rendering them outside the background.
+The `boundingInfo` we stored previously is used to clip the particles, preventing them to be rendered outside the background.
 
-The snow sprite is assigned using the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. You can also use animated sprites calling [setAnimation](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setAnimation).
+The snow sprite is assigned using the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. You could also use animated sprites by calling [setAnimation](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setAnimation).
 
 **src/scene.ts**
 ```
@@ -227,9 +227,10 @@ export class SceneBusStop extends SceneInterface {
   }
 }
 ```
-We can now spawn both particles into the scene. To start their emission call [start](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#start) method. To stop it call [stop](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#stop) method.
 
-To set the particle emitter position you can use the [position](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#position) decorator property, or the *offset* property of the [spawn.particle](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle) method..
+We can now spawn both particles into the scene. To start their emission call [start](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#start). To stop it call [stop](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#stop).
+
+To set the emitter position you can use the [position](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#position) decorator property, or the *offset* property from [spawn.particle](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#particle).
 
 **src/scene.ts**
 ```

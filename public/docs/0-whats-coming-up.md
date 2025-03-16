@@ -8,7 +8,7 @@ Features to have a full BETA:
 
 - Sounds and music module.
 
-- Project builder for debug and production versions.
+- Project builder for debug and production optimized bundles.
 
 Once the BETA is stable and the community feedback is good enough, the first production version will be released.
 
