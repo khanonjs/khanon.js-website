@@ -335,9 +335,9 @@ onStart() {
 
 # Conclusion
 
-There are two ways to define sprites and particles: using their own *class*, or declaring them within the scene as *propertioes* or *methods*. You need to think if it worth creating their own class, depending if you will reuse them and if you need to implement logic and lifecycle.
+There are two ways to define sprites and particles: using their own *class*, or declaring them within the scene as *properties* or *methods*. You can decide whether it's worth creating their own class; depending on whether you'll be reusing them and whether you need to implement logic and lifecycles.
 
-Access and use Babylon.js objects every time you need through the *BabylonAccessor*. You are free to use them, but avoid removing them. Khanon.js is who handle their lifetime.
+Access and use Babylon.js objects every time you need through the *BabylonAccessor*. You are free to use them, but don't them. Khanon.js is who handles their lifetime.
 
-Use the *setup* object everytime you need to configure your elements in Khanon.js. It is present in many different interfaces. That is helpful to avoid redundant code along your project.
+Use the *setup* object everytime you need to configure your elements in Khanon.js. This is helpful to avoid redundant code throughout your project.
 
