@@ -155,7 +155,7 @@ In case the particle is defined by a method decorator, the setup object will be 
 ```
 @Particle()
   myParticleOnInitialize(particle: ParticleInterface, setup: any) {
-    // Setup object is available in the second argument
+    // The setup object is available in the second argument
   }
 ```
 
