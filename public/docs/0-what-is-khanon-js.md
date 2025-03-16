@@ -6,7 +6,7 @@ Babylon.js is a powerful graphical engine for web browsers, it is open source an
 
 *So.. what's the job of Khanon.js?*
 
-Khanon.js implements a layer between Babylon.js and the logic of your game, appending lifecycle and new features to the Babylon.js sourcebase. Aassets management, states workflow, actors interactions, input mappers, and many others that will make the game development easier.
+Khanon.js implements a layer between Babylon.js and the logic of your game, appending lifecycle and more features onto a transparent interface above it, letting you to get and modify whatever you need in the Babylon engine. Aassets management, states workflow, actors interactions, input mappers, and many others are some added features that will make the game development easier.
 
 It is designed to create video games (and interactive applications) in 2D and 3D environments. It is flexible and modular, allowing you to easily expand your project by modifying and moving back or forward any element you need.
 
