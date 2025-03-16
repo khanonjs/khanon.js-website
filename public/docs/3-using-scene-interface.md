@@ -45,6 +45,8 @@ The scene decorator properties are defined in the [SceneProps](https://khanonjs.
 
 Use [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) property to load a scene from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) or [`glTF`](https://en.wikipedia.org/wiki/GlTF) file. Use any of the [Babylon exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/) to export a scene from a graphical editor. In case it is undefined, no assets will be loaded and the scene will be composed through the code.
 
+Set [`useDebugInspector`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#useDebugInspector) to *true* to use the Babylon.js debug inspector in this scene. To open it press `Ctrl + Alt + Shift + I`.
+
 ## Scene configuration
 
 You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) from the decorator props. There are two properties for this purpose:
