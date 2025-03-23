@@ -32,6 +32,7 @@ interface SummaryItem {
 }
 
 // TODO use hash symbol to jump to different sections
+// TODO add title for file name to code blocks
 export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsStates> {
   currentMarkdown: string
   private elementMarkdownContainer: HTMLDivElement

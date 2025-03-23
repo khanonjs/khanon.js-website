@@ -1,6 +1,6 @@
 # Next steps
 
-At the moment **Khanon.js is in ALPHA state**, which means there are still a few features missing to have a full BETA.
+At the moment **Khanon.js is in ALPHA stage**, which means there are still a few features missing to have a full BETA.
 
 Features to have a full BETA:
 

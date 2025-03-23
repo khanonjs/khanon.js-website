@@ -106,7 +106,7 @@ export const tutorialsDocs = [
       { title: 'Starting a scene', file: '02-starting-scene' },
       { title: 'App workflow', file: '03-app-workflow' },
       { title: 'Loading 2D sprites and particles', file: '04-loading-sprites' },
-      { title: 'Loading 3D meshes', file: '05-loading-meshes' },
+      { title: 'Creating a 3D scene', file: '05-loading-meshes' },
       { title: 'Working with actors', file: '06-working-with-actors' },
       // { title: 'Creating a simple 2D game', file: '07-creating-simple-2d-game' },
       // { title: 'Creating a simple 3D game', file: '08-creating-simple-3d-game' },
