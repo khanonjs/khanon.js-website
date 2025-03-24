@@ -9,7 +9,7 @@ Background Art [Pretty park set](https://poly.pizza/bundle/Pretty-park-set-G2WIN
 
 Characters Art [Ultimate Monsters Bundle](https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6) by [Quaternius](https://poly.pizza/u/Quaternius) via Poly Pizza.
 
-## What will we do?
+## Goal of this tutorial
 
 In this tutorial we will compose a 3D scene with a background, a custom skybox and light, a particle system, and some 3D animated characters. The animated characters will be playing random animations after a number of *idle* loops.
 
@@ -125,6 +125,9 @@ Now we have to add the particle to the scene, place it over the fountain, and st
   ]
 })
 export class SceneMonsters extends SceneInterface {
+  private light?: BABYLON.HemisphericLight
+  private skybox?: BABYLON.Mesh
+
   onStart() {
     this.switchCamera(SceneCamera, {})
 
@@ -150,33 +153,38 @@ We start the *armabee* animations at a random time to avoid them playing synchro
 
 **src/scene.ts**
 ```
-@Mesh({
-  url: './assets/monsters/armabee.glb',
-  animations: [
-    { id: 'idle', loop: true }
-  ]
-}) Armabee: MeshConstructor
+export class SceneMonsters extends SceneInterface {
+  private light?: BABYLON.HemisphericLight
+  private skybox?: BABYLON.Mesh
 
-onStart() {
-  this.switchCamera(SceneCamera, {})
+  @Mesh({
+    url: './assets/monsters/armabee.glb',
+    animations: [
+      { id: 'idle', loop: true }
+    ]
+  }) Armabee: MeshConstructor
 
-  const particle = this.spawn.particle(ParticleFountain, {}, new BABYLON.Vector3(-0.84, 1.5, 0.55))
-  particle.start()
+  onStart() {
+    this.switchCamera(SceneCamera, {})
 
-  let positions: BABYLON.Vector3[] = []
+    const particle = this.spawn.particle(ParticleFountain, {}, new BABYLON.Vector3(-0.84, 1.5, 0.55))
+    particle.start()
 
-  positions = [
-    new BABYLON.Vector3(-3, 2 + Math.random() * 2, -1 + Math.random()),
-    new BABYLON.Vector3(-1.2, 2 + Math.random() * 2, -1 + Math.random()),
-    new BABYLON.Vector3(0.6, 2 + Math.random() * 2, -1 + Math.random()),
-    new BABYLON.Vector3(2, 2 + Math.random() * 2, -1 + Math.random())
-  ]
-  this.spawn.mesh(this.Armabee, 4, (mesh, index) => {
-    mesh.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3)
-    mesh.position = positions[index]
-    mesh.lookAt(this.getCamera().position)
-    this.setTimeout(() => mesh.playAnimation('idle'), Math.random() * 1000)
-  })
+    let positions: BABYLON.Vector3[] = []
+
+    positions = [
+      new BABYLON.Vector3(-3, 2 + Math.random() * 2, -1 + Math.random()),
+      new BABYLON.Vector3(-1.2, 2 + Math.random() * 2, -1 + Math.random()),
+      new BABYLON.Vector3(0.6, 2 + Math.random() * 2, -1 + Math.random()),
+      new BABYLON.Vector3(2, 2 + Math.random() * 2, -1 + Math.random())
+    ]
+    this.spawn.mesh(this.Armabee, 4, (mesh, index) => {
+      mesh.scaling = new BABYLON.Vector3(0.3, 0.3, 0.3)
+      mesh.position = positions[index]
+      mesh.lookAt(this.getCamera().position)
+      this.setTimeout(() => mesh.playAnimation('idle'), Math.random() * 1000)
+    })
+  }
 }
 ```
 
@@ -260,7 +268,29 @@ export class MeshHywirl extends MeshBase {
 }
 ```
 
-We finally spawn them into the scene.
+Declare them in the scene [meshes](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#meshes) decorator prop.
+
+**src/scene.ts**
+```
+@Scene({
+  url: './assets/pretty-park.glb',
+  configuration: {
+    clearColor: new BABYLON.Color4(0.05, 0.05, 0.05)
+  },
+  meshes: [
+    MeshCactoro,
+    MeshHywirl
+  ],
+  particles: [
+    ParticleFountain
+  ]
+})
+export class SceneMonsters extends SceneInterface {
+  // ...
+}
+```
+
+And spawn them into the scene.
 
 **src/scene.ts**
 ```
@@ -286,12 +316,12 @@ onStart() {
 }
 ```
 
-The scene is now composed. We loaded the background from a file, added custom slybopx and light, created fountain particles, and spawned characters playing their own animations.
+The scene is now composed. We loaded the background from an *url*, added custom slybopx and light, created fountain particles, and spawned characters playing random animations.
 
 # Conclusion
 
 As you see, 2D sprites and 3D meshes are defined in a quite similar way. They both are generated in the 3D environment, they use similar transform methods, and are spawned in the same way. The only differece is that sprites are always facing the camera, they are plane, and lights don't affect them. Instead, meshes are affected by the environment lights, and can be seen 360 dergrees around them. 3D scenes can also be loaded from files.
 
-The particles used for 2D apps are the same than for 3D apps, but for the [renderOverScene](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderOverScene) property, which use to be *true* in 2D apps and *false* in 3D apps.
+The particles used for 2D games are the same than for 3D games, but for the [renderOverScene](https://khanonjs.com/api-docs/interfaces/decorators_particle.ParticleProps.html#renderOverScene) property, which use to be *true* in 2D games and *false* in 3D games.
 
 Apart of reusing Khanon.js components, we can also inherit from base classes that implement a common logic to different decorated classes.
