@@ -4,9 +4,9 @@
 
 Actions can be visual or logical events, and they can be temporary or permanent. Some examples of visual actions are be showing a glow around the actor, starting a particle system over the actor temporarily, or modifying the actor scale. Logical actions could be moving the actor left, making it jump, executing a specific movement, etc.
 
-Like in scene actions, actor actions can be implemented in decorated classes or decorated methods.
+Like in scene actions, actor actions can be implemented in decorated classes.
 
-When an action is implemented in a decorated class it can be used by any actor compatible with it; while if it has been implemented in a decorated method, it can be used only from the class where it has been implemented.
+When an action is implemented in a decorated class it can be used by any actor compatible with its requirements from the setup object.
 
 # Using the class decorator
 
@@ -44,52 +44,15 @@ To access the scene associated to the action use the [`scene`](https://khanonjs.
 
 The actor associated to the action is accessible from the [`actor`](https://khanonjs.com/api-docs/classes/decorators_actor_actor_action.ActorActionInterface.html#actor) accessor. `A` generic type is applied to the *actor* accessor.
 
-# Using the method decorator
-
-If you don't need to use the action lifecycle and you just want to make use of the action frame by frame using [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor_actor_action.ActorActionInterface.html#onLoopUpdate), you can create the action in a method class. To do so, you just need to create a method, which will be equivalent to the *onLoopUpdate* callback, and decorate it with the [ActorAction decorator](https://khanonjs.com/api-docs/functions/decorators_actor_actor_action.ActorAction.html). [ActorActionProps](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html) are the same for decorated classes and methods.
-
-Decorated methods can be defined within [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) and [ActorStates](https://khanonjs.com/api-docs/modules/decorators_actor_actor_state.html). They are used to reduce the amount of project files in case they have a simple logic.
-
-**my-actor.ts**
-```
-import {
-  Actor,
-  ActorAction,
-  ActorActionInterface,
-  ActorInterface,
-  SpriteInterface
-} from '@khanonjs/engine'
-
-@Actor()
-export class MyActor extends ActorInterface<SpriteInterface> {
-  myAction: ActorActionInterface
-
-  @ActorAction()
-  myActorActionLoop(delta: number) {
-    // Equivalent to the action onLoopUpdate
-  }
-
-  onStart() {
-    this.myAction = this.playAction(this.myActorActionLoop, {})
-  }
-
-  onStop() {
-    // This is just an example, the action will stop automatically on scene stop
-    this.stopAction(this.myActorActionLoop)
-    this.myAction = undefined
-  }
-}
-```
-
 # Decorator properties
 
-The decorator properties are the same for both class and method decorated actions. They are defined in the [ActorActionProps](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html) interface.
+They are defined in the [ActorActionProps](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html) interface.
 
 Actor actions can be grouped using the [`group`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html#group) decorator property. In that way all actions that belong to a group can be started, stopped or removed all together.
 
 The [`preserve`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html#preserve) property is used to make the action be preserved or not after stopping it. If preserve is *true*, the action is preserved after action stop. This means the scene keeps the instance and therefore its properties and values. It will continue with the same instance and properties on next [playAction](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#playAction). If preserve is *false*, the action instance is removed after action stop, and a new instance will be created on next *playAction*.
 
-Use [`overrides`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html#overrides) property to override any other action that you want to stop when this action starts playing. For example, if you have an action that displays daylight effects at the actor, and another action that displays night effects at the actor, they both would override each other to avoid colliding themselves since they are not compatible. The override array can declare action classes or action method names.
+Use [`overrides`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html#overrides) property to override any other action that you want to stop when this action starts playing. For example, if you have an action that moves the actor to the left, and another action that moves the actor to the right, they both would override each other to avoid colliding themselves since they are not compatible.
 
 [`countFrames`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_action.ActorActionProps.html#countFrames) is the number of frames this action will be executed. After those frames, the action stops.
 
