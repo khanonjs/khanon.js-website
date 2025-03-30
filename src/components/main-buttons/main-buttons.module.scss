@@ -179,7 +179,9 @@ $rsp-button-font-size: 1.7em;
   }
 
   @media only screen and (max-width: $responsive-hide-step2) {
-    &.rsp-main-buttons-getstarted-text {}
+    &.rsp-main-buttons-getstarted-text {
+      font-size: $rsp-button-font-size;
+    }
   }
 }
 
