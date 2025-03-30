@@ -56,6 +56,10 @@ export class KhanonScene extends SceneInterface {
 }
 ```
 
+## Circular dependencies
+
+Khanon.js is not so friendly with circular dependencies. Try to keep the imports hierarchy from parents to children. Use upwards callbacks to avoid importing parents from child classes.
+
 # Motivation
 
 When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be also helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge world, I found that other features could be added to it, to simplify the development process.

@@ -149,7 +149,7 @@ example() {
 
 # Getting elements
 
-Use [getActors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#getActors) to get a list of all spawned actors of a kind.
+Use [getActors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#getActors) to get a list of all spawned actors of a constructor type.
 
 # Callbacks
 
