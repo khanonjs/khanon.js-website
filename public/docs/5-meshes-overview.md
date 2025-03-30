@@ -26,7 +26,7 @@ The mesh material (or materials) defines how the surface is rendered by the grap
 
 Usually these materials will be created and applied from the mesh editor (E.g. [Blender](https://www.blender.org/)), and exported together with the mesh in the [`glTF`](https://en.wikipedia.org/wiki/GlTF) file.
 
-# Sahders
+# Shaders
 
-In case you want to execute instructions to modify the mesh aspect in real-time, Babylon.js supports [shaders](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/). A shaders is a block of code that is executed frame by frame and which is assigned to vertices or surfaces. That's the way graphical cards handle complex 3D effects. Shaders are used through the [ShaderMaterial](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/shaderMaterial/) class.
+In case you want to execute instructions to modify the mesh aspect in real-time, Babylon.js supports [shaders](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/). Shaders are blocks of code that are executed frame by frame, they are assigned to vertices and/or surfaces. That's the way graphical cards handle complex 3D effects. Shaders are used through the [ShaderMaterial](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/shaderMaterial/) class.
 
