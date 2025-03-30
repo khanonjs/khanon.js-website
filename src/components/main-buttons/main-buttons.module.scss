@@ -220,7 +220,7 @@ $rsp-button-font-size: 1.7em;
   width: 100%;
   position: absolute;
   justify-content: center;
-  align-items: end;
+  align-items: start;
   align-self: end;
 
   @media only screen and (max-width: $responsive-hide-step2) {
