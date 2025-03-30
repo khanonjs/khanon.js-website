@@ -58,7 +58,7 @@ export class KhanonScene extends SceneInterface {
 
 ## Circular dependencies
 
-Khanon.js is not so friendly with circular dependencies. Try to keep the imports hierarchy from parents to children. Use upwards callbacks to avoid importing parents from child classes.
+Khanon.js is not so friendly with circular dependencies. Try to keep the imports hierarchy from parents to children. Use upwards callbacks to avoid importing parents from child classes. If you see an error similar to `my-state.ts:3 Uncaught ReferenceError: Cannot access 'MyState' before initialization` this means the code has a circular dependency trying to access an uninitialized state from a child class.
 
 # Motivation
 
