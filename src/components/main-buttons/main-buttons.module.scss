@@ -36,7 +36,7 @@ $rsp-button-font-size: 1.7em;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      height: 66%;
+      height: 74%;
     }
   }
 }
@@ -160,7 +160,8 @@ $rsp-button-font-size: 1.7em;
   @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-main-buttons-getstarted {
       width: $rsp-button-width-getstarted2;
-      height: $rsp-button-height1;
+      height: $rsp-button-height2;
+      min-height: $rsp-button-height2;
       margin-top: -2em;
     }
   }
