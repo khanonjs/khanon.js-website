@@ -32,10 +32,16 @@
 .logo-footer {
   display: flex;
   font-size: 2vw;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.5px;
   align-items: center;
   justify-content: center;
   color: $color-logo-subtitle;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-logo-footer {
+      letter-spacing: 0;
+    }
+  }
 
   @media only screen and (max-width: $responsive-hide-step2) {
     &.rsp-logo-footer {
