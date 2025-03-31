@@ -36,4 +36,10 @@
   align-items: center;
   justify-content: center;
   color: $color-logo-subtitle;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-logo-footer {
+      letter-spacing: 0;
+    }
+  }
 }
