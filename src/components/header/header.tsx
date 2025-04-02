@@ -38,7 +38,7 @@ export class Header extends React.Component<HeaderProps> {
   }
 
   handleX() {
-    window.open('https://', '_blank', 'noreferrer')
+    window.open('https://x.com/Khanonjs', '_blank', 'noreferrer')
   }
 
   render() {
@@ -105,7 +105,6 @@ export class Header extends React.Component<HeaderProps> {
           <div
             className={ElementStyle.getClass(styles, ['header-x', 'rsp-header-x-right'])}
             onClick={this.handleX.bind(this)}
-            {...{ 'disabled': true }}
           >
             <img src={xLogo} />
           </div>
