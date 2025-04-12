@@ -1,65 +1,37 @@
-# Near future
+# Next steps
 
-At the moment, **Khanon.js is in a BETA state**. This means we are still testing it and finishing the main modules. Once everything is ready we will publish the first production version.
+At the moment **Khanon.js is in ALPHA stage**, which means there are still a few features missing to have a full BETA.
 
-To have the first production version we still have to implement these items:
+Features to have a full BETA:
 
-&nbsp;
-    - Sprite nodes.
+- Input events decorator.
 
-&nbsp;
-    - Mesh decorator.
+- Sounds and music module.
 
-&nbsp;
-    - GUI decorator.
+- Project builder for debug and production optimized bundles.
 
-&nbsp;
-    - SpriteMap decorator to build sprite based scenes.
+Once the BETA is stable and the community feedback is good enough, the first production version will be released.
 
-&nbsp;
-    - MeshMap decorator to build mesh based scenes.
+# Future features
 
-&nbsp;
-    - Support for input events.
+Khanon.js plans to integrate more features in the future:
 
-&nbsp;
-    - Support for sounds system.
+- Improve states workflow.
 
-&nbsp;
-    - Project builder system (webpack).
+- Improve actors integration in loaded scenes from url.
 
-&nbsp;
-    - Debug and production versions.
+- Use of Babylon supported physics engines, generate physical shapes in actors and scenes, add basic physics functionalities.
 
-# Further future
+- Improve the GUI module.
 
-Khanon.js plans to integrate many features in the future.
+- Adding scene maps for different types of video games (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, 3DOpenWodlMap, etc)
 
-Some things in mind:
+- Motion module or decorator.
 
-&nbsp;
-    - Implement a chainable system to trigger events in actors or scenes according to other actions like input events, physics events, or whatever (E.g. actor.triggerer.keyPress('left').callMethod('moveLeft'))
+- Support for solid particle system (SPS) and points cloud particle system (PCS).
 
-&nbsp;
-    - Creating a system to easily generate physical shapes in actors and scenes using the Babylon physics engine.
+- Camera system to make smooth transitions.
 
-&nbsp;
-    - Implement a motion module to easily move actors in different ways making use of the Babylon physics engine.
+- Support sockets for online comms.
 
-&nbsp;
-    - Adding more scene maps for each kind of video game (E.g. 3DFPSMap, 2DIsometricMap, 2DVerticalScrollMap, etc)
-
-&nbsp;
-    - Support for solid particle system (SPS) and points cloud particle system (PCS).
-
-&nbsp;
-    - Implement a chainable camera system to make smooth transitions.
-
-&nbsp;
-    - Support sockets for online comms.
-
-&nbsp;
-    - Adding a CLI tool to generate and modify projects.
-
-&nbsp;
-    - And many more things!
+- Thinking to add more features.. :)

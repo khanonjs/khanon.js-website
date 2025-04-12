@@ -1,13 +1,16 @@
 import React from 'react'
-import { ExternalLink } from 'react-feather'
+import {
+  ExternalLink,
+  Menu
+} from 'react-feather'
 
 import githubLogo from '../../assets/github-logo-gray.png'
+import HomeLogo from '../../assets/K-home-logo.svg'
 import xLogo from '../../assets/x-logo-gray.png'
 import { ElementStyle } from '../../classes/element-style'
 import { Pages } from '../../models/pages'
 import styles from './header.module.scss'
 import { HeaderProps } from './header.props'
-import HomeLogo from "../../assets/K-home-logo.svg"
 
 export class Header extends React.Component<HeaderProps> {
   handleHome() {
@@ -26,25 +29,39 @@ export class Header extends React.Component<HeaderProps> {
     window.open('api-docs/index.html', '_blank', 'noreferrer')
   }
 
+  handleSidebar() {
+    this.props.openSidebar()
+  }
+
   handleGithub() {
     window.open('https://github.com/khanonjs/khanon.js', '_blank', 'noreferrer')
   }
 
   handleX() {
-    window.open('https://', '_blank', 'noreferrer')
+    window.open('https://x.com/Khanonjs', '_blank', 'noreferrer')
   }
 
   render() {
-    // setTimeout(() => this.handleGetStarted(), 100) // 8a8f eliminar
+    // setTimeout(() => this.handleGetStarted(), 300) // 8a8f COMMENT TO PUBLISH, uncomment to document
+    // setTimeout(() => this.handleTutorials(), 300) // 8a8f COMMENT TO PUBLISH, uncomment to document
     return (
-      <div className={styles['header-container']}>
+      <div className={ElementStyle.getClass(styles, ['header-container', 'rsp-header-container'])}>
         <div
-          className={styles['header-home']}
+          className={ElementStyle.getClass(styles, ['header-burguer', 'rsp-click-burguer'])}
+          onClick={this.handleSidebar.bind(this)}
+        >
+          <Menu
+            className={ElementStyle.getClass(styles, ['header-burguer-icon', 'rsp-show-burguer'])}
+            size={30}
+          />
+        </div>
+        <div
+          className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
           onClick={this.handleHome.bind(this)}
         >
-          <img src={HomeLogo} className={styles['header-home-K']}/>
+          <img src={HomeLogo} className={styles['header-home-K']} />
         </div>
-        <div className={styles['header-buttons-bar']}>
+        <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'rsp-hide-buttons-bar'])}>
           <div
             className={styles['header-button']}
             onClick={this.handleGetStarted.bind(this)}
@@ -56,7 +73,6 @@ export class Header extends React.Component<HeaderProps> {
           <div
             className={styles['header-button']}
             onClick={this.handleTutorials.bind(this)}
-            {...{ 'disabled': true }} // 8a8f
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Tutorials
@@ -79,18 +95,19 @@ export class Header extends React.Component<HeaderProps> {
             </div>
           </div>
         </div>
-        <div
-          className={styles['header-github']}
-          onClick={this.handleGithub.bind(this)}
-        >
-          <img src={githubLogo} />
-        </div>
-        <div
-          className={styles['header-x']}
-          onClick={this.handleX.bind(this)}
-          {...{ 'disabled': true }}
-        >
-          <img src={xLogo} />
+        <div className={ElementStyle.getClass(styles, ['header-right-icons-container', 'rsp-shrink-margin'])}>
+          <div
+            className={styles['header-github']}
+            onClick={this.handleGithub.bind(this)}
+          >
+            <img src={githubLogo} />
+          </div>
+          <div
+            className={ElementStyle.getClass(styles, ['header-x', 'rsp-header-x-right'])}
+            onClick={this.handleX.bind(this)}
+          >
+            <img src={xLogo} />
+          </div>
         </div>
       </div>
     )

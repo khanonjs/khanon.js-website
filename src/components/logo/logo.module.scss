@@ -1,16 +1,23 @@
 @import '../../styles/fonts.scss';
-@import '../../styles/global.scss';
+@import '../../styles/theme.scss';
 
 .logo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 34%;
+  height: 31%;
   margin-top: $header-height + $header-margin-top;
   position: absolute;
   user-select: none;
   pointer-events: none;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-logo-container {
+      height: 10%;
+      margin-top: 3.2em;
+    }
+  }
 }
 
 .logo-header {
@@ -25,18 +32,20 @@
 .logo-footer {
   display: flex;
   font-size: 2vw;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.5px;
   align-items: center;
   justify-content: center;
   color: $color-logo-subtitle;
-}
 
-.logo-footer-wip {
-  display: flex;
-  font-size: 1.5vw;
-  letter-spacing: -1.5px;
-  align-items: center;
-  justify-content: center;
-  color: $color-logo;
-  color: red;
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-logo-footer {
+      letter-spacing: 0;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-logo-footer {
+      letter-spacing: 0;
+    }
+  }
 }

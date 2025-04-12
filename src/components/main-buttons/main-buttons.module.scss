@@ -1,22 +1,44 @@
 @import '../../styles/fonts.scss';
-@import '../../styles/global.scss';
+@import '../../styles/theme.scss';
 
-$button-width: 21em;
-$button-height: 6.5em;
 $button-radius: 6em;
+
+$button-width-play: 20em;
+$button-width-getstarted: 12em;
+$button-height: 7em;
+$button-margin-top: 2em;
+$button-font-size: 2.2em;
+
+$rsp-button-width-play1: 15em;
+$rsp-button-width-play2: 20em;
+$rsp-button-width-getstarted1: 7em;
+$rsp-button-width-getstarted2: 8.5em;
+$rsp-button-height1: 5em;
+$rsp-button-height2: 5em;
+$rsp-button-margin-top: 2em;
+$rsp-button-font-size: 1.7em;
 
 .main-buttons-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 4.0em;
+  height: 50%;
   width: 100%;
-  height: 9.4em;
-  top: 60%;
-  position: absolute;
+  align-self: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3.3em;
   user-select: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-x: auto;
+  z-index: 1;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-container {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 80%;
+    }
+  }
 }
 
 .main-buttons-play {
@@ -24,8 +46,12 @@ $button-radius: 6em;
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  width: $button-width;
+  width: $button-width-play;
   height: $button-height;
+  margin-top: $button-margin-top;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-right: 3.7em;
   border-radius: $button-radius;
   background-color: $color-background-main-button;
   cursor: pointer;
@@ -33,17 +59,45 @@ $button-radius: 6em;
   &[disabled] {
     color: gray;
     pointer-events: none;
+
+    & .main-buttons-play-text {
+      color: #424242;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-play {
+      width: $rsp-button-width-play1;
+      height: $rsp-button-height1;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-play {
+      width: $rsp-button-width-play1;
+    }
   }
 }
 
 .main-buttons-play-icon {
   display: flex;
-  width: $button-height - 0.6em;
-  height: $button-height - 0.6em;
+  height: $button-height;
   margin-left: 0.3em;
   border-radius: 10em;
   background-color: $color-primary;
-  transition: 0.3s;
+  transition: margin-left 0.3s;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-play-icon {
+      height: $rsp-button-height1;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-play-icon {
+      height: $rsp-button-height1;
+    }
+  }
 }
 
 .main-buttons-play:hover>.main-buttons-play-icon {
@@ -51,54 +105,150 @@ $button-radius: 6em;
 }
 
 .main-buttons-play-text {
-  margin-left: 0.6em;
-  font-size: 2.0em;
+  font-size: $button-font-size;
+  margin-left: 1.0em;
   letter-spacing: -0.7px;
-  transition: 0.4s;
-  color: $color-getstarted-text;
+  transition: margin-left 0.4s;
+  color: $color-mainbutton-text;
+  white-space: nowrap;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-play-text {
+      font-size: $rsp-button-font-size;
+      margin-left: 1.2em;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-play-text {}
+  }
 }
 
 .main-buttons-play:hover>.main-buttons-play-text {
-  margin-left: 12px;
+  margin-left: 0.7em;
 }
 
 .main-buttons-getstarted {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: $button-width;
+  width: $button-width-getstarted;
   height: $button-height;
+  margin-top: $button-margin-top;
+  align-items: center;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
   border-radius: $button-radius;
   background-color: $color-secondary-get-started;
-  transition: 0.5s;
+  transition: background-color 0.5s;
   cursor: pointer;
 
   &[disabled] {
     background-color: gray;
     pointer-events: none;
   }
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-getstarted {
+      width: $rsp-button-width-getstarted1;
+      height: $rsp-button-height1;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-getstarted {
+      width: $rsp-button-width-getstarted2;
+      height: $rsp-button-height2;
+      min-height: $rsp-button-height2;
+      margin-top: -2em;
+    }
+  }
+}
+
+.main-buttons-getstarted-text {
+  font-size: $button-font-size;
+  letter-spacing: -0.1px;
+  color: $color-mainbutton-text;
+  white-space: nowrap;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-getstarted-text {
+      font-size: $rsp-button-font-size;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-getstarted-text {
+      font-size: $rsp-button-font-size;
+    }
+  }
 }
 
 .main-buttons-getstarted:hover {
   background-color: $color-secondary-hover-get-started;
-  }
-
-.main-buttons-getstarted-text {
-  font-size: 2.3em;
-  letter-spacing: -0.1px;
-  color: $color-getstarted-text;
 }
 
 .main-buttons-github {
   display: flex;
   justify-content: left;
   align-items: center;
-  width: $button-width;
+  margin-top: $button-margin-top;
+  padding-right: 11em;
   height: $button-height;
   cursor: pointer;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-main-buttons-github {
+      height: $rsp-button-height1;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-main-buttons-github {
+      margin-top: -2em;
+      padding-right: 0em;
+    }
+  }
 }
 
 .main-buttons-github-img {
-  height: 60%;
+  height: 58%;
+}
+
+.babylon-logo {
+  display: flex;
+  height: 7em;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: start;
+  align-self: end;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-babylon-logo-step2 {
+      position: static;
+    }
+  }
+}
+
+.babylon-logo-img {
+  display: flex;
+  height: 4.5em;
+  margin-bottom: 1em;
+  cursor: pointer;
+
+  @media only screen and (max-width: $responsive-hide-step1) {
+    &.rsp-babylon-logo-img-step1 {
+      height: 5em;
+    }
+  }
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-babylon-logo-img-step2 {
+      height: 4em;
+      margin-bottom: 0;
+    }
+  }
 }

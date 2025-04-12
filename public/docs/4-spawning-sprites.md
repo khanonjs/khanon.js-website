@@ -1,12 +1,12 @@
 # Spawning sprites
 
-Sprites are spawned using the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) regardless they have been created by a decorated class or property. When the sprite is spawned Khanon.js creates a new instance of the sprite and store it in a container from where it will be managed. Once a sprite is spawned Khanon.js will return its instance giving you the possibility to manage and manipulate it as well.
+Sprites are spawned using the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) regardless they have been created by a decorated class or property. When the sprite is spawned, a new instance is created and stored in a container from where it will be managed. Once a sprite is spawned Khanon.js will return its instance giving you the possibility to manage and manipulate it.
 
 Sprites can be spawned by three different elements: [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) and [Scenes](https://khanonjs.com/api-docs/modules/decorators_scene.html).
 
 # Using sprites in actors
 
-In the case of [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), sprites can be used to compose their [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#body) or [nodes](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#getNode). If you want to use a sprite in an actor, use the [setBody](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or the [addNode](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode) methods. They assign a sprite to the actor component and return the spawned [SpriteInsatnce](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html). Note in both cases of decorated class and property, the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) is used in the same way. That's all, the actor will remove the sprites once they are no longer used.
+In the case of [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), sprites can be used to compose their [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#body) or [nodes](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#getNode). If you want to use a sprite in an actor, use the [setBody](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or the [addNode](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode) methods. They assign a sprite to the actor and return the spawned [SpriteInsatnce](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html). Note in both cases of decorated class and property, the [SpriteContrustor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) is used in the same way. The actor will remove the sprites instances once they are no longer used, so you don't have to deal with it.
 
 **my-actor.ts**
 ```
@@ -53,7 +53,7 @@ export class MyActor extends ActorInterface<SpriteInterface> {
 
 # Using sprites in particles
 
-[Particle](https://khanonjs.com/api-docs/modules/decorators_sprite.html) sprites are assigned by the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. Like actors, the sprite will be automatically removed once it is no longer used by the particle.
+[Particle](https://khanonjs.com/api-docs/modules/decorators_particle.html) sprites are assigned by the [setSprite](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite) method. Like actors, the sprite will be automatically removed once it is no longer used by the particle.
 
 **my-particle.ts**
 ```
@@ -84,7 +84,13 @@ export class MyParticle extends ParticleInterface {
 
 # Using sprites in scenes
 
-Finally, you can spawn arbitrary sprites in the scene and manipulate them by yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it. These sprites are removed by the scene on scene unload, but you can remove them in case you need it using [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) or sprite [destroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#destroy) methods.
+Finally, you can arbitrarily generate sprites in the scene and manipulate them yourself. To spawn a new sprite use the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) method. This method returns the instance [SpriteInterface](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html), which you can store in a variable and start working with it.
+
+You can also spawn *n* number of sprites using the [scene.spawn.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) *counter* property. Combine it with *alternativeOnSpawn* to configure each new sprite instance.
+
+Sprites are removed on scene unload, but you can also remove them manually using [scene.remove.sprite](https://khanonjs.com/api-docs/classes/decorators_scene.SceneRemove.html#sprite) or the sprite [destroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#destroy) method.
+
+[spawn](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [remove](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) objects are also available in scene states.
 
 **my-scene.ts**
 ```

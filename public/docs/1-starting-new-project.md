@@ -1,6 +1,6 @@
 # Project structure
 
-A base Khanon.js project contains a `package.json` file, a `src` folder, and a `public` folder. Installing more dependencies may add some more files to the root folder, but that's the basic structure.
+The base Khanon.js project consists of the `package.json` file, a `src` folder, and a `public` folder. Installing more dependencies is your free decision. Khanon.js brings everything you need to develop a fully interactive application.
 
 Creating a new project is complex enough as to have to explain the whole process step by step.
 

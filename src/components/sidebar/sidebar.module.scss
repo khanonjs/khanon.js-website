@@ -1,0 +1,109 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/theme.scss';
+
+.sidebar-background {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-show-sidebar {
+      display: block;
+    }
+
+    &.rsp-show-sidebar[open] {
+      background-color: rgba(0, 0, 0, 0.5);
+      pointer-events: all;
+    }
+  }
+}
+
+.sidebar-background-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  top: 3.0em;
+  width: 21em;
+  height: calc(100vh - 4.2em);
+  position: absolute;
+  background-color: #0d0d1b;
+  border-radius: 5px;
+  padding-top: 1em;
+  transition: 0.2s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar-container[open] {
+  transform: translateX(0%);
+}
+
+.sidebar-header-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
+  align-items: center;
+}
+
+.sidebar-header-button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  transition: 0.5s;
+  padding-top: 0.5em;
+  padding-bottom: 0.4em;
+
+  &.selected {
+    background-color: $over-background-color;
+  }
+
+}
+
+.sidebar-header-button:hover {
+  background-color: $over-background-color;
+}
+
+.sidebar-header-button-text {
+  display: flex;
+  justify-items: center;
+  font-size: 1.5em;
+  font-family: "RoadGeek2005";
+  letter-spacing: 0.04em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 0.8em;
+}
+
+.sidebar-header-button-icon-containar {
+  padding-top: 0.3em;
+}
+
+.sidebar-header-button-icon {
+  margin-left: 0.5em;
+}
+
+.sidebar-sections-divider {
+  width: 95%;
+}
+
+.sidebar-sections-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  line-height: 2em;
+  text-align: left;
+  font-size: 0.8em;
+}

@@ -61,7 +61,7 @@ Calling the load method of any class or namespace returns a [LoadingProgress](ht
 
 [onComplete](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#onComplete) emits an event when the loading process has been completed. Here is where you can continue going to the first scene and/or GUI.
 
-You can also create a single [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object created from more than one [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
+You can also create a single [LoadingProgress](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html) object created from more than one LoadingProgress objects using the [fromNodes](https://khanonjs.com/api-docs/classes/base_loading_progress.LoadingProgress.html#fromNodes) method, in that way you don't need to subscribe to many different observables in case you want to continue after all of them have completed their loading process:
 
 **app.ts**
 ```
@@ -131,13 +131,11 @@ The [KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has some us
     -  [KJS.throw](https://khanonjs.com/api-docs/functions/kjs.KJS.throw.html) stops the app and throws an error. Call it after a critical error that doesn't let the app to continue.
 
 &nbsp;
+    -  [KJS.getApp](https://khanonjs.com/api-docs/functions/kjs.KJS.getApp.html) gets the app instance.
+
+&nbsp;
     -  [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) switchs to a new app state.
 
 &nbsp;
     -  [KJS.clearCache](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) clears the app cache.
 
-&nbsp;
-    -  [KJS.setTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.setTimeout.html), [KJS.setInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.setInterval.html) are similar to the Javascript native methods. The difference with them is that KJS methods are attached to the KJS loop update method. This prevents some inconsistencies in case the browser tab is unfocused. This happens because when the browser tab is unfocused, the browser applies a delay to the native [setTimeout](https://developer.mozilla.org/es/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/es/docs/Web/API/setInterval), what could drive to trigger the timeout methods unsynchronized with loop update. Use KJS timeout methods in case you want to synchronize them with KJS loop update.
-
-&nbsp;
-    -  [KJS.clearTimeout](https://khanonjs.com/api-docs/functions/kjs.KJS.clearTimeout.html), [KJS.clearInterval](https://khanonjs.com/api-docs/functions/kjs.KJS.clearInterval.html) to clear a KJS timeout or interval.

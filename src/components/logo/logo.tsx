@@ -6,9 +6,9 @@ import styles from './logo.module.scss'
 export class Logo extends React.Component {
   render() {
     return (
-      <div className={styles['logo-container']}>
+      <div className={ElementStyle.getClass(styles, ['logo-container', 'rsp-logo-container'])}>
         <div className={ElementStyle.getClass(styles, ['logo-header', 'font-luckiestguy-regular'])}>KHANON</div>
-        <div className={ElementStyle.getClass(styles, ['logo-footer', 'font-roadgeek-regular'])}>A typescript game engine extending Babylon.js (BETA)</div>
+        <div className={ElementStyle.getClass(styles, ['logo-footer', 'font-roadgeek-regular', 'rsp-logo-footer'])}>A typescript game engine extending Babylon.js (ALPHA)</div>
       </div>
     )
   }

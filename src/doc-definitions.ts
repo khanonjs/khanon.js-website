@@ -52,14 +52,6 @@ export const getStartedDocs = [
     ]
   },
   {
-    section: 'SceneMaps',
-    docs: [
-      { title: 'Overview', file: '6-scenemaps-overview' },
-      { title: 'Sprite maps', file: '6-sprite-maps' },
-      { title: 'Mesh maps', file: '6-mesh-maps' },
-    ]
-  },
-  {
     section: 'Actors',
     docs: [
       { title: 'Overview', file: '7-actors-overview' },
@@ -69,12 +61,17 @@ export const getStartedDocs = [
       { title: 'Spawning actors', file: '7-spawning-actors' },
     ]
   },
+  /*{
+    section: 'SceneMaps',
+    docs: [
+      { title: 'Overview', file: '6-scenemaps-overview' },
+    ]
+  },*/
   {
     section: 'Particles',
     docs: [
       { title: 'Overview', file: '8-particles-overview' },
-      { title: 'Using the class decorator', file: '8-creating-particles' },
-      { title: 'Using the method decorator', file: '8-using-particle-interface' },
+      { title: 'Using the particle interface', file: '8-using-particle-interface' },
       { title: 'Spawning particles', file: '8-spawning-particles' },
     ]
   },
@@ -82,10 +79,37 @@ export const getStartedDocs = [
     section: 'Notifications',
     docs: [
       { title: 'Overview', file: '9-notifications-overview' },
-      { title: 'Receiving notifications', file: '9-receiving-notifications' },
       { title: 'Sending notifications', file: '9-sending-notifications' },
+      { title: 'Receiving notifications', file: '9-receiving-notifications' },
+    ]
+  },
+  {
+    section: 'GUI',
+    docs: [
+      { title: 'Overview', file: '10-gui-overview' },
+      { title: 'Using the GUI interface', file: '10-using-gui-interface' },
+    ]
+  },
+  {
+    section: 'Logger',
+    docs: [
+      { title: 'Overview', file: '11-logger-overview' },
     ]
   }
 ]
 
-export const tutorialsDocs = []
+export const tutorialsDocs = [
+  {
+    section: 'First steps',
+    docs: [
+      { title: 'Preparing a blank project', file: '01-blank-project' },
+      { title: 'Starting a scene', file: '02-starting-scene' },
+      { title: 'App workflow', file: '03-app-workflow' },
+      { title: 'Loading 2D sprites and particles', file: '04-loading-sprites' },
+      { title: 'Creating a 3D scene', file: '05-creating-3d-scene' },
+      { title: 'Working with actors', file: '06-working-with-actors' },
+      // { title: 'Creating a simple 2D game', file: '07-creating-simple-2d-game' },
+      // { title: 'Creating a simple 3D game', file: '08-creating-simple-3d-game' },
+    ]
+  }
+]

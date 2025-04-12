@@ -4,7 +4,7 @@
 
 This is better explained with an example:
 
-Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the *MainMenuAppState*. This state loads the scene *MainMenuBackgroundScene* and the GUI *MainMenuGUI*. After those two elements are loaded the [onStart](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback is invoked, displaying both scene and GUI. From this point it is the scene and the GUI who decide how to continue with the game.
+Once the application has started, the [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) app callback is invoked. At this point, instead loading a GUI or scene, you can start the *MainMenuAppState*. This state loads the scene *MainMenuBackgroundScene* and the GUI *MainMenuGUI*. After those two elements are loaded the [onStart](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onStart) callback is invoked. This is the point to start the desired scene or GUI.
 
 # Using the app state interface
 
@@ -62,15 +62,13 @@ Using the app interface [switchState](https://khanonjs.com/api-docs/classes/deco
 
 Using the global [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) method.
 
-After switching to a new app state, Khanon.js will load the scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html), this process is automatically done by Khanon.js. The previous state won't end until the next state has been fully loaded. Once it has been loaded, the previous state ends, unloading its scenes and GUIs. Then the next state starts.
-
-Be sure that after you switch to a new state and before it has been loaded, the player and the logic of your game wont't do any action that could drive to switch to another state, causing a collision with the state that is already loading. Once you switch to a new state, wait until it is loaded to switch to another state.
+After switching to a new app state, the scenes and GUIs of previous state end and are unloaded. After it, the scenes and GUIs declared in the [AppStateProps](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html) of the new state are loaded. Once the loading of the new state has been completed, the new state starts invoking [onStart](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#onStart) callback. This is the point where you can start the new scene or GUI.
 
 # Setup of the state
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html).
 
-The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the [AppStateInterface](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to both [switchState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#switchState) and [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) methods. If the setup is not defined in the *AppStateInterface* generic `S`, an empty object will be passed to the switch methods:
 ```
 @AppState()
 export class AppStateIntro extends AppStateInterface { // Undefined setup generic
@@ -114,7 +112,7 @@ All elements declared in the [AppStateProps](https://khanonjs.com/api-docs/inter
 
 ## Loop Update
 
-App states can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+App states implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -136,3 +134,7 @@ onCanvasResize(size: Rect) {
 # Notifications
 
 App states can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_app_app_state.AppStateInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.

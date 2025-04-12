@@ -1,6 +1,6 @@
 # Scene state overview
 
-[Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers of the scene. A scene is always associated to a state, which will control the scene flow. They configure the scene in different ways, playing actions and spawning elements like actors or particles. [Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) can also receive notifications and act in consequence.
+[Scene states](https://khanonjs.com/api-docs/modules/decorators_scene_scene_state.html) are logical controllers of the scene. A scene is always associated to a state, which will control the scene flow. They configure the scene in different ways, playing actions and spawning elements like actors or particles. Scene states can also receive notifications and act in consequence.
 
 When a scene state starts, the [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart) callback is invoked, being this the point to initially configure the scene.
 
@@ -35,13 +35,15 @@ export class SceneIntroState extends SceneStateInterface</* Setup object */ S = 
 
 [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) can apply two optional generic interfaces.
 
-Use the `S` generic to apply a type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor. The data stored in the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) call. In this way the caller can send parameters to the state.
+Use the `S` generic to set the type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) call. In this way the caller can send parameters to the state.
 
-To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor. `C` generic type is applied to the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor.
+To access the scene associated to a state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
 Use [`spawn`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#spawn) and [`remove`](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#remove) properties to spawn and remove elements. They are a shortcut to the actual scene spawn and remove classes.
 
-You can switch of camera using the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method.
+To switch of camera use the [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchCamera) method. This method has to be called in in the scene (or state) start. Every scene needs to have attached a camera in every moment.
+
+To show and hide a GUI use [showGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#showGUI) and [hideGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#hideGUI). To get a GUI that is already being displayed use [getGUI](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#getGUI).
 
 # Decorator properties
 
@@ -51,13 +53,13 @@ Use the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene_sce
 
 # Switching of state
 
-Use the scene [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) method to switch to a new state. The previous state ends at this point and the new state starts running.
+Use [switchState](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchState) to switch to a new state. The previous state ends at this point, and the new state starts running.
 
 # Setup of the state
 
 In case you need to apply a setup to the state, it is possible through the generic `S` of [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html).
 
-The setup object needs to be passed to [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) methods. If the setup is not defined in the [SceneStateInterface](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html) generic `S`, an empty object will be passed to the switch methods:
+The setup object needs to be passed to [switchState](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchState) methods. If the setup is not defined in the *SceneStateInterface* generic `S`, an empty object will be passed to the switch methods:
 ```
 @SceneState()
 export class SceneStateGoStage extends SceneStateInterface { // Undefined setup generic
@@ -88,11 +90,11 @@ The state setup is accessible from the [`setup`](https://khanonjs.com/api-docs/c
 
 The [onStart](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart) calllback is invoked on state start.
 
-The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onEnd) calllback is invoked when state end.
+The [onEnd](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onEnd) calllback is invoked when the state ends.
 
 ## Loop Update
 
-Every scene state can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every scene state implements the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -113,3 +115,7 @@ onCanvasResize(size: Rect) {
 # Notifications
 
 Scene states can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#notify) interface method  or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
+
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.

@@ -1,6 +1,6 @@
 # Creating a Scene
 
-To create a new scene you need to create class, apply the [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
+To create a new scene you need to create a class, apply the [Scene decorator](https://khanonjs.com/api-docs/functions/decorators_scene.Scene.html), and extend [SceneInterface](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html) to gain access to its properties and methods.
 
 **my-scene.ts**
 ```
@@ -43,13 +43,17 @@ example() {
 
 The scene decorator properties are defined in the [SceneProps](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html) interface.
 
+Use [`url`](https://www.khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#url) property to load a scene from a [`.babylon`](https://doc.babylonjs.com/setup/support/.babylonFileFormat) or [`glTF`](https://en.wikipedia.org/wiki/GlTF) file. Use any of the [Babylon exporters](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/) to export a scene from a graphical editor. In case it is undefined, no assets will be loaded and the scene will be composed through the code.
+
+Set [`useDebugInspector`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#useDebugInspector) to *true* to use the Babylon.js debug inspector in this scene. To open it press `Ctrl + Alt + Shift + I`.
+
 ## Scene configuration
 
 You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) from the decorator props. There are two properties for this purpose:
 
 [`options`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#options) are the [Babylon SceneOptions](https://doc.babylonjs.com/typedoc/interfaces/BABYLON.SceneOptions).
 
-[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
+[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the Babylon Scene accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
 
 ## States and Actions
 
@@ -59,9 +63,11 @@ The [`actions`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneP
 
 ## Cameras and GUIs
 
-Although [Cameras](https://khanonjs.com/api-docs/modules/decorators_camera.html) use to be applied from states, they are declared in the scene props [`cameras`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#cameras) property.
+[Cameras](https://khanonjs.com/api-docs/modules/decorators_camera.html) are declared in the scene props [`cameras`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#cameras) property. Use [switchCamera](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#switchCamera) to select the current camera. Babylon.js needs a camera to render the scene, so switch of camera in the `onStart` method from [Scene](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) or [SceneState](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#onStart). If you don't switch of camera in the `onStart` method, a warning will be shown in the console and a generic camera will be used.
 
 Same for [GUIs](https://khanonjs.com/api-docs/modules/decorators_gui.html), they use to be displayed from states, but they are declared in the [`guis`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#guis) property.
+
+To show and hide a GUI use [showGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#showGUI) and [hideGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#hideGUI). To get a GUI that is already being displayed use [getGUI](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#getGUI).
 
 ## Scene Maps
 
@@ -77,19 +83,19 @@ Many different scene maps can be used within a scene, there is not restriction a
 
 [Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html), [sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html), [meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) and [particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) are spawnable elements that can be added or removed from the scene at any point.
 
-[Actors](https://khanonjs.com/api-docs/modules/decorators_actor.html) are logical elements that interact between themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
+Actors are logical elements that interact between themselves, the scene, and/or the player. The actors to be used in this scene are declared in the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#actors) property.
 
-[Sprites](https://khanonjs.com/api-docs/modules/decorators_sprite.html) are 2D textures that always face to the camera. They can be used for many different purposes like compose an actor, be a part of the scene, or render particles. Sprites are delcared in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
+Sprites are 2D textures that always face to the camera. They can be used for many different purposes like composing an actor, be a part of the scene map, or render particles. Sprites are delcared in the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
 
-[Meshes](https://khanonjs.com/api-docs/modules/decorators_mesh.html) are 3D compositions. Like particles, they can be used to compose an actor, be a part of the scene, or render particles. Meshes are delcared in the [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#meshes) property.
+Meshes are 3D compositions. Like particles, they can be used to compose an actor, be a part of the scene, or render particles. Meshes are delcared in the [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#meshes) property.
 
-[Particles](https://khanonjs.com/api-docs/modules/decorators_particle.html) add effects to the environment, like the water of a waterfall or a fire throwing flares. Particles are declared in the [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
+Particles add effects to the environment, like the water of a waterfall or a fire throwing flares. Particles are declared in the [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#particles) property.
 
 Take in condireration that if an actor or other element has already declared in its decorator the sprites, meshes or particles to use, you don't need to redeclare them in the scene.
 
 Khanon.js will traverse the whole elements tree of the scene and will load all neccesary assets.
 
-# Load and unload the scene
+# Loading and unloading the scene
 
 To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) is invoked.
 
@@ -99,7 +105,7 @@ To unload the scene use the scene method [unload](https://khanonjs.com/api-docs/
 
 Use the accessor [`loaded`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#loaded) to know if the scene has been loaded or not.
 
-# Start and stop the scene
+# Starting and stopping the scene
 
 After the scene has been loaded, it can start. Starting the scene means adding it to the [Babylon runRenderLoop](https://doc.babylonjs.com/typedoc/classes/BABYLON.Engine#runRenderLoop) method. From this point the scene starts being rendered on the canvas, the scene logic begins and elements can start being spawned.
 
@@ -141,13 +147,17 @@ example() {
 }
 ```
 
+# Getting elements
+
+Use [getActors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#getActors) to get a list of all spawned actors of a constructor type.
+
 # Callbacks
 
 Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a scene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
 
 ## Loop Update
 
-Every scene can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
+Every scene implements the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to check any state or update any element.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -169,3 +179,6 @@ onCanvasResize(size: Rect) {
 
 Scenes can also receive notifications through the [notify](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#notify) interface method or the global [KJS.Notify.send](https://khanonjs.com/api-docs/functions/kjs.KJS.Notify.send.html) method. Read more about notifications in the Notifications section.
 
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.

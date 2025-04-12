@@ -13,7 +13,7 @@ $color-secondary: rgb(89, 84, 84);
 $color-secondary-get-started: rgb(33, 33, 52);
 $color-secondary-hover-get-started: rgb(73, 69, 255);
 $color-secondary-hover: rgb(192, 192, 207);
-$color-getstarted-text: rgb(192, 192, 207);
+$color-mainbutton-text: rgb(192, 192, 207);
 $color-terciary: rgb(255, 255, 255);
 $color-terciary-headline-bg: rgb(33, 33, 52);
 $color-home: rgb(73, 69, 255);
@@ -39,6 +39,9 @@ $header-margin-top: 0.2em;
 $footer-height: 5em;
 $footer-margin-bottom: 3em;
 
+$responsive-hide-step1: 1400px;
+$responsive-hide-step2: 1024px;
+
 
 // Black & White theme
 // $color-background: rgb(65, 65, 65);
@@ -52,7 +55,7 @@ $footer-margin-bottom: 3em;
 // $color-terciary: rgb(110, 110, 110);
 // $color-home: black;
 // $color-header-buttons: black;
-// $color-getstarted-text: black;
+// $color-mainbutton-text: black;
 // $color-markdown-header-text: black;
 // $color-markdown-code-border: rgb(240, 240, 240);
 // $color-markdown-quote-text: rgb(170, 170, 170);
@@ -75,7 +78,7 @@ $footer-margin-bottom: 3em;
 // $color-terciary: rgb(0 71 116);
 // $color-home: $color-primary;
 // $color-header-buttons: black;
-// $color-getstarted-text: white;
+// $color-mainbutton-text: white;
 // $color-markdown-header-text: white;
 // $color-markdown-code-border: rgb(240, 240, 240);
 // $color-markdown-quote-background: rgb(190, 190, 190);

@@ -26,23 +26,23 @@ export class MySprite extends SpriteInterface {
 }
 ```
 
-The [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) decorator property is optional. In case it is defined, the sprite loads an image file from the path defined in it. In case [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) is not defined, a blank texture is assigned to the sprite.
+The [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) decorator property is optional. In case it is defined, the sprite loads an image file from the path defined in it. In case *url* is not defined, a blank texture is assigned to the sprite.
 
 You need to define the [`width`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#width) and [`height`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#height) in the decorator props. In case the sprite is animated, [`width`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#width) and [`height`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#height) are equivalent to the frame size; otherwise they represent the image size.
 
-Sprites can be used by an actor [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or [node](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode), a scene map, the [scene](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) itself or a [particle](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite). Every time a sprite is assigned to one of these objects, a new instance of the sprite is spawned. Sprites can implement the lifecycle callbacks [onSpawn](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onSpawn) and [onDestroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onDestroy).
+Sprites can be used by an actor [body](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#setBody) or [node](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#addNode), a scene map, the [scene](https://khanonjs.com/api-docs/classes/decorators_scene.SceneSpawn.html#sprite) itself or a [particle](https://khanonjs.com/api-docs/classes/decorators_particle.ParticleInterface.html#setSprite). Every time a sprite is assigned to one of these objects, a new instance of the sprite is spawned. Sprites can implement the lifecycle callbacks [onSpawn](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onSpawn) and [onDestroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onDestroy).  8a8f
 
-Use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#babylon) accessor to access the Babylon objects. It contains the [Babylon SpriteManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.SpriteManager), [Babylon Sprite](https://doc.babylonjs.com/typedoc/classes/BABYLON.Sprite) and [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) associated to the sprite. Note that [Babylon SpriteManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.SpriteManager) can be used by many different sprites if [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) has been defined, so be careful if you are going to change something in it. If [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) hasn't been defined, [Babylon SpriteManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.SpriteManager) is unique to this sprite and you can do whatever you need with the texture.
+Use the [`babylon`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#babylon) accessor to access the Babylon objects. It contains the [Babylon Mesh](https://doc.babylonjs.com/typedoc/classes/BABYLON.Mesh) from which the sprite is built and where the sprite's image is rendered. You can also access the [Babylon Scene](https://doc.babylonjs.com/typedoc/classes/BABYLON.Scene) associated to the sprite.
 
-To get the scene associated to the sprite use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scene) accessor.
+To get the scene where the sprite has been spawned use [`scene`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scene) accessor. Note this is not the Babylon scene, instead it is the Khanon.js scene.
 
-Other accessors are [`position`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#position), [`angle`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#angle), [`width`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#width), [`height`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#height), [`size`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#size), [`color`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#color), [`isVisible`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#isVisible). These are shortcuts to [Babylon Sprite](https://doc.babylonjs.com/typedoc/classes/BABYLON.Sprite) properties
+Other accessors are [`position`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#position), [`rotation`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#rotation), [`scale`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scale), [`visibility`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#visibility), and other trasnform properties. These are shortcuts to [Babylon Mesh](https://doc.babylonjs.com/typedoc/classes/BABYLON.Mesh) transform properties with some adaptations to a 2D element.
 
-Use [`scale`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#scale) to scale the sprite. Don't use it if you are going to change the width, height or size of the sprite. It could drive to inconsistencies.
+Use the [`enabled`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#enabled) accesor to set or get the enabled state of the sprite.
 
 # Using the property decorator
 
-If you don't need to use the sprite lifecycle and you don't need to reuse the sprite from different classes, you can create a sprite from a decorated property within the class that is going to use it. This sprite defined in a class property is evaluated to a [SpriteConstructor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) on app start.
+If you don't need to use the sprite lifecycle and you don't need to reuse it from different classes, you can create a sprite from a decorated property within the class that is going to use it. A sprite defined in a class property is evaluated to a [SpriteConstructor](https://khanonjs.com/api-docs/types/decorators_sprite.SpriteConstructor.html) on app start. Property sprites can be created in scenes, scene actions, scene states, actors, actor actions, actor states, and particles.
 
 **sprite-property.ts**
 ```
@@ -72,15 +72,17 @@ export class MyScene extends SceneInterface {
 
 Sprite decorator properties are defined in the [SpriteProps](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html) interface.
 
-Use [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) to define the path to the image file to load for this sprite. If [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) is not defined, a blank texture is be created and a unique [Babylon SpriteManager](https://doc.babylonjs.com/typedoc/classes/BABYLON.SpriteManager) is assigned to the sprite.
+Use [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) to define the path to the image file to load for this sprite. If [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) is not defined, a blank texture is created and a exclusive [Babylon Mesh](https://doc.babylonjs.com/typedoc/classes/BABYLON.Mesh) is assigned to the sprite.
 
 [`width`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#width) and [`height`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#height) represent the image size in case it is not animated. In case the image is a spritesheet to generate animated sprites, width and height represent the frame size.
 
 Use [`numFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#numFrames) and [`animations`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#animations) to define animations. Defining and using animations is explained below.
 
-To configure the [Babylon Texture](https://doc.babylonjs.com/typedoc/classes/BABYLON.Texture) generated for this sprite, use [`noMipmap`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#noMipmap), [`invertY`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#invertY), [`samplingMode`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#samplingMode), [`format`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#format), [`maxAllowedSprites`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#maxAllowedSprites). These are Babylon related properties.
+To configure the [Babylon Texture](https://doc.babylonjs.com/typedoc/classes/BABYLON.Texture) generated for this sprite, use [`noMipmap`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#noMipmap), [`invertY`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#invertY), [`samplingMode`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#samplingMode), [`format`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#format). These are Babylon related properties.
 
-If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not  removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
+If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
+
+Use [`renderingGroupId`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#renderingGroupId) to set the *renderingGroupId* of the sprite. Read more [here](https://doc.babylonjs.com/features/featuresDeepDive/materials/advanced/transparent_rendering/#rendering-groups).
 
 # Animated sprites
 
@@ -92,7 +94,7 @@ The animations are defined in the [`animations`](https://khanonjs.com/api-docs/i
 
 [`keyFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimation.html#keyFrames) is used to generate events when the animation reach one or more frames. Subscribe to the key frame events trought the [subscribeToKeyframe](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#subscribeToKeyframe) method. Use [clearKeyframeSubscriptions](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearKeyframeSubscriptions) to clear all key frame subscriptions.
 
-To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) method indicating the `id`. You can override the [`loop`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) animation property, and define a callback for each animaton end in the [`completed`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) parameter.
+To play an animation call the [playAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) method indicating the [`id`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimation.html#id). Optional second argument is the animation [`options`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteAnimationOptions.html) in the second argument, and [`completed`](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#playAnimation) callback in the third argument.
 
 Call [stopAnimation](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#stopAnimation) to stop the animation.
 
@@ -132,15 +134,15 @@ export class MySprite extends SpriteInterface {
 }
 ```
 
-To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame), [setFrameFirst](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameFirst) or [setFrameLast](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrameLast).
+To set a fixed frame use [setFrame](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setFrame).
 
-# Drawing texts and manipulating the texture
+# Custom sprites, drawing texts and manipulating the texture
 
 If you want to manipulate a sprite texture and draw directly in it, you might create a blank texture sprite leaving the [`url`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#url) decorator prop undefined.
 
 That means the sprite generates a new texture per sprite spawn, allowing you to draw in each one of them without interferences.
 
-Draw texts using the [drawText](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#drawText) method, or grab the texture from `babylon.spriteManager.texture` and manipulate it by yourself.
+Draw texts using the [drawText](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#drawText) method.
 
 **blank-sprite.ts**
 ```
@@ -155,11 +157,6 @@ export class MySprite extends SpriteInterface {
       fontSize: 20,
       textColor: '#ffffff'
     })
-
-    // or...
-
-    const texture = this.babylon.spriteManager.texture
-    // Draw on it!
   }
 }
 ```
@@ -172,7 +169,7 @@ The [onDestroy](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteIn
 
 ## Loop Update
 
-Sprites can implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
+Sprites implement the [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#onLoopUpdate) optional callback. This callback creates an observer to the app loop update, being called every frame. Add logic to this callback to update anything in the sprite.
 ```
 onLoopUpdate(delta: number) {
   // Add logic here
@@ -189,3 +186,7 @@ onCanvasResize(size: Rect) {
   // Rearrange layers
 }
 ```
+
+# Timers
+
+Set timeouts and intervals calling [setTimeout](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setTimeout) and [setInterval](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#setInterval), remove them calling [clearTimeout](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearTimeout), [clearInterval](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearInterval) and [clearAllTimeouts](https://khanonjs.com/api-docs/classes/decorators_sprite.SpriteInterface.html#clearAllTimeouts). Interface timers will be triggered at the correct frame and will be removed on instance delete.
