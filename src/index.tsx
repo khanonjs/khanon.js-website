@@ -3,6 +3,7 @@ import './index.scss'
 import ReactDOM from 'react-dom/client'
 import {
   BrowserRouter,
+  Navigate,
   Route,
   Routes
 } from 'react-router'
@@ -16,6 +17,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
+      {/* <Route  // 8a8f
+        path='/api-docs'
+        element={<Navigate to='https://external-api-docs-url.com' replace />}
+      /> */}
       <Route path='/*' element={<AppWrapper />} />
     </Routes>
   </BrowserRouter>

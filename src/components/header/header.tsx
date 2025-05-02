@@ -3,6 +3,7 @@ import {
   ExternalLink,
   Menu
 } from 'react-feather'
+import { NavLink } from 'react-router'
 
 import githubLogo from '../../assets/github-logo-gray.png'
 import HomeLogo from '../../assets/K-home-logo.svg'
@@ -15,16 +16,16 @@ import { HeaderProps } from './header.props'
 export class Header extends React.Component<HeaderProps> {
   handleHome() {
     // this.props.cbSetPage(Pages.MAIN)
-    window.open('/', '_self')
+    // window.open('/', '_self')
   }
 
   handleGetStarted() {
-    window.open('/getstarted', '_self')
+    // window.open('/getstarted', '_self')
     // this.props.cbSetPage(Pages.GET_STARTED)
   }
 
   handleTutorials() {
-    window.open('/tutorials', '_self')
+    // window.open('/tutorials', '_self')
     // this.props.cbSetPage(Pages.TUTORIALS)
   }
 
@@ -58,29 +59,32 @@ export class Header extends React.Component<HeaderProps> {
             size={30}
           />
         </div>
-        <div
+        <NavLink
+          to='/'
           className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
-          onClick={this.handleHome.bind(this)}
+          // onClick={this.handleHome.bind(this)}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
-        </div>
+        </NavLink>
         <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'rsp-hide-buttons-bar'])}>
-          <div
+          <NavLink
+            to='/getstarted'
             className={styles['header-button']}
-            onClick={this.handleGetStarted.bind(this)}
+            // onClick={this.handleGetStarted.bind(this)}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Docs
             </div>
-          </div>
-          <div
+          </NavLink>
+          <NavLink
+            to='/tutorials'
             className={styles['header-button']}
-            onClick={this.handleTutorials.bind(this)}
+            // onClick={this.handleTutorials.bind(this)}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Tutorials
             </div>
-          </div>
+          </NavLink>
           <div
             className={styles['header-button']}
             onClick={this.handleAPIDoc.bind(this)}

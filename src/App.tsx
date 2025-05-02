@@ -33,7 +33,7 @@ const AppWrapper = () => {
 export default AppWrapper
 
 class App extends React.Component<{currentLocation: Location}> {
-  private page: Pages = Pages.MAIN
+  // private page: Pages = Pages.MAIN
   private elementBackground: Background
   private elementCurrentPage: PageBase
   private elementSidebar: Sidebar
@@ -51,12 +51,12 @@ class App extends React.Component<{currentLocation: Location}> {
   }
 
   refCurrentPage(element: any) {
-    if (element) {
+    /*if (element) {
       if (!this.elementCurrentPage) {
         (element as PageBase).fadeIn()
       }
       this.elementCurrentPage = element
-    }
+    }*/
   }
 
   refSidebar(element: Sidebar) {
@@ -66,13 +66,13 @@ class App extends React.Component<{currentLocation: Location}> {
   }
 
   handleSidebarGoSection(section: MarkdownDocSection, title: string) {
-    if (this.elementCurrentPage && (this.page === Pages.GET_STARTED || this.page === Pages.TUTORIALS)) {
-      (this.elementCurrentPage as DocsPage).goSection(section, title)
-    }
+    // if (this.elementCurrentPage && (this.page === Pages.GET_STARTED || this.page === Pages.TUTORIALS)) { // 8a8f
+    //   (this.elementCurrentPage as DocsPage).goSection(section, title)
+    // }
   }
 
   setPage(page: Pages) {
-    if (!Docs.loaded) {
+    /*if (!Docs.loaded) { // 8a8f
       setTimeout(() => this.render(), 100)
       return
     }
@@ -108,14 +108,14 @@ class App extends React.Component<{currentLocation: Location}> {
       setTimeout(() => {
         this.elementCurrentPage.fadeIn()
       }, 150)
-    }, 150)
+    }, 150)*/
   }
 
   openSidebar() {
     this.elementSidebar.open()
   }
 
-  renderPage(): JSX.Element {
+  /*renderPage(): JSX.Element {
     switch(this.page) {
       case Pages.MAIN:
         return (
@@ -145,10 +145,11 @@ class App extends React.Component<{currentLocation: Location}> {
           />
         )
     }
-  }
+  }*/
 
   render() {
-    const location = this.props.currentLocation.pathname.split('/')[1]
+    console.log('aki rendering app', this.props.currentLocation.pathname)
+    /*const location = this.props.currentLocation.pathname.split('/')[1]
     if (location === 'getstarted') {
       if (this.page !== Pages.GET_STARTED) {
         this.setPage(Pages.GET_STARTED)
@@ -159,16 +160,51 @@ class App extends React.Component<{currentLocation: Location}> {
       }
     } else {
       this.setPage(Pages.MAIN)
-    }
+    }*/
     return (
       <div className='App'>
         <Header
           openSidebar={this.openSidebar.bind(this)}
           cbSetPage={this.setPage.bind(this)}
         />
-        {(this.page !== Pages.MAIN) && this.renderPage()}
         <Background ref={this.refBackground.bind(this)} />
-        {(this.page === Pages.MAIN) && this.renderPage()}
+        <Routes>
+          <Route
+            index
+            element={
+              <MainPage
+                ref={this.refCurrentPage.bind(this)}
+                cbSetPage={this.setPage.bind(this)}
+              />
+            }
+          />
+          <Route
+            path='getstarted'
+            element={
+              <DocsPage
+                sectionId={0}
+                itemId={0}
+                storageSectionIdTag='getstarted_SectionId'
+                storageItemIdTag='getstarted_ItemId'
+                documents={getStartedDocs}
+                ref={this.refCurrentPage.bind(this)}
+              />
+            }
+          />
+          <Route
+            path='tutorials'
+            element={
+              <DocsPage
+                sectionId={0}
+                itemId={0}
+                storageSectionIdTag='tutorials_SectionId'
+                storageItemIdTag='tutorials_ItemId'
+                documents={tutorialsDocs}
+                ref={this.refCurrentPage.bind(this)}
+              />
+            }
+          />
+        </Routes>
         <Sidebar
           ref={this.refSidebar.bind(this)}
           cbSetPage={this.setPage.bind(this)}
