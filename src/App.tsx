@@ -1,6 +1,12 @@
 import './App.scss'
 
 import React from 'react'
+import {
+  Location,
+  Route,
+  Routes,
+  useLocation
+} from 'react-router'
 
 import { Docs } from './classes/docs'
 import { PageBase } from './classes/page-base'
@@ -18,8 +24,15 @@ import { Pages } from './models/pages'
 import { DocsPage } from './pages/docs-page/docs-page'
 import { MainPage } from './pages/main/main-page'
 
-// 8a8f add react router to docs, tutorials and markdown headings
-export class App extends React.Component {
+const AppWrapper = () => {
+  const location = useLocation()
+
+  return <App currentLocation={location} />
+}
+
+export default AppWrapper
+
+class App extends React.Component<{currentLocation: Location}> {
   private page: Pages = Pages.MAIN
   private elementBackground: Background
   private elementCurrentPage: PageBase
@@ -59,8 +72,12 @@ export class App extends React.Component {
   }
 
   setPage(page: Pages) {
+    if (!Docs.loaded) {
+      setTimeout(() => this.render(), 100)
+      return
+    }
     if (page === Pages.MAIN) {
-      this.elementSidebar.resetDocumentProperties()
+      this.elementSidebar?.resetDocumentProperties()
     }
     if (this.transitioning ||
         page === this.page ||
@@ -68,7 +85,6 @@ export class App extends React.Component {
       return
     }
     this.transitioning = true
-
     if (this.elementCurrentPage) {
       this.elementCurrentPage.fadeOut()
     }
@@ -132,6 +148,18 @@ export class App extends React.Component {
   }
 
   render() {
+    const location = this.props.currentLocation.pathname.split('/')[1]
+    if (location === 'getstarted') {
+      if (this.page !== Pages.GET_STARTED) {
+        this.setPage(Pages.GET_STARTED)
+      }
+    } else if (location === 'tutorials') {
+      if (this.page !== Pages.TUTORIALS) {
+        this.setPage(Pages.TUTORIALS)
+      }
+    } else {
+      this.setPage(Pages.MAIN)
+    }
     return (
       <div className='App'>
         <Header
