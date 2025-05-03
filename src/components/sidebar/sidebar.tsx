@@ -6,7 +6,6 @@ import {
   getStartedDocs,
   tutorialsDocs
 } from '../../doc-definitions'
-import { Pages } from '../../models/pages'
 import { DocSections } from '../doc-sections/doc-sections'
 import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
 import styles from './sidebar.module.scss'
@@ -41,13 +40,13 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   handleGetStarted() {
-    this.props.cbSetPage(Pages.GET_STARTED)
-    this.close()
+    // this.props.cbSetPage(Pages.GET_STARTED)
+    // this.close()
   }
 
   handleTutorials() {
-    this.props.cbSetPage(Pages.TUTORIALS)
-    this.close()
+    // this.props.cbSetPage(Pages.TUTORIALS)
+    // this.close()
   }
 
   handleAPIDoc() {
@@ -145,8 +144,6 @@ export class Sidebar extends React.Component<SidebarProps> {
               <DocSections
                 docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
-                initialSectionId={this.sectionId}
-                initialItemId={this.itemId}
                 documents={this.documents ?? []}
               />
             )}

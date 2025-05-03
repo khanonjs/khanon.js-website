@@ -32,9 +32,7 @@ export class MainPage extends PageBase<MainPageProps> {
     return (
       <div className={styles['main-page']}>
         <Logo />
-        <MainButtons
-          cbSetPage={this.props.cbSetPage}
-        />
+        <MainButtons />
       </div>
     )
   }

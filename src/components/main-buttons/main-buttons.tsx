@@ -4,7 +4,6 @@ import babylonLogo from '../../assets/babylonjs_identity_color.png'
 import githubButton from '../../assets/github-button-gray.png'
 import playCircle from '../../assets/play-circle.svg'
 import { ElementStyle } from '../../classes/element-style'
-import { Pages } from '../../models/pages'
 import styles from './main-buttons.module.scss'
 import { MainButtonsProps } from './main-buttons.props'
 
@@ -20,7 +19,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
   }
 
   handleGetStarted() {
-    this.props.cbSetPage(Pages.GET_STARTED)
+    // this.props.cbSetPage(Pages.GET_STARTED)
   }
 
   handleGithub() {

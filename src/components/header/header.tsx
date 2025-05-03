@@ -9,26 +9,10 @@ import githubLogo from '../../assets/github-logo-gray.png'
 import HomeLogo from '../../assets/K-home-logo.svg'
 import xLogo from '../../assets/x-logo-gray.png'
 import { ElementStyle } from '../../classes/element-style'
-import { Pages } from '../../models/pages'
 import styles from './header.module.scss'
 import { HeaderProps } from './header.props'
 
 export class Header extends React.Component<HeaderProps> {
-  handleHome() {
-    // this.props.cbSetPage(Pages.MAIN) // 8a8f
-    // window.open('/', '_self')
-  }
-
-  handleGetStarted() {
-    // window.open('/getstarted', '_self')  // 8a8f
-    // this.props.cbSetPage(Pages.GET_STARTED)
-  }
-
-  handleTutorials() {
-    // window.open('/tutorials', '_self') // 8a8f
-    // this.props.cbSetPage(Pages.TUTORIALS)
-  }
-
   handleAPIDoc() {
     window.open('api-docs/index.html', '_blank', 'noreferrer')
   }
@@ -62,7 +46,6 @@ export class Header extends React.Component<HeaderProps> {
         <NavLink
           to='/'
           className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
-          // onClick={this.handleHome.bind(this)}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
         </NavLink>
@@ -70,7 +53,6 @@ export class Header extends React.Component<HeaderProps> {
           <NavLink
             to='/getstarted'
             className={styles['header-button']}
-            // onClick={this.handleGetStarted.bind(this)}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Docs
@@ -79,7 +61,6 @@ export class Header extends React.Component<HeaderProps> {
           <NavLink
             to='/tutorials'
             className={styles['header-button']}
-            // onClick={this.handleTutorials.bind(this)}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
               Tutorials

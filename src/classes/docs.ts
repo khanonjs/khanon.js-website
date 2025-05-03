@@ -47,7 +47,6 @@ export class Docs {
             })
             Docs.loaded = true
             Docs.parseMarkdownDocuments()
-            console.log('Docs loaded')
           })
       })
       .catch(error => Logger.error('Docs error, couldn\'t load docs:', Logger.strFromData(error)))

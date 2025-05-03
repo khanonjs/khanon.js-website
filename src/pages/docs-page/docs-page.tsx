@@ -11,6 +11,7 @@ import { DocsPageProps } from './docs-page.props'
 export class DocsPage extends PageBase<DocsPageProps> {
   elementMarkdown: MarkdownDoc
   elementHeaderTitle: HTMLDivElement
+  lastPath: Map<string, string> = new Map()
 
   refMarkdown(element: MarkdownDoc) {
     if (element) {
@@ -32,6 +33,17 @@ export class DocsPage extends PageBase<DocsPageProps> {
   }
 
   renderPage() {
+    if (!this.props.docPath) {
+      const lastPath = this.lastPath.get(this.props.tabPath)
+      if (lastPath) {
+        this.props.navigate(lastPath, { replace: true })
+      } else {
+        this.props.navigate(this.props.documents[0].docs[0].file, { replace: true })
+      }
+      return <></>
+    } else {
+      this.lastPath.set(this.props.tabPath, this.props.docPath)
+    }
     let section: MarkdownDocSection | undefined
     this.props.documents.forEach((_section) => {
       _section.docs.forEach((item) => {
@@ -40,18 +52,9 @@ export class DocsPage extends PageBase<DocsPageProps> {
         }
       })
     })
-    // console.log('aki DocsPage currentLocation', this.props.currentLocation.pathname)
-    // console.log('aki DocsPage file', this.props.docPath)
-    // console.log('aki DocsPage this.props.sectionId', this.props.sectionId)
-    // console.log('aki DocsPage this.props.itemId', this.props.itemId)
-    // console.log('aki rendering docs page A', section.docs[this.props.itemId].file)
-    console.log('aki renderPage A', section)
-    console.log('aki renderPage B', this.props.docPath)
-    const doc = section ? Docs.get(/*section.docs[this.props.itemId].file*/this.props.docPath) : ''
+    const doc = section ? Docs.get(this.props.docPath) : ''
     if (this.elementMarkdown && section) {
-      console.log('aki renderPage C', doc)
       this.elementMarkdown.setMarkdown(doc)
-      console.log('aki renderPage D', this.elementMarkdown.currentMarkdown)
     }
     return (
       <div className={styles['docs-page-container']}>
@@ -71,8 +74,6 @@ export class DocsPage extends PageBase<DocsPageProps> {
               <DocSections
                 docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
-                initialSectionId={this.props.sectionId}
-                initialItemId={this.props.itemId}
                 documents={this.props.documents}
               />
             </div>

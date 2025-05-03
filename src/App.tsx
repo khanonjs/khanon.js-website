@@ -3,9 +3,11 @@ import './App.scss'
 import React from 'react'
 import {
   Location,
+  NavigateFunction,
   Route,
   Routes,
-  useLocation
+  useLocation,
+  useNavigate
 } from 'react-router'
 
 import kLoading from './assets/k-loading.svg'
@@ -21,20 +23,19 @@ import {
   tutorialsDocs
 } from './doc-definitions'
 import { BackgroundPosition } from './models/background-position'
-import { Pages } from './models/pages'
 import { DocsPage } from './pages/docs-page/docs-page'
 import { MainPage } from './pages/main/main-page'
 
 const AppWrapper = () => {
   const location = useLocation()
+  const navigate = useNavigate()
 
-  return <App currentLocation={location} />
+  return <App currentLocation={location} navigate={navigate} />
 }
 
 export default AppWrapper
 
-class App extends React.Component<{currentLocation: Location}> {
-  // private page: Pages = Pages.MAIN
+class App extends React.Component<{currentLocation: Location, navigate: NavigateFunction}> {
   private elementBackground: Background
   private elementCurrentPage: PageBase
   private elementSidebar: Sidebar
@@ -51,15 +52,6 @@ class App extends React.Component<{currentLocation: Location}> {
     }
   }
 
-  refCurrentPage(element: any) {
-    /*if (element) {
-      if (!this.elementCurrentPage) {
-        (element as PageBase).fadeIn()
-      }
-      this.elementCurrentPage = element
-    }*/
-  }
-
   refSidebar(element: Sidebar) {
     if (element) {
       this.elementSidebar = element
@@ -72,81 +64,14 @@ class App extends React.Component<{currentLocation: Location}> {
     // }
   }
 
-  setPage(page: Pages) {
-    /*if (!Docs.loaded) { // 8a8f
-      setTimeout(() => this.render(), 100)
-      return
-    }
-    if (page === Pages.MAIN) {
-      this.elementSidebar?.resetDocumentProperties()
-    }
-    if (this.transitioning ||
-        page === this.page ||
-        !Docs.loaded) {
-      return
-    }
-    this.transitioning = true
-    if (this.elementCurrentPage) {
-      this.elementCurrentPage.fadeOut()
-    }
-
-    this.page = page
-
-    if (this.elementBackground) {
-      switch (this.page) {
-        case Pages.MAIN:
-          this.elementBackground.setPosition(BackgroundPosition.UP)
-          break
-        default:
-          this.elementBackground.setPosition(BackgroundPosition.DOWN)
-          break
-      }
-    }
-
-    setTimeout(() => {
-      this.forceUpdate()
-      this.transitioning = false
-      setTimeout(() => {
-        this.elementCurrentPage.fadeIn()
-      }, 150)
-    }, 150)*/
-  }
-
   openSidebar() {
     this.elementSidebar.open()
   }
 
-  /*renderPage(): JSX.Element {
-    switch(this.page) {
-      case Pages.MAIN:
-        return (
-          <MainPage
-            ref={this.refCurrentPage.bind(this)}
-            cbSetPage={this.setPage.bind(this)}
-          />
-        )
-      case Pages.GET_STARTED:
-      case Pages.TUTORIALS:
-        const sectionTag = this.page === Pages.GET_STARTED ? 'getstarted_SectionId' : 'tutorials_SectionId'
-        const itemTag = this.page === Pages.GET_STARTED ? 'getstarted_ItemId' : 'tutorials_ItemId'
-        const sectionId = Number(localStorage.getItem(sectionTag) ?? 0)
-        const itemId = Number(localStorage.getItem(itemTag) ?? 0)
-        const documents = this.page === Pages.GET_STARTED ? getStartedDocs : tutorialsDocs
-        if (this.elementSidebar) {
-          this.elementSidebar.setDocumentProperties(sectionId, itemId, documents)
-        }
-        return (
-          <DocsPage
-            sectionId={sectionId}
-            itemId={itemId}
-            storageSectionIdTag={sectionTag}
-            storageItemIdTag={itemTag}
-            documents={documents}
-            ref={this.refCurrentPage.bind(this)}
-          />
-        )
-    }
-  }*/
+  getTabPath() {
+    const file = this.props.currentLocation.pathname.split('/')[1]
+    return file
+  }
 
   getDocPath() {
     const file = this.props.currentLocation.pathname.split('/')[2]
@@ -154,20 +79,8 @@ class App extends React.Component<{currentLocation: Location}> {
   }
 
   render() {
+    const tabPath = this.getTabPath()
     const docPath = this.getDocPath()
-    // console.log('aki rendering app', this.props.currentLocation.pathname)
-    /*const location = this.props.currentLocation.pathname.split('/')[1]
-    if (location === 'getstarted') {
-      if (this.page !== Pages.GET_STARTED) {
-        this.setPage(Pages.GET_STARTED)
-      }
-    } else if (location === 'tutorials') {
-      if (this.page !== Pages.TUTORIALS) {
-        this.setPage(Pages.TUTORIALS)
-      }
-    } else {
-      this.setPage(Pages.MAIN)
-    }*/
     if (!Docs.loaded) {
       setTimeout(() => this.forceUpdate(), 10)
     }
@@ -175,30 +88,25 @@ class App extends React.Component<{currentLocation: Location}> {
       <div className='App'>
         <Header
           openSidebar={this.openSidebar.bind(this)}
-          cbSetPage={this.setPage.bind(this)}
         />
         <Background ref={this.refBackground.bind(this)} />
         <Routes>
           <Route
             index
             element={
-              <MainPage
-                ref={this.refCurrentPage.bind(this)}
-                cbSetPage={this.setPage.bind(this)}
-              />
+              <MainPage />
             }
           />
           <Route
             path='getstarted/*'
             element={
               <DocsPage
+                navigate={this.props.navigate}
+                tabPath={tabPath}
                 docPath={docPath}
                 sectionId={0}
                 itemId={0}
-                // storageSectionIdTag='getstarted_SectionId'
-                // storageItemIdTag='getstarted_ItemId'
                 documents={getStartedDocs}
-                ref={this.refCurrentPage.bind(this)}
               />
             }
           />
@@ -206,13 +114,12 @@ class App extends React.Component<{currentLocation: Location}> {
             path='tutorials/*'
             element={
               <DocsPage
+                navigate={this.props.navigate}
+                tabPath={tabPath}
                 docPath={docPath}
                 sectionId={0}
                 itemId={0}
-                // storageSectionIdTag='tutorials_SectionId'
-                // storageItemIdTag='tutorials_ItemId'
                 documents={tutorialsDocs}
-                ref={this.refCurrentPage.bind(this)}
               />
             }
           />
@@ -220,7 +127,6 @@ class App extends React.Component<{currentLocation: Location}> {
         <Sidebar
           docPath={docPath}
           ref={this.refSidebar.bind(this)}
-          cbSetPage={this.setPage.bind(this)}
           goSection={this.handleSidebarGoSection.bind(this)}
         />
         {/* <Footer /> */}
