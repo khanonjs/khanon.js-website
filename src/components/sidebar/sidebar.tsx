@@ -12,6 +12,7 @@ import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
 import styles from './sidebar.module.scss'
 import { SidebarProps } from './sidebar.props'
 
+// 8a8f hacer esto
 export class Sidebar extends React.Component<SidebarProps> {
   elementBackground: HTMLDivElement
   elementSidebarContainer: HTMLDivElement
@@ -69,14 +70,6 @@ export class Sidebar extends React.Component<SidebarProps> {
     setTimeout(() => {
       this.forceUpdate()
     }, 1)
-  }
-
-  storeSectionId(sectionId: string) {
-    localStorage.setItem(this.storageSectionIdTag, sectionId)
-  }
-
-  storeItemId(itemId: string) {
-    localStorage.setItem(this.storageItemIdTag, itemId)
   }
 
   open() {
@@ -150,11 +143,10 @@ export class Sidebar extends React.Component<SidebarProps> {
           >
             {this.sectionId !== undefined && (
               <DocSections
+                docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
                 initialSectionId={this.sectionId}
                 initialItemId={this.itemId}
-                storeSectionId={this.storeSectionId.bind(this)}
-                storeItemId={this.storeItemId.bind(this)}
                 documents={this.documents ?? []}
               />
             )}

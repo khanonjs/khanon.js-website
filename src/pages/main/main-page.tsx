@@ -29,7 +29,6 @@ export class MainPage extends PageBase<MainPageProps> {
   }
 
   renderPage() {
-    console.log('aki MainPage renderPage')
     return (
       <div className={styles['main-page']}>
         <Logo />

@@ -24,25 +24,34 @@ export class DocsPage extends PageBase<DocsPageProps> {
     }
   }
 
-  storeSectionId(sectionId: string) {
-    localStorage.setItem(this.props.storageSectionIdTag, sectionId)
-  }
-
-  storeItemId(itemId: string) {
-    localStorage.setItem(this.props.storageItemIdTag, itemId)
-  }
-
   goSection(section: MarkdownDocSection, title: string) {
     if (this.elementHeaderTitle) {
-      this.elementHeaderTitle.innerText = MarkdownHelper.getSectionTitle(section.section, title)
+      this.elementHeaderTitle.innerText = MarkdownHelper.getSectionTitle(section.section)
     }
     this.elementMarkdown?.goSection(section, title)
   }
 
   renderPage() {
-    const section = this.props.documents[this.props.sectionId]
-    if (this.elementMarkdown) {
-      this.elementMarkdown.setMarkdown(Docs.get(section.docs[this.props.itemId].file))
+    let section: MarkdownDocSection | undefined
+    this.props.documents.forEach((_section) => {
+      _section.docs.forEach((item) => {
+        if (item.file === this.props.docPath) {
+          section = _section
+        }
+      })
+    })
+    // console.log('aki DocsPage currentLocation', this.props.currentLocation.pathname)
+    // console.log('aki DocsPage file', this.props.docPath)
+    // console.log('aki DocsPage this.props.sectionId', this.props.sectionId)
+    // console.log('aki DocsPage this.props.itemId', this.props.itemId)
+    // console.log('aki rendering docs page A', section.docs[this.props.itemId].file)
+    console.log('aki renderPage A', section)
+    console.log('aki renderPage B', this.props.docPath)
+    const doc = section ? Docs.get(/*section.docs[this.props.itemId].file*/this.props.docPath) : ''
+    if (this.elementMarkdown && section) {
+      console.log('aki renderPage C', doc)
+      this.elementMarkdown.setMarkdown(doc)
+      console.log('aki renderPage D', this.elementMarkdown.currentMarkdown)
     }
     return (
       <div className={styles['docs-page-container']}>
@@ -52,7 +61,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
               ref={this.refHeaderTitle.bind(this)}
               className={styles['header-text']}
             >
-              {MarkdownHelper.getSectionTitle(section.section, section.docs[this.props.itemId].title)}
+              {MarkdownHelper.getSectionTitle(section?.section ?? '')}
             </div>
           </div>
           <div className={ElementStyle.getClass(styles, ['content', ''])}>
@@ -60,17 +69,16 @@ export class DocsPage extends PageBase<DocsPageProps> {
               className={ElementStyle.getClass(styles, ['sections-container', 'rsp-hide-sections-container'])}
             >
               <DocSections
+                docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
                 initialSectionId={this.props.sectionId}
                 initialItemId={this.props.itemId}
-                storeSectionId={this.storeSectionId.bind(this)}
-                storeItemId={this.storeItemId.bind(this)}
                 documents={this.props.documents}
               />
             </div>
             <MarkdownDoc
               ref={this.refMarkdown.bind(this)}
-              currentMarkdown={Docs.get(section.docs[this.props.itemId].file)}
+              currentMarkdown={doc}
             />
           </div>
         </div>

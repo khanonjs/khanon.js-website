@@ -15,17 +15,17 @@ import { HeaderProps } from './header.props'
 
 export class Header extends React.Component<HeaderProps> {
   handleHome() {
-    // this.props.cbSetPage(Pages.MAIN)
+    // this.props.cbSetPage(Pages.MAIN) // 8a8f
     // window.open('/', '_self')
   }
 
   handleGetStarted() {
-    // window.open('/getstarted', '_self')
+    // window.open('/getstarted', '_self')  // 8a8f
     // this.props.cbSetPage(Pages.GET_STARTED)
   }
 
   handleTutorials() {
-    // window.open('/tutorials', '_self')
+    // window.open('/tutorials', '_self') // 8a8f
     // this.props.cbSetPage(Pages.TUTORIALS)
   }
 

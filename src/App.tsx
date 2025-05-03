@@ -8,6 +8,7 @@ import {
   useLocation
 } from 'react-router'
 
+import kLoading from './assets/k-loading.svg'
 import { Docs } from './classes/docs'
 import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
@@ -147,8 +148,14 @@ class App extends React.Component<{currentLocation: Location}> {
     }
   }*/
 
+  getDocPath() {
+    const file = this.props.currentLocation.pathname.split('/')[2]
+    return file
+  }
+
   render() {
-    console.log('aki rendering app', this.props.currentLocation.pathname)
+    const docPath = this.getDocPath()
+    // console.log('aki rendering app', this.props.currentLocation.pathname)
     /*const location = this.props.currentLocation.pathname.split('/')[1]
     if (location === 'getstarted') {
       if (this.page !== Pages.GET_STARTED) {
@@ -161,6 +168,9 @@ class App extends React.Component<{currentLocation: Location}> {
     } else {
       this.setPage(Pages.MAIN)
     }*/
+    if (!Docs.loaded) {
+      setTimeout(() => this.forceUpdate(), 10)
+    }
     return (
       <div className='App'>
         <Header
@@ -179,26 +189,28 @@ class App extends React.Component<{currentLocation: Location}> {
             }
           />
           <Route
-            path='getstarted'
+            path='getstarted/*'
             element={
               <DocsPage
+                docPath={docPath}
                 sectionId={0}
                 itemId={0}
-                storageSectionIdTag='getstarted_SectionId'
-                storageItemIdTag='getstarted_ItemId'
+                // storageSectionIdTag='getstarted_SectionId'
+                // storageItemIdTag='getstarted_ItemId'
                 documents={getStartedDocs}
                 ref={this.refCurrentPage.bind(this)}
               />
             }
           />
           <Route
-            path='tutorials'
+            path='tutorials/*'
             element={
               <DocsPage
+                docPath={docPath}
                 sectionId={0}
                 itemId={0}
-                storageSectionIdTag='tutorials_SectionId'
-                storageItemIdTag='tutorials_ItemId'
+                // storageSectionIdTag='tutorials_SectionId'
+                // storageItemIdTag='tutorials_ItemId'
                 documents={tutorialsDocs}
                 ref={this.refCurrentPage.bind(this)}
               />
@@ -206,11 +218,13 @@ class App extends React.Component<{currentLocation: Location}> {
           />
         </Routes>
         <Sidebar
+          docPath={docPath}
           ref={this.refSidebar.bind(this)}
           cbSetPage={this.setPage.bind(this)}
           goSection={this.handleSidebarGoSection.bind(this)}
         />
         {/* <Footer /> */}
+        {!Docs.loaded && (<div className='loading-background' />)}
       </div>
     )
   }

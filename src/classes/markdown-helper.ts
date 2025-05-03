@@ -1,5 +1,5 @@
 export class MarkdownHelper {
-  static getSectionTitle(sectionName: string, itemName: string) {
+  static getSectionTitle(sectionName: string/*, itemName: string*/) {
     return sectionName // `${sectionName}, ${itemName}`
   }
 }

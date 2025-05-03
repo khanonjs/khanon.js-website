@@ -16,7 +16,6 @@ export abstract class PageBase<P = any> extends React.Component<P> {
   }*/
 
   render() {
-    console.log('aki PageBase render')
     return (
       <div
         ref={this.refContainer.bind(this)}

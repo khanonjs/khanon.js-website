@@ -23,10 +23,10 @@ export class Docs {
       tutorialsFiles = [...tutorialsFiles, ...section.docs.map(doc => doc.file)]
     })
     docsFiles.forEach(fileName => {
-      promises.push(fetch(`./docs/${fileName}.md`))
+      promises.push(fetch(`/docs-getstarted/${fileName}.md`))
     })
     tutorialsFiles.forEach(fileName => {
-      promises.push(fetch(`./tutorials/${fileName}.md`))
+      promises.push(fetch(`/docs-tutorials/${fileName}.md`))
     })
 
     Promise.all(promises)
@@ -47,6 +47,7 @@ export class Docs {
             })
             Docs.loaded = true
             Docs.parseMarkdownDocuments()
+            console.log('Docs loaded')
           })
       })
       .catch(error => Logger.error('Docs error, couldn\'t load docs:', Logger.strFromData(error)))
