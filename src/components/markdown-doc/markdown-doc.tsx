@@ -76,6 +76,14 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
     }
   }
 
+  refReactMarkdown(element: HTMLElement) {
+    if (element) {
+      this.elementMarkdownContainer = element as unknown as HTMLDivElement
+
+    }
+  }
+
+
   refSummaryItem(element: HTMLDivElement) {
     if (element) {
       const summaryItem = this.summaryItems.find(summaryItem => summaryItem.name === element.innerText)
