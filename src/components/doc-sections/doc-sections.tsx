@@ -31,6 +31,7 @@ export class DocSections extends React.Component<DocSectionsProps> {
     return (
       <NavLink
         to={`/${section.sectionPath}/${path}`}
+        style={{ textDecoration: 'none' }}
         key={this.popKey()}
       >
         <div

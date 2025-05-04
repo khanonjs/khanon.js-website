@@ -5,6 +5,7 @@ import { MarkdownDocSection } from '../../components/markdown-doc/markdown-doc-s
 export interface DocsPageProps {
   tabPath: string
   docPath: string
+  hashtag: string
   navigate: NavigateFunction
   sectionId: number // 8a8f
   itemId: number // 8a8f

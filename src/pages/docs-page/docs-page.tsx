@@ -35,12 +35,13 @@ export class DocsPage extends PageBase<DocsPageProps> {
   renderPage() {
     if (!this.props.docPath) {
       const lastPath = this.lastPath.get(this.props.tabPath)
-      if (lastPath) {
-        this.props.navigate(lastPath, { replace: true })
-      } else {
-        this.props.navigate(this.props.documents[0].docs[0].file, { replace: true })
-      }
-      return <></>
+      setTimeout(() => {
+        if (lastPath) {
+          this.props.navigate(lastPath, { replace: true })
+        } else {
+          this.props.navigate(this.props.documents[0].docs[0].file, { replace: true })
+        }
+      }, 1)
     } else {
       this.lastPath.set(this.props.tabPath, this.props.docPath)
     }
@@ -80,6 +81,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
             <MarkdownDoc
               ref={this.refMarkdown.bind(this)}
               currentMarkdown={doc}
+              hashtag={this.props.hashtag}
             />
           </div>
         </div>

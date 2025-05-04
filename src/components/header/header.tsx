@@ -45,6 +45,7 @@ export class Header extends React.Component<HeaderProps> {
         </div>
         <NavLink
           to='/'
+          style={{ textDecoration: 'none' }}
           className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
@@ -52,6 +53,7 @@ export class Header extends React.Component<HeaderProps> {
         <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'rsp-hide-buttons-bar'])}>
           <NavLink
             to='/getstarted'
+            style={{ textDecoration: 'none' }}
             className={styles['header-button']}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
@@ -60,6 +62,7 @@ export class Header extends React.Component<HeaderProps> {
           </NavLink>
           <NavLink
             to='/tutorials'
+            style={{ textDecoration: 'none' }}
             className={styles['header-button']}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>

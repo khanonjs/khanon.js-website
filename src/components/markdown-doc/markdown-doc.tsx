@@ -66,7 +66,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
       if (this.summaryItems.length === 0 && headers.length > 0) {
         for (const h1 of headers) {
           this.summaryItems.push({
-            name: h1.innerText,
+            name: h1.innerText.replace(' #', ''),
             top: h1.getBoundingClientRect().top,
             element: null
           })
@@ -75,14 +75,6 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
       }
     }
   }
-
-  refReactMarkdown(element: HTMLElement) {
-    if (element) {
-      this.elementMarkdownContainer = element as unknown as HTMLDivElement
-
-    }
-  }
-
 
   refSummaryItem(element: HTMLDivElement) {
     if (element) {
@@ -203,7 +195,37 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
     this.setState({ currentMarkdown: this.currentMarkdown })
   }
 
+  goHashtag() {
+    this.scrollToText(this.props.hashtag)
+  }
+
+  scrollToText(text: string) {
+    if (this.elementMarkdownContainer) {
+      // Find the first element containing the specific text
+      const elements = Array.from(this.elementMarkdownContainer.querySelectorAll('*'))
+      const targetElement = elements.find(el => el.innerHTML?.includes(text))
+
+      if (targetElement) {
+        // Get the position of the target element relative to the container
+        const containerTop = this.elementMarkdownContainer.getBoundingClientRect().top
+        const elementTop = targetElement.getBoundingClientRect().top
+
+        // Calculate the scroll position
+        const scrollPosition = this.elementMarkdownContainer.scrollTop + (elementTop - containerTop)
+
+        // Scroll to the calculated position
+        this.elementMarkdownContainer.scrollTop = scrollPosition - 20 // Adjust for padding or offset
+      }
+      this.updateSummarySelector()
+    }
+  }
+
   render() {
+    if (this.props.hashtag) {
+      setTimeout(() => {
+        this.goHashtag()
+      }, 1)
+    }
     return (
       <>
         <div

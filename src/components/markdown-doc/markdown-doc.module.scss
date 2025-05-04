@@ -1,26 +1,6 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/theme.scss';
 
-a:link {
-  color: $color-markdown-link;
-  background-color: transparent;
-  text-decoration: none;
-
-  &:hover {
-    color: $color-markdown-hover-link;
-  }
-}
-
-a:visited {
-  color: $color-markdown-visited;
-  background-color: transparent;
-  text-decoration: none;
-
-  &:hover {
-    color: $color-markdown-hover-visited;
-  }
-}
-
 .markdown-container {
   width: 60%;
   overflow: auto;
@@ -28,6 +8,26 @@ a:visited {
   padding-left: 2em;
   padding-right: 2em;
   // transition: 0.3s;
+
+  a:link {
+    color: $color-markdown-link;
+    background-color: transparent;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-markdown-hover-link;
+    }
+  }
+
+  a:visited {
+    color: $color-markdown-visited;
+    background-color: transparent;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-markdown-hover-visited;
+    }
+  }
 
   @media only screen and (max-width: $responsive-hide-step1) {
     &.rsp-stretch-markdown-container {

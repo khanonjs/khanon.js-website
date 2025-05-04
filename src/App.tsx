@@ -68,19 +68,20 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
     this.elementSidebar.open()
   }
 
-  getTabPath() {
-    const file = this.props.currentLocation.pathname.split('/')[1]
-    return file
-  }
-
-  getDocPath() {
-    const file = this.props.currentLocation.pathname.split('/')[2]
-    return file
+  getDocNavigationInfo() {
+    const base = this.props.currentLocation.pathname.split('/')
+    const tabPath = base[1]
+    const docPath = base[2]
+    const hashtag = this.props.currentLocation.hash
+    return {
+      tabPath,
+      docPath,
+      hashtag
+    }
   }
 
   render() {
-    const tabPath = this.getTabPath()
-    const docPath = this.getDocPath()
+    const navigationInfo = this.getDocNavigationInfo()
     if (!Docs.loaded) {
       setTimeout(() => this.forceUpdate(), 10)
     }
@@ -92,7 +93,7 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
         <Background ref={this.refBackground.bind(this)} />
         <Routes>
           <Route
-            index
+            path='/*'
             element={
               <MainPage />
             }
@@ -102,8 +103,9 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
             element={
               <DocsPage
                 navigate={this.props.navigate}
-                tabPath={tabPath}
-                docPath={docPath}
+                tabPath={navigationInfo.tabPath}
+                docPath={navigationInfo.docPath}
+                hashtag={navigationInfo.hashtag}
                 sectionId={0}
                 itemId={0}
                 documents={getStartedDocs}
@@ -115,8 +117,9 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
             element={
               <DocsPage
                 navigate={this.props.navigate}
-                tabPath={tabPath}
-                docPath={docPath}
+                tabPath={navigationInfo.tabPath}
+                docPath={navigationInfo.docPath}
+                hashtag={navigationInfo.hashtag}
                 sectionId={0}
                 itemId={0}
                 documents={tutorialsDocs}
@@ -125,7 +128,9 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
           />
         </Routes>
         <Sidebar
-          docPath={docPath}
+          tabPath={navigationInfo.tabPath}
+          docPath={navigationInfo.docPath}
+          hashtag={navigationInfo.hashtag}
           ref={this.refSidebar.bind(this)}
           goSection={this.handleSidebarGoSection.bind(this)}
         />
