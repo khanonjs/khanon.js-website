@@ -38,7 +38,7 @@ export class MainButtons extends React.Component<MainButtonsProps> {
         </div>
         <NavLink
           to='/getstarted'
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: 'none', color: 'inherit' }}
           className={ElementStyle.getClass(styles, ['main-buttons-getstarted', 'rsp-main-buttons-getstarted'])}
         >
           <div className={ElementStyle.getClass(styles, ['main-buttons-getstarted-text', 'rsp-main-buttons-getstarted-text', 'font-roadgeek-regular'])}>GET STARTED

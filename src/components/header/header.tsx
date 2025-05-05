@@ -14,7 +14,7 @@ import { HeaderProps } from './header.props'
 
 export class Header extends React.Component<HeaderProps> {
   handleAPIDoc() {
-    window.open('api-docs/index.html', '_blank', 'noreferrer')
+    window.open('/api-docs/index.html', '_blank', 'noreferrer')
   }
 
   handleSidebar() {
@@ -45,7 +45,7 @@ export class Header extends React.Component<HeaderProps> {
         </div>
         <NavLink
           to='/'
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: 'none', color: 'inherit' }}
           className={ElementStyle.getClass(styles, ['header-home', 'rsp-center-home'])}
         >
           <img src={HomeLogo} className={styles['header-home-K']} />
@@ -53,7 +53,7 @@ export class Header extends React.Component<HeaderProps> {
         <div className={ElementStyle.getClass(styles, ['header-buttons-bar', 'rsp-hide-buttons-bar'])}>
           <NavLink
             to='/getstarted'
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', color: 'inherit' }}
             className={styles['header-button']}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
@@ -62,7 +62,7 @@ export class Header extends React.Component<HeaderProps> {
           </NavLink>
           <NavLink
             to='/tutorials'
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', color: 'inherit' }}
             className={styles['header-button']}
           >
             <div className={ElementStyle.getClass(styles, ['header-button-text', 'font-roadgeek-regular'])}>
