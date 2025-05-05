@@ -15,7 +15,6 @@ import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
 // import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
-import { MarkdownDocSection } from './components/markdown-doc/markdown-doc-section'
 import { Sidebar } from './components/sidebar/sidebar'
 import {
   getStartedDocs,
