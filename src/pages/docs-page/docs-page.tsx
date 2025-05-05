@@ -27,7 +27,7 @@ export class DocsPage extends PageBase<DocsPageProps> {
 
   goSection(section: MarkdownDocSection, title: string) {
     if (this.elementHeaderTitle) {
-      this.elementHeaderTitle.innerText = MarkdownHelper.getSectionTitle(section.section)
+      this.elementHeaderTitle.innerText = MarkdownHelper.getSectionTitle(section.section, title)
     }
     this.elementMarkdown?.goSection(section, title)
   }
@@ -63,9 +63,9 @@ export class DocsPage extends PageBase<DocsPageProps> {
           <div className={styles['header']}>
             <div
               ref={this.refHeaderTitle.bind(this)}
-              className={styles['header-text']}
+              className={ElementStyle.getClass(styles, ['header-text', 'rsp-header-text'])}
             >
-              {MarkdownHelper.getSectionTitle(section?.section ?? '')}
+              {MarkdownHelper.getSectionTitle(section?.section ?? '', section?.docs.find(doc => doc.file === this.props.docPath)?.title ?? '')}
             </div>
           </div>
           <div className={ElementStyle.getClass(styles, ['content', ''])}>

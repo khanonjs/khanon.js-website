@@ -11,14 +11,11 @@ import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
 import styles from './sidebar.module.scss'
 import { SidebarProps } from './sidebar.props'
 
-// 8a8f hacer esto
 export class Sidebar extends React.Component<SidebarProps> {
   elementBackground: HTMLDivElement
   elementSidebarContainer: HTMLDivElement
 
   // Document properties
-  sectionId: number | undefined
-  itemId: number
   documents: MarkdownDocSection[] | undefined
   storageSectionIdTag: string
   storageItemIdTag: string
@@ -40,13 +37,13 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   handleGetStarted() {
-    // this.props.cbSetPage(Pages.GET_STARTED)
-    // this.close()
+    this.props.navigate('/getstarted')
+    this.close()
   }
 
   handleTutorials() {
-    // this.props.cbSetPage(Pages.TUTORIALS)
-    // this.close()
+    this.props.navigate('/tutorials')
+    this.close()
   }
 
   handleAPIDoc() {
@@ -54,9 +51,7 @@ export class Sidebar extends React.Component<SidebarProps> {
     this.close()
   }
 
-  setDocumentProperties(sectionId: number, itemId: number, documents: MarkdownDocSection[]) {
-    this.sectionId = sectionId
-    this.itemId = itemId
+  setDocumentProperties(documents: MarkdownDocSection[]) {
     this.documents = documents
     setTimeout(() => {
       this.forceUpdate()
@@ -64,7 +59,6 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   resetDocumentProperties() {
-    this.sectionId = undefined
     this.documents = undefined
     setTimeout(() => {
       this.forceUpdate()
@@ -86,7 +80,6 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   goSection(section: MarkdownDocSection, title: string) {
-    this.props.goSection(section, title)
     this.close()
   }
 
@@ -140,11 +133,11 @@ export class Sidebar extends React.Component<SidebarProps> {
           <div
             className={styles['sidebar-sections-container']}
           >
-            {this.sectionId !== undefined && (
+            {this.documents !== undefined && (
               <DocSections
                 docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
-                documents={this.documents ?? []}
+                documents={this.documents}
               />
             )}
             <div style={{ height: '10vh' }} />

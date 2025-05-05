@@ -10,7 +10,6 @@ import {
   useNavigate
 } from 'react-router'
 
-import kLoading from './assets/k-loading.svg'
 import { Docs } from './classes/docs'
 import { PageBase } from './classes/page-base'
 import { Background } from './components/background/background'
@@ -22,7 +21,6 @@ import {
   getStartedDocs,
   tutorialsDocs
 } from './doc-definitions'
-import { BackgroundPosition } from './models/background-position'
 import { DocsPage } from './pages/docs-page/docs-page'
 import { MainPage } from './pages/main/main-page'
 
@@ -58,12 +56,6 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
     }
   }
 
-  handleSidebarGoSection(section: MarkdownDocSection, title: string) {
-    // if (this.elementCurrentPage && (this.page === Pages.GET_STARTED || this.page === Pages.TUTORIALS)) { // 8a8f
-    //   (this.elementCurrentPage as DocsPage).goSection(section, title)
-    // }
-  }
-
   openSidebar() {
     this.elementSidebar.open()
   }
@@ -84,6 +76,20 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
     const navigationInfo = this.getDocNavigationInfo()
     if (!Docs.loaded) {
       setTimeout(() => this.forceUpdate(), 10)
+    }
+    if (this.elementSidebar) {
+      const documents =
+        navigationInfo.tabPath === 'getstarted' ?
+          getStartedDocs :
+          navigationInfo.tabPath === 'tutorials' ?
+            tutorialsDocs :
+            undefined
+      if (documents) {
+        this.elementSidebar.setDocumentProperties(documents)
+      } else {
+        this.elementSidebar.resetDocumentProperties()
+      }
+      this.elementSidebar.close()
     }
     return (
       <div className='App'>
@@ -106,8 +112,6 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
                 tabPath={navigationInfo.tabPath}
                 docPath={navigationInfo.docPath}
                 hashtag={navigationInfo.hashtag}
-                sectionId={0}
-                itemId={0}
                 documents={getStartedDocs}
               />
             }
@@ -120,8 +124,6 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
                 tabPath={navigationInfo.tabPath}
                 docPath={navigationInfo.docPath}
                 hashtag={navigationInfo.hashtag}
-                sectionId={0}
-                itemId={0}
                 documents={tutorialsDocs}
               />
             }
@@ -131,8 +133,8 @@ class App extends React.Component<{currentLocation: Location, navigate: Navigate
           tabPath={navigationInfo.tabPath}
           docPath={navigationInfo.docPath}
           hashtag={navigationInfo.hashtag}
+          navigate={this.props.navigate}
           ref={this.refSidebar.bind(this)}
-          goSection={this.handleSidebarGoSection.bind(this)}
         />
         {/* <Footer /> */}
         {!Docs.loaded && (<div className='loading-background' />)}

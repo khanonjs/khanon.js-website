@@ -7,7 +7,5 @@ export interface DocsPageProps {
   docPath: string
   hashtag: string
   navigate: NavigateFunction
-  sectionId: number // 8a8f
-  itemId: number // 8a8f
   documents: MarkdownDocSection[]
 }
