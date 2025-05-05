@@ -66,7 +66,7 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
       if (this.summaryItems.length === 0 && headers.length > 0) {
         for (const h1 of headers) {
           this.summaryItems.push({
-            name: h1.innerText,
+            name: h1.innerText.replace(' #', ''),
             top: h1.getBoundingClientRect().top,
             element: null
           })
@@ -168,6 +168,37 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
     }
   }
 
+  goSection(section: MarkdownDocSection, title: string) {
+    const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
+    this.setMarkdown(markdown)
+    this.setState({ currentMarkdown: this.currentMarkdown })
+  }
+
+  goHashtag() {
+    this.scrollToText(this.props.hashtag)
+  }
+
+  scrollToText(text: string) {
+    if (this.elementMarkdownContainer) {
+      // Find the first element containing the specific text
+      const elements = Array.from(this.elementMarkdownContainer.querySelectorAll('h1, a'))
+      const targetElement = elements.find(el => el.innerHTML?.includes(text))
+
+      if (targetElement) {
+        // Get the position of the target element relative to the container
+        const containerTop = this.elementMarkdownContainer.getBoundingClientRect().top
+        const elementTop = targetElement.getBoundingClientRect().top
+
+        // Calculate the scroll position
+        const scrollPosition = this.elementMarkdownContainer.scrollTop + (elementTop - containerTop)
+
+        // Scroll to the calculated position
+        this.elementMarkdownContainer.scrollTop = scrollPosition - 20 // Adjust for padding or offset
+      }
+      this.updateSummarySelector()
+    }
+  }
+
   renderSummary(): JSX.Element {
     return (
       <>
@@ -189,13 +220,12 @@ export class MarkdownDoc extends React.Component<MarkdownDocProps, MarkdownDocsS
     )
   }
 
-  goSection(section: MarkdownDocSection, title: string) {
-    const markdown = Docs.get(section?.docs.find(doc => doc.title === title)?.file as any)
-    this.setMarkdown(markdown)
-    this.setState({ currentMarkdown: this.currentMarkdown })
-  }
-
   render() {
+    if (this.props.hashtag) {
+      setTimeout(() => {
+        this.goHashtag()
+      }, 1)
+    }
     return (
       <>
         <div

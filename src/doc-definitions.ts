@@ -1,99 +1,111 @@
 export const getStartedDocs = [
   {
     section: 'Get started',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'What is Khanon.js?', file: '0-what-is-khanon-js' },
-      { title: 'Installing Khanon.js', file: '0-installing-khanon-js' },
-      { title: 'Before starting a new game', file: '0-before-starting' },
-      { title: 'What\'s coming up?', file: '0-whats-coming-up' },
+      { title: 'What is Khanon.js?', file: 'what-is-khanon-js' },
+      { title: 'Installing Khanon.js', file: 'installing-khanon-js' },
+      { title: 'Before starting a new game', file: 'before-starting' },
+      { title: 'What\'s coming up?', file: 'whats-coming-up' },
     ]
   },
   {
     section: 'Creating a new game',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Starting a new project', file: '1-starting-new-project' },
-      { title: 'Creating a new application', file: '1-creating-new-application' },
-      { title: 'Deploying to a server', file: '1-deploying-to-server' },
+      { title: 'Starting a new project', file: 'starting-new-project' },
+      { title: 'Creating a new application', file: 'creating-new-application' },
+      { title: 'Deploying to a server', file: 'deploying-to-server' },
     ]
   },
   {
     section: 'Application',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '2-app-overview' },
-      { title: 'Using the app interface', file: '2-using-app-interface' },
-      { title: 'Using the KJS object', file: '2-using-kjs-object' },
-      { title: 'App states', file: '2-app-states' },
+      { title: 'Overview', file: 'app-overview' },
+      { title: 'Using the app interface', file: 'using-app-interface' },
+      { title: 'Using the KJS object', file: 'using-kjs-object' },
+      { title: 'App states', file: 'app-states' },
     ]
   },
   {
     section: 'Scenes',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '3-scenes-overview' },
-      { title: 'Using the scene interface', file: '3-using-scene-interface' },
-      { title: 'Scene states', file: '3-scene-states' },
-      { title: 'Defining the camera', file: '3-defining-the-camera' },
-      { title: 'Scene actions', file: '3-scene-actions' },
+      { title: 'Overview', file: 'scenes-overview' },
+      { title: 'Using the scene interface', file: 'using-scene-interface' },
+      { title: 'Scene states', file: 'scene-states' },
+      { title: 'Defining the camera', file: 'defining-the-camera' },
+      { title: 'Scene actions', file: 'scene-actions' },
     ]
   },
   {
     section: 'Sprites',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '4-sprites-overview' },
-      { title: 'Using the sprite interface', file: '4-using-sprite-interface' },
-      { title: 'Spawning sprites', file: '4-spawning-sprites' },
+      { title: 'Overview', file: 'sprites-overview' },
+      { title: 'Using the sprite interface', file: 'using-sprite-interface' },
+      { title: 'Spawning sprites', file: 'spawning-sprites' },
     ]
   },
   {
     section: 'Meshes',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '5-meshes-overview' },
-      { title: 'Using the mesh interface', file: '5-using-mesh-interface' },
-      { title: 'Spawning meshes', file: '5-spawning-meshes' },
+      { title: 'Overview', file: 'meshes-overview' },
+      { title: 'Using the mesh interface', file: 'using-mesh-interface' },
+      { title: 'Spawning meshes', file: 'spawning-meshes' },
     ]
   },
   {
     section: 'Actors',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '7-actors-overview' },
-      { title: 'Using the actor interface', file: '7-using-actor-interface' },
-      { title: 'Actor states', file: '7-actor-states' },
-      { title: 'Actor actions', file: '7-actor-actions' },
-      { title: 'Spawning actors', file: '7-spawning-actors' },
+      { title: 'Overview', file: 'actors-overview' },
+      { title: 'Using the actor interface', file: 'using-actor-interface' },
+      { title: 'Actor states', file: 'actor-states' },
+      { title: 'Actor actions', file: 'actor-actions' },
+      { title: 'Spawning actors', file: 'spawning-actors' },
     ]
   },
   /*{
     section: 'SceneMaps',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '6-scenemaps-overview' },
+      { title: 'Overview', file: 'scenemaps-overview' },
     ]
   },*/
   {
     section: 'Particles',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '8-particles-overview' },
-      { title: 'Using the particle interface', file: '8-using-particle-interface' },
-      { title: 'Spawning particles', file: '8-spawning-particles' },
+      { title: 'Overview', file: 'particles-overview' },
+      { title: 'Using the particle interface', file: 'using-particle-interface' },
+      { title: 'Spawning particles', file: 'spawning-particles' },
     ]
   },
   {
     section: 'Notifications',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '9-notifications-overview' },
-      { title: 'Sending notifications', file: '9-sending-notifications' },
-      { title: 'Receiving notifications', file: '9-receiving-notifications' },
+      { title: 'Overview', file: 'notifications-overview' },
+      { title: 'Sending notifications', file: 'sending-notifications' },
+      { title: 'Receiving notifications', file: 'receiving-notifications' },
     ]
   },
   {
     section: 'GUI',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '10-gui-overview' },
-      { title: 'Using the GUI interface', file: '10-using-gui-interface' },
+      { title: 'Overview', file: 'gui-overview' },
+      { title: 'Using the GUI interface', file: 'using-gui-interface' },
     ]
   },
   {
     section: 'Logger',
+    sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: '11-logger-overview' },
+      { title: 'Overview', file: 'logger-overview' },
     ]
   }
 ]
@@ -101,6 +113,7 @@ export const getStartedDocs = [
 export const tutorialsDocs = [
   {
     section: 'First steps',
+    sectionPath: 'tutorials',
     docs: [
       { title: 'Preparing a blank project', file: '01-blank-project' },
       { title: 'Starting a scene', file: '02-starting-scene' },

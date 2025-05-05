@@ -28,7 +28,13 @@
 }
 
 .header-text {
-  padding-right: 46px;
+  padding-right: 5em;
+
+  @media only screen and (max-width: $responsive-hide-step2) {
+    &.rsp-header-text {
+      padding-right: 0;
+    }
+  }
 }
 
 .content {

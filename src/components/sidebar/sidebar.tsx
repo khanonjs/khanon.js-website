@@ -6,7 +6,6 @@ import {
   getStartedDocs,
   tutorialsDocs
 } from '../../doc-definitions'
-import { Pages } from '../../models/pages'
 import { DocSections } from '../doc-sections/doc-sections'
 import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
 import styles from './sidebar.module.scss'
@@ -17,8 +16,6 @@ export class Sidebar extends React.Component<SidebarProps> {
   elementSidebarContainer: HTMLDivElement
 
   // Document properties
-  sectionId: number | undefined
-  itemId: number
   documents: MarkdownDocSection[] | undefined
   storageSectionIdTag: string
   storageItemIdTag: string
@@ -40,12 +37,12 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   handleGetStarted() {
-    this.props.cbSetPage(Pages.GET_STARTED)
+    this.props.navigate('/getstarted')
     this.close()
   }
 
   handleTutorials() {
-    this.props.cbSetPage(Pages.TUTORIALS)
+    this.props.navigate('/tutorials')
     this.close()
   }
 
@@ -54,9 +51,7 @@ export class Sidebar extends React.Component<SidebarProps> {
     this.close()
   }
 
-  setDocumentProperties(sectionId: number, itemId: number, documents: MarkdownDocSection[]) {
-    this.sectionId = sectionId
-    this.itemId = itemId
+  setDocumentProperties(documents: MarkdownDocSection[]) {
     this.documents = documents
     setTimeout(() => {
       this.forceUpdate()
@@ -64,19 +59,10 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   resetDocumentProperties() {
-    this.sectionId = undefined
     this.documents = undefined
     setTimeout(() => {
       this.forceUpdate()
     }, 1)
-  }
-
-  storeSectionId(sectionId: string) {
-    localStorage.setItem(this.storageSectionIdTag, sectionId)
-  }
-
-  storeItemId(itemId: string) {
-    localStorage.setItem(this.storageItemIdTag, itemId)
   }
 
   open() {
@@ -94,7 +80,6 @@ export class Sidebar extends React.Component<SidebarProps> {
   }
 
   goSection(section: MarkdownDocSection, title: string) {
-    this.props.goSection(section, title)
     this.close()
   }
 
@@ -148,14 +133,11 @@ export class Sidebar extends React.Component<SidebarProps> {
           <div
             className={styles['sidebar-sections-container']}
           >
-            {this.sectionId !== undefined && (
+            {this.documents !== undefined && (
               <DocSections
+                docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
-                initialSectionId={this.sectionId}
-                initialItemId={this.itemId}
-                storeSectionId={this.storeSectionId.bind(this)}
-                storeItemId={this.storeItemId.bind(this)}
-                documents={this.documents ?? []}
+                documents={this.documents}
               />
             )}
             <div style={{ height: '10vh' }} />

@@ -7,26 +7,26 @@ import { Logger } from './logger/logger'
 export class Docs {
   static loaded = false
   static docs = {}
+  private static docsFiles: string[] = []
+  private static tutorialsFiles: string[] = []
 
   static get(docName: string): string {
     return Docs.docs[docName]
   }
 
   static loadDocs() {
-    let docsFiles: string[] = []
-    let tutorialsFiles: string[] = []
     const promises: Promise<Response>[] = []
     getStartedDocs.forEach(section => {
-      docsFiles = [...docsFiles, ...section.docs.map(doc => doc.file)]
+      Docs.docsFiles = [...Docs.docsFiles, ...section.docs.map(doc => doc.file)]
     })
     tutorialsDocs.forEach(section => {
-      tutorialsFiles = [...tutorialsFiles, ...section.docs.map(doc => doc.file)]
+      Docs.tutorialsFiles = [...Docs.tutorialsFiles, ...section.docs.map(doc => doc.file)]
     })
-    docsFiles.forEach(fileName => {
-      promises.push(fetch(`./docs/${fileName}.md`))
+    Docs.docsFiles.forEach(fileName => {
+      promises.push(fetch(`/docs-getstarted/${fileName}.md`))
     })
-    tutorialsFiles.forEach(fileName => {
-      promises.push(fetch(`./tutorials/${fileName}.md`))
+    Docs.tutorialsFiles.forEach(fileName => {
+      promises.push(fetch(`/docs-tutorials/${fileName}.md`))
     })
 
     Promise.all(promises)
@@ -58,6 +58,25 @@ export class Docs {
         Docs.docs[key] = (markdown as string)
           .replaceAll('\n## ', '&nbsp;\n## ')
           .replaceAll('\n# ', '&nbsp;\n# ')
+
+        // Add hastag links to the markdown
+        let index: number = 0
+        let pos: number = 0
+        do {
+          index = (Docs.docs[key] as string).indexOf('# ', pos)
+          pos = index + 1
+          if (index !== -1 && Docs.docs[key][index - 1] !== '#') {
+            const nextLine = (Docs.docs[key] as string).indexOf('\r\n', pos)
+            const hashtagName = (Docs.docs[key] as string).substring(pos + 1, nextLine)
+              .replaceAll(' ', '-')
+              .replaceAll('.', '')
+              .replaceAll('?', '')
+              .replaceAll('!', '')
+              .toLowerCase()
+            Docs.docs[key] = Docs.docs[key].slice(0, nextLine) + ` [ #](${`/${Docs.docsFiles.find(doc => doc === key) ? 'getstarted' : 'tutorials'}/${key}#${hashtagName}`})` + Docs.docs[key].slice(nextLine)
+            pos++
+          }
+        } while (index > -1)
       })
   }
 }

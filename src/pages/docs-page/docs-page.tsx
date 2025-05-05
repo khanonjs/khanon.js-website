@@ -11,6 +11,7 @@ import { DocsPageProps } from './docs-page.props'
 export class DocsPage extends PageBase<DocsPageProps> {
   elementMarkdown: MarkdownDoc
   elementHeaderTitle: HTMLDivElement
+  lastPath: Map<string, string> = new Map()
 
   refMarkdown(element: MarkdownDoc) {
     if (element) {
@@ -24,14 +25,6 @@ export class DocsPage extends PageBase<DocsPageProps> {
     }
   }
 
-  storeSectionId(sectionId: string) {
-    localStorage.setItem(this.props.storageSectionIdTag, sectionId)
-  }
-
-  storeItemId(itemId: string) {
-    localStorage.setItem(this.props.storageItemIdTag, itemId)
-  }
-
   goSection(section: MarkdownDocSection, title: string) {
     if (this.elementHeaderTitle) {
       this.elementHeaderTitle.innerText = MarkdownHelper.getSectionTitle(section.section, title)
@@ -40,9 +33,29 @@ export class DocsPage extends PageBase<DocsPageProps> {
   }
 
   renderPage() {
-    const section = this.props.documents[this.props.sectionId]
-    if (this.elementMarkdown) {
-      this.elementMarkdown.setMarkdown(Docs.get(section.docs[this.props.itemId].file))
+    if (!this.props.docPath) {
+      const lastPath = this.lastPath.get(this.props.tabPath)
+      setTimeout(() => {
+        if (lastPath) {
+          this.props.navigate(lastPath, { replace: true })
+        } else {
+          this.props.navigate(this.props.documents[0].docs[0].file, { replace: true })
+        }
+      }, 1)
+    } else {
+      this.lastPath.set(this.props.tabPath, this.props.docPath)
+    }
+    let section: MarkdownDocSection | undefined
+    this.props.documents.forEach((_section) => {
+      _section.docs.forEach((item) => {
+        if (item.file === this.props.docPath) {
+          section = _section
+        }
+      })
+    })
+    const doc = section ? Docs.get(this.props.docPath) : ''
+    if (this.elementMarkdown && section) {
+      this.elementMarkdown.setMarkdown(doc)
     }
     return (
       <div className={styles['docs-page-container']}>
@@ -50,9 +63,9 @@ export class DocsPage extends PageBase<DocsPageProps> {
           <div className={styles['header']}>
             <div
               ref={this.refHeaderTitle.bind(this)}
-              className={styles['header-text']}
+              className={ElementStyle.getClass(styles, ['header-text', 'rsp-header-text'])}
             >
-              {MarkdownHelper.getSectionTitle(section.section, section.docs[this.props.itemId].title)}
+              {MarkdownHelper.getSectionTitle(section?.section ?? '', section?.docs.find(doc => doc.file === this.props.docPath)?.title ?? '')}
             </div>
           </div>
           <div className={ElementStyle.getClass(styles, ['content', ''])}>
@@ -60,17 +73,15 @@ export class DocsPage extends PageBase<DocsPageProps> {
               className={ElementStyle.getClass(styles, ['sections-container', 'rsp-hide-sections-container'])}
             >
               <DocSections
+                docPath={this.props.docPath}
                 switchSection={this.goSection.bind(this)}
-                initialSectionId={this.props.sectionId}
-                initialItemId={this.props.itemId}
-                storeSectionId={this.storeSectionId.bind(this)}
-                storeItemId={this.storeItemId.bind(this)}
                 documents={this.props.documents}
               />
             </div>
             <MarkdownDoc
               ref={this.refMarkdown.bind(this)}
-              currentMarkdown={Docs.get(section.docs[this.props.itemId].file)}
+              currentMarkdown={doc}
+              hashtag={this.props.hashtag}
             />
           </div>
         </div>

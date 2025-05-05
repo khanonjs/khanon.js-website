@@ -7,13 +7,13 @@ export abstract class PageBase<P = any> extends React.Component<P> {
 
   abstract renderPage(): JSX.Element
 
-  fadeIn() {
+  /*fadeIn() {
     this.elementContainer.style.opacity = '1'
   }
 
   fadeOut() {
     this.elementContainer.style.opacity = '0'
-  }
+  }*/
 
   render() {
     return (

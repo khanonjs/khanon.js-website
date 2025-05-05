@@ -1,7 +1,8 @@
-import { Pages } from '../../models/pages'
-import { MarkdownDocSection } from '../markdown-doc/markdown-doc-section'
+import { NavigateFunction } from 'react-router'
 
 export interface SidebarProps {
-  goSection: (section: MarkdownDocSection, title: string) => void
-  cbSetPage: (page: Pages) => void
+  tabPath: string
+  docPath: string
+  hashtag: string
+  navigate: NavigateFunction
 }
