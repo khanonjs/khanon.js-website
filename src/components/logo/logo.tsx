@@ -8,7 +8,7 @@ export class Logo extends React.Component {
     return (
       <div className={ElementStyle.getClass(styles, ['logo-container', 'rsp-logo-container'])}>
         <div className={ElementStyle.getClass(styles, ['logo-header', 'font-luckiestguy-regular'])}>KHANON</div>
-        <div className={ElementStyle.getClass(styles, ['logo-footer', 'font-roadgeek-regular', 'rsp-logo-footer'])}>A typescript game engine extending Babylon.js (ALPHA)</div>
+        <div className={ElementStyle.getClass(styles, ['logo-footer', 'font-roadgeek-regular', 'rsp-logo-footer'])}>A typescript games framework extending Babylon.js (ALPHA)</div>
       </div>
     )
   }
