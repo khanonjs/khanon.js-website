@@ -80,8 +80,6 @@ Use [`numFrames`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.Spr
 
 To configure the [Babylon Texture](https://doc.babylonjs.com/typedoc/classes/BABYLON.Texture) generated for this sprite, use [`noMipmap`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#noMipmap), [`invertY`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#invertY), [`samplingMode`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#samplingMode), [`format`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#format). These are Babylon related properties.
 
-If the property [`cached`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#cached) is *true*, the image is kept in memory and it is not removed on scene change. In this way, if two or more scenes are sharing the same sprite, Khanon.js won't remove it and the loading process will be faster. To remove all cached images use the [`KJS.clearCache`](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) method.
-
 Use [`renderingGroupId`](https://khanonjs.com/api-docs/interfaces/decorators_sprite.SpriteProps.html#renderingGroupId) to set the *renderingGroupId* of the sprite. Read more [here](https://doc.babylonjs.com/features/featuresDeepDive/materials/advanced/transparent_rendering/#rendering-groups).
 
 # Animated sprites

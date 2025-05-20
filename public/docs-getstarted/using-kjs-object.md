@@ -136,6 +136,3 @@ The [KJS](https://khanonjs.com/api-docs/modules/kjs.KJS.html) object has some us
 &nbsp;
     -  [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) switchs to a new app state.
 
-&nbsp;
-    -  [KJS.clearCache](https://khanonjs.com/api-docs/functions/kjs.KJS.clearCache.html) clears the app cache.
-
