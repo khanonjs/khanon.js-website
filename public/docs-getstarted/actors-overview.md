@@ -30,7 +30,7 @@ Since Babylon render environment is a 3D world regardless sprites or meshes are 
 
 [Actor States](https://khanonjs.com/api-docs/modules/decorators_actor_actor_state.html) are the logical controllers of the actors. Each state controls the actor behaviour.
 
-Unlike scenes, an actor doesn't need to be running a state if it has a simple logic, but it is recommended if the actor has different behaviours. Each actor state implements its own [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor_actor_state.ActorStateInterface.html#onLoopUpdate) and notification methods. In that way we have each actor beahviour's logic separated by blocks, making the code granular and reusable. Khanon.js is a OOP game engine, providing huge possibilities to extend from simple logical states to complex behaviours.
+Unlike scenes, an actor doesn't need to be running a state if it has a simple logic, but it is recommended if the actor has different behaviours. Each actor state implements its own [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_actor_actor_state.ActorStateInterface.html#onLoopUpdate) and notification methods. In that way we have each actor beahviour's logic separated by blocks, making the code granular and reusable. Khanon.js is an [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) framework, providing huge possibilities to extend from simple logical states to complex behaviours.
 
 States are intended to be where the actual actor logic is implemented and the actor's actions are executed based on events.
 
