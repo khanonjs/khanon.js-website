@@ -36,9 +36,9 @@ export class MyCameraState extends CameraStateInterface</* Setup object */ S = a
 
 Use the `S` generic to set the type to the [`setup`](https://khanonjs.com/api-docs/classes/decorators_camera_camera_state.CameraStateInterface.html#setup) accessor. The data stored in the *setup* accessor is passed to the state by the [switchState](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#switchState) call. In this way the caller can send parameters to the state.
 
-To access the scene associated to the state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera_camera_state.CameraStateInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
-
 The camera associated to the state is accessible from the [`camera`](https://khanonjs.com/api-docs/classes/decorators_camera_camera_state.CameraStateInterface.html#camera) accessor. `D` generic type is applied to the *camera* accessor.
+
+To access the scene associated to the state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera_camera_state.CameraStateInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
 # Switching of state
 
