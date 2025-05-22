@@ -29,39 +29,47 @@ export const getStartedDocs = [
     ]
   },
   {
-    section: 'Scenes',
+    section: 'Scene',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: 'scenes-overview' },
+      { title: 'Overview', file: 'scene-overview' },
       { title: 'Using the scene interface', file: 'using-scene-interface' },
       { title: 'Scene states', file: 'scene-states' },
-      { title: 'Defining the camera', file: 'defining-the-camera' },
       { title: 'Scene actions', file: 'scene-actions' },
     ]
   },
   {
-    section: 'Sprites',
+    section: 'Camera',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: 'sprites-overview' },
+      { title: 'Overview', file: 'camera-overview' },
+      { title: 'Using the camera interface', file: 'using-camera-interface' },
+      { title: 'Camera states', file: 'camera-states' },
+    ]
+  },
+  {
+    section: 'Sprite',
+    sectionPath: 'getstarted',
+    docs: [
+      { title: 'Overview', file: 'sprite-overview' },
       { title: 'Using the sprite interface', file: 'using-sprite-interface' },
       { title: 'Spawning sprites', file: 'spawning-sprites' },
     ]
   },
   {
-    section: 'Meshes',
+    section: 'Mesh',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: 'meshes-overview' },
+      { title: 'Overview', file: 'mesh-overview' },
       { title: 'Using the mesh interface', file: 'using-mesh-interface' },
       { title: 'Spawning meshes', file: 'spawning-meshes' },
     ]
   },
   {
-    section: 'Actors',
+    section: 'Actor',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: 'actors-overview' },
+      { title: 'Overview', file: 'actor-overview' },
       { title: 'Using the actor interface', file: 'using-actor-interface' },
       { title: 'Actor states', file: 'actor-states' },
       { title: 'Actor actions', file: 'actor-actions' },
@@ -76,10 +84,10 @@ export const getStartedDocs = [
     ]
   },*/
   {
-    section: 'Particles',
+    section: 'Particle',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Overview', file: 'particles-overview' },
+      { title: 'Overview', file: 'particle-overview' },
       { title: 'Using the particle interface', file: 'using-particle-interface' },
       { title: 'Spawning particles', file: 'spawning-particles' },
     ]

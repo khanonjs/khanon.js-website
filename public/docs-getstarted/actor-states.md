@@ -1,8 +1,8 @@
 # Actor state overview
 
-[Actor states](https://khanonjs.com/api-docs/modules/decorators_actor_actor_state.html) are logical controllers of the actor. Initially an actor starts without any state, and it is your decision if the logic of that actor is complex enough as to use states with it. Each state applies a different behaviour to the actor. States run the same logical methods than actors, but you can switch of behaviour depending on the requirements the game has at that time. Scene and actor states are used in similar ways.
+[Actor states](https://khanonjs.com/api-docs/modules/decorators_actor_actor_state.html) are logical controllers of the actor. Initially an actor starts without any state, it is your decision if the logic of the actor is complex enough as to use states in it. Each state applies a different behaviour to the actor. States run the same logical methods than actors, but you can switch of behaviour depending on the requirements the game has at that time. Scene and actor states are used in similar ways.
 
-This is best understood with an example. Imagine you have a stage where the actor comes into the scene, waits to the stage countdown, and gives the actor control to the player. The first state would be *ActorStateEnterStage*, where the acotr is firstly placed outside the screen, then automatically moved to the center of the screen. Once the actor has reached the waiting point, the actor state notifies to the scene that the actor is ready to start. Then the scene displays the stage start screen, and after a 3 seconds countdown, the stage starts. At this point the scene notifies to the actor the player can take the control, the actor state switchs to *ActorStatePlayerControl*, and the player starts controlling the actor thanks to input events received in the *ActorStatePlayerControl* notification methods.
+This is better understood with an example. Imagine you have a stage where the actor comes into the scene, waits to the stage countdown, and gives the actor control to the player. The first state would be *ActorStateEnterStage*, where the acotr is firstly placed outside the screen, then automatically moved to the center of the screen. Once the actor has reached the waiting point, the actor state notifies to the scene that the actor is ready to start. Then the scene displays the stage start screen, and after a 3 seconds countdown, the stage starts. At this point the scene notifies to the actor the player can take the control, the actor state switchs to *ActorStatePlayerControl*, and the player starts controlling the actor thanks to input events received in the *ActorStatePlayerControl* notification methods.
 
 As you see in that example, *ActorStateEnterStage* takes full control of the actor, moves it, and send a notification to the scene when the actor is ready to start. The second state *ActorStatePlayerControl* receives input event notifications and moves the actor across the stage. Depending on other events such actor damage, collisions, etc, the scene state decides how the stage continues.
 
@@ -24,7 +24,7 @@ import {
 } from '@khanonjs/engine'
 
 @ActorState()
-export class ActorStatePlayerControl extends ActorStateInterface<</* Setup object */ S = any, /* Scene type */ C = SceneInterface, /* Actor type */ A = ActorInterface<SpriteInterface | MeshInterface>> {
+export class ActorStatePlayerControl extends ActorStateInterface</* Setup object */ S = any, /* Actor type */ A = ActorInterface<SpriteInterface | MeshInterface>, /* Scene type */ C = SceneInterface> {
   onStart() {
     // Configure the initial actor properties here
     // this.setup has optional S type

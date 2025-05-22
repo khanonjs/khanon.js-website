@@ -1,12 +1,12 @@
 # What is Khanon.js?
 
-Khanon.js is an open source game engine extending Babylon.js.
+Khanon.js is an open source games framework extending Babylon.js.
 
 Babylon.js is a powerful graphical engine for web browsers, it is open source and it is in constant development. If you don't know what Babylon.js is capable to do, please take a look to the [Babylon.js website](https://babylonjs.com/).
 
 *So.. what's the job of Khanon.js?*
 
-Khanon.js implements a layer between Babylon.js and the logic of your game, appending lifecycle and other features onto a transparent interface above Babylon, letting you to get and modify whatever you need in the Babylon engine, while also using Khanon.js extended features. Aassets management, states workflow, actors interactions, input mappers, and many others are some extended features that will make the game development smoother.
+Khanon.js implements a layer between Babylon.js and the logic of your game, appending lifecycle and other features onto a transparent interface above Babylon, letting you to get and modify whatever you need in the Babylon's engine, while also using Khanon.js extended features. Aassets management, states workflow, actors interactions, input mappers, and many others are some extended features that will make the game development smoother.
 
 It is designed to create video games and interactive applications in 2D and 3D environments. It is flexible and modular, allowing you to easily expand your project by modifying and moving back or forward any element you need.
 
@@ -14,15 +14,15 @@ It is designed to create video games and interactive applications in 2D and 3D e
 
 # What about the code?
 
-Khanon.js is a [typescript](https://www.typescriptlang.org/) engine focused on allowing a modular and scalable architecture.
+Khanon.js is a [typescript](https://www.typescriptlang.org/) framework focused on enabling a modular and scalable architecture.
 
 All the above mentioned features are implemented to your project by class, method, and property decorators, making the code clean and reusable.
 
 For example, you can create an action which consist in rendering rain over the scene. This action would be implemented by a [SceneAction](https://khanonjs.com/api-docs/modules/decorators_scene_scene_action.html) decorated class, and could be used from any of the scenes. Same for actors, states, particles, and more.
 
-Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't have to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
+Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't need to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
-Don't use methods and properties started with an underscore in decorated classes (e.g: `_myMethod()`), that may override some private Khanon.js properties.
+It is designed to be used with an [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) architecture, allowing the possibility to inherit, mutate, and reuse code.
 
 # How's the deal between Khanon.js and Babylon.js?
 
@@ -56,14 +56,20 @@ export class KhanonScene extends SceneInterface {
 }
 ```
 
-## Circular dependencies
-
-Khanon.js is not so friendly with circular dependencies. Try to keep the imports hierarchy from parents to children. Use upwards callbacks to avoid importing parents from child classes. If you see an error similar to `my-state.ts:3 Uncaught ReferenceError: Cannot access 'MyState' before initialization` this means the code has a circular dependency trying to access an uninitialized state from a child class.
-
 # Motivation
 
-When I firstly began working with Babylon.js to build my personal website, years ago, I started developing a small engine that could be also helpful to build future projects. One of my principles is trying to make my code as reusable as possible; that will save time to do many other things in life. Although Babylon.js is a huge world, I found that other features could be added to it, to simplify the development process.
+Searching the web, there are not huge options to choose the desired video games framework to develop a high-end level video game.
 
-So, as expected, instead working on my personal webpage, I ended up working on a game engine.
+Babylon.js offers one of the most powerful graphical engines you'll find out there.
 
-The change came with typescript improvements, decorators, and Babylon.js growth. After learning how decorators work and understanding how powerful they are, I decided to start this project with one idea in mind: helping developers to work in their games by freeing them from the mechanical and basical logics behind a video game, allowing them to focus in the game design.
+Khanon.js aims to help you in the development process to build high-quality video games based on Babylon.js, while also providing high level programming methods that allow you to focus on game design rather than technical tasks behind-the-scenes.
+
+# Caveats
+
+## Circular dependencies
+
+Khanon.js is not so friend of circular dependencies. Try to keep the imports hierarchy from parents to children. Use upwards callbacks to avoid importing parents from child classes. If you see an error similar to `my-state.ts:3 Uncaught ReferenceError: Cannot access 'MyState' before initialization` this means the code has a circular dependency trying to access an uninitialized state from a child class.
+
+## Private methods
+
+Don't use methods and properties within extended Khanon.js classes prefixed by underscore (e.g: `_stop()`), that may override private Khanon.js methods or properties. Keep your code clean and avoid underscored prefixed methods.
