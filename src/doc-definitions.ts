@@ -93,6 +93,14 @@ export const getStartedDocs = [
     ]
   },
   {
+    section: 'Input Events',
+    sectionPath: 'getstarted',
+    docs: [
+      { title: 'Overview', file: 'input-events-overview' },
+      { title: 'Defining input events', file: 'defining-input-events' },
+    ]
+  },
+  {
     section: 'Notifications',
     sectionPath: 'getstarted',
     docs: [
@@ -107,6 +115,15 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: 'gui-overview' },
       { title: 'Using the GUI interface', file: 'using-gui-interface' },
+    ]
+  },
+  {
+    section: 'Sounds',
+    sectionPath: 'getstarted',
+    docs: [
+      { title: 'Overview', file: 'sound-overview' },
+      { title: 'Using the sound interface', file: 'using-sound-interface' },
+      { title: 'Playing sounds and music', file: 'playing-sounds-and-music' },
     ]
   },
   {
