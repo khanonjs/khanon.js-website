@@ -72,4 +72,4 @@ Khanon.js is not so friend of circular dependencies. Try to keep the imports hie
 
 ## Private methods
 
-Don't use methods and properties within extended Khanon.js classes prefixed by underscore (e.g: `_stop()`), that may override private Khanon.js methods or properties. Keep your code clean and avoid underscored prefixed methods.
+Don't use methods and properties prefixed by underscore within extended Khanon.js classes (e.g: `MyKhanonJsExtendedClass -> _stop()`), that may override private Khanon.js methods or properties. Keep your code clean and avoid underscored prefixed methods.

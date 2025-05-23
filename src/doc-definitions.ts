@@ -5,7 +5,7 @@ export const getStartedDocs = [
     docs: [
       { title: 'What is Khanon.js?', file: 'what-is-khanon-js' },
       { title: 'Installing Khanon.js', file: 'installing-khanon-js' },
-      { title: 'Before starting a new game', file: 'before-starting' },
+      { title: 'Before starting', file: 'before-starting' },
       { title: 'What\'s coming up?', file: 'whats-coming-up' },
     ]
   },
@@ -13,9 +13,9 @@ export const getStartedDocs = [
     section: 'Creating a new game',
     sectionPath: 'getstarted',
     docs: [
-      { title: 'Starting a new project', file: 'starting-new-project' },
+      { title: 'Project structure', file: 'project-structure' },
       { title: 'Creating a new application', file: 'creating-new-application' },
-      { title: 'Deploying to a server', file: 'deploying-to-server' },
+      { title: 'Running and deploying the app', file: 'running-and-deploying' },
     ]
   },
   {
@@ -24,8 +24,24 @@ export const getStartedDocs = [
     docs: [
       { title: 'Overview', file: 'app-overview' },
       { title: 'Using the app interface', file: 'using-app-interface' },
-      { title: 'Using the KJS object', file: 'using-kjs-object' },
       { title: 'App states', file: 'app-states' },
+    ]
+  },
+  {
+    section: 'KJS global object',
+    sectionPath: 'getstarted',
+    docs: [
+      { title: 'Overview', file: 'kjs-overview' },
+      { title: 'Global methods', file: 'kjs-global-methods' },
+      { title: 'Scene handler', file: 'kjs-scene-handler' },
+      { title: 'Notify handler', file: 'kjs-notify-handler' },
+      { title: 'Sound handler', file: 'kjs-sound-handler' },
+      { title: 'Loading Progress observables', file: 'kjs-loading-progress-observables' },
+      { title: 'LoopUpdate observable', file: 'kjs-loop-update-observable' },
+      { title: 'CanvasResize observable', file: 'kjs-canvas-resize-observable' },
+      { title: 'Arrays helper', file: 'kjs-arrays-helper' },
+      { title: 'Maths helper', file: 'kjs-maths-helper' },
+      { title: 'Vectors helper', file: 'kjs-vectors-helper' },
     ]
   },
   {
@@ -122,8 +138,7 @@ export const getStartedDocs = [
     sectionPath: 'getstarted',
     docs: [
       { title: 'Overview', file: 'sound-overview' },
-      { title: 'Using the sound interface', file: 'using-sound-interface' },
-      { title: 'Playing sounds and music', file: 'playing-sounds-and-music' },
+      { title: 'Defininig and playing sounds', file: 'defining-playing-sounds' },
     ]
   },
   {

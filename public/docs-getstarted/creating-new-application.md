@@ -1,8 +1,24 @@
 # Creating a new application
 
-Creating a new application is as simple as creating an empty class decorated by the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html). That is everything you need to run a new app. Your app class has to extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) class, which contains properties and methods of your application.
+# From the CLI
 
-To create an application place this code in the app.ts file:
+The easiest way to create a new Khanon.js application is using the [CLI](https://www.npmjs.com/package/@khanonjs/cli):
+
+`npm install @khanonjs/cli -g`
+
+Once the CLI is installed, you can create a new project runnig this command on the console:
+
+`khanon -c`
+
+It will create a new folder with the project's content.
+
+# Manual guide
+
+To create a project manually you firstly have to create the `root`, `public` and `src` folders and add their contents as described in this [section](http://localhost:3000/getstarted/project-structure).
+
+Then add an empty class decorated by the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html) to the `src` folder. Your app class has to extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) class, which contains properties and methods of your application.
+
+Place this code in the `app.ts` file:
 
 **app.ts**
 ```

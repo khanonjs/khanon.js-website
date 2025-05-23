@@ -1,20 +1,16 @@
 # Next steps
 
-At the moment **Khanon.js is in ALPHA stage**, which means there are still a few features missing to have a full BETA.
+**Khanon.js is in BETA stage** and it is being tested right now.
 
-Features to have a full BETA:
+Areas to improve:
 
-- Input events decorator.
-
-- Sounds and music module.
-
-- Project builder for debug and production optimized bundles.
-
-Once the BETA is stable and the community feedback is good enough, the first production version will be released.
+- Bundle optimization to allow fine-grained imports.
 
 # Future features
 
 Khanon.js plans to integrate more features in the future:
+
+- Add custom mesh callback.
 
 - Improve states workflow.
 
