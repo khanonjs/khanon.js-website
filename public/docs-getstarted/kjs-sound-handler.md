@@ -8,7 +8,6 @@ import { KJS } from '@khanonjs/engine'
 
 example() {
   KJS.Sound.play(MySound)
-  KJS.Sound.pause(MySound)
   KJS.Sound.stop(MySound)
   KJS.Sound.setVolume(0.5)
 }

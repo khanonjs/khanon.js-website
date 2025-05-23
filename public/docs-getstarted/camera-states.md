@@ -40,7 +40,7 @@ The camera associated to the state is accessible from the [`camera`](https://kha
 
 To access the scene associated to the state use the [`scene`](https://khanonjs.com/api-docs/classes/decorators_camera_camera_state.CameraStateInterface.html#scene) accessor. `C` generic type is applied to the *scene* accessor.
 
-# Switching of state
+# Switching state
 
 Use the camera [switchState](https://khanonjs.com/api-docs/classes/decorators_camera.CameraInterface.html#switchState) method to switch to a new state. The previous state ends at this point, and the new state starts running.
 

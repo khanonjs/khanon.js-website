@@ -51,7 +51,7 @@ The [SceneStateProps](https://khanonjs.com/api-docs/interfaces/decorators_scene_
 
 Use the [`actors`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#actors), [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#sprites), [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#meshes) and [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_scene_scene_state.SceneStateProps.html#particles) properties to declare the elements to spawn by this state.
 
-# Switching of state
+# Switching state
 
 Use [switchState](https://khanonjs.com/api-docs/classes/decorators_scene_scene_state.SceneStateInterface.html#switchState) to switch to a new state. The previous state ends at this point, and the new state starts running.
 

@@ -54,7 +54,7 @@ Use the [`scenes`](https://khanonjs.com/api-docs/interfaces/decorators_app_app_s
 
 Use the [`guis`](https://khanonjs.com/api-docs/interfaces/decorators_app_app_state.AppStateProps.html#guis) property to declare the GUIs this state will load on the state start.
 
-# Switching of state
+# Switching state
 
 There are two ways to switch to a new app state:
 

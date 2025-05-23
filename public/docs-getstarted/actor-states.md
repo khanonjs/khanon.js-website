@@ -52,7 +52,7 @@ The decorator properties are defined in [ActorStateProps](https://khanonjs.com/a
 
 Use the [`sprites`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_state.ActorStateProps.html#sprites), [`meshes`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_state.ActorStateProps.html#meshes) and [`particles`](https://khanonjs.com/api-docs/interfaces/decorators_actor_actor_state.ActorStateProps.html#particles) properties to declare the elements to be used by this state.
 
-# Switching of state
+# Switching state
 
 Use the actor [switchState](https://khanonjs.com/api-docs/classes/decorators_actor.ActorInterface.html#switchState) method to switch to a new state. The previous state ends at this point, and the new state starts running.
 

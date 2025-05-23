@@ -45,7 +45,7 @@ The [`loopUpdate`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppPr
 
 The [`debugLog`](https://khanonjs.com/api-docs/interfaces/decorators_app.AppProps.html#debugLog) property defines if debug logs are enabled or disabled.
 
-# Switching of state
+# Switching state
 
 Use [switchtState](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html#startState) or the global [KJS.switchAppState](https://khanonjs.com/api-docs/functions/kjs.KJS.switchAppState.html) method to switch to a new app state.
 
