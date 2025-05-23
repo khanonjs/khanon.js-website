@@ -34,4 +34,4 @@ These tasks are already done if you create the project from the CLI running the 
 
 # Deploying your project
 
-To deploy your project, you just need to build it and copy the content of `dist` folder to your server.
+To deploy your project, you just need to build it and copy the content of `dist` to your server.
