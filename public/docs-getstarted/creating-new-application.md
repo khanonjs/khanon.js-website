@@ -12,7 +12,7 @@ Once the CLI is installed, you can create a new project runnig this command on t
 
 It will create a new folder with the project's content.
 
-# Manual guide
+# Without CLI
 
 To create a project manually you firstly have to create the `root`, `public` and `src` folders and add their contents as described in this [section](http://localhost:3000/getstarted/project-structure).
 
