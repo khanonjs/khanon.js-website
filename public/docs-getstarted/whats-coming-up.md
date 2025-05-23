@@ -4,7 +4,7 @@
 
 Areas to improve:
 
-- Bundle optimization using fine-grained imports.
+- Bundle optimization to allow fine-grained imports.
 
 # Future features
 
