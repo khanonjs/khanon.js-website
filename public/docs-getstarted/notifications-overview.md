@@ -1,4 +1,4 @@
-# Notification overview
+# Notifications overview
 
 The [Notifications](https://khanonjs.com/api-docs/modules/decorators_notification.html) system is a way to build communications between different elements of the game.
 
