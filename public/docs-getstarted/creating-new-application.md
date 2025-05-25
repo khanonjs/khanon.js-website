@@ -14,7 +14,7 @@ It will create a new folder with the project's content.
 
 # Without CLI
 
-To create a project manually you firstly have to create the `root`, `public` and `src` folders and add their contents as described in this [section](http://localhost:3000/getstarted/project-structure).
+To create a project manually you firstly have to create the `root`, `public` and `src` folders and add their contents as described in this [project structure](https://khanonjs.com/getstarted/project-structure) section.
 
 Then add an empty class decorated by the [App decorator](https://khanonjs.com/api-docs/functions/decorators_app.App.html) to the `src` folder. Your app class has to extend the [AppInterface](https://khanonjs.com/api-docs/classes/decorators_app.AppInterface.html) class, which contains properties and methods of your application.
 

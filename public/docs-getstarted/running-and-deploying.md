@@ -1,6 +1,6 @@
 # Project content
 
-As described [here](http://localhost:3000/getstarted/project-structure), a Khanon.js project is composed by `root files`, `public` and `src` folders.
+As described in [project structure](https://khanonjs.com/getstarted/project-structure), a Khanon.js project is composed by `root` files, `public` and `src` folders.
 
 You are free to create your own building system, but Khanon.js includes its own system through the CLI to help you with that task.
 
