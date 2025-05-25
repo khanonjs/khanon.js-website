@@ -4,9 +4,7 @@ The base Khanon.js project consists of the `package.json` file, a `src` folder, 
 
 Creating a new project is complex enough as to have to explain the whole process step by step.
 
-You can find a working blank project [here](https://github.com/khanonjs/khanon.js/tree/main/tutorials/blank-project). Download it from this [link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/khanonjs/khanon.js/tree/main/tutorials/blank-project).
-
-You can start adding your files there. In a coming future Khanon.js will have a khanonjs-cli utility to generate new projects.
+You can find a working blank project [here](https://github.com/khanonjs/khanon.js-tutorials/tree/main/01-blank-project).
 
 # Package dependencies
 
