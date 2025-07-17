@@ -40,5 +40,5 @@ import { Scene } from '@khanonjs/engine/decorators/scene'
 import { SceneStateInterface } from '@khanonjs/engine/decorators/scene/scene-state'
 ```
 
-Optimizing the bundle will result in less size and faster loading.
+Optimizing the bundle results in smaller bundle and faster loading.
 
