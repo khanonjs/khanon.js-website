@@ -2,10 +2,6 @@
 
 **Khanon.js is in BETA stage** and it is being tested right now.
 
-Areas to improve:
-
-- Bundle optimization to allow fine-grained imports.
-
 # Future features
 
 Khanon.js plans to integrate more features in the future:
