@@ -25,8 +25,8 @@ import {
 } from '@khanonjs/engine'
 ```
 
-To optimize bundle it is recommended to import elements through the full path. In this way the bundle builder will be able to perform tree-shaking.
-This must be done with Babylon.js and Khanon.js imports.
+To optimize bundle it is recommended to import elements through the full path. In this way the builder will be able to perform tree-shaking.
+This must be done to Babylon.js and Khanon.js imports.
 
 Optimizing the bundle results in a smaller bundle and faster loading.
 
