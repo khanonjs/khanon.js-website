@@ -28,6 +28,8 @@ import {
 To optimize bundle it is recommended to import elements through the full path. In this way the bundle builder will be able to perform tree-shaking.
 This must be done with Babylon.js and Khanon.js imports.
 
+Optimizing the bundle results in smaller bundle and faster loading.
+
 ```
 import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight'
 import { Color4 } from '@babylonjs/core/Maths/math.color'
@@ -39,6 +41,4 @@ import { Notification } from '@khanonjs/engine/decorators/notification'
 import { Scene } from '@khanonjs/engine/decorators/scene'
 import { SceneStateInterface } from '@khanonjs/engine/decorators/scene/scene-state'
 ```
-
-Optimizing the bundle results in smaller bundle and faster loading.
 
