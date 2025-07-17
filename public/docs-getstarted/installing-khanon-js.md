@@ -26,7 +26,7 @@ import {
 ```
 
 To optimize bundle it is recommended to import elements through the full path. In this way the bundle builder will be able to perform tree-shaking.
-This must be done with Babylon.js imports as well.
+This must be done with Babylon.js and Khanon.js imports.
 
 ```
 import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight'
