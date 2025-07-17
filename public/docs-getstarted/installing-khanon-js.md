@@ -38,7 +38,9 @@ import {
   ActorInterface
 } from '@khanonjs/engine/decorators/actor'
 import { Notification } from '@khanonjs/engine/decorators/notification'
-import { Scene } from '@khanonjs/engine/decorators/scene'
-import { SceneStateInterface } from '@khanonjs/engine/decorators/scene/scene-state'
+import {
+  Scene,
+  SceneInterface
+} from '@khanonjs/engine/decorators/scene'
 ```
 
