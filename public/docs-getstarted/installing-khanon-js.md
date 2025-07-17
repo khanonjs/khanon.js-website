@@ -12,7 +12,7 @@ Install the [CLI](https://www.npmjs.com/package/@khanonjs/cli) globally to *crea
 
 # Bundle optimization
 
-Elements are normally imported from the root path. This is done because it is the first *IDE* suggestion, and it also a clean way to import elements.
+Elements are normally imported from the root path. This is done because it is the first *IDE* suggestion, it is also a clean way to import elements.
 
 ```
 import * as BABYLON from '@babylonjs/core'
