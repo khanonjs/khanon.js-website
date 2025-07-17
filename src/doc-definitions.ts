@@ -4,8 +4,8 @@ export const getStartedDocs = [
     sectionPath: 'getstarted',
     docs: [
       { title: 'What is Khanon.js?', file: 'what-is-khanon-js' },
-      { title: 'Installing Khanon.js', file: 'installing-khanon-js' },
       { title: 'Before starting', file: 'before-starting' },
+      { title: 'Installing Khanon.js', file: 'installing-khanon-js' },
       { title: 'What\'s coming up?', file: 'whats-coming-up' },
     ]
   },
