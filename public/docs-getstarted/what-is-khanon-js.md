@@ -22,7 +22,7 @@ For example, you can create an action which consist in rendering rain over the s
 
 Khanon.js is an instanceless framework (as many others like Angular, Nest, or React), meaning you don't need to care for the instance management. Khanon.js will do that job for you, creating and destroying instances on demand.
 
-It is designed to be used by an [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) architecture, allowing the possibility to inherit, mutate, and reuse code.
+It is designed to be develoiped within a [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) architecture, allowing the possibility to inherit, mutate, and reuse code.
 
 # How's the deal between Khanon.js and Babylon.js?
 
