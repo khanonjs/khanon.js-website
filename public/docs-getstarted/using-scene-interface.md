@@ -97,11 +97,11 @@ Khanon.js will traverse the whole elements tree of the scene and will load all n
 
 # Loading and unloading the scene
 
-To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoaded](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoaded) is invoked.
+To load a scene use the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoaded](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoaded) is invoked.
 
 When a scene is loaded it places all neccesary assets in memory. After that, any actor, sprite, mesh or particle associated to the scene can be spawned.
 
-To unload the scene use the scene method [unload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#unload) or the [KJS.Scene.unload](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.unload.html) global method. The [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload) callback is invoked right before the unloading process.
+To unload the scene use the [KJS.Scene.unload](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.unload.html) global method. The [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload) callback is invoked right before the unloading process.
 
 Use the accessor [`loaded`](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#loaded) to know if the scene has been loaded or not.
 
