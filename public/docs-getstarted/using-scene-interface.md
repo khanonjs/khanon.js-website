@@ -11,7 +11,7 @@ import {
 
 @Scene()
 export class MyScene extends SceneInterface {
-  onLoad() {
+  onLoaded() {
     // Load whatever you need in the scene
   }
 
@@ -53,7 +53,7 @@ You can fully configure the [Babylon Scene](https://doc.babylonjs.com/typedoc/cl
 
 [`options`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#options) are the [Babylon SceneOptions](https://doc.babylonjs.com/typedoc/interfaces/BABYLON.SceneOptions).
 
-[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the Babylon Scene accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) callback, Khanon.js will apply those values for you.
+[`configuration`](https://khanonjs.com/api-docs/interfaces/decorators_scene.SceneProps.html#configuration) are all the Babylon Scene accessors that could be configured on the scene creation. This way you don't have to add that code to the [onLoaded](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoaded) callback, Khanon.js will apply those values for you.
 
 ## States and Actions
 
@@ -97,7 +97,7 @@ Khanon.js will traverse the whole elements tree of the scene and will load all n
 
 # Loading and unloading the scene
 
-To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad) is invoked.
+To load a scene use the scene method [load](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#load) or the [KJS.Scene.load](https://khanonjs.com/api-docs/functions/kjs.KJS.Scene.load.html) global method. After the loading has been completed, the callback [onLoaded](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoaded) is invoked.
 
 When a scene is loaded it places all neccesary assets in memory. After that, any actor, sprite, mesh or particle associated to the scene can be spawned.
 
@@ -153,7 +153,7 @@ Use [getActors](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInte
 
 # Callbacks
 
-Apart the previously mentioned [onLoad](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoad), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a scene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
+Apart the previously mentioned [onLoaded](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoaded), [onUnload](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onUnload), [onStart](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStart) and [onStop](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onStop) callbacks, a scene can implement the optional callbacks [onLoopUpdate](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onLoopUpdate) and [onCanvasResize](https://khanonjs.com/api-docs/classes/decorators_scene.SceneInterface.html#onCanvasResize).
 
 ## Loop Update
 
