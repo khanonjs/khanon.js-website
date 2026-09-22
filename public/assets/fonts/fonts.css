@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "LuckiestGuy";
+  src: local("LuckiestGuy"),
+  url("LuckiestGuy-Regular.ttf") format("truetype");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "RoadGeek2005";
+  src: local("RoadGeek2005"),
+  url("roadgeek-2005-mittelschrift-regular.ttf") format("truetype");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "DocFont";
+  src: local("DocFont"),
+  url("Mukta-Regular.ttf") format("truetype");
+  font-display: block;
+}
